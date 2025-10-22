@@ -3,26 +3,35 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
-    { id: 'features', label: 'Features' },
     { id: 'what-to-expect', label: 'What to Expect' },
     { id: 'stats', label: 'Stats' },
     { id: 'about-us', label: 'About Us' },
     { id: 'contact', label: 'Contact' }
   ];
 
-  // Handle scroll effect
+  // Handle scroll effect and navbar visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
+      
+      // Hide navbar when scrolling down, show when scrolling up
+      if (scrollTop > lastScrollY && scrollTop > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(scrollTop);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Handle active section detection
   useEffect(() => {
@@ -60,7 +69,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''} ${!isVisible ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-brand">
           <button className="brand-button" onClick={scrollToTop}>
