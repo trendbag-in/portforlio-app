@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { HeroView, WhatToExpectView, AboutUsView, ContactView, FooterView } from './views';
 import SurveyPage from './pages/SurveyPage';
 import Navbar from './components/Navbar';
