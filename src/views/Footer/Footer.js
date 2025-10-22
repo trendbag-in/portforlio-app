@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'Stats', href: '#stats' },
+    { label: 'Home', href: '#hero' },
     { label: 'About Us', href: '#about-us' },
+    { label: 'Survey', href: '/survey' },
     { label: 'Contact', href: '#contact' }
   ];
 
@@ -65,9 +66,15 @@ const Footer = () => {
             <ul className="footer-links">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="footer-link">
-                    {link.label}
-                  </a>
+                  {link.href.startsWith('#') ? (
+                    <a href={link.href} className="footer-link">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link to={link.href} className="footer-link">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
