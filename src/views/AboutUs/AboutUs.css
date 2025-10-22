@@ -518,6 +518,13 @@
     gap: 1rem;
   }
   
+  .differentiator-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
   .integrations-scroll {
     gap: 1.5rem;
   }

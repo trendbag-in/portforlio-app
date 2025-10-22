@@ -46,9 +46,19 @@ const WhatToExpect = () => {
           description: 'Our AI will help you discover influencers who align perfectly with your brand values'
         },
         {
+          icon: '🤝',
+          title: 'Collaboration Management',
+          description: 'Facilitate partnerships with influencers through streamlined communication and contract tools'
+        },
+        {
           icon: '📈',
           title: 'Campaign Management',
-          description: 'Create and manage influencer campaigns with built-in contract management tools'
+          description: 'Create and manage influencer campaigns, track deliverables, and monitor campaign performance'
+        },
+        {
+          icon: '📱',
+          title: 'Instagram Integration',
+          description: 'Auto-sync your Instagram posts, tag products, and automatically send product links to users via DM'
         },
         {
           icon: '📊',
@@ -73,7 +83,7 @@ const WhatToExpect = () => {
         {
           icon: '📱',
           title: 'Instagram Integration',
-          description: 'Sync your Instagram posts and let our AI automatically tag products for you'
+          description: 'Sync your Instagram posts and tag products to earn from your content'
         },
         {
           icon: '🤝',

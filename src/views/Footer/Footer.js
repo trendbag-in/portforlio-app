@@ -5,8 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: 'Features', href: '#features' },
-    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Home', href: '#' },
     { label: 'Stats', href: '#stats' },
     { label: 'About Us', href: '#about-us' },
     { label: 'Contact', href: '#contact' }
@@ -16,7 +15,6 @@ const Footer = () => {
     { name: 'Instagram', icon: '📱', url: '#' },
     { name: 'Twitter', icon: '🐦', url: '#' },
     { name: 'LinkedIn', icon: '💼', url: '#' },
-    { name: 'TikTok', icon: '🎵', url: '#' },
     { name: 'YouTube', icon: '📺', url: '#' }
   ];
 
@@ -80,22 +78,7 @@ const Footer = () => {
             <h3 className="footer-title">Company</h3>
             <ul className="footer-links">
               <li><a href="#" className="footer-link">About Us</a></li>
-              <li><a href="#" className="footer-link">Careers</a></li>
-              <li><a href="#" className="footer-link">Press</a></li>
-              <li><a href="#" className="footer-link">Partners</a></li>
               <li><a href="#" className="footer-link">Blog</a></li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div className="footer-section">
-            <h3 className="footer-title">Support</h3>
-            <ul className="footer-links">
-              <li><a href="#" className="footer-link">Help Center</a></li>
-              <li><a href="#" className="footer-link">Contact Us</a></li>
-              <li><a href="#" className="footer-link">Community</a></li>
-              <li><a href="#" className="footer-link">Status</a></li>
-              <li><a href="#" className="footer-link">API Docs</a></li>
             </ul>
           </div>
         </div>

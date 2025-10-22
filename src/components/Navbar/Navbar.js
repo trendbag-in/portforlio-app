@@ -8,8 +8,8 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
+    { id: 'hero', label: 'Home' },
     { id: 'what-to-expect', label: 'What to Expect' },
-    { id: 'stats', label: 'Stats' },
     { id: 'about-us', label: 'About Us' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -62,10 +62,13 @@ const Navbar = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    const heroElement = document.getElementById('hero');
+    if (heroElement) {
+      heroElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (

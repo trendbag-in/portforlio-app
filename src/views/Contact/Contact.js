@@ -9,6 +9,8 @@ const Contact = () => {
     query: ''
   });
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const sectionRef = useRef(null);
 
   // Intersection Observer for animations
@@ -41,17 +43,43 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      query: ''
+    
+    setIsSubmitting(true);
+    
+    // Send data to Google Sheets via Google Apps Script (using GET to avoid CORS)
+    const params = new URLSearchParams({
+      name: formData.name,
+      email: formData.email,
+      message: formData.query,
+      timestamp: new Date().toISOString(),
+      source: 'TrendBag Contact Form'
     });
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    
+    // Start the request but don't wait for it
+    fetch(`https://script.google.com/macros/s/AKfycbwfxDnOnNGvqagJ2BUTBli8G3dvCXnX0Sm_u6MBZwQTwi11rjf7BfOHiNK81Ifw3OIh/exec?${params}`, {
+      method: 'GET',
+      mode: 'no-cors'
+    });
+    
+    // Show success and reset form after 2 seconds
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      
+      // Reset form in sync with success animation
+      setFormData({
+        name: '',
+        email: '',
+        query: ''
+      });
+      
+      // Reset button state after another 2 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 2000);
+    }, 2000);
   };
 
   return (
@@ -79,7 +107,7 @@ const Contact = () => {
               </p>
               
               <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
+                <div className="form-col">
                   <label htmlFor="name" className="form-label">Full Name</label>
                   <input
                     type="text"
@@ -91,9 +119,6 @@ const Contact = () => {
                     placeholder="Enter your full name"
                     required
                   />
-                </div>
-
-                <div className="form-group">
                   <label htmlFor="email" className="form-label">Email Address</label>
                   <input
                     type="email"
@@ -107,7 +132,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-col">
                   <label htmlFor="query" className="form-label">Your Message</label>
                   <textarea
                     id="query"
@@ -120,58 +145,20 @@ const Contact = () => {
                     required
                   />
                 </div>
-
-                <Button 
+              <div className="form-col form-button-container"></div>
+              <Button 
                   type="submit" 
-                  variant="gradient" 
+                  variant={isSuccess ? "success" : "gradient"} 
                   size="large"
-                  className="submit-button"
+                  className={`submit-button ${isSubmitting ? 'submitting' : ''} ${isSuccess ? 'success' : ''}`}
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : isSuccess ? '✓ Sent!' : 'Send Message'}
                 </Button>
-              </form>
+                </form>
             </div>
           </div>
 
-          {/* Map Section */}
-          <div className={`contact-map-section ${isVisible ? 'animate-fade-in-up' : ''}`}>
-            <h3 className="map-title">Visit Our Office</h3>
-            <p className="map-subtitle">
-              Located in the heart of the fashion district, our office is easily accessible and always welcoming.
-            </p>
-            
-            {/* Google Map */}
-            <div className="google-map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878459418!3d40.74844097932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1635789123456!5m2!1sen!2sus"
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="TrendBag Office Location"
-              ></iframe>
-            </div>
-
-            {/* Contact Information */}
-            <div className="contact-info-section">
-              <div className="contact-info-item">
-                <span className="info-icon">📍</span>
-                <span className="info-text">123 Fashion Avenue, New York, NY 10001, United States</span>
-              </div>
-              
-              <div className="contact-info-item">
-                <span className="info-icon">📞</span>
-                <span className="info-text">+1 (555) 123-4567</span>
-              </div>
-              
-              <div className="contact-info-item">
-                <span className="info-icon">📧</span>
-                <span className="info-text">hello@trendbag.com</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

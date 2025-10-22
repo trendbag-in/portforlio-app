@@ -53,37 +53,24 @@ const AboutUs = () => {
     {
       icon: "📈",
       title: "Proven Results",
-      description: "Our users see 300% average increase in earnings and 250% improvement in campaign ROI."
+      description: "You can expect significant increases in earnings and campaign ROI with our AI-powered optimization tools."
     },
     {
-      icon: "🌍",
-      title: "Global Community",
-      description: "Connect with fashion enthusiasts, brands, and influencers from over 50 countries worldwide."
+      icon: "🇮🇳",
+      title: "India-First Community",
+      description: "Connect with fashion enthusiasts, brands, and influencers across India's vibrant fashion landscape."
     }
   ];
 
-  // Integration partners
+  // Tech stack
   const integrations = [
-    { name: "Instagram", icon: "📱", description: "Seamless sync & auto-tagging" },
-    { name: "Stripe", icon: "💳", description: "Secure payment processing" },
-    { name: "OpenAI", icon: "🧠", description: "AI-powered recommendations" },
-    { name: "Shopify", icon: "🛒", description: "E-commerce integration" },
-    { name: "Google AI", icon: "🔍", description: "Visual search technology" },
-    { name: "PayPal", icon: "💰", description: "Global payment solutions" },
-    { name: "Meta", icon: "📘", description: "Social media integration" },
-    { name: "AWS", icon: "☁️", description: "Cloud infrastructure" },
-    { name: "Microsoft", icon: "🪟", description: "Enterprise solutions" },
-    { name: "Apple", icon: "🍎", description: "iOS integration" },
-    { name: "Android", icon: "🤖", description: "Android platform" },
-    { name: "TikTok", icon: "🎵", description: "Short-form content" },
-    { name: "YouTube", icon: "📺", description: "Video platform" },
-    { name: "Twitter", icon: "🐦", description: "Social engagement" },
-    { name: "LinkedIn", icon: "💼", description: "Professional network" },
-    { name: "Pinterest", icon: "📌", description: "Visual discovery" },
-    { name: "Snapchat", icon: "👻", description: "AR experiences" },
-    { name: "Twitch", icon: "🎮", description: "Live streaming" },
-    { name: "Discord", icon: "💬", description: "Community platform" },
-    { name: "Slack", icon: "💬", description: "Team collaboration" }
+    { name: "MongoDB", icon: "🍃", description: "Database & data storage" },
+    { name: "JanusGraph", icon: "🕸️", description: "Graph database for relationships" },
+    { name: "Shopify", icon: "🛒", description: "E-commerce platform" },
+    { name: "Instagram", icon: "📱", description: "Social media integration" },
+    { name: "Razorpay", icon: "💳", description: "Payment processing" },
+    { name: "OpenAI", icon: "🧠", description: "AI-powered intelligence" },
+    { name: "AWS", icon: "☁️", description: "Cloud infrastructure" }
   ];
 
   // Intersection Observer for animations
@@ -123,7 +110,7 @@ const AboutUs = () => {
         {/* Header */}
         <div className={`about-header ${isVisible ? 'animate-fade-in-up' : ''}`}>
           <h2 className="about-title">
-            Why Fashion Leaders Choose
+            Why to Choose
             <span className="text-gradient"> TrendBag</span>
           </h2>
           <p className="about-subtitle">
@@ -131,40 +118,9 @@ const AboutUs = () => {
           </p>
         </div>
 
-        {/* Testimonials Section */}
-        <div className={`testimonials-section ${isVisible ? 'animate-fade-in-up' : ''}`}>
-          <h3 className="section-subtitle">What Our Community Says</h3>
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={testimonial.id} 
-                className={`testimonial-card ${index === activeTestimonial ? 'active' : ''}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="testimonial-header">
-                  <div className="testimonial-avatar">{testimonial.avatar}</div>
-                  <div className="testimonial-info">
-                    <h4 className="testimonial-name">{testimonial.name}</h4>
-                    <p className="testimonial-role">{testimonial.role}</p>
-                    <p className="testimonial-location">{testimonial.location}</p>
-                  </div>
-                </div>
-                <div className="testimonial-rating">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="star">⭐</span>
-                  ))}
-                </div>
-                <blockquote className="testimonial-quote">
-                  "{testimonial.quote}"
-                </blockquote>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Why Choose Us Section */}
         <div className={`differentiators-section ${isVisible ? 'animate-fade-in-up' : ''}`}>
-          <h3 className="section-subtitle">Why Choose TrendBag?</h3>
+        
           <div className="differentiators-list">
             {differentiators.map((item, index) => (
               <div 
@@ -184,7 +140,7 @@ const AboutUs = () => {
 
         {/* Integration Showcase */}
         <div className={`integrations-section ${isVisible ? 'animate-fade-in-up' : ''}`}>
-          <h3 className="section-subtitle">Powered by Industry Leaders</h3>
+          <h3 className="section-subtitle">Powered by</h3>
           <div className="integrations-scroll-container">
             <div className="integrations-scroll">
               {/* First set of integrations */}
@@ -221,20 +177,6 @@ const AboutUs = () => {
               To democratize fashion by connecting brands, influencers, and enthusiasts through AI-powered technology. 
               We believe everyone deserves access to personalized style, authentic partnerships, and seamless shopping experiences.
             </p>
-            <div className="mission-stats">
-              <div className="mission-stat">
-                <span className="stat-number">50K+</span>
-                <span className="stat-label">Active Users</span>
-              </div>
-              <div className="mission-stat">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Brand Partners</span>
-              </div>
-              <div className="mission-stat">
-                <span className="stat-number">2K+</span>
-                <span className="stat-label">Influencers</span>
-              </div>
-            </div>
           </div>
         </div>
 

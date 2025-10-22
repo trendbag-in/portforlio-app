@@ -55,6 +55,7 @@
 
 .hero-text {
   z-index: 2;
+  margin-left: 2rem;
 }
 
 .hero-title {
@@ -193,6 +194,10 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
+  }
+  
+  .hero-text {
+    margin-left: 0;
   }
   
   .hero-visual {

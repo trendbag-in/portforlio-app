@@ -22,12 +22,14 @@
 
 /* Main Footer Content */
 .footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
   padding: 4rem 0 2rem;
   position: relative;
   z-index: 2;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* Brand Section */
@@ -149,10 +151,20 @@
 
 /* Footer Bottom */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 0;
   position: relative;
   z-index: 2;
+}
+
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  right: -2rem;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  width: calc(100% + 4rem);
 }
 
 .footer-bottom-content {
@@ -189,15 +201,15 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .footer-content {
-    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
     gap: 2.5rem;
   }
   
   .footer-brand {
-    grid-column: 1 / -1;
     max-width: none;
     text-align: center;
     margin-bottom: 2rem;
+    flex-basis: 100%;
   }
   
   .social-links {
@@ -207,13 +219,15 @@
 
 @media (max-width: 768px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
     padding: 3rem 0 1.5rem;
   }
   
   .footer-brand {
     text-align: center;
+    flex-basis: auto;
   }
   
   .footer-section {
