@@ -1,7 +1,7 @@
 {
-  "name": "landing-website",
+  "name": "trendbag-website",
   "version": "1.0.0",
-  "description": "A modern React landing website",
+  "description": "TrendBag - Modern Business Solutions Website",
   "homepage": "https://trendbag-in.github.io/portforlio-app/",
   "main": "index.js",
   "scripts": {
