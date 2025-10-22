@@ -1,0 +1,205 @@
+/* Color System - 5 Colors Only */
+:root {
+  /* Primary Colors */
+  --primary-bg: #1a1a1a;        /* Deep black for main backgrounds */
+  --primary-text: #ffffff;      /* Pure white for primary text */
+  
+  /* Secondary Colors */
+  --secondary-bg: #2d2d2d;      /* Dark gray for secondary backgrounds */
+  --secondary-text: #b3b3b3;    /* Light gray for secondary text */
+  
+  /* Special Color */
+  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%); /* Purple gradient */
+  
+  /* Spacing System */
+  --section-padding: 12px;      /* Standard section spacing */
+  --section-margin: 0;          /* No margin between sections */
+  --navbar-height: 80px;        /* Fixed navbar height */
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: var(--primary-text);
+  background-color: var(--primary-bg);
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section Spacing */
+.section {
+  padding: var(--section-padding) 0;
+  margin: var(--section-margin);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(139, 92, 246, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.1), transparent);
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  animation: float 20s infinite linear;
+  z-index: -1;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+.section-large {
+  padding: calc(var(--section-padding) * 3) 0;
+}
+
+.section-medium {
+  padding: calc(var(--section-padding) * 2) 0;
+}
+
+.section-small {
+  padding: var(--section-padding) 0;
+}
+
+/* Hero section needs extra top padding for fixed navbar */
+.section-hero {
+  padding-top: calc(var(--navbar-height) + var(--section-padding) * 3);
+  padding-bottom: calc(var(--section-padding) * 3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}

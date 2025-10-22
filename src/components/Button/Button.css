@@ -1,0 +1,94 @@
+/* Button Base Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: var(--accent-gradient);
+  color: var(--primary-text);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.btn-secondary {
+  background: var(--secondary-bg);
+  color: var(--primary-text);
+  border: 2px solid var(--secondary-text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--secondary-text);
+  color: var(--primary-bg);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-text);
+  border: 2px solid var(--primary-text);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--primary-text);
+  color: var(--primary-bg);
+  transform: translateY(-2px);
+}
+
+/* Button Sizes */
+.btn-small {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.btn-medium {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-large {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 16px;
+}
+
+.btn-xl {
+  padding: 1.5rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .btn-large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}

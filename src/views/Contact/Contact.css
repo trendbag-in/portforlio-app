@@ -1,0 +1,256 @@
+/* Contact Section Styles */
+.contact {
+  position: relative;
+}
+
+/* Header Styles */
+.contact-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.contact-header.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-text);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Contact Content Layout */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.2s;
+}
+
+.contact-form-section.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-container {
+  background: rgba(45, 45, 45, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  color: var(--secondary-text);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin-bottom: 0.25rem;
+}
+
+.form-input,
+.form-textarea {
+  background: rgba(45, 45, 45, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  color: var(--primary-text);
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  background: rgba(45, 45, 45, 0.4);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--secondary-text);
+  opacity: 0.7;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+/* Map Section */
+.contact-map-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.4s;
+}
+
+.contact-map-section.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.map-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.map-subtitle {
+  font-size: 1rem;
+  color: var(--secondary-text);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Google Map Container */
+.google-map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.google-map-container iframe {
+  border-radius: 20px;
+  filter: grayscale(20%) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.google-map-container:hover iframe {
+  filter: grayscale(0%) contrast(1.2);
+}
+
+/* Contact Information */
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.info-text {
+  font-size: 1rem;
+  color: var(--secondary-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2.5rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .form-container {
+    padding: 2rem;
+  }
+  
+  .form-title,
+  .map-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-info-section {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .form-container {
+    padding: 1.5rem;
+  }
+  
+  .google-map-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .google-map-container iframe {
+    height: 300px;
+  }
+  
+  .info-text {
+    font-size: 0.9rem;
+  }
+}

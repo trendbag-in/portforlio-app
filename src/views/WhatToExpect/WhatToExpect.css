@@ -1,0 +1,268 @@
+.what-to-expect {
+  position: relative;
+}
+
+.what-to-expect-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.what-to-expect-header.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.what-to-expect-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.what-to-expect-subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-text);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.user-type-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--secondary-bg);
+  border: 2px solid transparent;
+  border-radius: 50px;
+  color: var(--secondary-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-gradient);
+  opacity: 0.1;
+  transition: left 0.3s ease;
+}
+
+.tab-button:hover::before {
+  left: 0;
+}
+
+.tab-button:hover {
+  color: var(--primary-text);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+.tab-button.active {
+  background: var(--accent-gradient);
+  color: var(--primary-text);
+  border-color: transparent;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.tab-button.active::before {
+  display: none;
+}
+
+.tab-icon {
+  font-size: 1.5rem;
+}
+
+.tab-title {
+  font-size: 1rem;
+}
+
+.user-journey {
+  position: relative;
+}
+
+.journey-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.journey-content.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journey-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.journey-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.journey-subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary-text);
+}
+
+.steps-container {
+  inline-size: 100%;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease;
+}
+
+.step-item.animate-fade-in-up {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.step-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.step-content {
+  flex: 1;
+  padding-top: 0.5rem;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin-bottom: 0.5rem;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+.step-connector {
+  position: absolute;
+  left: 29px;
+  top: 60px;
+  width: 2px;
+  height: 2rem;
+  background: var(--accent-gradient);
+  opacity: 0.3;
+}
+
+.journey-cta {
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-type-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .tab-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .what-to-expect-title {
+    font-size: 2.5rem;
+  }
+  
+  .journey-title {
+    font-size: 2rem;
+  }
+  
+  .step-item {
+    gap: 1.5rem;
+  }
+  
+  .step-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+  }
+  
+  .step-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .what-to-expect-title {
+    font-size: 2rem;
+  }
+  
+  .journey-title {
+    font-size: 1.75rem;
+  }
+  
+  .step-item {
+    gap: 1rem;
+  }
+  
+  .step-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .step-title {
+    font-size: 1.1rem;
+  }
+  
+  .step-description {
+    font-size: 0.9rem;
+  }
+}
