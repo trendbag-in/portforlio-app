@@ -7,21 +7,34 @@ const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
+  const [theme, setTheme] = useState('light'); // Default to light for Wishlink vibe
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'what-to-expect', label: 'What to Expect' },
-    { id: 'about-us', label: 'About Us' },
+    { id: 'what-to-expect', label: 'For Brands' }, // Renamed for clearer value prop
+    { id: 'about-us', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];
 
-  // Handle scroll effect and navbar visibility
+  // Theme Toggle Logic
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-      
-      // Hide navbar when scrolling down, show when scrolling up
+      setIsScrolled(scrollTop > 20);
+
       if (scrollTop > lastScrollY && scrollTop > 100) {
         setIsVisible(false);
       } else {
@@ -34,41 +47,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // Handle active section detection
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i] && sections[i].offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
-  const scrollToTop = () => {
-    const heroElement = document.getElementById('hero');
-    if (heroElement) {
-      heroElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -76,11 +58,11 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''} ${!isVisible ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-brand">
-          <button className="brand-button" onClick={scrollToTop}>
-            <span className="brand-text">TrendBag</span>
+          <button className="brand-button" onClick={() => scrollToSection('hero')}>
+            <span className="brand-text">Trend<span>Bag</span></span>
           </button>
         </div>
-        
+
         <div className="navbar-menu">
           {navItems.map((item) => (
             <button
@@ -92,13 +74,18 @@ const Navbar = () => {
             </button>
           ))}
         </div>
-        
+
         <div className="navbar-actions">
-          <Link to="/survey" className="navbar-survey-btn">
-            Survey
-          </Link>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+
           <button className="navbar-download-btn">
-            Coming Soon
+            Download App
           </button>
         </div>
       </div>

@@ -38,32 +38,17 @@ const WhatToExpect = () => {
         {
           icon: '📊',
           title: 'Brand Profile Creation',
-          description: 'You will be able to set up your brand presence and showcase your products to millions'
+          description: 'Set up your brand presence and showcase your products to millions of engaged users.'
         },
         {
           icon: '🎯',
-          title: 'AI-Powered Influencer Matching',
-          description: 'Our AI will help you discover influencers who align perfectly with your brand values'
-        },
-        {
-          icon: '🤝',
-          title: 'Collaboration Management',
-          description: 'Facilitate partnerships with influencers through streamlined communication and contract tools'
+          title: 'AI Matching',
+          description: 'Our AI discovers influencers who align perfectly with your brand values and aesthetics.'
         },
         {
           icon: '📈',
-          title: 'Campaign Management',
-          description: 'Create and manage influencer campaigns, track deliverables, and monitor campaign performance'
-        },
-        {
-          icon: '📱',
-          title: 'Instagram Integration',
-          description: 'Auto-sync your Instagram posts, tag products, and automatically send product links to users via DM'
-        },
-        {
-          icon: '📊',
-          title: 'Performance Analytics',
-          description: 'Track ROI, engagement, and sales with comprehensive analytics and reporting'
+          title: 'Campaign Analytics',
+          description: 'Track ROI, engagement, and sales with comprehensive real-time analytics.'
         }
       ],
       cta: 'Join Brand Waitlist',
@@ -71,29 +56,24 @@ const WhatToExpect = () => {
     },
     {
       id: 'influencers',
-      title: 'Content Creators',
+      title: 'Creators',
       subtitle: 'Monetize Your Influence',
       icon: '📸',
       steps: [
         {
           icon: '🚀',
-          title: 'Creator Program Access',
-          description: 'Join our exclusive influencer program with instant verification process'
-        },
-        {
-          icon: '📱',
-          title: 'Instagram Integration',
-          description: 'Sync your Instagram posts and tag products to earn from your content'
+          title: 'Creator Access',
+          description: 'Join our exclusive influencer program with instant verification process.'
         },
         {
           icon: '🤝',
-          title: 'Brand Partnership Matching',
-          description: 'Get matched with relevant brands and start earning from meaningful partnerships'
+          title: 'Brand Partnerships',
+          description: 'Get matched with relevant brands and start earning from meaningful partnerships.'
         },
         {
           icon: '💰',
-          title: 'Performance Tracking & Payments',
-          description: 'Monitor your performance and receive automatic payments for successful campaigns'
+          title: 'Smart Payments',
+          description: 'Monitor your performance and receive automatic payments for successful campaigns.'
         }
       ],
       cta: 'Join Creator Waitlist',
@@ -101,40 +81,35 @@ const WhatToExpect = () => {
     },
     {
       id: 'users',
-      title: 'Fashion Enthusiasts',
-      subtitle: 'Discover Your Perfect Style',
-      icon: '👥',
+      title: 'Enthusiasts',
+      subtitle: 'Discover Your Style',
+      icon: '✨',
       steps: [
         {
-          icon: '📱',
-          title: 'Easy App Setup',
-          description: 'Download the app and create your personalized profile in under 2 minutes'
-        },
-        {
           icon: '🎯',
-          title: 'AI Style Learning',
-          description: 'Our AI will learn your preferences and analyze your existing wardrobe'
+          title: 'Style AI',
+          description: 'Our AI learns your preferences and analyzes your existing wardrobe for perfect matches.'
         },
         {
           icon: '🛍️',
-          title: 'Personalized Shopping',
-          description: 'Receive personalized recommendations and shop from verified brands'
+          title: 'Smart Shopping',
+          description: 'Receive personalized recommendations and shop directly from verified brands.'
         },
         {
-          icon: '✨',
-          title: 'Style Creation & Sharing',
-          description: 'Create stunning outfits and share your style with our community'
+          icon: '👗',
+          title: 'Virtual Try-On',
+          description: 'Visualize how items will look on you before you buy with AR technology.'
         }
       ],
       cta: 'Get Early Access',
       color: 'primary'
-    },
+    }
   ];
 
   return (
-    <section id="what-to-expect" className="what-to-expect section-medium">
+    <section id="what-to-expect" className="what-to-expect">
       <div className="container">
-        <div className={`what-to-expect-header ${isVisible ? 'animate-fade-in-up' : ''}`}>
+        <div className={`what-to-expect-header ${isVisible ? 'animate-fade-up' : ''}`}>
           <h2 className="what-to-expect-title">
             What to Expect from
             <span className="text-gradient"> TrendBag</span>
@@ -157,41 +132,36 @@ const WhatToExpect = () => {
           ))}
         </div>
 
-        <div className="user-journey">
-          <div className={`journey-content ${isVisible ? 'animate-fade-in-up' : ''}`}>
-            <div className="journey-header">
-              <h3 className="journey-title">{userTypes[activeTab].title}</h3>
-              <p className="journey-subtitle">{userTypes[activeTab].subtitle}</p>
-            </div>
-
-            <div className="steps-container">
-              {userTypes[activeTab].steps.map((step, index) => (
-                <div
-                  key={index}
-                  className={`step-item ${isVisible ? 'animate-fade-in-up' : ''}`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="step-icon">{step.icon}</div>
-                  <div className="step-content">
-                    <h4 className="step-title">{step.title}</h4>
-                    <p className="step-description">{step.description}</p>
-                  </div>
-                  {index < userTypes[activeTab].steps.length - 1 && (
-                    <div className="step-connector"></div>
-                  )}
-                </div>
-              ))}
-            </div>
+        <div className="journey-content">
+          <div className={`journey-info ${isVisible ? 'animate-fade-up' : ''}`}>
+            <h3 className="journey-title">{userTypes[activeTab].title}</h3>
+            <p className="journey-subtitle">{userTypes[activeTab].subtitle}</p>
 
             <div className="journey-cta">
               <Button
-                variant={userTypes[activeTab].color}
+                variant="primary"
                 size="large"
                 onClick={() => console.log(`CTA clicked for ${userTypes[activeTab].id}`)}
               >
                 {userTypes[activeTab].cta}
               </Button>
             </div>
+          </div>
+
+          <div className="steps-container">
+            {userTypes[activeTab].steps.map((step, index) => (
+              <div
+                key={index}
+                className={`step-item ${isVisible ? 'animate-fade-up' : ''}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="step-header">
+                  <div className="step-icon">{step.icon}</div>
+                  <h4 className="step-title">{step.title}</h4>
+                </div>
+                <p className="step-description">{step.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

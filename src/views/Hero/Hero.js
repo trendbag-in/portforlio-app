@@ -4,52 +4,69 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <section id="hero" className="hero section-hero">
-      <div className="hero-background">
-        <div className="hero-gradient"></div>
-        <div className="hero-particles"></div>
-      </div>
-      
+    <section id="hero" className="hero">
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <h1 className="hero-title animate-fade-in-up">
-              The Revolutionary
-              <span className="text-gradient"> AI-Powered</span>
-              <br />
-              Fashion Platform
+            <div className="hero-badge animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              <span className="badge-text">#1 Fashion Tech Platform</span>
+            </div>
+
+            <h1 className="hero-title animate-fade-up" style={{ animationDelay: '0.2s' }}>
+              Shop What <br />
+              <span className="text-gradient">Creators Love</span>
             </h1>
-            
-            <p className="hero-subtitle animate-fade-in-up">
-              Connecting brands, influencers, and fashion enthusiasts in one seamless ecosystem.
-              <br />
-              <strong>Your Personal Stylist, Shopping Companion, and Fashion Community - All in One</strong>
+
+            <p className="hero-subtitle animate-fade-up" style={{ animationDelay: '0.3s' }}>
+              Discover trending styles from your favorite influencers.
+              TrendBag connects you directly with the brands creators are wearing.
             </p>
-            
-            <div className="hero-buttons animate-fade-in-up">
-              <Button 
-                variant="primary" 
-                size="large"
-                onClick={() => console.log('Coming Soon')}
-              >
-                Coming Soon on iOS & Android
-              </Button>
+
+            <div className="hero-actions animate-fade-up" style={{ animationDelay: '0.4s' }}>
+              <button className="btn btn-primary">
+                Start Exploring
+              </button>
+              <button className="btn btn-outline">
+                For Creators
+              </button>
             </div>
           </div>
-          
-          <div className="hero-visual">
-            <div className="phone-mockup">
-              <div className="phone-screen">
-                <div className="app-interface">
-                  <div className="app-header">
-                    <div className="app-nav"></div>
-                  </div>
-                  <div className="app-content">
-                    <div className="content-card"></div>
-                    <div className="content-card"></div>
-                    <div className="content-card"></div>
-                  </div>
+
+          <div className="hero-visual animate-fade-up" style={{ animationDelay: '0.6s' }}>
+            <div className="visual-circle-bg"></div>
+
+            <div className="phone-mockup-container">
+              <div className="app-screen">
+                <div className="app-header">
+                  <div className="app-nav-line"></div>
                 </div>
+                <div className="app-grid">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="app-card">
+                      <div className="app-card-img"></div>
+                      <div className="app-card-text">
+                        <div className="app-card-line"></div>
+                        <div className="app-card-line" style={{ width: '60%' }}></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="float-card float-card-1">
+              <div className="float-icon">✨</div>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Trending</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>+24% this week</div>
+              </div>
+            </div>
+
+            <div className="float-card float-card-2">
+              <div className="float-icon">🛍️</div>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Shop Now</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Direct from post</div>
               </div>
             </div>
           </div>
