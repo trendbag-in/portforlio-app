@@ -23,12 +23,14 @@ const Hero = () => {
             </p>
 
             <div className="hero-actions animate-fade-up" style={{ animationDelay: '0.4s' }}>
-              <button className="btn btn-primary">
+              <a 
+                href="https://app.trendbag.in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
                 Start Exploring
-              </button>
-              <button className="btn btn-outline">
-                For Creators
-              </button>
+              </a>
             </div>
           </div>
 

@@ -6,10 +6,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About Us', href: '#about-us' },
-    { label: 'Survey', href: '/survey' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Home', href: '#hero', isRoute: false },
+    { label: 'About Us', href: '#about-us', isRoute: false },
+    { label: 'Survey', href: '#/survey', isRoute: true },
+    { label: 'Contact', href: '#contact', isRoute: false },
+    { label: 'App', href: 'https://app.trendbag.in', isExternal: true }
   ];
 
   const socialLinks = [
@@ -66,14 +67,23 @@ const Footer = () => {
             <ul className="footer-links">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  {link.href.startsWith('#') ? (
-                    <a href={link.href} className="footer-link">
+                  {link.isExternal ? (
+                    <a 
+                      href={link.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="footer-link"
+                    >
                       {link.label}
                     </a>
-                  ) : (
+                  ) : link.isRoute ? (
                     <Link to={link.href} className="footer-link">
                       {link.label}
                     </Link>
+                  ) : (
+                    <a href={link.href} className="footer-link">
+                      {link.label}
+                    </a>
                   )}
                 </li>
               ))}

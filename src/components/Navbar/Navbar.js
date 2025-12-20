@@ -84,9 +84,14 @@ const Navbar = () => {
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
 
-          <button className="navbar-download-btn">
+          <a 
+            href="https://app.trendbag.in" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="navbar-download-btn"
+          >
             Download App
-          </button>
+          </a>
         </div>
       </div>
     </nav>
