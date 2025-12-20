@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'what-to-expect', label: 'For Brands' }, // Renamed for clearer value prop
+    { id: 'what-to-expect', label: 'What we do' }, // Renamed for clearer value prop
     { id: 'about-us', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];

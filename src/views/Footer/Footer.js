@@ -8,7 +8,7 @@ const Footer = () => {
   const quickLinks = [
     { label: 'Home', href: '#hero', isRoute: false },
     { label: 'About Us', href: '#about-us', isRoute: false },
-    { label: 'Survey', href: '#/survey', isRoute: true },
+    { label: 'Survey', href: '/survey', isRoute: true },
     { label: 'Contact', href: '#contact', isRoute: false },
     { label: 'App', href: 'https://app.trendbag.in', isExternal: true }
   ];
@@ -32,6 +32,27 @@ const Footer = () => {
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const scrollToSection = (href) => {
+    // Extract the ID from href (remove #)
+    const elementId = href.replace('#', '');
+    const element = document.getElementById(elementId);
+    
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  const handleLinkClick = (e, link) => {
+    // Only prevent default for hash links that should scroll
+    if (!link.isRoute && !link.isExternal && link.href.startsWith('#')) {
+      e.preventDefault();
+      scrollToSection(link.href);
+    }
   };
 
   return (
@@ -81,7 +102,11 @@ const Footer = () => {
                       {link.label}
                     </Link>
                   ) : (
-                    <a href={link.href} className="footer-link">
+                    <a 
+                      href={link.href} 
+                      className="footer-link"
+                      onClick={(e) => handleLinkClick(e, link)}
+                    >
                       {link.label}
                     </a>
                   )}
