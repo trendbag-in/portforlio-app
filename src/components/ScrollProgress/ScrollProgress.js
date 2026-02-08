@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './ScrollProgress.css';
 
 const ScrollProgress = () => {
     const [activeSection, setActiveSection] = useState('hero');
+    const location = useLocation();
 
     const sections = [
         { id: 'hero', label: 'Home' },
@@ -30,7 +32,10 @@ const ScrollProgress = () => {
         }
     };
 
+    // Only run scroll logic on home page
     useEffect(() => {
+        if (location.pathname !== '/') return;
+
         let animationFrameId;
 
         const handleScroll = () => {
@@ -72,7 +77,12 @@ const ScrollProgress = () => {
                 cancelAnimationFrame(animationFrameId);
             }
         };
-    }, []);
+    }, [location.pathname]);
+
+    // Don't render side nav if not on home page
+    if (location.pathname !== '/') {
+        return null;
+    }
 
     return (
         <nav className="side-nav">

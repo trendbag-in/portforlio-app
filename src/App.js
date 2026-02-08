@@ -7,9 +7,12 @@ import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <ScrollProgress />
         <Routes>

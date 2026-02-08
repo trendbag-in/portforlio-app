@@ -4,14 +4,14 @@ import SurveyView from '../views/Survey';
 
 const SurveyPage = () => {
   return (
-    <div className="SurveyPage">
+    <div className="SurveyPage" style={{ paddingTop: '100px' }}>
       {/* Home Button */}
       <div className="survey-home-btn">
         <Link to="/" className="home-button">
           ← Back to Home
         </Link>
       </div>
-      
+
       <SurveyView />
     </div>
   );

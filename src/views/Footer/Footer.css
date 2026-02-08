@@ -1,6 +1,7 @@
 /* Footer Styles */
 .footer {
-  height: 100vh;
+  min-height: auto;
+  /* Was 100vh, changed to avoid gaps on privacy page */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,6 +9,7 @@
   padding: 6rem 0 2rem;
   border-top: 1px solid var(--border-color);
   overflow: hidden;
+  position: relative;
 }
 
 .footer-content {
@@ -31,7 +33,19 @@
   letter-spacing: -0.03em;
 }
 
-.footer-brand span {
+.footer-logo {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.footer-brand .brand-text {
+  color: var(--text-primary);
+}
+
+.footer-brand .brand-text span {
   color: var(--accent-primary);
 }
 

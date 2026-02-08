@@ -1,9 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // ... (links definitions omitted for brevity if not changing) ...
+
+
+  /* 
+    const scrollToTop = () => {
+      if (location.pathname !== '/') {
+          navigate('/');
+          window.scrollTo(0, 0);
+          return;
+      }
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+  */
 
   const quickLinks = [
     { label: 'Home', href: '#hero', isRoute: false },
@@ -21,13 +40,15 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'GDPR', href: '#' }
+    { label: 'Privacy Policy', href: '/privacy', isRoute: true }
   ];
 
   const scrollToTop = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      window.scrollTo(0, 0);
+      return;
+    }
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -47,11 +68,45 @@ const Footer = () => {
     }
   };
 
+  // Consolidated handleLinkClick
   const handleLinkClick = (e, link) => {
-    // Only prevent default for hash links that should scroll
-    if (!link.isRoute && !link.isExternal && link.href.startsWith('#')) {
-      e.preventDefault();
-      scrollToSection(link.href);
+    // If it's an external link, let default behavior happen
+    if (link.isExternal) return;
+
+    e.preventDefault();
+
+    // If it's a route (like /survey), navigate to it
+    if (link.isRoute) {
+      // scroll to top handled by router or useEffect usually, but we can force it
+      navigate(link.href);
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    // If we are not on home page, navigate home first then scroll
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const elementId = link.href.replace('#', '');
+        const element = document.getElementById(elementId);
+        if (element) {
+          const yOffset = -0;
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }, 100);
+      return;
+    }
+
+    // If we are on home page, just scroll
+    const elementId = link.href.replace('#', '');
+    const element = document.getElementById(elementId);
+    if (element) {
+      const yOffset = -0;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -62,9 +117,9 @@ const Footer = () => {
         <div className="footer-content">
           {/* Brand Section */}
           <div className="footer-brand">
-            <button className="footer-logo" onClick={scrollToTop}>
-              <span className="brand-text">TrendBag</span>
-            </button>
+            <div className="footer-logo" onClick={scrollToTop} role="button" tabIndex={0}>
+              <span className="brand-text">Trend<span>Bag</span></span>
+            </div>
             <p className="footer-tagline">
               Your Personal Stylist, Shopping Companion, and Fashion Community - All in One
             </p>
@@ -142,9 +197,15 @@ const Footer = () => {
             </p>
             <div className="legal-links">
               {legalLinks.map((link, index) => (
-                <a key={index} href={link.href} className="legal-link">
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link key={index} to={link.href} className="legal-link">
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a key={index} href={link.href} className="legal-link">
+                    {link.label}
+                  </a>
+                )
               ))}
             </div>
           </div>

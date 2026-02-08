@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -29,14 +29,29 @@ const Navbar = () => {
 
   // Removed scroll-based visibility logic as Navbar is now static at top
 
+  // Navigation Logic
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToSection = (sectionId) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Optional: Wait for navigation then scroll, but for 'hero' usually top is fine.
+      // If jumping to specific section from other page is needed, we'd need a context or query param.
+      // For now, logo -> home (top) is sufficient.
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+      return;
+    }
+
     const element = document.getElementById(sectionId);
     const appContainer = document.querySelector('.App');
-    if (element && appContainer) {
-      appContainer.scrollTo({
-        top: element.offsetTop,
-        behavior: 'smooth'
-      });
+    if (element) {
+      // Natural scroll
+      const yOffset = -0;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
