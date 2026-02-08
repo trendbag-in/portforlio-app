@@ -47,24 +47,26 @@
 }
 
 /* Theme Variations */
+/* Theme Variations */
 .shoppers-theme {
-    background-color: #0c0c0c;
+    background-color: var(--bg-primary);
 }
 
 .shoppers-theme .nebula-cloud {
-    background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
 }
 
 .creators-theme {
-    background-color: #0b0b0b;
+    background-color: var(--bg-secondary);
 }
 
 .creators-theme .nebula-cloud {
-    background: radial-gradient(circle at 30% 70%, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at 30% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
 }
 
+/* Brands Theme */
 .brands-theme {
-    background-color: #0a0a0a;
+    background-color: var(--bg-primary);
 }
 
 .brands-theme .nebula-cloud {
@@ -72,7 +74,7 @@
 }
 
 .universe-content {
-    color: white;
+    color: var(--text-primary);
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
@@ -90,10 +92,9 @@
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 800;
     margin-bottom: 0.5rem;
-    background: linear-gradient(to bottom, #ffffff, #a1a1aa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    /* Optional: Add gradient if desired, but ensure contrast */
+    /* background: linear-gradient(to bottom, var(--text-primary), var(--text-secondary)); */
 }
 
 .universe-tagline {
@@ -113,19 +114,21 @@
 }
 
 .pillar-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-tertiary);
+    /* Was rgba(255,255,255,0.03) */
     backdrop-filter: blur(10px);
     padding: 2.5rem 2rem;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: left;
 }
 
 .pillar-card:hover {
-    background: rgba(255, 255, 255, 0.07);
+    background: var(--bg-secondary);
     border-color: var(--accent-primary);
     transform: translateY(-10px) scale(1.05);
+    box-shadow: var(--shadow-md);
 }
 
 .pillar-name {
@@ -141,7 +144,7 @@
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
     font-style: italic;
 }
 
