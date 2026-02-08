@@ -31,29 +31,47 @@ const ScrollProgress = () => {
     };
 
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY + (window.innerHeight / 2);
+        let animationFrameId;
 
-            for (const section of sections) {
-                const element = document.getElementById(section.id);
-                if (element) {
-                    const { offsetTop, offsetHeight } = element;
-                    if (
-                        scrollPosition >= offsetTop &&
-                        scrollPosition < offsetTop + offsetHeight
-                    ) {
-                        setActiveSection(section.id);
-                        break;
+        const handleScroll = () => {
+            if (animationFrameId) return;
+
+            animationFrameId = requestAnimationFrame(() => {
+                const scrollPosition = window.scrollY + (window.innerHeight / 2);
+                let newActiveSection = null;
+
+                for (const section of sections) {
+                    const element = document.getElementById(section.id);
+                    if (element) {
+                        const { offsetTop, offsetHeight } = element;
+                        if (
+                            scrollPosition >= offsetTop &&
+                            scrollPosition < offsetTop + offsetHeight
+                        ) {
+                            newActiveSection = section.id;
+                            break;
+                        }
                     }
                 }
-            }
+
+                if (newActiveSection) {
+                    setActiveSection((prev) => (prev !== newActiveSection ? newActiveSection : prev));
+                }
+
+                animationFrameId = null;
+            });
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         // Initial check
         handleScroll();
 
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        };
     }, []);
 
     return (
