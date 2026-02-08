@@ -1,0 +1,84 @@
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.side-nav-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    pointer-events: auto;
+    height: 24px;
+}
+
+.side-nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.side-nav-dot:hover {
+    transform: scale(1.5);
+    background: var(--accent-primary);
+    opacity: 1;
+}
+
+.side-nav-dot.active {
+    transform: scale(1.5);
+    background: var(--accent-primary);
+    opacity: 1;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+}
+
+/* Label Tooltip */
+.side-nav-label {
+    position: absolute;
+    right: 24px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: 'Inter', sans-serif;
+}
+
+[data-theme='dark'] .side-nav-label {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+
+.side-nav-item-wrapper:hover .side-nav-label,
+.side-nav-label.visible {
+    opacity: 1;
+    transform: translateX(-8px);
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+    .side-nav {
+        display: none;
+    }
+}

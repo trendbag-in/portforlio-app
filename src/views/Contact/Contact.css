@@ -1,8 +1,12 @@
 /* Contact Section Styles */
 .contact {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
   position: relative;
-  padding: var(--section-spacing) 0;
   background: var(--bg-secondary);
+  overflow: hidden;
 }
 
 .contact-header-side {
@@ -137,6 +141,14 @@
 [data-theme='dark'] .form-textarea {
   border-color: #4b5563;
   background: var(--bg-tertiary);
+  color: #f3f4f6;
+  /* Ensure input text is light */
+}
+
+[data-theme='dark'] .form-input::placeholder,
+[data-theme='dark'] .form-textarea::placeholder {
+  color: #9ca3af;
+  /* Light gray placeholder */
 }
 
 .form-input:focus,

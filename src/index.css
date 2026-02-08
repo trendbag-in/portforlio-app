@@ -76,15 +76,70 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+.App {
+  min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Removed scroll-snap properties */
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Global Scrollbar Hiding */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+
+[data-theme='dark'] .form-label {
+  color: #e5e7eb;
+  /* Light gray for better readability */
+}
+
+[data-theme='dark'] .contact-title,
+[data-theme='dark'] .info-text h4 {
+  color: #f9fafb;
+}
+
+[data-theme='dark'] .contact-subtitle,
+[data-theme='dark'] .info-text p {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .btn-primary {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border: none;
+}
+
+[data-theme='dark'] .btn-primary:hover {
+  background-color: var(--accent-secondary);
+}
+
+section,
+.universe-section,
+.about-us-snap,
+.integrations-snap,
+.mission-snap,
+footer {
+  /* Removed scroll-snap-align and stop */
+  min-height: 100vh;
+  /* changed to min-height to allow content to flow if needed */
+  width: 100%;
+  position: relative;
+  /* overflow: hidden;  <-- Optional: keep if you want to clip content */
 }
 
 /* Typography */
@@ -206,7 +261,8 @@ p {
 }
 
 .animate-fade-up {
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  /* Slower, cinematic ease */
   opacity: 0;
 }
 

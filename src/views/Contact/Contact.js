@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
+import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
 import Button from '../../components/Button';
 import './Contact.css';
 
@@ -8,32 +9,8 @@ const Contact = () => {
     email: '',
     query: ''
   });
-  const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Intersection Observer for animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -83,13 +60,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact section-large" ref={sectionRef}>
+    <section id="contact" className="contact section-large">
       <div className="container">
         {/* Header */}
         {/* Contact Content */}
         <div className="contact-content">
           {/* Header / Left Column */}
-          <div className={`contact-header-side ${isVisible ? 'animate-fade-in-up' : ''}`}>
+          <RevealOnScroll className="contact-header-side">
             <h2 className="contact-title">
               Get in
               <span className="text-gradient"> Touch</span>
@@ -97,10 +74,10 @@ const Contact = () => {
             <p className="contact-subtitle">
               Ready to revolutionize your fashion journey? Let's connect and explore how TrendBag can transform your experience.
             </p>
-          </div>
+          </RevealOnScroll>
 
           {/* Contact Form / Right Column */}
-          <div className={`contact-form-section ${isVisible ? 'animate-fade-in-up' : ''}`}>
+          <RevealOnScroll className="contact-form-section" delay={200}>
             <div className="form-container">
               <h3 className="form-title">Send us a Message</h3>
               <p className="form-subtitle">
@@ -162,7 +139,7 @@ const Contact = () => {
                 </Button>
               </form>
             </div>
-          </div>
+          </RevealOnScroll>
 
         </div>
       </div>

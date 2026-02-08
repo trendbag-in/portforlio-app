@@ -35,14 +35,14 @@ const Footer = () => {
   };
 
   const scrollToSection = (href) => {
-    // Extract the ID from href (remove #)
     const elementId = href.replace('#', '');
     const element = document.getElementById(elementId);
-    
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+    const appContainer = document.querySelector('.App');
+
+    if (element && appContainer) {
+      appContainer.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
       });
     }
   };
@@ -56,7 +56,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer id="footer" className="footer">
       <div className="container">
         {/* Main Footer Content */}
         <div className="footer-content">
@@ -89,9 +89,9 @@ const Footer = () => {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   {link.isExternal ? (
-                    <a 
-                      href={link.href} 
-                      target="_blank" 
+                    <a
+                      href={link.href}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="footer-link"
                     >
@@ -102,8 +102,8 @@ const Footer = () => {
                       {link.label}
                     </Link>
                   ) : (
-                    <a 
-                      href={link.href} 
+                    <a
+                      href={link.href}
                       className="footer-link"
                       onClick={(e) => handleLinkClick(e, link)}
                     >
@@ -121,6 +121,15 @@ const Footer = () => {
             <ul className="footer-links">
               <li><a href="#" className="footer-link">About Us</a></li>
               <li><a href="#" className="footer-link">Blog</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="footer-section">
+            <h3 className="footer-title">Contact Us</h3>
+            <ul className="footer-links">
+              <li><a href="tel:+918005377342" className="footer-link">+91 8005377342</a></li>
+              <li><a href="mailto:team@trendabg.in" className="footer-link">team@trendabg.in</a></li>
             </ul>
           </div>
         </div>

@@ -1,112 +1,113 @@
-/* About Us Section Styles */
-.about-us {
+.about-us-snap,
+.integrations-snap,
+.mission-snap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  padding: var(--section-spacing) 0;
   background: var(--bg-primary);
+  overflow: hidden;
+  padding: 4rem 0;
+  /* Add vertical padding for safety */
+}
+
+.integrations-snap {
+  background-color: var(--bg-secondary);
 }
 
 /* Header Styles */
 .about-header {
   text-align: center;
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .about-title {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .about-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
   margin: 0 auto;
 }
 
-/* Section Subtitle */
-.section-subtitle {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 4rem;
-  color: var(--text-primary);
-}
-
 /* Differentiators Section */
 .differentiators-section {
-  margin-bottom: 8rem;
+  width: 100%;
 }
 
 .differentiators-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
-  max-width: 1000px;
+  gap: 1.5rem;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .differentiator-item {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 1rem;
+  padding: 1.5rem;
   background: var(--bg-secondary);
   border-radius: var(--radius-lg);
-  transition: all 0.3s ease;
-}
-
-.differentiator-item:hover {
-  transform: translateY(-5px);
-  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
 }
 
 .differentiator-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   flex-shrink: 0;
-  background: white;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+  background: var(--bg-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-sm);
 }
 
-.differentiator-content {
-  flex: 1;
-}
-
 .differentiator-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
 .differentiator-description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 /* Integrations Section */
 .integrations-section {
-  margin-bottom: 8rem;
-  padding: 4rem 0;
-  background: var(--bg-secondary);
-  margin-left: -2rem;
-  margin-right: -2rem;
-  width: calc(100% + 4rem);
+  width: 100%;
+  position: relative;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .integrations-scroll-container {
   overflow: hidden;
   position: relative;
-  padding: 1rem 0;
+  width: 100%;
+  /* Gradient Masks for smooth fade in/out */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 
 .integrations-scroll {
@@ -114,34 +115,56 @@
   gap: 2rem;
   animation: scrollHorizontal 40s linear infinite;
   width: fit-content;
+  padding: 1rem 0;
+  /* Add padding for shadow visibility */
+  margin-bottom: 2rem;
+}
+
+.integrations-scroll:last-child {
+  margin-bottom: 0;
+}
+
+/* Pause animation on hover for readability */
+.integrations-scroll-container:hover .integrations-scroll {
+  animation-play-state: paused;
 }
 
 .integration-card {
-  background: var(--bg-primary);
+  background: rgba(255, 255, 255, 0.5);
+  /* Glass-like base */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 1.75rem 1.5rem;
   text-align: center;
   min-width: 240px;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .integration-card {
+  background: rgba(39, 39, 42, 0.5);
+  /* Dark mode glass */
 }
 
 .integration-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-secondary);
+  background: var(--bg-primary);
 }
 
 .integration-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .integration-name {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
 }
@@ -152,7 +175,6 @@
   line-height: 1.4;
 }
 
-/* Horizontal scroll animation */
 @keyframes scrollHorizontal {
   0% {
     transform: translateX(0);
@@ -163,69 +185,55 @@
   }
 }
 
+@keyframes scrollHorizontalReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.integrations-scroll.reverse {
+  animation-name: scrollHorizontalReverse;
+  animation-direction: normal;
+  /* Reset direction as we use a specific keyframe */
+}
+
 /* Mission Section */
 .mission-section {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .mission-content {
   background: var(--bg-secondary);
-  border-radius: 32px;
-  padding: 6rem 4rem;
+  border-radius: 24px;
+  padding: 3rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-  color: var(--text-primary);
-  box-shadow: var(--shadow-lg);
-}
-
-[data-theme='dark'] .mission-content {
-  background: #1f2937;
-  /* Slightly lighter dark for dark mode */
   border: 1px solid var(--border-color);
-  color: white;
 }
 
 .mission-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] .mission-title {
-  color: white;
+  margin-bottom: 1.5rem;
 }
 
 .mission-text {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-[data-theme='dark'] .mission-text {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* CTA Section */
 .cta-section {
   text-align: center;
-  padding: 6rem 0;
 }
 
 .cta-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.cta-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .cta-buttons {
@@ -234,27 +242,11 @@
   gap: 1.5rem;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  .about-header {
-    margin-bottom: 4rem;
-  }
-
-  .about-title {
-    font-size: 2.5rem;
-  }
-
   .differentiators-list {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .differentiator-item {
-    padding: 1.5rem;
-  }
-
-  .mission-content {
-    padding: 3rem 1.5rem;
+    gap: 1rem;
   }
 
   .mission-title {
@@ -262,15 +254,46 @@
   }
 
   .mission-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
-  .cta-title {
-    font-size: 2rem;
+  /* Integrations Mobile */
+  .integration-card {
+    min-width: 160px;
+    /* Smaller cards */
+    padding: 1.25rem 1rem;
   }
 
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
+  .integration-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .integration-name {
+    font-size: 0.95rem;
+  }
+
+  .integration-description {
+    font-size: 0.75rem;
+    display: none;
+    /* Hide description on very small screens to save space if needed, or keep it */
+    display: block;
+    /* Keep it but smaller */
+  }
+
+  .integrations-scroll {
+    gap: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .integration-card {
+    min-width: 140px;
+    padding: 1rem;
   }
 }

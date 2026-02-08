@@ -1,29 +1,25 @@
 /* Wishlink-style Navbar */
 .navbar {
-  position: fixed;
+  position: absolute;
+  /* changed from fixed to absolute */
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   height: var(--nav-height);
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  /* Make transparent initially or keep background if needed */
+  /* background: rgba(255, 255, 255, 0.9); */
+  /* backdrop-filter: blur(12px); */
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
-[data-theme='dark'] .navbar {
+/* [data-theme='dark'] .navbar {
   background: rgba(15, 15, 15, 0.9);
-}
+} */
 
-.navbar-scrolled {
-  border-bottom-color: var(--border-color);
-  box-shadow: var(--shadow-sm);
-}
-
-.navbar-hidden {
-  transform: translateY(-100%);
-}
+/* Removed navbar-scrolled and navbar-hidden */
 
 .navbar-container {
   max-width: var(--container-width);
@@ -100,17 +96,38 @@
 /* Actions */
 .navbar-actions {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
+}
+
+.nav-contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  margin-left: 1rem;
+}
+
+.nav-contact-link {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-contact-link:hover {
+  color: var(--accent-primary);
 }
 
 .theme-toggle {
   background: transparent;
   border: 1px solid var(--border-color);
-  color: var(--text-secondary);
+  color: var(--text-primary);
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,31 +139,15 @@
 .theme-toggle:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
+  background-color: var(--bg-tertiary);
 }
 
-.navbar-survey-btn {
-  display: none;
-  /* Hide on desktop for cleaner look, or keep if critical */
-}
+/* Removed navbar-download-btn styles */
 
-.navbar-download-btn {
-  background: var(--text-primary);
-  /* Black button like Wishlink often uses */
-  color: var(--bg-primary);
-  border: none;
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.navbar-download-btn:hover {
-  background: var(--accent-primary);
-  transform: translateY(-1px);
+@media (max-width: 768px) {
+  .nav-contact-info {
+    display: none;
+  }
 }
 
 /* Mobile */

@@ -1,4 +1,5 @@
 import React from 'react';
+import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
 import Button from '../../components/Button';
 import './Hero.css';
 
@@ -8,33 +9,37 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <div className="hero-badge animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <RevealOnScroll className="hero-badge" delay={100}>
               <span className="badge-text">#1 Fashion Tech Platform</span>
-            </div>
+            </RevealOnScroll>
 
-            <h1 className="hero-title animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              Shop What <br />
-              <span className="text-gradient">Creators Love</span>
-            </h1>
+            <RevealOnScroll className="hero-title" delay={200}>
+              <h1>
+                Shop What <br />
+                <span className="text-gradient">Creators Love</span>
+              </h1>
+            </RevealOnScroll>
 
-            <p className="hero-subtitle animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              Discover trending styles from your favorite influencers.
-              TrendBag connects you directly with the brands creators are wearing.
-            </p>
+            <RevealOnScroll className="hero-subtitle" delay={300}>
+              <p>
+                Discover trending styles from your favorite influencers.
+                TrendBag connects you directly with the brands creators are wearing.
+              </p>
+            </RevealOnScroll>
 
-            <div className="hero-actions animate-fade-up" style={{ animationDelay: '0.4s' }}>
-              <a 
-                href="https://app.trendbag.in" 
-                target="_blank" 
+            <RevealOnScroll className="hero-actions" delay={400}>
+              <a
+                href="https://app.trendbag.in"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
                 Start Exploring
               </a>
-            </div>
+            </RevealOnScroll>
           </div>
 
-          <div className="hero-visual animate-fade-up" style={{ animationDelay: '0.6s' }}>
+          <RevealOnScroll className="hero-visual" delay={600}>
             <div className="visual-circle-bg"></div>
 
             <div className="phone-mockup-container">
@@ -71,7 +76,7 @@ const Hero = () => {
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Direct from post</div>
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>

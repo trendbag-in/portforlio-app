@@ -1,6 +1,6 @@
 /* Wishlink-style Hero */
 .hero {
-  min-height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   position: relative;

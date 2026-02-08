@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
   const [theme, setTheme] = useState('light'); // Default to light for Wishlink vibe
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'what-to-expect', label: 'What we do' }, // Renamed for clearer value prop
+    { id: 'shoppers', label: 'What we do' }, // Linked to the first Discovery section
     { id: 'about-us', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -30,32 +27,21 @@ const Navbar = () => {
     document.documentElement.setAttribute('data-theme', newTheme);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 20);
-
-      if (scrollTop > lastScrollY && scrollTop > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setLastScrollY(scrollTop);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  // Removed scroll-based visibility logic as Navbar is now static at top
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const appContainer = document.querySelector('.App');
+    if (element && appContainer) {
+      appContainer.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''} ${!isVisible ? 'navbar-hidden' : ''}`}>
+    <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
           <button className="brand-button" onClick={() => scrollToSection('hero')}>
@@ -63,16 +49,8 @@ const Navbar = () => {
           </button>
         </div>
 
+        {/* Navigation items removed as per user request */}
         <div className="navbar-menu">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              className={`navbar-item ${activeSection === item.id ? 'active' : ''}`}
-              onClick={() => scrollToSection(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
         </div>
 
         <div className="navbar-actions">
@@ -84,14 +62,10 @@ const Navbar = () => {
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
 
-          <a 
-            href="https://app.trendbag.in" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="navbar-download-btn"
-          >
-            Download App
-          </a>
+          <div className="nav-contact-info">
+            <a href="tel:+918005377342" className="nav-contact-link">+91 8005377342</a>
+            <a href="mailto:team@trendabg.in" className="nav-contact-link">team@trendabg.in</a>
+          </div>
         </div>
       </div>
     </nav>

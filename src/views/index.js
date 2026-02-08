@@ -1,6 +1,6 @@
 // Export all views from here
 export { default as HeroView } from './Hero';
-export { default as WhatToExpectView } from './WhatToExpect';
+export { default as DiscoveryUniverseView } from './DiscoveryUniverse';
 // export { default as TestimonialsView } from './Testimonials';
 // export { default as WhyChooseUsView } from './WhyChooseUs';
 // export { default as IntegrationView } from './Integration';
