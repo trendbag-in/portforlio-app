@@ -8,7 +8,8 @@ const Navbar = () => {
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'shoppers', label: 'What we do' }, // Linked to the first Discovery section
+    { id: 'features', label: 'Features' },
+    { id: 'shoppers', label: 'Who it’s for' },
     { id: 'about-us', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -26,6 +27,22 @@ const Navbar = () => {
     localStorage.setItem('theme', newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
   };
+
+  // Highlight the nav link for whichever section is currently in view.
+  useEffect(() => {
+    const ids = ['hero', 'features', 'shoppers', 'about-us', 'contact'];
+    const onScroll = () => {
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      }
+      setActiveSection(current);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // Removed scroll-based visibility logic as Navbar is now static at top
 
@@ -64,8 +81,16 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Navigation items removed as per user request */}
         <div className="navbar-menu">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={`navbar-item ${activeSection === item.id ? 'active' : ''}`}
+              onClick={() => scrollToSection(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
 
         <div className="navbar-actions">
@@ -79,7 +104,7 @@ const Navbar = () => {
 
           <div className="nav-contact-info">
             <a href="tel:+918005377342" className="nav-contact-link">+91 8005377342</a>
-            <a href="mailto:team@trendabg.in" className="nav-contact-link">team@trendabg.in</a>
+            <a href="mailto:team@trendbag.in" className="nav-contact-link">team@trendbag.in</a>
           </div>
         </div>
       </div>

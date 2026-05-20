@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HeroView, DiscoveryUniverseView, AboutUsView, ContactView, FooterView } from './views';
+import { HeroView, FeaturesView, DiscoveryUniverseView, AboutUsView, ContactView, FooterView } from './views';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ErrorPage from './pages/ErrorPage';
@@ -21,6 +21,7 @@ function App() {
             <>
               <Navbar />
               <HeroView />
+              <FeaturesView />
               <DiscoveryUniverseView />
               <AboutUsView />
               <ContactView />

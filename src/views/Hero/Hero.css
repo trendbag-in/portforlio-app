@@ -1,11 +1,12 @@
 /* Wishlink-style Hero */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 4rem;
   background: var(--bg-primary);
 }
 

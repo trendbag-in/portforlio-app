@@ -1,12 +1,12 @@
 /* Contact Section Styles */
 .contact {
-  height: 100vh;
   margin: 0;
   display: flex;
   align-items: center;
   position: relative;
   background: var(--bg-secondary);
   overflow: hidden;
+  padding: var(--section-spacing) 0;
 }
 
 .contact-header-side {

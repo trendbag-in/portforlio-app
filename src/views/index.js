@@ -1,5 +1,6 @@
 // Export all views from here
 export { default as HeroView } from './Hero';
+export { default as FeaturesView } from './Features';
 export { default as DiscoveryUniverseView } from './DiscoveryUniverse';
 // export { default as TestimonialsView } from './Testimonials';
 // export { default as WhyChooseUsView } from './WhyChooseUs';

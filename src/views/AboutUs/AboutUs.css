@@ -1,7 +1,6 @@
 .about-us-snap,
 .integrations-snap,
 .mission-snap {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,8 +8,7 @@
   position: relative;
   background: var(--bg-primary);
   overflow: hidden;
-  padding: 4rem 0;
-  /* Add vertical padding for safety */
+  padding: var(--section-spacing) 0;
 }
 
 .integrations-snap {

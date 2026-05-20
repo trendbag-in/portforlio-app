@@ -129,17 +129,16 @@ body {
 }
 
 section,
-.universe-section,
-.about-us-snap,
-.integrations-snap,
-.mission-snap,
 footer {
-  /* Removed scroll-snap-align and stop */
-  min-height: 100vh;
-  /* changed to min-height to allow content to flow if needed */
   width: 100%;
   position: relative;
-  /* overflow: hidden;  <-- Optional: keep if you want to clip content */
+}
+
+/* Content sections size to their content with consistent vertical rhythm.
+   Only the hero spans the viewport; everything else flows naturally so
+   nothing is forced to 100vh (which caused huge gaps + overlap on mobile). */
+.section-block {
+  padding: var(--section-spacing) 0;
 }
 
 /* Typography */
