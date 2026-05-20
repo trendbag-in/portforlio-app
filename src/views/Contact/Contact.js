@@ -11,6 +11,9 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const API_BASE = process.env.REACT_APP_API_BASE || 'https://api.trendbag.in';
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,39 +27,37 @@ const Contact = () => {
     e.preventDefault();
 
     setIsSubmitting(true);
+    setError('');
 
-    // Send data to Google Sheets via Google Apps Script (using GET to avoid CORS)
-    const params = new URLSearchParams({
-      name: formData.name,
-      email: formData.email,
-      message: formData.query,
-      timestamp: new Date().toISOString(),
-      source: 'TrendBag Contact Form'
-    });
-
-    // Start the request but don't wait for it
-    fetch(`https://script.google.com/macros/s/AKfycbwfxDnOnNGvqagJ2BUTBli8G3dvCXnX0Sm_u6MBZwQTwi11rjf7BfOHiNK81Ifw3OIh/exec?${params}`, {
-      method: 'GET',
-      mode: 'no-cors'
-    });
-
-    // Show success and reset form after 2 seconds
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-
-      // Reset form in sync with success animation
-      setFormData({
-        name: '',
-        email: '',
-        query: ''
+    try {
+      const res = await fetch(`${API_BASE}/api/user/leads`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-APP': 'portfolio'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.query
+        })
       });
 
-      // Reset button state after another 2 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 2000);
-    }, 2000);
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', query: '' });
+
+      // Reset button state after 2 seconds
+      setTimeout(() => setIsSuccess(false), 2000);
+    } catch (err) {
+      setIsSubmitting(false);
+      setError(err.message || 'Failed to send. Please try again.');
+    }
   };
 
   return (
@@ -128,6 +129,11 @@ const Contact = () => {
                   />
                 </div>
                 <div className="form-col form-button-container"></div>
+                {error && (
+                  <p className="form-error" role="alert" style={{ color: '#e5484d', marginBottom: '1rem' }}>
+                    {error}
+                  </p>
+                )}
                 <Button
                   type="submit"
                   variant={isSuccess ? "success" : "gradient"}

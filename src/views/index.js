@@ -6,5 +6,4 @@ export { default as DiscoveryUniverseView } from './DiscoveryUniverse';
 // export { default as IntegrationView } from './Integration';
 export { default as AboutUsView } from './AboutUs';
 export { default as ContactView } from './Contact';
-export { default as SurveyView } from './Survey';
 export { default as FooterView } from './Footer';

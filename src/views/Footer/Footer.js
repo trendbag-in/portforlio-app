@@ -27,7 +27,6 @@ const Footer = () => {
   const quickLinks = [
     { label: 'Home', href: '#hero', isRoute: false },
     { label: 'About Us', href: '#about-us', isRoute: false },
-    { label: 'Survey', href: '/survey', isRoute: true },
     { label: 'Contact', href: '#contact', isRoute: false },
     { label: 'App', href: 'https://app.trendbag.in', isExternal: true }
   ];
@@ -40,7 +39,8 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', href: '/privacy', isRoute: true }
+    { label: 'Privacy Policy', href: '/privacy', isRoute: true },
+    { label: 'Terms of Service', href: '/terms', isRoute: true }
   ];
 
   const scrollToTop = () => {
@@ -184,7 +184,7 @@ const Footer = () => {
             <h3 className="footer-title">Contact Us</h3>
             <ul className="footer-links">
               <li><a href="tel:+918005377342" className="footer-link">+91 8005377342</a></li>
-              <li><a href="mailto:team@trendabg.in" className="footer-link">team@trendabg.in</a></li>
+              <li><a href="mailto:team@trendbag.in" className="footer-link">team@trendbag.in</a></li>
             </ul>
           </div>
         </div>

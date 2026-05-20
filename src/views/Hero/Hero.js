@@ -3,6 +3,13 @@ import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
 import Button from '../../components/Button';
 import './Hero.css';
 
+const products = [
+  { emoji: '👗', name: 'Floral Midi Dress', brand: 'Zara', price: '₹2,499', bg: 'linear-gradient(135deg, #fde68a, #f59e0b)' },
+  { emoji: '👜', name: 'Quilted Shoulder Bag', brand: 'H&M', price: '₹1,799', bg: 'linear-gradient(135deg, #fbcfe8, #ec4899)' },
+  { emoji: '👟', name: 'Retro Court Sneakers', brand: 'Nike', price: '₹4,995', bg: 'linear-gradient(135deg, #bfdbfe, #3b82f6)' },
+  { emoji: '🕶️', name: 'Oversized Shades', brand: 'Ray-Ban', price: '₹3,200', bg: 'linear-gradient(135deg, #ddd6fe, #8b5cf6)' },
+];
+
 const Hero = () => {
   return (
     <section id="hero" className="hero">
@@ -45,15 +52,44 @@ const Hero = () => {
             <div className="phone-mockup-container">
               <div className="app-screen">
                 <div className="app-header">
-                  <div className="app-nav-line"></div>
+                  <div className="app-brand">
+                    <span className="app-brand-logo" aria-hidden="true">
+                      <svg viewBox="0 0 64 64" width="20" height="20">
+                        <rect width="64" height="64" rx="14" fill="#E55A2B" />
+                        <path d="M21 28 A11 11 0 0 1 43 28" fill="none" stroke="#fff" strokeWidth="5" strokeLinecap="round" />
+                        <path d="M12 28 L52 28 L47.5 51 Q47 54.5 42.5 54.5 L21.5 54.5 Q17 54.5 16.5 51 Z" fill="#fff" />
+                        <rect x="12" y="30.8" width="40" height="3.4" rx="1.7" fill="#E55A2B" />
+                        <circle cx="26" cy="41" r="2.6" fill="#E55A2B" />
+                        <circle cx="38" cy="41" r="2.6" fill="#E55A2B" />
+                        <path d="M26 46.5 Q32 51.5 38 46.5" fill="none" stroke="#E55A2B" strokeWidth="3" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                    <span className="app-brand-name">trendbag</span>
+                  </div>
+
+                  <div className="app-creator">
+                    <span className="app-avatar" aria-hidden="true">A</span>
+                    <div className="app-creator-info">
+                      <span className="app-creator-name">@ava.styles</span>
+                      <span className="app-creator-sub">Shop her 12 looks</span>
+                    </div>
+                    <span className="app-follow">Follow</span>
+                  </div>
                 </div>
+
                 <div className="app-grid">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="app-card">
-                      <div className="app-card-img"></div>
+                  {products.map(p => (
+                    <div key={p.name} className="app-card">
+                      <div className="app-card-img" style={{ background: p.bg }}>
+                        <span className="app-card-emoji" aria-hidden="true">{p.emoji}</span>
+                        <span className="app-card-like" aria-hidden="true">♥</span>
+                      </div>
                       <div className="app-card-text">
-                        <div className="app-card-line"></div>
-                        <div className="app-card-line" style={{ width: '60%' }}></div>
+                        <div className="app-card-name">{p.name}</div>
+                        <div className="app-card-meta">
+                          <span className="app-card-brand">{p.brand}</span>
+                          <span className="app-card-price">{p.price}</span>
+                        </div>
                       </div>
                     </div>
                   ))}

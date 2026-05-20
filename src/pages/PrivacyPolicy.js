@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
                 <div className="privacy-section">
                     <h2>4. Contact Us</h2>
                     <p>
-                        If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:team@trendabg.in">team@trendabg.in</a>.
+                        If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:team@trendbag.in">team@trendbag.in</a>.
                     </p>
                 </div>
             </div>

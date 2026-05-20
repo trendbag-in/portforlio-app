@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Trendbag">
+  <rect width="64" height="64" rx="14" fill="#E55A2B"/>
+  <!-- handle -->
+  <path d="M21 28 A11 11 0 0 1 43 28" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <!-- basket body -->
+  <path d="M12 28 L52 28 L47.5 51 Q47 54.5 42.5 54.5 L21.5 54.5 Q17 54.5 16.5 51 Z" fill="#fff"/>
+  <!-- rim band -->
+  <rect x="12" y="30.8" width="40" height="3.4" rx="1.7" fill="#E55A2B"/>
+  <!-- eyes -->
+  <circle cx="26" cy="41" r="2.6" fill="#E55A2B"/>
+  <circle cx="38" cy="41" r="2.6" fill="#E55A2B"/>
+  <!-- smile -->
+  <path d="M26 46.5 Q32 51.5 38 46.5" fill="none" stroke="#E55A2B" stroke-width="3" stroke-linecap="round"/>
+</svg>
