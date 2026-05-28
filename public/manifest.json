@@ -1,6 +1,7 @@
 {
   "short_name": "TrendBag",
-  "name": "TrendBag - Modern Business Solutions",
+  "name": "TrendBag — Shop What Creators Love",
+  "description": "Discover trending styles from your favorite creators and influencers, and shop the exact brands and products they wear — all in one place.",
   "icons": [
     {
       "src": "favicon.svg",

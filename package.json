@@ -1,7 +1,7 @@
 {
   "name": "trendbag-website",
   "version": "1.0.0",
-  "description": "TrendBag - Modern Business Solutions Website",
+  "description": "TrendBag — Shop What Creators Love. Marketing site for the fashion-tech social commerce platform.",
   "homepage": "/",
   "main": "index.js",
   "scripts": {

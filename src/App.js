@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HeroView, FeaturesView, DiscoveryUniverseView, AboutUsView, ContactView, FooterView } from './views';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import CommunityGuidelines from './pages/CommunityGuidelines';
 import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
@@ -34,6 +35,9 @@ function App() {
 
           {/* Terms of Service Page */}
           <Route path="/terms" element={<TermsOfService />} />
+
+          {/* Community Guidelines Page */}
+          <Route path="/community-guidelines" element={<CommunityGuidelines />} />
 
           {/* Error Page - Catch all unmatched routes */}
           <Route path="*" element={<ErrorPage />} />

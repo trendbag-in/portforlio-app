@@ -40,7 +40,8 @@ const Footer = () => {
 
   const legalLinks = [
     { label: 'Privacy Policy', href: '/privacy', isRoute: true },
-    { label: 'Terms of Service', href: '/terms', isRoute: true }
+    { label: 'Terms of Service', href: '/terms', isRoute: true },
+    { label: 'Community Guidelines', href: '/community-guidelines', isRoute: true }
   ];
 
   const scrollToTop = () => {
