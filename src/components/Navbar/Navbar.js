@@ -94,6 +94,15 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
+          <a
+            href="https://admin.trendbag.in/install"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar-install"
+          >
+            Install
+          </a>
+
           <button
             className="theme-toggle"
             onClick={toggleTheme}

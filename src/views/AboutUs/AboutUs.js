@@ -1,6 +1,5 @@
 import React from 'react';
 import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
-import Button from '../../components/Button';
 import './AboutUs.css';
 
 const AboutUs = () => {
@@ -30,13 +29,19 @@ const AboutUs = () => {
 
   // Tech stack
   const integrations = [
-    { name: "MongoDB", icon: "🍃", description: "Database & data storage" },
-    { name: "JanusGraph", icon: "🕸️", description: "Graph database for relationships" },
+    { name: "Go", icon: "🐹", description: "High-performance backend" },
+    { name: "gRPC", icon: "🔌", description: "Service communication" },
+    { name: "MongoDB", icon: "🍃", description: "Primary database" },
+    { name: "PostgreSQL", icon: "🐘", description: "Relational data store" },
+    { name: "Redis", icon: "⚡", description: "Real-time caching" },
+    { name: "OpenSearch", icon: "🔍", description: "Search & discovery" },
+    { name: "ClickHouse", icon: "📊", description: "Analytics engine" },
+    { name: "Apache Kafka", icon: "📨", description: "Event streaming" },
+    { name: "AWS", icon: "☁️", description: "Cloud infrastructure" },
     { name: "Shopify", icon: "🛒", description: "E-commerce platform" },
-    { name: "Instagram", icon: "📱", description: "Social media integration" },
+    { name: "Instagram", icon: "📷", description: "Social integration" },
     { name: "Razorpay", icon: "💳", description: "Payment processing" },
-    { name: "OpenAI", icon: "🧠", description: "AI-powered intelligence" },
-    { name: "AWS", icon: "☁️", description: "Cloud infrastructure" }
+    { name: "OpenAI", icon: "🧠", description: "AI-powered intelligence" }
   ];
 
   return (
@@ -149,12 +154,14 @@ const AboutUs = () => {
           <RevealOnScroll className="cta-section" delay={200}>
             <h3 className="cta-title">Ready to Transform Your Fashion Journey?</h3>
             <div className="cta-buttons">
-              <Button variant="gradient" size="large">
-                Coming Soon
-              </Button>
-              <Button variant="outline" size="large">
-                Partner With Us
-              </Button>
+              <a
+                href="https://admin.trendbag.in/install"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-gradient btn-large"
+              >
+                Install Now Into Your Shopify Store
+              </a>
             </div>
           </RevealOnScroll>
         </div>
