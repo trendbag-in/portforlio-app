@@ -41,7 +41,10 @@ const Footer = () => {
   const legalLinks = [
     { label: 'Privacy Policy', href: '/privacy', isRoute: true },
     { label: 'Terms of Service', href: '/terms', isRoute: true },
-    { label: 'Community Guidelines', href: '/community-guidelines', isRoute: true }
+    { label: 'Community Guidelines', href: '/community-guidelines', isRoute: true },
+    { label: 'Refund Policy', href: '/refund', isRoute: true },
+    { label: 'Return Policy', href: '/returns', isRoute: true },
+    { label: 'Shipping Policy', href: '/shipping', isRoute: true }
   ];
 
   const scrollToTop = () => {
@@ -187,6 +190,13 @@ const Footer = () => {
               <li><a href="tel:+918005377342" className="footer-link">+91 8005377342</a></li>
               <li><a href="mailto:team@trendbag.in" className="footer-link">team@trendbag.in</a></li>
             </ul>
+            <address className="footer-address">
+              M/s. Holygrims Private Limited<br />
+              D-9 Sector-3, Noida<br />
+              Gautam Buddha Nagar<br />
+              Noida 201301<br />
+              Uttar Pradesh, India
+            </address>
           </div>
         </div>
 

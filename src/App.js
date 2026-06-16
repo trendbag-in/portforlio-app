@@ -4,6 +4,9 @@ import { HeroView, FeaturesView, DiscoveryUniverseView, AboutUsView, ContactView
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CommunityGuidelines from './pages/CommunityGuidelines';
+import RefundPolicy from './pages/RefundPolicy';
+import ReturnPolicy from './pages/ReturnPolicy';
+import ShippingPolicy from './pages/ShippingPolicy';
 import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
@@ -38,6 +41,15 @@ function App() {
 
           {/* Community Guidelines Page */}
           <Route path="/community-guidelines" element={<CommunityGuidelines />} />
+
+          {/* Refund & Cancellation Policy Page */}
+          <Route path="/refund" element={<RefundPolicy />} />
+
+          {/* Return & Exchange Policy Page */}
+          <Route path="/returns" element={<ReturnPolicy />} />
+
+          {/* Shipping & Delivery Policy Page */}
+          <Route path="/shipping" element={<ShippingPolicy />} />
 
           {/* Error Page - Catch all unmatched routes */}
           <Route path="*" element={<ErrorPage />} />
