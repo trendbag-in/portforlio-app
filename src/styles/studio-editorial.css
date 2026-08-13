@@ -1,0 +1,382 @@
+/* Studio Editorial — the marketing site's design layer.
+ *
+ * Colour ramp mirrors clients/web-share/lib/theme/studioPaper.ts, which mirrors
+ * clients/mobile/constants/tokens.ts. If the mobile ramps change, change these too.
+ *
+ * On top of that ramp this file adds the marketing-only editorial devices borrowed
+ * from clients/pitch-deck: mono kickers, accent rules, dashed rows, arrow bullets.
+ * DESIGN.md reserves the brand swatch #E55A2B for exactly this kind of surface.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Karla:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: light dark;
+
+  /* Neutral planes */
+  --tb-paper: #F7F6F4;
+  --tb-surface: #F3F1EC;
+  --tb-raised: #ECE9E3;
+  --tb-plate: #E4E0D8;
+  --tb-card-fill: rgba(43, 42, 39, 0.04);
+
+  /* Ink ramp — carries all hierarchy that colour would otherwise carry */
+  --tb-ink: #2B2A27;
+  --tb-ink-2: #6B6A65;
+  --tb-ink-3: #6E6C64;
+
+  /* The one accent, split by role so both halves clear AA */
+  --tb-accent: #C2410C;
+  --tb-accent-ink: #B8410E;
+  --tb-accent-press: #A8380C;
+  --tb-on-accent: #FFF8F4;
+  --tb-accent-muted: rgba(229, 90, 43, 0.10);
+  --tb-brand: #E55A2B;
+
+  --tb-line: rgba(43, 42, 39, 0.08);
+  --tb-scrim: rgba(11, 11, 10, 0.55);
+  --tb-glass: rgba(247, 246, 244, 0.72);
+
+  /* Faint by design — a heavy shadow reads as dirt on a warm ground */
+  --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --tb-shadow-md: 0 2px 5px rgba(0, 0, 0, 0.06);
+  --tb-shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.09);
+
+  /* Bodoni Moda is the masthead voice — a true didone, used only at display
+     sizes where its hairlines survive. Karla sets everything read as a sentence,
+     and, letterspaced and uppercased, every label that used to be a code mono. */
+  --tb-display: 'Bodoni Moda', Didot, 'Times New Roman', serif;
+  --tb-sans: 'Karla', system-ui, sans-serif;
+  --tb-label: 'Karla', system-ui, sans-serif;
+
+  /* Shape */
+  --tb-r-xs: 8px;
+  --tb-r-sm: 12px;
+  --tb-r-tile: 16px;
+  --tb-r-card: 20px;
+  --tb-r-sheet: 28px;
+  --tb-r-pill: 999px;
+
+  /* Motion */
+  --tb-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --tb-fast: 160ms;
+  --tb-normal: 260ms;
+  --tb-slow: 600ms;
+}
+
+[data-theme='dark'] {
+  --tb-paper: #0B0B0A;
+  --tb-surface: #151412;
+  --tb-raised: #1F1E1B;
+  --tb-plate: #232120;
+  --tb-card-fill: rgba(241, 237, 230, 0.06);
+
+  --tb-ink: #F1EDE6;
+  --tb-ink-2: #B5B0A6;
+  --tb-ink-3: #7C7A73;
+
+  --tb-accent: #FF7A4D;
+  --tb-accent-ink: #FF7A4D;
+  --tb-accent-press: #E8663B;
+  --tb-on-accent: #1A0E08;
+  --tb-accent-muted: rgba(255, 122, 77, 0.14);
+
+  --tb-line: rgba(241, 237, 230, 0.10);
+  --tb-scrim: rgba(0, 0, 0, 0.60);
+  --tb-glass: rgba(11, 11, 10, 0.72);
+
+  /* Dark inverts elevation to a deeper shadow, never a black-on-black flatten */
+  --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --tb-shadow-md: 0 2px 5px rgba(0, 0, 0, 0.50);
+  --tb-shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.60);
+}
+
+/* ---------- Type ---------- */
+
+.tb-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--tb-label);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tb-accent-ink);
+}
+
+/* The hairlines either side are the deck's signature — see pitch-deck .kicker */
+.tb-kicker::before,
+.tb-kicker::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Left-aligned variant keeps only the trailing rule */
+.tb-kicker--start::before {
+  display: none;
+}
+
+.tb-display {
+  font-family: var(--tb-display);
+  font-size: clamp(2.75rem, 5.6vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--tb-ink);
+}
+
+.tb-h2 {
+  font-family: var(--tb-display);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--tb-ink);
+}
+
+.tb-accent-word {
+  color: var(--tb-accent-ink);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Large figures take the didone; small metadata figures take .tb-num--sm below.
+   Both stay tabular so prices and stats line up in a column. */
+.tb-num {
+  font-family: var(--tb-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--tb-ink);
+}
+
+.tb-num--sm {
+  font-family: var(--tb-label);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tb-overline {
+  font-family: var(--tb-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tb-ink-3);
+}
+
+/* ---------- Surfaces ---------- */
+
+/* Fill + shadow, never a stroke. Separation is space, then fill, then shadow. */
+.tb-card {
+  position: relative;
+  background: var(--tb-card-fill);
+  border: none;
+  border-radius: var(--tb-r-card);
+  box-shadow: var(--tb-shadow-md);
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: transform var(--tb-normal) var(--tb-ease),
+              box-shadow var(--tb-normal) var(--tb-ease);
+}
+
+.tb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tb-shadow-lg);
+}
+
+/* A rule across the top edge — not a border round the card */
+.tb-card--ruled::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--tb-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms var(--tb-ease);
+}
+
+.tb-card--ruled.is-visible::before,
+.reveal-on-scroll.is-visible .tb-card--ruled::before {
+  transform: scaleX(1);
+}
+
+.tb-glass {
+  background: var(--tb-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* The one place pure white text is allowed: over a scrim on a photograph */
+.tb-scrim-bottom {
+  background-image: linear-gradient(to top, var(--tb-scrim), transparent 55%);
+}
+
+/* ---------- Controls ---------- */
+
+.tb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0 1.75rem;
+  border: none;
+  border-radius: var(--tb-r-pill);
+  font-family: var(--tb-label);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--tb-fast) var(--tb-ease),
+              transform var(--tb-fast) var(--tb-ease);
+}
+
+.tb-btn--primary {
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
+}
+
+.tb-btn--primary:hover {
+  background: var(--tb-accent-press);
+}
+
+.tb-btn:active {
+  transform: scale(0.97);
+}
+
+/* The only stroked control in the system */
+.tb-btn--secondary {
+  background: transparent;
+  color: var(--tb-ink);
+  border: 1px solid var(--tb-line);
+}
+
+.tb-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 1rem;
+  border: none;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-surface);
+  color: var(--tb-ink-2);
+  font-family: var(--tb-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color var(--tb-fast) var(--tb-ease),
+              color var(--tb-fast) var(--tb-ease);
+}
+
+.tb-chip--active {
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
+}
+
+/* ---------- Editorial devices ---------- */
+
+.tb-dashed-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tb-dashed-list > li {
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--tb-line);
+}
+
+.tb-dashed-list > li:last-child {
+  border-bottom: none;
+}
+
+/* → instead of a filled dot */
+.tb-arrow-list > li {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--tb-ink-2);
+}
+
+.tb-arrow-list > li::before {
+  content: '→';
+  flex-shrink: 0;
+  color: var(--tb-accent-ink);
+}
+
+/* Mono key beside a body value, dashed rule between rows */
+.tb-keyval {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--tb-line);
+}
+
+.tb-keyval:last-child {
+  border-bottom: none;
+}
+
+.tb-keyval dt {
+  font-family: var(--tb-label);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tb-ink-3);
+}
+
+.tb-keyval dd {
+  margin: 0;
+  color: var(--tb-ink);
+}
+
+/* ---------- Motion ---------- */
+
+/* Photographs settle rather than pop */
+.tb-media {
+  border-radius: var(--tb-r-tile);
+  overflow: hidden;
+}
+
+.tb-media img {
+  display: block;
+  width: 100%;
+  transform: scale(1.04);
+  transition: transform 900ms var(--tb-ease);
+}
+
+.reveal-on-scroll.is-visible .tb-media img {
+  transform: scale(1);
+}
+
+/* Stagger adjacent siblings without threading a delay prop through every call site */
+.tb-stagger > * {
+  transition-delay: calc(var(--tb-step, 80ms) * var(--i, 0));
+}
+
+.tb-stagger > *:nth-child(1) { --i: 0; }
+.tb-stagger > *:nth-child(2) { --i: 1; }
+.tb-stagger > *:nth-child(3) { --i: 2; }
+.tb-stagger > *:nth-child(4) { --i: 3; }
+.tb-stagger > *:nth-child(5) { --i: 4; }
+.tb-stagger > *:nth-child(6) { --i: 5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tb-card,
+  .tb-btn,
+  .tb-chip,
+  .tb-media img,
+  .tb-card--ruled::before,
+  .tb-stagger > * {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,33 +1,9 @@
-.features {
-  background: var(--bg-secondary);
-  overflow: hidden;
-}
-
-.features-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3.5rem;
-}
-
-.features-eyebrow {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent-primary);
-  margin-bottom: 1rem;
-}
-
-.features-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1rem;
-}
-
-.features-subtitle {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin: 0 auto;
+.features-chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
 }
 
 .features-grid {
@@ -36,92 +12,48 @@
   gap: 1.5rem;
 }
 
-.feature-card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.75rem;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+/* RevealOnScroll wraps each card, so the card must fill its wrapper. */
+.features-grid > * {
+  display: flex;
 }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--accent-primary);
+.feature-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
 }
 
 .feature-card-top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 1.25rem;
+  color: var(--tb-ink-2);
 }
 
-.feature-icon {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  border-radius: var(--radius-md);
-  background: rgba(245, 158, 11, 0.1);
-}
-
-.feature-tag {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-full);
-}
-
-.feature-tag--shopper {
-  color: var(--accent-tertiary);
-  background: rgba(245, 158, 11, 0.12);
-}
-
-.feature-tag--creator {
-  color: #db2777;
-  background: rgba(236, 72, 153, 0.12);
-}
-
-.feature-tag--brand {
-  color: #2563eb;
-  background: rgba(59, 130, 246, 0.12);
-}
-
-.feature-title-sm {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
+.feature-num {
+  font-family: var(--tb-label);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--tb-ink-3);
 }
 
 .feature-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--tb-ink-2);
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .feature-card {
-    padding: 1.5rem;
   }
 }

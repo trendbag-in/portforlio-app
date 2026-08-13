@@ -1,10 +1,8 @@
-// Export all views from here
 export { default as HeroView } from './Hero';
 export { default as FeaturesView } from './Features';
-export { default as DiscoveryUniverseView } from './DiscoveryUniverse';
-// export { default as TestimonialsView } from './Testimonials';
-// export { default as WhyChooseUsView } from './WhyChooseUs';
-// export { default as IntegrationView } from './Integration';
+export { default as WhoItsForView } from './WhoItsFor';
+export { default as ThesisView } from './Thesis';
+export { default as HyperlocalView } from './Hyperlocal';
 export { default as AboutUsView } from './AboutUs';
 export { default as ContactView } from './Contact';
 export { default as FooterView } from './Footer';

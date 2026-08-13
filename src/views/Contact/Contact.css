@@ -1,213 +1,187 @@
-/* Contact Section Styles */
-.contact {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--bg-secondary);
-  overflow: hidden;
-  padding: var(--section-spacing) 0;
-}
-
-.contact-header-side {
-  text-align: left;
-  max-width: 100%;
-  padding-top: 2rem;
-  /* Align with form top */
-}
-
-.contact-title {
-  font-size: 3.5rem;
-  /* Larger for side layout */
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
-  line-height: 1.1;
-}
-
-.contact-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  margin: 0;
-  max-width: 90%;
-}
-
-.contact-content {
+.contact-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40fr 60fr;
   gap: 4rem;
   align-items: start;
 }
 
-/* Contact Info */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+.contact-rows {
+  margin-top: 2rem;
 }
 
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.info-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
+.contact-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: var(--accent-primary);
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px dashed var(--tb-line);
+  color: inherit;
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
+  display: grid;
+  place-items: center;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-card-fill);
+  color: var(--tb-ink-2);
 }
 
-.info-text h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
+.contact-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tb-ink);
 }
 
-.info-text p {
-  color: var(--text-secondary);
-  margin-bottom: 0;
-  line-height: 1.6;
+.contact-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem;
+  border-radius: var(--tb-r-card);
+  background: var(--tb-surface);
+  box-shadow: var(--tb-shadow-md);
 }
 
-/* Contact Form */
+/* The reveal wrapper is the parent, so the rule wipes in with the panel. */
+.contact-panel.tb-card--ruled::before {
+  transform: scaleX(1);
+}
+
+.contact-panel-lede {
+  margin: 0.375rem 0 1.75rem;
+  font-size: 0.9375rem;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.25rem;
 }
 
-.form-row {
-  display: flex;
-  gap: 2rem;
-  width: 100%;
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.form-col {
+.contact-field {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 0.5rem;
 }
 
-.contact-form-container {
-  background: var(--bg-primary);
-  padding: 3rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-  width: 100%;
-}
-
-.form-group {
-  margin-bottom: 2rem;
-}
-
-.form-label {
-  display: block;
-  font-size: 0.95rem;
+/* Labels sit above the field, never as floating labels inside it. */
+.contact-field label {
+  font-family: var(--tb-label);
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-  /* Reduced to minimal */
-  margin-top: 10px;
-  /* Added spacing above labels */
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tb-ink-3);
 }
 
-/* Removed .form-label:first-child rule to allow margin-top on all labels */
-
-.form-input,
-.form-textarea {
+.contact-field input,
+.contact-field textarea {
   width: 100%;
   padding: 0.875rem 1.25rem;
-  background: var(--bg-secondary);
-  border: 1px solid #d1d5db;
-  border-radius: var(--radius-sm);
-  font-family: 'Inter', sans-serif;
+  border: none;
+  background: var(--tb-raised);
+  color: var(--tb-ink);
+  font-family: var(--tb-sans);
   font-size: 1rem;
-  color: var(--text-primary);
-  transition: all 0.2s ease;
+  transition: box-shadow var(--tb-fast) var(--tb-ease);
 }
 
-[data-theme='dark'] .form-input,
-[data-theme='dark'] .form-textarea {
-  border-color: #4b5563;
-  background: var(--bg-tertiary);
-  color: #f3f4f6;
-  /* Ensure input text is light */
+.contact-field input {
+  height: 48px;
+  border-radius: var(--tb-r-pill);
 }
 
-[data-theme='dark'] .form-input::placeholder,
-[data-theme='dark'] .form-textarea::placeholder {
-  color: #9ca3af;
-  /* Light gray placeholder */
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  background: var(--bg-primary);
-  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
-}
-
-.form-textarea {
-  min-height: 150px;
+.contact-field textarea {
+  border-radius: var(--tb-r-sm);
   resize: vertical;
+  min-height: 140px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .contact-content {
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: var(--tb-ink-3);
+}
+
+/* Focus is a terracotta ring, matching the product's input spec. */
+.contact-field input:focus,
+.contact-field textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.5px var(--tb-accent);
+}
+
+.contact-submit {
+  align-self: flex-start;
+}
+
+.contact-submit:disabled {
+  background: var(--tb-card-fill);
+  color: var(--tb-ink-3);
+  cursor: not-allowed;
+}
+
+.contact-error {
+  color: var(--tb-error, #D11F1F);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 900px) {
+  .contact-inner {
     grid-template-columns: 1fr;
-    /* Stack on laptops and smaller */
-    gap: 4rem;
+    gap: 2.5rem;
   }
 
-  /* Responsive for form row */
-  @media (max-width: 768px) {
-    .form-row {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  }
-
-  .contact-info {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .info-item {
-    flex: 1;
-    min-width: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-header {
-    margin-bottom: 3rem;
-  }
-
-  .contact-title {
-    font-size: 2.5rem;
-  }
-
-  .contact-form-container {
+  .contact-panel {
     padding: 1.5rem;
   }
 
-  .contact-info {
-    flex-direction: column;
-    align-items: flex-start;
+  .contact-form-row {
+    grid-template-columns: 1fr;
   }
+}
+
+/* Role selector — chips, matching the Features filter, so the whole site uses
+   one tab mechanism. */
+.contact-roles {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-roles legend {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-family: var(--tb-label);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tb-ink-3);
+}
+
+.contact-role-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contact-role-chips .tb-chip {
+  background: var(--tb-raised);
+}
+
+.contact-role-chips .tb-chip--active {
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
 }

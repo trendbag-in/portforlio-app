@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
+import LegalToc from '../components/LegalToc';
 import { FooterView } from '../views';
 import './PrivacyPolicy.css'; // Reuse the shared legal-page styles
 
@@ -11,7 +12,10 @@ const ReturnPolicy = () => {
                 <h1>Return &amp; Exchange Policy</h1>
                 <p className="last-updated">Last Updated: {new Date().toLocaleDateString()}</p>
 
-                <div className="privacy-section">
+                <LegalToc />
+
+                <div className="privacy-body">
+                    <div className="privacy-section">
                     <h2>1. Overview</h2>
                     <p>
                         This Return &amp; Exchange Policy explains the conditions under which items purchased
@@ -116,6 +120,7 @@ const ReturnPolicy = () => {
                         If you have any questions about this Return &amp; Exchange Policy, contact us at:{' '}
                         <a href="mailto:team@trendbag.in">team@trendbag.in</a>.
                     </p>
+                </div>
                 </div>
             </div>
             <FooterView />

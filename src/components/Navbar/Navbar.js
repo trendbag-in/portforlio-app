@@ -1,39 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../Logo';
 import './Navbar.css';
+
+const NAV_ITEMS = [
+  { id: 'hero', label: 'Home' },
+  { id: 'features', label: 'Features' },
+  { id: 'who-its-for', label: "Who it's for" },
+  { id: 'about-us', label: 'About' },
+  { id: 'contact', label: 'Contact' }
+];
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const [theme, setTheme] = useState('light'); // Default to light for Wishlink vibe
+  const [theme, setTheme] = useState('light');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'features', label: 'Features' },
-    { id: 'shoppers', label: 'Who it’s for' },
-    { id: 'about-us', label: 'About' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
-  // Theme Toggle Logic
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    const saved = localStorage.getItem('theme') || 'light';
+    setTheme(saved);
+    document.documentElement.setAttribute('data-theme', saved);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    localStorage.setItem('theme', next);
+    document.documentElement.setAttribute('data-theme', next);
   };
 
-  // Highlight the nav link for whichever section is currently in view.
+  // Highlight whichever section is currently under the top bar.
   useEffect(() => {
-    const ids = ['hero', 'features', 'shoppers', 'about-us', 'contact'];
     const onScroll = () => {
-      let current = ids[0];
-      for (const id of ids) {
+      let current = NAV_ITEMS[0].id;
+      for (const { id } of NAV_ITEMS) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 120) current = id;
       }
@@ -44,49 +46,36 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Removed scroll-based visibility logic as Navbar is now static at top
-
-  // Navigation Logic
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const scrollToSection = (sectionId) => {
+  const goToSection = (sectionId) => {
+    setMenuOpen(false);
     if (location.pathname !== '/') {
       navigate('/');
-      // Optional: Wait for navigation then scroll, but for 'hero' usually top is fine.
-      // If jumping to specific section from other page is needed, we'd need a context or query param.
-      // For now, logo -> home (top) is sufficient.
       setTimeout(() => {
-        window.scrollTo(0, 0);
+        const el = document.getElementById(sectionId);
+        window.scrollTo({ top: el ? el.offsetTop : 0, behavior: 'smooth' });
       }, 100);
       return;
     }
-
-    const element = document.getElementById(sectionId);
-    const appContainer = document.querySelector('.App');
-    if (element) {
-      // Natural scroll
-      const yOffset = -0;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+    const el = document.getElementById(sectionId);
+    if (el) {
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset, behavior: 'smooth' });
     }
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-brand">
-          <button className="brand-button" onClick={() => scrollToSection('hero')}>
-            <span className="brand-text">Trend<span>Bag</span></span>
-          </button>
-        </div>
+    <nav className="navbar tb-glass">
+      <div className="navbar-inner container">
+        <button className="navbar-brand" onClick={() => goToSection('hero')}>
+          <Logo size={28} />
+          <span className="navbar-wordmark">trendbag</span>
+        </button>
 
-        <div className="navbar-menu">
-          {navItems.map((item) => (
+        <div className={`navbar-menu ${menuOpen ? 'is-open' : ''}`}>
+          {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
-              className={`navbar-item ${activeSection === item.id ? 'active' : ''}`}
-              onClick={() => scrollToSection(item.id)}
+              className={`navbar-link ${activeSection === item.id ? 'is-active' : ''}`}
+              onClick={() => goToSection(item.id)}
             >
               {item.label}
             </button>
@@ -94,27 +83,33 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
-          <a
-            href="https://admin.trendbag.in/install"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="navbar-install"
-          >
-            Install
-          </a>
-
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? '☀️' : '🌙'}
+          <button className="navbar-icon-btn" onClick={toggleTheme} aria-label="Toggle colour theme">
+            {theme === 'dark' ? (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" />
+              </svg>
+            )}
           </button>
 
-          <div className="nav-contact-info">
-            <a href="tel:+918005377342" className="nav-contact-link">+91 8005377342</a>
-            <a href="mailto:team@trendbag.in" className="nav-contact-link">team@trendbag.in</a>
-          </div>
+          <button className="navbar-cta" onClick={() => goToSection('contact')}>
+            Book a demo
+          </button>
+
+          <button
+            className="navbar-icon-btn navbar-burger"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
         </div>
       </div>
     </nav>

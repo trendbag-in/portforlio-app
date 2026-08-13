@@ -1,0 +1,109 @@
+.hyperlocal-inner {
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hyperlocal-specs {
+  margin-top: 2rem;
+}
+
+.hyperlocal-panel {
+  padding: 2rem;
+  border-radius: var(--tb-r-card);
+  background: var(--tb-surface);
+  box-shadow: var(--tb-shadow-md);
+}
+
+.hyperlocal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.hyperlocal-tag {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--tb-r-xs);
+  background: var(--tb-card-fill);
+}
+
+/* Graph paper, drawn with two repeating gradients rather than an SVG. */
+.hyperlocal-grid {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--tb-r-xs);
+  background-color: var(--tb-raised);
+  background-image:
+    linear-gradient(to right, var(--tb-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--tb-line) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+.hyperlocal-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hyperlocal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--tb-ink-3);
+}
+
+.hyperlocal-label {
+  font-family: var(--tb-label);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tb-ink-2);
+  white-space: nowrap;
+}
+
+.hyperlocal-pin.is-active .hyperlocal-dot {
+  width: 22px;
+  height: 22px;
+  background: var(--tb-accent);
+  box-shadow: 0 0 0 6px var(--tb-accent-muted);
+  animation: hyperlocal-pulse 2.2s ease-in-out infinite;
+}
+
+.hyperlocal-label--active {
+  padding: 2px 8px;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
+  font-weight: 600;
+}
+
+@keyframes hyperlocal-pulse {
+  0%, 100% { box-shadow: 0 0 0 6px var(--tb-accent-muted); }
+  50%      { box-shadow: 0 0 0 14px rgba(229, 90, 43, 0.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hyperlocal-pin.is-active .hyperlocal-dot {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hyperlocal-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hyperlocal-panel {
+    padding: 1.25rem;
+  }
+
+  .hyperlocal-grid {
+    background-size: 40px 40px;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
+import LegalToc from '../components/LegalToc';
 import { FooterView } from '../views';
 import './PrivacyPolicy.css'; // Reuse the shared legal-page styles
 
@@ -11,7 +12,10 @@ const CommunityGuidelines = () => {
                 <h1>Community Guidelines</h1>
                 <p className="last-updated">Last Updated: {new Date().toLocaleDateString()}</p>
 
-                <div className="privacy-section">
+                <LegalToc />
+
+                <div className="privacy-body">
+                    <div className="privacy-section">
                     <h2>1. Our Community</h2>
                     <p>
                         TrendBag is a fashion discovery community built on authenticity, creativity,
@@ -88,6 +92,7 @@ const CommunityGuidelines = () => {
                         If you have any questions about these guidelines or want to report a concern,
                         please contact us at: <a href="mailto:team@trendbag.in">team@trendbag.in</a>.
                     </p>
+                </div>
                 </div>
             </div>
             <FooterView />

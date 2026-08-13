@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
+import LegalToc from '../components/LegalToc';
 import { FooterView } from '../views';
 import './PrivacyPolicy.css';
 
@@ -11,7 +12,10 @@ const PrivacyPolicy = () => {
                 <h1>Privacy Policy</h1>
                 <p className="last-updated">Last Updated: {new Date().toLocaleDateString()}</p>
 
-                <div className="privacy-section">
+                <LegalToc />
+
+                <div className="privacy-body">
+                    <div className="privacy-section">
                     <h2>1. Introduction</h2>
                     <p>
                         TrendBag (“TrendBag”, “we”, “us”, or “our”) operates the website at
@@ -272,6 +276,7 @@ const PrivacyPolicy = () => {
                         If you have any questions about this Privacy Policy or our privacy practices, contact
                         us at: <a href="mailto:team@trendbag.in">team@trendbag.in</a>.
                     </p>
+                </div>
                 </div>
             </div>
             <FooterView />

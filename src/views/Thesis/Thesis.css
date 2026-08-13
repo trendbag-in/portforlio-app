@@ -1,0 +1,51 @@
+.thesis {
+  padding: 3rem 0 6rem;
+}
+
+.thesis-panel {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 4rem;
+  border-radius: var(--tb-r-sheet);
+  background: linear-gradient(135deg, var(--tb-accent-muted), var(--tb-surface));
+  border: 1px solid rgba(229, 90, 43, 0.25);
+}
+
+/* A soft brand wash bleeding off the top-right corner, clipped by the radius. */
+.thesis-panel::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -8%;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, var(--tb-brand) 0%, transparent 60%);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.thesis-label {
+  color: var(--tb-accent-ink);
+  margin-bottom: 0.875rem;
+}
+
+.thesis-quote {
+  position: relative;
+  max-width: 860px;
+  font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  color: var(--tb-ink);
+}
+
+.thesis-quote strong {
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .thesis-panel {
+    padding: 2rem 1.5rem;
+  }
+}

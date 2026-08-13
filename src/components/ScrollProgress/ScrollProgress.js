@@ -6,16 +6,15 @@ const ScrollProgress = () => {
     const [activeSection, setActiveSection] = useState('hero');
     const location = useLocation();
 
+    // Must track the sections that actually exist in App.js — stale ids leave
+    // dead dots that never light up.
     const sections = [
         { id: 'hero', label: 'Home' },
-        { id: 'shoppers', label: 'Shoppers' },
-        { id: 'creators', label: 'Creators' },
-        { id: 'brands', label: 'Brands' },
+        { id: 'features', label: 'Features' },
+        { id: 'who-its-for', label: "Who it's for" },
         { id: 'about-us', label: 'Why TrendBag' },
-        { id: 'integrations', label: 'Powered By' },
         { id: 'mission', label: 'Mission' },
-        { id: 'contact', label: 'Contact' },
-        { id: 'footer', label: 'Footer' }
+        { id: 'contact', label: 'Contact' }
     ];
 
     const scrollToSection = (id) => {

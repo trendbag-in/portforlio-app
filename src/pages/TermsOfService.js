@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
+import LegalToc from '../components/LegalToc';
 import { FooterView } from '../views';
 import './PrivacyPolicy.css'; // Reuse the shared legal-page styles
 
@@ -11,7 +12,10 @@ const TermsOfService = () => {
                 <h1>Terms of Service</h1>
                 <p className="last-updated">Last Updated: {new Date().toLocaleDateString()}</p>
 
-                <div className="privacy-section">
+                <LegalToc />
+
+                <div className="privacy-body">
+                    <div className="privacy-section">
                     <h2>1. Acceptance of Terms</h2>
                     <p>
                         These Terms of Service ("Terms") govern your access to and use of TrendBag's
@@ -84,6 +88,7 @@ const TermsOfService = () => {
                     <p>
                         If you have any questions about these Terms, please contact us at: <a href="mailto:team@trendbag.in">team@trendbag.in</a>.
                     </p>
+                </div>
                 </div>
             </div>
             <FooterView />

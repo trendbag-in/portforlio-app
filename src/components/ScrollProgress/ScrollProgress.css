@@ -1,84 +1,87 @@
-/* Side Navigation */
 .side-nav {
-    position: fixed;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 1000;
-    pointer-events: none;
+  position: fixed;
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 90;
+  pointer-events: none;
 }
 
 .side-nav-item-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    position: relative;
-    pointer-events: auto;
-    height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  pointer-events: auto;
+  height: 16px;
 }
 
 .side-nav-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--text-muted);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.5;
-    padding: 0;
-    position: relative;
-    z-index: 2;
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--tb-ink-3);
+  opacity: 0.45;
+  cursor: pointer;
+  transition: transform var(--tb-normal) var(--tb-ease),
+              background-color var(--tb-normal) var(--tb-ease),
+              opacity var(--tb-normal) var(--tb-ease);
 }
 
 .side-nav-dot:hover {
-    transform: scale(1.5);
-    background: var(--accent-primary);
-    opacity: 1;
+  transform: scale(1.4);
+  background: var(--tb-accent);
+  opacity: 1;
 }
 
 .side-nav-dot.active {
-    transform: scale(1.5);
-    background: var(--accent-primary);
-    opacity: 1;
-    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+  transform: scale(1.4);
+  background: var(--tb-accent);
+  opacity: 1;
+  box-shadow: 0 0 0 4px var(--tb-accent-muted);
 }
 
-/* Label Tooltip */
+/* Mono tooltip on the system's surface, not a black pill. */
 .side-nav-label {
-    position: absolute;
-    right: 24px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    pointer-events: none;
-    font-family: 'Inter', sans-serif;
-}
-
-[data-theme='dark'] .side-nav-label {
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
+  position: absolute;
+  right: 22px;
+  padding: 4px 10px;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-surface);
+  color: var(--tb-ink);
+  box-shadow: var(--tb-shadow-md);
+  font-family: var(--tb-label);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+  transition: opacity var(--tb-fast) var(--tb-ease), transform var(--tb-fast) var(--tb-ease);
 }
 
 .side-nav-item-wrapper:hover .side-nav-label,
 .side-nav-label.visible {
-    opacity: 1;
-    transform: translateX(-8px);
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Hide on mobile */
-@media (max-width: 768px) {
-    .side-nav {
-        display: none;
-    }
+@media (max-width: 1100px) {
+  .side-nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-nav-dot,
+  .side-nav-label {
+    transition: none;
+  }
 }

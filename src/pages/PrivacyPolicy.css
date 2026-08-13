@@ -1,54 +1,201 @@
+/* Shared stylesheet for all six legal pages. Long-form reading comfort is the
+   point: no cards around sections, no icons in the body, no highlights. */
+
 .privacy-page {
-    background: var(--bg-primary);
-    min-height: 100vh;
-    color: var(--text-primary);
+  background: var(--tb-paper);
+  padding: calc(72px + 4rem) 0 6rem;
 }
 
 .privacy-container {
-    padding-top: calc(var(--nav-height) + 4rem);
-    padding-bottom: 4rem;
-    max-width: 800px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  column-gap: 4rem;
+  align-items: start;
 }
 
-.privacy-container h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+/* Title block spans both columns; the rail and the body share the row below. */
+.privacy-page h1,
+.last-updated {
+  grid-column: 1 / -1;
+}
+
+.privacy-body {
+  min-width: 0;
+  max-width: 720px;
+}
+
+@media (max-width: 1000px) {
+  .privacy-container {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 760px;
+  }
+}
+
+.privacy-header {
+  margin-bottom: 3.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--tb-line);
+}
+
+.privacy-eyebrow {
+  font-family: var(--tb-label);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tb-accent-ink);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.privacy-page h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 
 .last-updated {
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    font-size: 0.9rem;
-}
-
-.privacy-section {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--tb-line);
+  font-family: var(--tb-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tb-ink-3);
 }
 
 .privacy-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1rem;
+  scroll-margin-top: 110px;
+}
+
+.privacy-body > .privacy-section:first-child h2 {
+  margin-top: 0;
+}
+
+.privacy-section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
 }
 
 .privacy-section p {
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--tb-ink-2);
+  margin-bottom: 1.25rem;
 }
 
-.privacy-section ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
+.privacy-section ul,
+.privacy-section ol {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+  list-style: none;
 }
 
-.privacy-section li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
+/* Arrow bullets, never filled dots. */
+.privacy-section ul li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--tb-ink-2);
+  border-bottom: 1px dashed var(--tb-line);
 }
 
-[data-theme='dark'] .privacy-page {
-    background: var(--bg-primary);
+.privacy-section ul li:last-child {
+  border-bottom: none;
+}
+
+.privacy-section ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--tb-accent-ink);
+}
+
+.privacy-section ol {
+  counter-reset: legal;
+}
+
+.privacy-section ol li {
+  position: relative;
+  counter-increment: legal;
+  padding: 0.5rem 0 0.5rem 2.25rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--tb-ink-2);
+}
+
+.privacy-section ol li::before {
+  content: counter(legal, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  font-family: var(--tb-label);
+  font-size: 0.8125rem;
+  color: var(--tb-ink-3);
+}
+
+.privacy-section a {
+  color: var(--tb-accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy-section strong {
+  color: var(--tb-ink);
+  font-weight: 600;
+}
+
+/* Callout: fill plus a top rule, no border. */
+.privacy-callout {
+  position: relative;
+  overflow: hidden;
+  background: var(--tb-surface);
+  border-radius: var(--tb-r-tile);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.privacy-callout::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--tb-accent);
+}
+
+.privacy-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--tb-line);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--tb-accent-ink);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .privacy-page {
+    padding: calc(72px + 2rem) 0 4rem;
+  }
+
+  .privacy-container {
+    padding: 0 1.25rem;
+  }
 }

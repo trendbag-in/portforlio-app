@@ -1,71 +1,9 @@
-/* Modern Design System - Wishlink-inspired Clean Aesthetic */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+/* Studio Editorial — global base.
+ * Design tokens and editorial devices live in styles/studio-editorial.css.
+ * This file holds only the reset, base typography and shared layout helpers. */
 
-:root {
-  /* Default (Light Mode) - Clean & Crisp */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  /* Very subtle gray for sections */
-  --bg-tertiary: #f3f4f6;
+@import './styles/studio-editorial.css';
 
-  --text-primary: #111827;
-  /* Almost black */
-  --text-secondary: #4b5563;
-  /* Dark gray */
-  --text-muted: #9ca3af;
-
-  --border-color: #e5e7eb;
-
-  /* Brand Colors - Yellowish Orange (Wishlink-ish accent) */
-  --accent-primary: #F59E0B;
-  /* Amber 500 */
-  --accent-secondary: #FBBF24;
-  /* Amber 400 */
-  --accent-tertiary: #D97706;
-  /* Amber 600 */
-
-  --gradient-main: linear-gradient(135deg, #F59E0B, #FBBF24);
-  --gradient-text: linear-gradient(to right, #D97706, #F59E0B);
-
-  /* Spacing & Layout */
-  --nav-height: 80px;
-  --container-width: 1200px;
-  --section-spacing: 8rem;
-  /* Increased for better breathing room */
-  --element-spacing: 2rem;
-
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-full: 9999px;
-
-  /* Shadows - Subtle & Refined */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-  /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme='dark'] {
-  /* Dark Mode Overrides */
-  --bg-primary: #0f0f0f;
-  --bg-secondary: #18181b;
-  --bg-tertiary: #27272a;
-
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-
-  --border-color: #27272a;
-
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-}
-
-/* Global Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -74,58 +12,33 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--tb-paper);
+  color: var(--tb-ink);
+  font-family: var(--tb-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  /* clip, not hidden — overflow-x:hidden makes this a scroll container and
+     silently breaks position:sticky for every descendant. */
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .App {
   min-height: 100vh;
-  overflow-x: hidden;
-  /* Removed scroll-snap properties */
-  scroll-behavior: smooth;
+  overflow-x: clip;
   position: relative;
-}
-
-/* Global Scrollbar Hiding */
-::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE/Edge */
-  scroll-behavior: smooth;
-}
-
-body {
-  overflow-x: hidden;
-  /* Prevent horizontal scroll */
-}
-
-
-[data-theme='dark'] .form-label {
-  color: #e5e7eb;
-  /* Light gray for better readability */
-}
-
-[data-theme='dark'] .contact-title,
-[data-theme='dark'] .info-text h4 {
-  color: #f9fafb;
-}
-
-[data-theme='dark'] .contact-subtitle,
-[data-theme='dark'] .info-text p {
-  color: #9ca3af;
-}
-
-[data-theme='dark'] .btn-primary {
-  background-color: var(--accent-primary);
-  color: #ffffff;
-  border: none;
-}
-
-[data-theme='dark'] .btn-primary:hover {
-  background-color: var(--accent-secondary);
 }
 
 section,
@@ -134,153 +47,100 @@ footer {
   position: relative;
 }
 
-/* Content sections size to their content with consistent vertical rhythm.
-   Only the hero spans the viewport; everything else flows naturally so
-   nothing is forced to 100vh (which caused huge gaps + overlap on mobile). */
-.section-block {
-  padding: var(--section-spacing) 0;
+/* Headings take the sans face; the mono layer is labels and numbers only. */
+/* Bodoni carries h1 and h2 — the sizes where a didone's hairlines survive.
+   h3 and h4 are card and section titles at 20px and under, so they stay in
+   Karla, where they read cleanly against body copy. */
+h1,
+h2 {
+  font-family: var(--tb-display);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--tb-ink);
+  text-wrap: balance;
 }
 
-/* Typography */
-h1,
-h2,
 h3,
-h4,
-h5,
-h6 {
-  font-family: 'Outfit', sans-serif;
+h4 {
+  font-family: var(--tb-sans);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--tb-ink);
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
+  font-size: clamp(2.9rem, 5.8vw, 4.9rem);
+  line-height: 1.02;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.1rem, 3.6vw, 2.9rem);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: 1.25rem;
 }
 
 p {
-  color: var(--text-secondary);
-  font-size: 1.0625rem;
-  margin-bottom: 1.5rem;
+  color: var(--tb-ink-2);
 }
 
-/* Utility Classes */
+a {
+  color: var(--tb-accent-ink);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Keyboard focus must stay visible — the accent ring is the system's focus mark. */
+:focus-visible {
+  outline: 2px solid var(--tb-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout ---------- */
+
 .container {
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.text-gradient {
-  color: var(--accent-primary);
-  /* Fallback */
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
+/* 96px between major blocks; a section ends 96px below its last element. */
+.section-block {
+  padding: 6rem 0;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.875rem 1.75rem;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  transition: var(--transition-fast);
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid transparent;
-  font-size: 1rem;
-  letter-spacing: -0.01em;
+.section-head {
+  max-width: 720px;
+  margin-bottom: 3rem;
 }
 
-.btn-primary {
-  background: var(--accent-primary);
-  color: white;
-  box-shadow: var(--shadow-sm);
+.section-head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-.btn-primary:hover {
-  background: var(--accent-tertiary);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+.section-lede {
+  margin-top: 1rem;
+  font-size: 1.0625rem;
+  color: var(--tb-ink-2);
 }
 
-.btn-outline {
-  background: transparent;
-  border-color: var(--border-color);
-  color: var(--text-primary);
-}
-
-.btn-outline:hover {
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
-  background: rgba(245, 158, 11, 0.05);
-}
-
-/* Section Styles */
-.section {
-  padding: var(--section-spacing) 0;
-  position: relative;
-}
-
-.section-hero {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  padding-top: var(--nav-height);
-  padding-bottom: 4rem;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  /* Slower, cinematic ease */
-  opacity: 0;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  :root {
-    --nav-height: 64px;
-    --section-spacing: 5rem;
-  }
-
-  .section {
-    padding: var(--section-spacing) 0;
-  }
-
-  h1 {
-    font-size: 2.25rem;
-  }
-
   .container {
     padding: 0 1.25rem;
+  }
+
+  .section-block {
+    padding: 4rem 0;
   }
 }

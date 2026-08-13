@@ -2,172 +2,103 @@ import React from 'react';
 import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
 import './AboutUs.css';
 
-const AboutUs = () => {
-  // Why Choose Us data
-  const differentiators = [
-    {
-      icon: "🤖",
-      title: "AI-Powered Intelligence",
-      description: "Advanced machine learning algorithms that understand your style, predict trends, and optimize collaborations."
-    },
-    {
-      icon: "🔒",
-      title: "Trust & Security",
-      description: "Verified badges, secure payments, and transparent reviews ensure safe and authentic partnerships."
-    },
-    {
-      icon: "📈",
-      title: "Proven Results",
-      description: "You can expect significant increases in earnings and campaign ROI with our AI-powered optimization tools."
-    },
-    {
-      icon: "🇮🇳",
-      title: "India-First Community",
-      description: "Connect with fashion enthusiasts, brands, and influencers across India's vibrant fashion landscape."
-    }
-  ];
+/* Numbered editorial rows rather than emoji cards — the numerals, the dashed
+   rules and the column rhythm are the whole design here. */
+const REASONS = [
+  {
+    n: '01',
+    title: 'AI that understands taste',
+    body: 'Models trained on real Indian fashion behaviour rather than a generic recommendation engine bolted onto a catalog.',
+    points: ['Look and garment recognition', 'Per-brand size prediction']
+  },
+  {
+    n: '02',
+    title: 'Verified and safe',
+    body: 'Verified creator badges, secure payments and transparent reviews on every collaboration, so nobody is trading on trust alone.',
+    points: ['Verified creator badges', 'Escrowed campaign payments']
+  },
+  {
+    n: '03',
+    title: 'Measurable outcomes',
+    body: 'Creators and brands see exactly which posts drove which sales, instead of guessing from reach and impressions.',
+    points: ['Per-post conversion data', 'Attribution down to the item']
+  },
+  {
+    n: '04',
+    title: 'India-first',
+    body: 'Built around Indian sizing, Indian brands, Indian occasions and Indian price points — not a western platform with a currency switch.',
+    points: ['38 cities and counting', 'Rupee pricing throughout']
+  }
+];
 
-  // Tech stack
-  const integrations = [
-    { name: "Go", icon: "🐹", description: "High-performance backend" },
-    { name: "gRPC", icon: "🔌", description: "Service communication" },
-    { name: "MongoDB", icon: "🍃", description: "Primary database" },
-    { name: "PostgreSQL", icon: "🐘", description: "Relational data store" },
-    { name: "Redis", icon: "⚡", description: "Real-time caching" },
-    { name: "OpenSearch", icon: "🔍", description: "Search & discovery" },
-    { name: "ClickHouse", icon: "📊", description: "Analytics engine" },
-    { name: "Apache Kafka", icon: "📨", description: "Event streaming" },
-    { name: "AWS", icon: "☁️", description: "Cloud infrastructure" },
-    { name: "Shopify", icon: "🛒", description: "E-commerce platform" },
-    { name: "Instagram", icon: "📷", description: "Social integration" },
-    { name: "Razorpay", icon: "💳", description: "Payment processing" },
-    { name: "OpenAI", icon: "🧠", description: "AI-powered intelligence" }
-  ];
+/* Infrastructure, stated plainly and without icons. This is a consumer site, so
+   the row stays quiet rather than becoming a logo wall. */
+const STACK = ['Go', 'gRPC', 'MongoDB', 'PostgreSQL', 'Redis', 'OpenSearch', 'ClickHouse', 'Kafka', 'AWS', 'Bedrock', 'Shopify', 'Razorpay'];
 
-  return (
-    <>
-      <section id="about-us" className="about-us-snap">
-        <div className="container">
-          {/* Header */}
-          <RevealOnScroll className="about-header">
-            <h2 className="about-title">
-              Why to Choose
-              <span className="text-gradient"> TrendBag</span>
-            </h2>
-            <p className="about-subtitle">
-              Join thousands of fashion enthusiasts, influencers, and brands who trust TrendBag
-            </p>
-          </RevealOnScroll>
+const AboutUs = () => (
+  <>
+    <section id="about-us" className="about section-block">
+      <div className="container">
+        <RevealOnScroll className="section-head">
+          <p className="tb-kicker tb-kicker--start">Why TrendBag</p>
+          <h2>Built for how people actually shop.</h2>
+        </RevealOnScroll>
 
-          {/* Why Choose Us Section */}
-          <div className="differentiators-section">
-            <div className="differentiators-list">
-              {differentiators.map((item, index) => (
-                <RevealOnScroll
-                  key={index}
-                  className="differentiator-item"
-                  delay={index * 200}
-                >
-                  <span className="differentiator-icon">{item.icon}</span>
-                  <div className="differentiator-content">
-                    <h4 className="differentiator-title">{item.title}</h4>
-                    <p className="differentiator-description">{item.description}</p>
-                  </div>
-                </RevealOnScroll>
-              ))}
-            </div>
+        <div className="about-rows">
+          {REASONS.map((r, i) => (
+            <RevealOnScroll key={r.n} className="about-row" delay={i * 80}>
+              <span className="tb-num about-num">{r.n}</span>
+              <div className="about-main">
+                <h3>{r.title}</h3>
+                <p className="about-body">{r.body}</p>
+              </div>
+              <ul className="tb-arrow-list about-points">
+                {r.points.map((p) => <li key={p}>{p}</li>)}
+              </ul>
+            </RevealOnScroll>
+          ))}
+        </div>
+
+        <RevealOnScroll className="about-stack">
+          <p className="tb-overline about-stack-label">Running on</p>
+          <div className="about-stack-row">
+            {STACK.map((s) => <span key={s} className="about-stack-item">{s}</span>)}
           </div>
-        </div>
-      </section>
+        </RevealOnScroll>
+      </div>
+    </section>
 
-      <section id="integrations" className="integrations-snap">
-        <div className="container">
-          <RevealOnScroll className="integrations-section">
-            <h3 className="section-subtitle">Powered by</h3>
-            <div className="integrations-scroll-container">
-              {/* Row 1: Normal Scroll */}
-              <div className="integrations-scroll">
-                {integrations.map((integration, index) => (
-                  <div
-                    key={`r1-1-${index}`}
-                    className="integration-card"
-                  >
-                    <div className="integration-icon">{integration.icon}</div>
-                    <h4 className="integration-name">{integration.name}</h4>
-                    <p className="integration-description">{integration.description}</p>
-                  </div>
-                ))}
-                {integrations.map((integration, index) => (
-                  <div
-                    key={`r1-2-${index}`}
-                    className="integration-card"
-                  >
-                    <div className="integration-icon">{integration.icon}</div>
-                    <h4 className="integration-name">{integration.name}</h4>
-                    <p className="integration-description">{integration.description}</p>
-                  </div>
-                ))}
-              </div>
+    <section id="mission" className="mission">
+      <div className="mission-media">
+        <img
+          src="/img/mission-1376.jpg"
+          srcSet="/img/mission-768.jpg 768w, /img/mission-1376.jpg 1376w"
+          sizes="100vw"
+          width="1376"
+          height="768"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="mission-scrim tb-scrim-bottom" />
+      </div>
 
-              {/* Row 2: Reverse Scroll */}
-              <div className="integrations-scroll reverse">
-                {integrations.map((integration, index) => (
-                  <div
-                    key={`r2-1-${index}`}
-                    className="integration-card"
-                  >
-                    <div className="integration-icon">{integration.icon}</div>
-                    <h4 className="integration-name">{integration.name}</h4>
-                    <p className="integration-description">{integration.description}</p>
-                  </div>
-                ))}
-                {integrations.map((integration, index) => (
-                  <div
-                    key={`r2-2-${index}`}
-                    className="integration-card"
-                  >
-                    <div className="integration-icon">{integration.icon}</div>
-                    <h4 className="integration-name">{integration.name}</h4>
-                    <p className="integration-description">{integration.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      <section id="mission" className="mission-snap">
-        <div className="container">
-          {/* Company Mission */}
-          <RevealOnScroll className="mission-section">
-            <div className="mission-content">
-              <h3 className="mission-title">Our Mission</h3>
-              <p className="mission-text">
-                We are revolutionizing the way the world discovers fashion by bridging the gap between creators, brands, and trendsetters.
-                We empower you to define your unique style through AI-driven insights, fostering a community where authenticity thrives and every connection creates value.
-              </p>
-            </div>
-          </RevealOnScroll>
-
-          {/* CTA Section */}
-          <RevealOnScroll className="cta-section" delay={200}>
-            <h3 className="cta-title">Ready to Transform Your Fashion Journey?</h3>
-            <div className="cta-buttons">
-              <a
-                href="https://admin.trendbag.in/install"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-gradient btn-large"
-              >
-                Install Now Into Your Shopify Store
-              </a>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-    </>
-  );
-};
+      <div className="container mission-inner">
+        <RevealOnScroll className="mission-content">
+          <p className="tb-overline mission-label">Our mission</p>
+          <h2 className="mission-title">
+            Fashion discovery that starts with a person, not a search box.
+          </h2>
+          <p className="mission-body">
+            We are closing the gap between the creators who shape taste, the brands who make
+            the pieces, and the people who want to wear them.
+          </p>
+          <a href="#contact" className="tb-btn tb-btn--primary">Book a demo</a>
+        </RevealOnScroll>
+      </div>
+    </section>
+  </>
+);
 
 export default AboutUs;

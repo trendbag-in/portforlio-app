@@ -1,225 +1,129 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../../components/Logo';
+import Icon from '../../components/Icon';
 import './Footer.css';
+
+const PRODUCT_LINKS = [
+  { label: 'Features', href: '#features' },
+  { label: "Who it's for", href: '#who-its-for' },
+  { label: 'Open the app', href: 'https://app.trendbag.in', external: true },
+  { label: 'Book a demo', href: '#contact' }
+];
+
+const COMPANY_LINKS = [
+  { label: 'About', href: '#about-us' },
+  { label: 'Contact', href: '#contact' }
+];
+
+const LEGAL_LINKS = [
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
+  { label: 'Community guidelines', to: '/community-guidelines' },
+  { label: 'Refunds', to: '/refund' },
+  { label: 'Returns', to: '/returns' },
+  { label: 'Shipping', to: '/shipping' }
+];
+
+const SOCIALS = [
+  { name: 'Instagram', icon: 'instagram', url: 'https://instagram.com/trendbag.in' },
+  { name: 'X', icon: 'x', url: 'https://x.com/trendbag_in' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/company/trendbag' },
+  { name: 'YouTube', icon: 'youtube', url: 'https://youtube.com/@trendbag' }
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
   const navigate = useNavigate();
 
-  // ... (links definitions omitted for brevity if not changing) ...
-
-
-  /* 
-    const scrollToTop = () => {
-      if (location.pathname !== '/') {
-          navigate('/');
-          window.scrollTo(0, 0);
-          return;
-      }
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    };
-  */
-
-  const quickLinks = [
-    { label: 'Home', href: '#hero', isRoute: false },
-    { label: 'About Us', href: '#about-us', isRoute: false },
-    { label: 'Contact', href: '#contact', isRoute: false },
-    { label: 'App', href: 'https://app.trendbag.in', isExternal: true }
-  ];
-
-  const socialLinks = [
-    { name: 'Instagram', icon: '📱', url: '#' },
-    { name: 'Twitter', icon: '🐦', url: '#' },
-    { name: 'LinkedIn', icon: '💼', url: '#' },
-    { name: 'YouTube', icon: '📺', url: '#' }
-  ];
-
-  const legalLinks = [
-    { label: 'Privacy Policy', href: '/privacy', isRoute: true },
-    { label: 'Terms of Service', href: '/terms', isRoute: true },
-    { label: 'Community Guidelines', href: '/community-guidelines', isRoute: true },
-    { label: 'Refund Policy', href: '/refund', isRoute: true },
-    { label: 'Return Policy', href: '/returns', isRoute: true },
-    { label: 'Shipping Policy', href: '/shipping', isRoute: true }
-  ];
-
-  const scrollToTop = () => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      window.scrollTo(0, 0);
-      return;
-    }
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  const scrollToSection = (href) => {
-    const elementId = href.replace('#', '');
-    const element = document.getElementById(elementId);
-    const appContainer = document.querySelector('.App');
-
-    if (element && appContainer) {
-      appContainer.scrollTo({
-        top: element.offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  // Consolidated handleLinkClick
-  const handleLinkClick = (e, link) => {
-    // If it's an external link, let default behavior happen
-    if (link.isExternal) return;
-
+  const goToAnchor = (e, href) => {
     e.preventDefault();
-
-    // If it's a route (like /survey), navigate to it
-    if (link.isRoute) {
-      // scroll to top handled by router or useEffect usually, but we can force it
-      navigate(link.href);
-      window.scrollTo(0, 0);
-      return;
-    }
-
-    // If we are not on home page, navigate home first then scroll
+    const id = href.replace('#', '');
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        const elementId = link.href.replace('#', '');
-        const element = document.getElementById(elementId);
-        if (element) {
-          const yOffset = -0;
-          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        } else {
-          window.scrollTo(0, 0);
-        }
+        const el = document.getElementById(id);
+        window.scrollTo({ top: el ? el.offsetTop : 0, behavior: 'smooth' });
       }, 100);
       return;
     }
-
-    // If we are on home page, just scroll
-    const elementId = link.href.replace('#', '');
-    const element = document.getElementById(elementId);
-    if (element) {
-      const yOffset = -0;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset, behavior: 'smooth' });
   };
+
+  const renderLink = (link) =>
+    link.external ? (
+      <a href={link.href} target="_blank" rel="noopener noreferrer" className="footer-link">
+        {link.label}
+      </a>
+    ) : (
+      <a href={link.href} className="footer-link" onClick={(e) => goToAnchor(e, link.href)}>
+        {link.label}
+      </a>
+    );
 
   return (
     <footer id="footer" className="footer">
       <div className="container">
-        {/* Main Footer Content */}
-        <div className="footer-content">
-          {/* Brand Section */}
+        <div className="footer-grid">
           <div className="footer-brand">
-            <div className="footer-logo" onClick={scrollToTop} role="button" tabIndex={0}>
-              <span className="brand-text">Trend<span>Bag</span></span>
+            <div className="footer-mark">
+              <Logo size={28} />
+              <span className="footer-wordmark">trendbag</span>
             </div>
             <p className="footer-tagline">
-              Your Personal Stylist, Shopping Companion, and Fashion Community - All in One
+              Discover what creators wear, keep a wardrobe of what you own, and buy it
+              in one place.
             </p>
-            <div className="social-links">
-              {socialLinks.map((social, index) => (
+            <div className="footer-socials">
+              {SOCIALS.map((s) => (
                 <a
-                  key={index}
-                  href={social.url}
-                  className="social-link"
-                  aria-label={social.name}
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social"
+                  aria-label={s.name}
                 >
-                  <span className="social-icon">{social.icon}</span>
+                  <Icon name={s.icon} size={18} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-section">
-            <h3 className="footer-title">Quick Links</h3>
-            <ul className="footer-links">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  {link.isExternal ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-link"
-                    >
-                      {link.label}
-                    </a>
-                  ) : link.isRoute ? (
-                    <Link to={link.href} className="footer-link">
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="footer-link"
-                      onClick={(e) => handleLinkClick(e, link)}
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
+          <div className="footer-col">
+            <p className="tb-overline footer-col-title">Product</p>
+            <ul>{PRODUCT_LINKS.map((l) => <li key={l.label}>{renderLink(l)}</li>)}</ul>
           </div>
 
-          {/* Company Info */}
-          <div className="footer-section">
-            <h3 className="footer-title">Company</h3>
-            <ul className="footer-links">
-              <li><a href="#" className="footer-link">About Us</a></li>
-              <li><a href="#" className="footer-link">Blog</a></li>
-            </ul>
+          <div className="footer-col">
+            <p className="tb-overline footer-col-title">Company</p>
+            <ul>{COMPANY_LINKS.map((l) => <li key={l.label}>{renderLink(l)}</li>)}</ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="footer-section">
-            <h3 className="footer-title">Contact Us</h3>
-            <ul className="footer-links">
-              <li><a href="tel:+918005377342" className="footer-link">+91 8005377342</a></li>
+          <div className="footer-col">
+            <p className="tb-overline footer-col-title">Contact</p>
+            <ul>
+              <li><a href="tel:+918005377342" className="footer-link">+91 80053 77342</a></li>
               <li><a href="mailto:team@trendbag.in" className="footer-link">team@trendbag.in</a></li>
             </ul>
             <address className="footer-address">
-              M/s. Holygrims Private Limited<br />
-              D-9 Sector-3, Noida<br />
-              Gautam Buddha Nagar<br />
-              Noida 201301<br />
+              Holygrims Private Limited<br />
+              D-9 Sector 3, Noida<br />
+              Gautam Buddha Nagar 201301<br />
               Uttar Pradesh, India
             </address>
           </div>
         </div>
 
-        {/* Footer Bottom */}
         <div className="footer-bottom">
-          <div className="footer-bottom-content">
-            <p className="copyright">
-              © {currentYear} TrendBag. All rights reserved.
-            </p>
-            <div className="legal-links">
-              {legalLinks.map((link, index) => (
-                link.isRoute ? (
-                  <Link key={index} to={link.href} className="legal-link">
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a key={index} href={link.href} className="legal-link">
-                    {link.label}
-                  </a>
-                )
-              ))}
-            </div>
-          </div>
+          <p className="footer-copy">© {currentYear} TrendBag. All rights reserved.</p>
+          <nav className="footer-legal" aria-label="Legal">
+            {LEGAL_LINKS.map((l) => (
+              <Link key={l.to} to={l.to} className="footer-legal-link">{l.label}</Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

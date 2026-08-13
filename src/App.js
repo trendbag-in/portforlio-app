@@ -1,6 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HeroView, FeaturesView, DiscoveryUniverseView, AboutUsView, ContactView, FooterView } from './views';
+import {
+  HeroView,
+  FeaturesView,
+  WhoItsForView,
+  ThesisView,
+  HyperlocalView,
+  AboutUsView,
+  ContactView,
+  FooterView
+} from './views';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CommunityGuidelines from './pages/CommunityGuidelines';
@@ -26,7 +35,9 @@ function App() {
               <Navbar />
               <HeroView />
               <FeaturesView />
-              <DiscoveryUniverseView />
+              <WhoItsForView />
+              <ThesisView />
+              <HyperlocalView />
               <AboutUsView />
               <ContactView />
               <FooterView />
