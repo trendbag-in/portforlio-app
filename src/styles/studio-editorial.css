@@ -91,6 +91,19 @@
   --tb-shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.60);
 }
 
+/* Optical compensation. Light type on a dark ground looks thinner than the same
+   weight does dark-on-light, and a didone is mostly hairline — at 700 on #0B0B0A
+   Bodoni's thin strokes start to break up. Dark mode carries the display face a
+   step heavier and eases the tracking so the counters stay open. */
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] .tb-display,
+[data-theme='dark'] .tb-h2,
+[data-theme='dark'] .tb-num {
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
 /* ---------- Type ---------- */
 
 .tb-kicker {

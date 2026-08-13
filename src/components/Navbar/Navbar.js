@@ -13,15 +13,15 @@ const NAV_ITEMS = [
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // index.html already applied the theme before first paint; this only syncs
+  // the toggle's own state to whatever it picked.
   useEffect(() => {
-    const saved = localStorage.getItem('theme') || 'light';
-    setTheme(saved);
-    document.documentElement.setAttribute('data-theme', saved);
+    setTheme(document.documentElement.getAttribute('data-theme') || 'dark');
   }, []);
 
   const toggleTheme = () => {
