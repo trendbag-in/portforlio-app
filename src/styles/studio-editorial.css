@@ -46,6 +46,9 @@
      sizes where its hairlines survive. Karla sets everything read as a sentence,
      and, letterspaced and uppercased, every label that used to be a code mono. */
   --tb-display: 'Bodoni Moda', Didot, 'Times New Roman', serif;
+  /* Pin the optical size well below the rendered size. On auto, opsz tracks the
+     font size and Bodoni's hairlines thin out precisely where it is biggest. */
+  --tb-display-opsz: 'opsz' 16;
   --tb-sans: 'Karla', system-ui, sans-serif;
   --tb-label: 'Karla', system-ui, sans-serif;
 
@@ -96,9 +99,7 @@
    Bodoni's thin strokes start to break up. Dark mode carries the display face a
    step heavier and eases the tracking so the counters stay open. */
 [data-theme='dark'] h1,
-[data-theme='dark'] h2,
 [data-theme='dark'] .tb-display,
-[data-theme='dark'] .tb-h2,
 [data-theme='dark'] .tb-num {
   font-weight: 800;
   letter-spacing: 0;
@@ -112,8 +113,8 @@
   gap: 12px;
   font-family: var(--tb-label);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--tb-accent-ink);
 }
@@ -139,15 +140,17 @@
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.01em;
+  font-optical-sizing: none;
+  font-variation-settings: var(--tb-display-opsz);
   color: var(--tb-ink);
 }
 
 .tb-h2 {
-  font-family: var(--tb-display);
+  font-family: var(--tb-sans);
   font-size: clamp(2rem, 3.4vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: var(--tb-ink);
 }
 
@@ -162,6 +165,8 @@
 .tb-num {
   font-family: var(--tb-display);
   font-weight: 700;
+  font-optical-sizing: none;
+  font-variation-settings: var(--tb-display-opsz);
   font-variant-numeric: tabular-nums;
   color: var(--tb-ink);
 }
@@ -177,7 +182,7 @@
   font-family: var(--tb-label);
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--tb-ink-3);
 }
@@ -241,11 +246,10 @@
   padding: 0 1.75rem;
   border: none;
   border-radius: var(--tb-r-pill);
-  font-family: var(--tb-label);
-  font-size: 0.8125rem;
+  font-family: var(--tb-sans);
+  font-size: 0.9375rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   cursor: pointer;
   text-decoration: none;
   transition: background-color var(--tb-fast) var(--tb-ease),

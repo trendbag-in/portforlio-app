@@ -51,22 +51,28 @@ footer {
 /* Bodoni carries h1 and h2 — the sizes where a didone's hairlines survive.
    h3 and h4 are card and section titles at 20px and under, so they stay in
    Karla, where they read cleanly against body copy. */
-h1,
-h2 {
+/* Bodoni is now the hero voice only. It is a display face — it earns its keep
+   at 60px+ and becomes hard work below that, which is exactly what happened
+   when it was also setting h2. */
+h1 {
   font-family: var(--tb-display);
   font-weight: 700;
-  line-height: 1.06;
+  line-height: 1.04;
   letter-spacing: -0.01em;
   color: var(--tb-ink);
+  font-optical-sizing: none;
+  font-variation-settings: var(--tb-display-opsz);
   text-wrap: balance;
 }
 
+h2,
+h2,
 h3,
 h4 {
   font-family: var(--tb-sans);
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
   color: var(--tb-ink);
   text-wrap: balance;
 }
