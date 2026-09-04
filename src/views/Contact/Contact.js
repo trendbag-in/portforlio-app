@@ -172,11 +172,11 @@ const Contact = () => {
         <RevealOnScroll className="contact-pricing" delay={80}>
           <span className="tb-overline">Pricing</span>
           <p className="contact-pricing-range">
-            Products on TrendBag are priced from <span className="tb-num contact-pricing-figure">&#8377;299</span> to{' '}
+            Everything on TrendBag is priced between <span className="tb-num contact-pricing-figure">&#8377;299</span> and{' '}
             <span className="tb-num contact-pricing-figure">&#8377;50,000</span>.
           </p>
           <p className="contact-pricing-note">
-            The exact amount payable is shown on the product page and again at checkout before
+            The exact amount payable is shown on the listing and again at checkout before
             payment. All prices are inclusive of applicable taxes; shipping, if any, is shown
             separately at checkout.
           </p>
