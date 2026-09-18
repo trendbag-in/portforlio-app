@@ -22,7 +22,8 @@ const LEGAL_LINKS = [
   { label: 'Community guidelines', to: '/community-guidelines' },
   { label: 'Refunds', to: '/refund' },
   { label: 'Returns', to: '/returns' },
-  { label: 'Shipping', to: '/shipping' }
+  { label: 'Shipping', to: '/shipping' },
+  { label: 'Seller terms', to: '/sellers/terms' }
 ];
 
 const SOCIALS = [

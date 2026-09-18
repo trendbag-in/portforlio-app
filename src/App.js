@@ -16,6 +16,7 @@ import CommunityGuidelines from './pages/CommunityGuidelines';
 import RefundPolicy from './pages/RefundPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
+import SellerTerms from './pages/SellerTerms';
 import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
@@ -61,6 +62,9 @@ function App() {
 
           {/* Shipping & Delivery Policy Page */}
           <Route path="/shipping" element={<ShippingPolicy />} />
+
+          {/* Seller (brand) payout terms — linked from the Shopify App Store listing */}
+          <Route path="/sellers/terms" element={<SellerTerms />} />
 
           {/* Error Page - Catch all unmatched routes */}
           <Route path="*" element={<ErrorPage />} />
