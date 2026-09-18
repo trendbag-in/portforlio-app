@@ -7,7 +7,7 @@ import './PrivacyPolicy.css'; // Reuse the shared legal-page styles
 // Platform defaults, mirrored from the LIVE economics config (verified 2026-09-18) (brand_category_terms,
 // return_cost_rules, brand_penalty_configs). A store's exact terms are shown inside the TrendBag
 // app; this page is the public reference linked from the Shopify App Store listing.
-const DEFAULT_MARGIN_PCT = 15;
+const DEFAULT_MARGIN_PCT = 35;
 const EXAMPLE_RETAIL = 1000;
 
 const RETURN_SPLIT = [
