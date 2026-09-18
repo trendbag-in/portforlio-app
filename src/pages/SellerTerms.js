@@ -26,7 +26,7 @@ const SellerTerms = () => {
         <div className="privacy-page">
             <Navbar />
             <div className="privacy-container container">
-                <h1>Seller Terms &amp; Payouts</h1>
+                <h1>Shopify Sellers &amp; Terms</h1>
                 <p className="last-updated">Last Updated: 18 September 2026</p>
 
                 <LegalToc />
