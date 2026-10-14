@@ -1,0 +1,22 @@
+@media (prefers-reduced-motion: no-preference) {
+  .pin-track {
+    height: calc(100vh - 72px + var(--extra) * 1vh);
+    height: calc(100svh - 72px + var(--extra) * 1svh);
+  }
+
+  .pin-sticky {
+    position: sticky;
+    top: 72px;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 72px);
+    height: calc(100svh - 72px);
+  }
+}
+
+/* Phones: while held, copy marked .pin-more is dropped so the scene fits the screen. */
+@media (prefers-reduced-motion: no-preference) and (max-width: 900px) {
+  .pin-sticky .pin-more {
+    display: none;
+  }
+}

@@ -14,7 +14,7 @@
   position: relative;
   justify-self: center;
   /* Never taller than the screen it is shown on. */
-  width: min(100%, 340px, 42vh);
+  width: min(100%, 340px, 36vh);
   aspect-ratio: 9 / 19;
   border-radius: 46px;
   overflow: hidden;
@@ -138,5 +138,10 @@
 @media (max-width: 900px) {
   .earn-inner {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .lock {
+    width: min(100%, 300px, 30vh);
   }
 }

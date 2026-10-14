@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
-import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
-import { useScrollProgress } from '../../hooks/motion';
+import React from 'react';
+import Pinned from '../../components/Pinned/Pinned';
 import { AESTHETICS } from '../../data/aesthetics';
 import './Aesthetics.css';
 
@@ -10,24 +9,22 @@ const TILTS = [-5, 3, -2, 4, -4, 2, -3, 5, -1, 3, -4, 2];
 
 /* Aesthetics as polaroids pegged along a sagging clothesline that is wider than the
    screen: scrolling slides the line past, and each polaroid swings as it travels. */
-const Aesthetics = () => {
-  const ref = useRef(null);
-  useScrollProgress(ref);
-
-  return (
-    <section id="aesthetics" className="aesthetics section-block" ref={ref}>
+const Aesthetics = () => (
+  <section id="aesthetics" className="aesthetics">
+    <Pinned extra={160} className="aesthetics-pin">
+      <div className="aesthetics-stage">
       <div className="container aesthetics-head">
-        <RevealOnScroll className="aesthetics-text">
+        <div className="aesthetics-text">
           <p className="tb-kicker tb-kicker--start">Aesthetics</p>
           <h2>Find your aesthetic. Then shop it.</h2>
-          <p className="section-lede">
+          <p className="section-lede pin-more">
             Over a hundred style aesthetics, from Desi Streetwear to Old Money. Each one
             brings together the looks people post, products that match, and the pieces in
             your own wardrobe that already fit it.
           </p>
-        </RevealOnScroll>
+        </div>
 
-        <dl className="aesthetics-specs">
+        <dl className="aesthetics-specs pin-more">
           <div className="tb-keyval"><dt>Looks</dt><dd>Posted by people who wear it</dd></div>
           <div className="tb-keyval"><dt>Products</dt><dd>Pieces to buy in the aesthetic</dd></div>
           <div className="tb-keyval"><dt>Wardrobe</dt><dd>What you own that already fits</dd></div>
@@ -60,8 +57,9 @@ const Aesthetics = () => {
           </ul>
         </div>
       </div>
-    </section>
-  );
-};
+      </div>
+    </Pinned>
+  </section>
+);
 
 export default Aesthetics;

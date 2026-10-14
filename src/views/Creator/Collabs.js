@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useScrollProgress } from '../../hooks/motion';
+import React from 'react';
+import Pinned from '../../components/Pinned/Pinned';
 import './Collabs.css';
 
 const TERMS = [
@@ -12,21 +12,18 @@ const STEPS = ['Discover brands', 'Request, or answer theirs', 'Agree the commis
 
 /* A deal memo on paper: the parties, the commission picked from the three kinds the
    app offers, two signatures, and an AGREED stamp that lands as you scroll. */
-const Collabs = () => {
-  const ref = useRef(null);
-  useScrollProgress(ref);
-
-  return (
-    <section id="collabs" className="collabs section-block" ref={ref}>
+const Collabs = () => (
+  <section id="collabs" className="collabs">
+    <Pinned extra={90}>
       <div className="container collabs-inner">
         <div className="collabs-copy">
           <p className="tb-kicker tb-kicker--start">Collaborations</p>
           <h2>Work with brands on terms you can read.</h2>
-          <p className="section-lede">
+          <p className="section-lede pin-more">
             Browse brands, send a request or answer theirs, and agree how you are paid before
             anything goes live. Each collaboration gets its own analytics.
           </p>
-          <ol className="collabs-steps">
+          <ol className="collabs-steps pin-more">
             {STEPS.map((s, i) => <li key={s}><span className="tb-num">0{i + 1}</span>{s}</li>)}
           </ol>
         </div>
@@ -63,8 +60,8 @@ const Collabs = () => {
           <span className="memo-stamp" aria-hidden="true">Agreed</span>
         </article>
       </div>
-    </section>
-  );
-};
+    </Pinned>
+  </section>
+);
 
 export default Collabs;

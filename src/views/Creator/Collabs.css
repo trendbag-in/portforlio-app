@@ -27,7 +27,7 @@
 
 /* Paper stays paper in both themes. */
 .memo {
-  --stamp: clamp(0, (var(--p, 1) - 0.42) * 8, 1);
+  --stamp: clamp(0, (var(--pin, 1) - 0.3) * 5, 1);
   position: relative;
   justify-self: center;
   width: min(100%, 440px);

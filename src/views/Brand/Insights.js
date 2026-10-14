@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useScrollProgress } from '../../hooks/motion';
+import React from 'react';
+import Pinned from '../../components/Pinned/Pinned';
 import { LOOKS } from '../../data/looks';
 import { G } from '../../data/garments';
 import './Insights.css';
@@ -22,17 +22,14 @@ const LINES = [
 
 /* The question brands ask — which looks sell my products — answered as a receipt
    that prints out of the look it belongs to. */
-const Insights = () => {
-  const ref = useRef(null);
-  useScrollProgress(ref);
-
-  return (
-    <section id="insights" className="ix section-block" ref={ref}>
+const Insights = () => (
+  <section id="insights" className="ix">
+    <Pinned extra={100}>
       <div className="container ix-inner">
         <div className="ix-copy">
           <p className="tb-kicker tb-kicker--start">Analytics</p>
           <h2>See which looks sell your products.</h2>
-          <p className="section-lede">
+          <p className="section-lede pin-more">
             Every order is traced back to the look that drove it: views, tag taps, orders and
             sales, with what you owe the creator worked out for you.
           </p>
@@ -69,8 +66,8 @@ const Insights = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </Pinned>
+  </section>
+);
 
 export default Insights;

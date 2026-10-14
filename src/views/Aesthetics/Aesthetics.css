@@ -1,3 +1,7 @@
+.aesthetics-stage {
+  width: 100%;
+}
+
 .aesthetics-head {
   display: grid;
   grid-template-columns: 6fr 5fr;
@@ -123,7 +127,7 @@
   }
 
   .line {
-    --q: clamp(0, (var(--p, 0.5) - 0.18) / 0.64, 1);
+    --q: clamp(0, (var(--pin, 0.5) - 0.08) / 0.84, 1);
     transform: translate3d(calc(var(--q) * (100vw - var(--n) * var(--w))), 0, 0);
     will-change: transform;
   }
