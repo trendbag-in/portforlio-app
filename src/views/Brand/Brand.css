@@ -1,117 +1,8 @@
-.connect-inner,
 .insights-inner {
   display: grid;
   grid-template-columns: 5fr 6fr;
   gap: clamp(2rem, 5vw, 6rem);
   align-items: center;
-}
-
-/* ---------- Connect: data flowing between the store and TrendBag ---------- */
-.sync {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 1rem;
-  align-items: center;
-}
-
-.sync-node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 1.25rem 1rem;
-  border-radius: var(--tb-r-card);
-  background: var(--tb-surface);
-  box-shadow: var(--tb-shadow-lg);
-  text-align: center;
-  color: var(--tb-ink);
-}
-
-.sync-node--tb {
-  background: var(--tb-accent);
-  color: var(--tb-on-accent);
-}
-
-.sync-node--tb img {
-  border-radius: 10px;
-  box-shadow: 0 0 0 2px var(--tb-on-accent);
-}
-
-.sync-badges {
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-}
-
-.sync-badges span {
-  padding: 3px 10px;
-  border-radius: var(--tb-r-pill);
-  background: var(--tb-raised);
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.sync-lanes {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1.25rem;
-}
-
-.sync-lane {
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-}
-
-.sync-label {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-align: center;
-  color: var(--tb-ink-2);
-}
-
-/* A dashed rail with three packets riding it; orders ride back the other way. */
-.sync-track {
-  position: relative;
-  height: 10px;
-  background: linear-gradient(to right, var(--tb-line) 50%, transparent 50%) 0 50% / 10px 2px repeat-x;
-}
-
-.sync-track span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--tb-accent);
-}
-
-.sync-track span:nth-child(2) { left: 45%; }
-.sync-track span:nth-child(3) { left: 90%; }
-
-@media (prefers-reduced-motion: no-preference) {
-  .sync-track span {
-    left: 0;
-    animation: sync-ride 2.4s linear infinite;
-    animation-delay: calc(var(--i) * -0.5s);
-  }
-
-  .sync-track span:nth-child(2) { animation-delay: calc(var(--i) * -0.5s - 0.8s); }
-  .sync-track span:nth-child(3) { animation-delay: calc(var(--i) * -0.5s - 1.6s); }
-
-  .sync-lane.is-out .sync-track span {
-    animation-direction: reverse;
-  }
-}
-
-@keyframes sync-ride {
-  from { left: 0; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  to { left: calc(100% - 10px); opacity: 0; }
 }
 
 /* ---------- Fulfilment deck ---------- */
@@ -402,23 +293,12 @@
 }
 
 @media (max-width: 900px) {
-  .connect-inner,
   .insights-inner {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 600px) {
-  .sync {
-    grid-template-columns: 1fr;
-  }
-
-  .sync-track {
-    transform: rotate(90deg);
-    width: 60px;
-    margin: 1.5rem auto;
-  }
-
   .insights-board {
     grid-template-columns: 1fr;
   }

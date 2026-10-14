@@ -473,13 +473,12 @@ body::after {
 }
 
 /* Cursor spotlight: card edges light up near the pointer (see useSpotlight). */
-.tb-tile,
-.sync-node {
+.tb-tile {
   position: relative;
 }
 
 .tb-tile::before,
-.sync-node::before,
+.cx-store::before,
 .term-card::before,
 .stack-card::before,
 .persona-card::before {

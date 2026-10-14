@@ -4,53 +4,12 @@ import StackDeck, { Layer } from '../../components/StackDeck/StackDeck';
 import CountUp from '../../components/CountUp';
 import { useScrollProgress } from '../../hooks/motion';
 import { G } from '../../data/garments';
+import Connect from './Connect';
 import './Brand.css';
 
 /* Mirrors the brand side: the Shopify / WooCommerce connector (/connect), the partner
    app's Orders, Boxes, Fulfillment and Returns pages, and Analytics. Figures are
    examples and labelled as such. */
-
-const SYNC = [
-  { name: 'Products & variants', dir: 'in' },
-  { name: 'Inventory levels', dir: 'in' },
-  { name: 'Orders', dir: 'out' }
-];
-
-const Connect = () => (
-  <section id="connect" className="connect section-block">
-    <div className="container connect-inner">
-      <RevealOnScroll className="connect-text">
-        <p className="tb-kicker tb-kicker--start">Connect</p>
-        <h2>Your store, on TrendBag, without re-listing a thing.</h2>
-        <p className="section-lede">
-          Install the connector on Shopify or WooCommerce, accept the payout terms and start the
-          initial sync. Stock stays in sync to help prevent overselling.
-        </p>
-      </RevealOnScroll>
-
-      <div className="sync" aria-label="What gets synced">
-        <div className="sync-node">
-          <span className="sync-badges"><span>Shopify</span><span>WooCommerce</span></span>
-          <strong>Your store</strong>
-        </div>
-
-        <ul className="sync-lanes">
-          {SYNC.map((s, i) => (
-            <li key={s.name} className={`sync-lane is-${s.dir}`} style={{ '--i': i }}>
-              <span className="sync-track" aria-hidden="true"><span /><span /><span /></span>
-              <span className="sync-label">{s.name}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="sync-node sync-node--tb">
-          <img src="/favicon.svg" alt="" width="36" height="36" />
-          <strong>TrendBag marketplace</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 const ORDERS = [
   { id: '#TB-20418', item: 'Linen shirt · M', img: G.linenShirt, status: 'To pack' },

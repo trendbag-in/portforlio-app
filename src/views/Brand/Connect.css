@@ -1,0 +1,368 @@
+.cx-band {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  width: 100%;
+}
+
+/* ---------- Steps: the one the scene is on is lit ---------- */
+.cx-steps {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.cx-steps li {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--tb-line);
+  color: var(--tb-ink-3);
+  transition: color 400ms var(--tb-ease);
+}
+
+.cx-steps li > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.cx-steps strong {
+  font-size: 1.0625rem;
+}
+
+.cx-step-n {
+  font-size: 0.875rem;
+}
+
+.cx-steps li.is-on,
+.cx-steps li.is-done {
+  color: var(--tb-ink-2);
+}
+
+.cx-steps li.is-on strong,
+.cx-steps li.is-done strong {
+  color: var(--tb-ink);
+}
+
+.cx-steps li.is-on .cx-step-n {
+  color: var(--tb-accent-ink);
+}
+
+/* ---------- Scene: drawn at 660×470 and scaled to its column ---------- */
+.cx-scene-fit {
+  width: 100%;
+  height: calc(470px * var(--fit, 1));
+}
+
+.cx-scene {
+  position: relative;
+  width: 660px;
+  height: 470px;
+  transform: scale(var(--fit, 1));
+  transform-origin: 0 0;
+}
+
+.cx-store {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 340px;
+  height: 450px;
+  padding: 18px 16px;
+  border-radius: 18px;
+  background: var(--tb-surface);
+  box-shadow: 0 0 0 1px var(--tb-line), var(--tb-shadow-lg);
+}
+
+.cx-store-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--tb-ink);
+}
+
+.cx-store-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2fb36d;
+  box-shadow: 0 0 0 4px rgba(47, 179, 109, 0.18);
+}
+
+.cx-store-tag {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--tb-ink-3);
+}
+
+.cx-store ul,
+.cx-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cx-row {
+  --e: var(--e0);
+  display: grid;
+  grid-template-columns: 56px 1fr auto 18px;
+  gap: 12px;
+  align-items: center;
+  height: 72px;
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--tb-paper);
+}
+
+.cx-row:nth-child(2) { --e: var(--e1); }
+.cx-row:nth-child(3) { --e: var(--e2); }
+.cx-row:nth-child(4) { --e: var(--e3); }
+
+/* The row keeps a ghost of its thumbnail once the product has lifted off. */
+.cx-row-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1.5px dashed var(--tb-line);
+}
+
+.cx-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.cx-row-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8125rem;
+  color: var(--tb-ink);
+}
+
+.cx-row-name em {
+  font-style: normal;
+  font-size: 0.6875rem;
+  color: var(--tb-ink-3);
+}
+
+.cx-row-stock {
+  font-size: 0.75rem;
+  color: var(--tb-ink-2);
+}
+
+/* A tick appears once the product has landed in the app. */
+.cx-row-synced {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--tb-accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 100% no-repeat;
+  transform: scale(clamp(0, (var(--e, 1) - 0.9) * 10, 1));
+}
+
+.is-tick {
+  animation: cx-tick 700ms var(--tb-ease);
+}
+
+@keyframes cx-tick {
+  0% { color: var(--tb-accent-ink); transform: translateY(-6px); }
+  60% { color: var(--tb-accent-ink); }
+}
+
+.cx-row-stock.is-tick,
+.cx-slot-meta em.is-tick {
+  display: inline-block;
+  color: var(--tb-accent-ink);
+}
+
+.cx-order {
+  margin-top: 4px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--tb-accent-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tb-accent-ink);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms var(--tb-ease), transform 400ms var(--tb-ease);
+}
+
+.cx-order.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- The TrendBag app ---------- */
+.cx-phone {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 470px;
+  padding: 16px 14px;
+  border-radius: 36px;
+  background: var(--tb-paper);
+  box-shadow: 0 0 0 7px #161618, 0 0 0 8px var(--tb-line), 0 24px 48px rgba(0, 0, 0, 0.25);
+}
+
+.cx-phone-head {
+  height: 72px;
+  padding-top: 18px;
+  font-family: var(--tb-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: var(--tb-ink);
+}
+
+.cx-grid {
+  display: grid;
+  grid-template-columns: 104px 104px;
+  gap: 18px 8px;
+}
+
+.cx-slot {
+  --e: var(--e0);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 138px;
+}
+
+.cx-slot:nth-child(2) { --e: var(--e1); }
+.cx-slot:nth-child(3) { --e: var(--e2); }
+.cx-slot:nth-child(4) { --e: var(--e3); }
+
+.cx-slot-img {
+  width: 104px;
+  height: 100px;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  background: var(--tb-surface);
+  outline: 1.5px dashed var(--tb-line);
+  outline-offset: -1.5px;
+}
+
+.cx-slot-name,
+.cx-slot-meta {
+  font-size: 0.6875rem;
+  color: var(--tb-ink);
+  opacity: clamp(0, (var(--e, 1) - 0.85) * 7, 1);
+}
+
+.cx-slot-name {
+  font-weight: 700;
+}
+
+.cx-slot-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--tb-ink-2);
+}
+
+.cx-slot-meta em {
+  font-style: normal;
+  color: var(--tb-ink-3);
+}
+
+/* ---------- Things in flight ---------- */
+/* Travels from its row (56px) to its slot (100px) along an arc, growing as it goes. */
+.cx-fly {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--tb-raised);
+  transform-origin: 0 0;
+  transform:
+    translate(
+      calc(var(--x0) + (var(--x1) - var(--x0)) * var(--e)),
+      calc(var(--y0) + (var(--y1) - var(--y0)) * var(--e) - var(--e) * (1 - var(--e)) * 260px)
+    )
+    rotate(calc(var(--e) * (1 - var(--e)) * -24deg))
+    scale(calc(1 + var(--e) * 0.82));
+  box-shadow: 0 calc(var(--e) * (1 - var(--e)) * 80px) calc(var(--e) * (1 - var(--e)) * 120px) rgba(0, 0, 0, 0.3);
+  will-change: transform;
+}
+
+/* The payment travels back from the app to the store as the order lands. */
+.cx-receipt {
+  --r: clamp(0, (var(--pin, 1) - 0.64) / 0.2, 1);
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 6px 12px;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  opacity: clamp(0, var(--r) * 8, 1);
+  opacity: min(clamp(0, var(--r) * 8, 1), clamp(0, (1 - var(--r)) * 8, 1));
+  transform: translate(
+    calc(560px + (180px - 560px) * var(--r)),
+    calc(130px + (412px - 130px) * var(--r) - var(--r) * (1 - var(--r)) * 220px)
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cx-track {
+    height: calc(100vh - 72px + 160vh);
+    height: calc(100svh - 72px + 160svh);
+  }
+
+  .cx-sticky {
+    position: sticky;
+    top: 72px;
+    height: calc(100vh - 72px);
+    height: calc(100svh - 72px);
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Without motion: the finished scene, every product already in the app. */
+@media (prefers-reduced-motion: reduce) {
+  .cx {
+    padding: 4rem 0;
+  }
+
+  .cx-receipt {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .cx-band {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cx-steps {
+    margin-top: 1rem;
+  }
+
+  .cx-steps li {
+    padding: 0.5rem 0;
+  }
+
+  .cx-steps li:not(.is-on) {
+    display: none;
+  }
+}

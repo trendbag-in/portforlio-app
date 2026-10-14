@@ -73,7 +73,7 @@ export const tilt = {
   }
 };
 
-export const SPOTLIGHT = '.tb-tile, .sync-node, .term-card, .stack-card, .persona-card';
+export const SPOTLIGHT = '.tb-tile, .cx-store, .term-card, .stack-card, .persona-card';
 
 // Mouse-only: writes the pointer position relative to each on-screen card as --mx/--my,
 // once per frame, so nearby card edges catch the light.
