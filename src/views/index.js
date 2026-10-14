@@ -8,3 +8,4 @@ export { default as AestheticsView } from './Aesthetics';
 export { default as AboutUsView } from './AboutUs';
 export { default as ContactView } from './Contact';
 export { default as FooterView } from './Footer';
+export { default as LookbookView } from './Lookbook';

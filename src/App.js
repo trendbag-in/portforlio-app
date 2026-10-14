@@ -8,6 +8,7 @@ import {
   WardrobeView,
   TripView,
   AestheticsView,
+  LookbookView,
   AboutUsView,
   ContactView,
   FooterView
@@ -24,18 +25,23 @@ import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import CookieBanner from './components/CookieBanner/CookieBanner';
+import Marquee from './components/Marquee/Marquee';
+import Intro from './components/Intro/Intro';
 
 import ScrollToTop from './components/ScrollToTop';
 import { usePersona } from './hooks/persona';
+import { useSpotlight } from './hooks/motion';
 
 // The landing page: everyone gets the hero and the picker, then their own sections.
 const Landing = () => {
   const persona = usePersona();
   return (
     <>
+      <Intro />
       <Navbar />
       <main id="main" tabIndex={-1}>
         <PersonaView />
+        <LookbookView />
         {persona === 'shopper' && (
           <>
             <WardrobeView />
@@ -45,6 +51,7 @@ const Landing = () => {
         )}
         {persona === 'creator' && <CreatorView />}
         {persona === 'brand' && <BrandView />}
+        <Marquee />
         <ThesisView />
         <AboutUsView />
         <ContactView />
@@ -65,6 +72,7 @@ const skipToContent = (e) => {
 };
 
 function App() {
+  useSpotlight();
   return (
     <Router>
       <ScrollToTop />

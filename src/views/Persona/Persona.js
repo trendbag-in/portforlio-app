@@ -13,7 +13,6 @@ const CARDS = {
 // The home screen: "Who are you?" picks which set of sections the rest of the page shows.
 const Persona = () => {
   const persona = usePersona();
-
   const choose = (id) => {
     setPersona(id);
     // Let the new sections mount, then bring the first one into view.

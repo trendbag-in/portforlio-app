@@ -24,6 +24,20 @@
     transform: translateX(0);
 }
 
+/* Headings rise out of a mask as their block reveals, like a line set in type. */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal-on-scroll h2 {
+        clip-path: inset(0 0 100% 0);
+        transform: translateY(0.35em);
+        transition: clip-path 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s;
+    }
+
+    .reveal-on-scroll.is-visible h2 {
+        clip-path: inset(0 0 -0.25em 0);
+        transform: none;
+    }
+}
+
 /* Reveal is decoration — never withhold content from users who opt out of motion. */
 @media (prefers-reduced-motion: reduce) {
     .reveal-on-scroll,

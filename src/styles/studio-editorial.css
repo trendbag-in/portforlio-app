@@ -451,3 +451,47 @@
     transform: translateY(calc((0.5 - var(--p, 0.5)) * var(--speed, 0) * 1px));
   }
 }
+
+/* ---------- Editorial finish ---------- */
+
+/* Film grain over everything, so flat fills read like print. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+[data-theme='dark'] body::after {
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  filter: invert(1);
+}
+
+/* Cursor spotlight: card edges light up near the pointer (see useSpotlight). */
+.tb-tile,
+.sync-node {
+  position: relative;
+}
+
+.tb-tile::before,
+.sync-node::before,
+.term-card::before,
+.stack-card::before,
+.persona-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), var(--tb-accent), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}

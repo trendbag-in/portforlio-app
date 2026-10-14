@@ -72,3 +72,35 @@ export const tilt = {
     TILT_VARS.forEach((v) => e.currentTarget.style.removeProperty(v));
   }
 };
+
+export const SPOTLIGHT = '.tb-tile, .sync-node, .term-card, .stack-card, .persona-card';
+
+// Mouse-only: writes the pointer position relative to each on-screen card as --mx/--my,
+// once per frame, so nearby card edges catch the light.
+export function useSpotlight() {
+  useEffect(() => {
+    if (!window.matchMedia('(pointer: fine)').matches) return undefined;
+    let raf = 0;
+    let x = 0;
+    let y = 0;
+    const frame = () => {
+      raf = 0;
+      document.querySelectorAll(SPOTLIGHT).forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        el.style.setProperty('--mx', `${(x - r.left).toFixed(0)}px`);
+        el.style.setProperty('--my', `${(y - r.top).toFixed(0)}px`);
+      });
+    };
+    const move = (e) => {
+      x = e.clientX;
+      y = e.clientY;
+      if (!raf) raf = requestAnimationFrame(frame);
+    };
+    window.addEventListener('pointermove', move, { passive: true });
+    return () => {
+      window.removeEventListener('pointermove', move);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+}

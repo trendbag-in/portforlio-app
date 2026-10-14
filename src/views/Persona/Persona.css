@@ -5,6 +5,7 @@
   padding: calc(72px + 2rem) 0 2.5rem;
 }
 
+
 .persona-inner {
   width: 100%;
 }
@@ -125,4 +126,22 @@
   .persona-line {
     display: none;
   }
+}
+
+/* Held back while the intro plays, then dealt in one after another as it clears. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-intro='on'] .persona-head,
+  [data-intro='on'] .persona-card {
+    opacity: 0;
+  }
+
+  [data-intro='done'] .persona-head,
+  [data-intro='done'] .persona-card {
+    animation: persona-in 900ms var(--tb-ease) backwards;
+    animation-delay: calc(var(--i, -1) * 110ms + 350ms);
+  }
+}
+
+@keyframes persona-in {
+  from { opacity: 0; transform: translateY(48px) scale(0.96); }
 }

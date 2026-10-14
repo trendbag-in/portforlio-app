@@ -1,0 +1,66 @@
+.marquee {
+  padding: clamp(2rem, 6vh, 4rem) 0;
+  overflow: hidden;
+  border-block: 1px solid var(--tb-line);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-row {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.marquee-row li {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  padding-right: clamp(1rem, 2.5vw, 2rem);
+  font-family: var(--tb-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--tb-ink);
+}
+
+.marquee-row li.is-outline span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--tb-ink);
+}
+
+.marquee-row img {
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* Without motion the strip scrolls by hand instead. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+}
