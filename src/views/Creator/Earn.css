@@ -1,0 +1,142 @@
+.earn-inner {
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.earn-ledger {
+  margin-top: 2rem;
+}
+
+/* A phone in the hand: the wallpaper is a look, the clock is your month's earnings. */
+.lock {
+  position: relative;
+  justify-self: center;
+  /* Never taller than the screen it is shown on. */
+  width: min(100%, 340px, 42vh);
+  aspect-ratio: 9 / 19;
+  border-radius: 46px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 0 8px #161618, 0 0 0 9px var(--tb-line), 0 30px 60px rgba(0, 0, 0, 0.35);
+  transform: rotate(2deg);
+}
+
+.lock-wall {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.62) saturate(1.1);
+}
+
+.lock-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18%;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.lock-date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.lock-total {
+  margin: 0.25rem 0 0.125rem;
+  font-family: var(--tb-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1;
+  animation: lock-tick 600ms var(--tb-ease);
+}
+
+@keyframes lock-tick {
+  from { transform: translateY(-10px); opacity: 0.4; }
+}
+
+.lock-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.lock-stack {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Frosted notification cards, the newest dropping in on top. */
+.lock-note {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 18px;
+  background: rgba(245, 245, 247, 0.78);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.lock-note:first-child {
+  animation: lock-in 520ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+@keyframes lock-in {
+  from { opacity: 0; transform: translateY(-24px) scale(0.92); }
+}
+
+.lock-note img {
+  width: 38px;
+  height: 38px;
+  padding: 3px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.lock-note span {
+  display: flex;
+  flex-direction: column;
+}
+
+.lock-note strong {
+  font-size: 0.8125rem;
+}
+
+.lock-note em {
+  align-self: start;
+  font-style: normal;
+  font-size: 0.6875rem;
+  color: #6b6b70;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lock-total,
+  .lock-note:first-child {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .earn-inner {
+    grid-template-columns: 1fr;
+  }
+}

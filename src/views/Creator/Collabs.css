@@ -1,0 +1,189 @@
+.collabs-inner {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.collabs-steps {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.collabs-steps li {
+  display: flex;
+  gap: 0.875rem;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--tb-line);
+  font-weight: 600;
+  color: var(--tb-ink);
+}
+
+.collabs-steps li span {
+  color: var(--tb-accent-ink);
+}
+
+/* Paper stays paper in both themes. */
+.memo {
+  --stamp: clamp(0, (var(--p, 1) - 0.42) * 8, 1);
+  position: relative;
+  justify-self: center;
+  width: min(100%, 440px);
+  padding: 2rem 1.75rem 1.75rem;
+  background: #fbfaf6;
+  color: #1a1a1a;
+  box-shadow: 0 1px 0 #e7e4dc, 0 24px 50px rgba(0, 0, 0, 0.22);
+  transform: rotate(-1.5deg);
+}
+
+.memo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #1a1a1a;
+  font-size: 0.75rem;
+}
+
+.memo-head .tb-overline {
+  color: #1a1a1a;
+}
+
+.memo-parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1.25rem 0;
+}
+
+.memo-parties dt,
+.memo-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8a8f;
+}
+
+.memo-parties dd {
+  margin: 0.25rem 0 0;
+  font-family: var(--tb-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.memo-terms {
+  list-style: none;
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+}
+
+.memo-terms li {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid #ebe8e0;
+  font-size: 0.8125rem;
+  color: #6b6b70;
+}
+
+.memo-terms li span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-terms strong {
+  color: #1a1a1a;
+}
+
+.memo-terms em {
+  font-style: normal;
+  font-family: var(--tb-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #b0aea8;
+}
+
+.memo-terms li.is-on em {
+  color: #1a1a1a;
+}
+
+.memo-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid #b0aea8;
+}
+
+.memo-terms li.is-on .memo-radio {
+  border: 5px solid #1a1a1a;
+}
+
+.memo-note {
+  font-size: 0.75rem;
+  color: #6b6b70;
+}
+
+.memo-sign {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.memo-sign span {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.25rem;
+  border-top: 1px solid #1a1a1a;
+  font-size: 0.6875rem;
+  color: #8a8a8f;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.memo-sign i {
+  order: -1;
+  margin-bottom: 0.25rem;
+  font-family: var(--tb-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #22305e;
+}
+
+/* The stamp slams down from above the paper once the memo is in view. */
+.memo-stamp {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 4.5rem;
+  padding: 0.25rem 0.875rem;
+  border: 3px solid #5a31f4;
+  border-radius: 8px;
+  color: #5a31f4;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  mix-blend-mode: multiply;
+  opacity: calc(var(--stamp) * 0.85);
+  transform: rotate(-14deg) scale(calc(2.4 - var(--stamp) * 1.4));
+  -webkit-mask: radial-gradient(circle at 30% 40%, #000 60%, rgba(0, 0, 0, 0.75) 61%);
+  mask: radial-gradient(circle at 30% 40%, #000 60%, rgba(0, 0, 0, 0.75) 61%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memo {
+    --stamp: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .collabs-inner {
+    grid-template-columns: 1fr;
+  }
+}
