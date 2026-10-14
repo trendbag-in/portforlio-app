@@ -1,7 +1,8 @@
 import { useSyncExternalStore } from 'react';
+import { canRemember } from './consent';
 
 /* Who the visitor said they are. Shopper until they pick; ?for=creator links straight
-   to one, and the last pick is remembered on this device. */
+   to one, and the last pick is remembered on this device if cookies are allowed. */
 export const PERSONAS = [
   { id: 'shopper', label: 'Shopper' },
   { id: 'creator', label: 'Creator' },
@@ -46,7 +47,7 @@ const listeners = new Set();
 export function setPersona(id) {
   if (!isPersona(id) || id === current) return;
   current = id;
-  try { localStorage.setItem(KEY, id); } catch (e) { /* storage blocked */ }
+  try { if (canRemember()) localStorage.setItem(KEY, id); } catch (e) { /* storage blocked */ }
   const url = new URL(window.location.href);
   url.searchParams.set('for', id);
   window.history.replaceState(window.history.state, '', url);

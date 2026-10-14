@@ -146,3 +146,41 @@ img {
     padding: 4rem 0;
   }
 }
+
+/* Keyboard users can jump past the navbar; hidden until focused. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.625rem 1rem;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-ink);
+  color: var(--tb-paper);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* A link-styled button, for actions inside legal copy and the footer. */
+.legal-inline-btn,
+.footer-legal-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.legal-inline-btn {
+  color: var(--tb-accent-ink);
+  text-decoration: underline;
+}

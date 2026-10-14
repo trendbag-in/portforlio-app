@@ -19,9 +19,11 @@ import RefundPolicy from './pages/RefundPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import SellerTerms from './pages/SellerTerms';
+import CookiePolicy from './pages/CookiePolicy';
 import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
+import CookieBanner from './components/CookieBanner/CookieBanner';
 
 import ScrollToTop from './components/ScrollToTop';
 import { usePersona } from './hooks/persona';
@@ -32,22 +34,34 @@ const Landing = () => {
   return (
     <>
       <Navbar />
-      <PersonaView />
-      {persona === 'shopper' && (
-        <>
-          <WardrobeView />
-          <TripView />
-          <AestheticsView />
-        </>
-      )}
-      {persona === 'creator' && <CreatorView />}
-      {persona === 'brand' && <BrandView />}
-      <ThesisView />
-      <AboutUsView />
-      <ContactView />
+      <main id="main" tabIndex={-1}>
+        <PersonaView />
+        {persona === 'shopper' && (
+          <>
+            <WardrobeView />
+            <TripView />
+            <AestheticsView />
+          </>
+        )}
+        {persona === 'creator' && <CreatorView />}
+        {persona === 'brand' && <BrandView />}
+        <ThesisView />
+        <AboutUsView />
+        <ContactView />
+      </main>
       <FooterView />
     </>
   );
+};
+
+// Legal pages have no <main>; their heading is the start of the content there.
+const skipToContent = (e) => {
+  e.preventDefault();
+  const target = document.getElementById('main') || document.querySelector('h1');
+  if (!target) return;
+  target.setAttribute('tabindex', '-1');
+  target.focus();
+  target.scrollIntoView();
 };
 
 function App() {
@@ -55,6 +69,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="App">
+        <a href="#main" className="skip-link" onClick={skipToContent}>Skip to content</a>
         <ScrollProgress />
         <Routes>
           {/* Main Landing Page */}
@@ -81,9 +96,13 @@ function App() {
           {/* Seller (brand) payout terms — linked from the Shopify App Store listing */}
           <Route path="/sellers/terms" element={<SellerTerms />} />
 
+          {/* Cookie Policy Page */}
+          <Route path="/cookies" element={<CookiePolicy />} />
+
           {/* Error Page - Catch all unmatched routes */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <CookieBanner />
       </div>
     </Router>
   );

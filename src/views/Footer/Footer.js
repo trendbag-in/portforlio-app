@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import Icon from '../../components/Icon';
+import { openConsent } from '../../hooks/consent';
 import './Footer.css';
 
 const PRODUCT_LINKS = [
@@ -20,6 +21,7 @@ const LEGAL_LINKS = [
   { label: 'Terms', to: '/terms' },
   { label: 'Community guidelines', to: '/community-guidelines' },
   { label: 'Refunds', to: '/refund' },
+  { label: 'Cookies', to: '/cookies' },
   { label: 'Returns', to: '/returns' },
   { label: 'Shipping', to: '/shipping' },
   { label: 'Seller terms', to: '/sellers/terms' }
@@ -118,11 +120,12 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copy">© {currentYear} TrendBag. All rights reserved.</p>
+          <p className="footer-copy">© {currentYear} Holygrims Private Limited. TrendBag is a brand of Holygrims Private Limited.</p>
           <nav className="footer-legal" aria-label="Legal">
             {LEGAL_LINKS.map((l) => (
               <Link key={l.to} to={l.to} className="footer-legal-link">{l.label}</Link>
             ))}
+            <button type="button" className="footer-legal-link footer-legal-btn" onClick={openConsent}>Cookie settings</button>
           </nav>
         </div>
       </div>

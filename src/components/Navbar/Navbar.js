@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../Logo';
 import { PERSONA_NAV, usePersona } from '../../hooks/persona';
+import { canRemember } from '../../hooks/consent';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -27,9 +28,17 @@ const Navbar = () => {
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
-    localStorage.setItem('theme', next);
+    if (canRemember()) localStorage.setItem('theme', next);
     document.documentElement.setAttribute('data-theme', next);
   };
+
+  // Escape closes the mobile menu.
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKey = (e) => e.key === 'Escape' && setMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
 
   // Highlight whichever section is currently under the top bar.
   useEffect(() => {
