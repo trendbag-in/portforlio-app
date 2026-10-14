@@ -4,7 +4,7 @@ set -e
 
 BUCKET_NAME="tb-portfolio"
 AWS_PROFILE="tb"
-REGION="us-east-1"
+REGION="eu-north-1"
 BUILD_DIR="./build"
 CLOUDFRONT_DIST_ID="${CLOUDFRONT_DIST_ID:-EQF8S5T16TUDV}"  # Default distribution ID, can be overridden via env var
 DOMAIN="trendbag.in"

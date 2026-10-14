@@ -118,12 +118,14 @@
      Each extra card adds about half a viewport of scroll. */
   .stack-sticky {
     height: calc(100vh - 72px);
+    height: calc(100svh - 72px);
     display: flex;
     align-items: center;
   }
 
   .stack-track {
     height: calc(100vh - 72px + (var(--n) - 1) * 50vh);
+    height: calc(100svh - 72px + (var(--n) - 1) * 50svh);
   }
 }
 
@@ -146,10 +148,37 @@
 }
 
 /* Thin screens: the swing stays on screen, and loose pieces would crowd the copy. */
+/* Phones: the deck shrinks to fit the visible screen (svh skips the URL bar) under the
+   heading and tabs, leaving side room for the swing. */
 @media (max-width: 600px) {
+  .stack-deck {
+    max-width: min(var(--deck-w, 340px), 80vw);
+  }
+
+  .stack-cards {
+    height: min(var(--deck-h, 420px), calc(100vh - 330px));
+    height: min(var(--deck-h, 420px), calc(100svh - 330px));
+  }
+
   .stack-card {
-    --swing-x: 28%;
-    --swing-y: 12%;
+    --swing-x: 22%;
+    --swing-y: 10%;
+  }
+
+  /* One row of tabs that scrolls sideways instead of wrapping onto two. */
+  .stack-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 0.75rem;
+  }
+
+  .stack-tab {
+    flex: none;
+  }
+
+  .stack-aside h2 {
+    font-size: 1.5rem;
   }
 
   .stack-backdrop .float {
