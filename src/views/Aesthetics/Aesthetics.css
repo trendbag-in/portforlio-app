@@ -23,7 +23,8 @@
 }
 
 .line {
-  --w: clamp(190px, 17vw, 270px);
+  /* Bounded by height too, so a short laptop screen still fits heading and line. */
+  --w: clamp(170px, min(17vw, 30vh), 270px);
   position: relative;
   width: calc(var(--n) * var(--w));
 }

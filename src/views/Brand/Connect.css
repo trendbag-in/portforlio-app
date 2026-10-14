@@ -54,6 +54,7 @@
 
 /* ---------- Scene: drawn at 660×470 and scaled to its column ---------- */
 .cx-scene-fit {
+  min-width: 0;
   width: 100%;
   height: calc(470px * var(--fit, 1));
 }
@@ -348,9 +349,15 @@
   }
 }
 
+@media (max-height: 800px) {
+  .cx-steps li {
+    padding: 0.625rem 0;
+  }
+}
+
 @media (max-width: 900px) {
   .cx-band {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 

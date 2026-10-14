@@ -184,6 +184,14 @@
 
 @media (max-width: 900px) {
   .collabs-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Small phones: the memo shrinks as a whole so it fits under the heading while held. */
+@media (max-height: 720px) and (max-width: 900px) {
+  .memo {
+    zoom: 0.72;
   }
 }

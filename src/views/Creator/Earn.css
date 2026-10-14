@@ -9,13 +9,15 @@
   margin-top: 2rem;
 }
 
-/* A phone in the hand: the wallpaper is a look, the clock is your month's earnings. */
+/* A phone in the hand: the wallpaper is a look, the clock is your month's earnings.
+   Everything inside is sized in cqw, so the screen scales as one piece with the phone. */
 .lock {
   position: relative;
   justify-self: center;
   /* Never taller than the screen it is shown on. */
   width: min(100%, 340px, 36vh);
   aspect-ratio: 9 / 19;
+  container-type: inline-size;
   border-radius: 46px;
   overflow: hidden;
   background: #111;
@@ -37,23 +39,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 18%;
+  padding-top: 16cqw;
   color: #ffffff;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .lock-date {
-  font-size: 0.875rem;
+  font-size: 4.2cqw;
   font-weight: 600;
   opacity: 0.9;
 }
 
 .lock-total {
-  margin: 0.25rem 0 0.125rem;
+  margin: 1cqw 0 0.5cqw;
   font-family: var(--tb-display);
   font-weight: 700;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: 15cqw;
   line-height: 1;
+  white-space: nowrap;
   animation: lock-tick 600ms var(--tb-ease);
 }
 
@@ -62,37 +65,37 @@
 }
 
 .lock-label {
-  font-size: 0.75rem;
+  font-size: 3.6cqw;
   opacity: 0.8;
 }
 
+/* Notifications sit in the lower half, newest on top, so the total stays clear. */
 .lock-stack {
   position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 22px;
+  left: 3.5cqw;
+  right: 3.5cqw;
+  bottom: 7cqw;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2.5cqw;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Frosted notification cards, the newest dropping in on top. */
 .lock-note {
   display: grid;
-  grid-template-columns: 38px 1fr auto;
-  gap: 10px;
+  grid-template-columns: 11cqw minmax(0, 1fr) auto;
+  gap: 3cqw;
   align-items: center;
-  padding: 10px 12px;
-  border-radius: 18px;
-  background: rgba(245, 245, 247, 0.78);
+  padding: 3cqw 3.5cqw;
+  border-radius: 5.5cqw;
+  background: rgba(245, 245, 247, 0.8);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   backdrop-filter: blur(18px) saturate(1.4);
   color: #1a1a1a;
-  font-size: 0.75rem;
-  line-height: 1.35;
+  font-size: 3.5cqw;
+  line-height: 1.3;
 }
 
 .lock-note:first-child {
@@ -104,27 +107,35 @@
 }
 
 .lock-note img {
-  width: 38px;
-  height: 38px;
-  padding: 3px;
-  border-radius: 10px;
+  width: 11cqw;
+  height: 11cqw;
+  padding: 1cqw;
+  border-radius: 3cqw;
   object-fit: contain;
   background: #ffffff;
 }
 
-.lock-note span {
+.lock-note > span {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+}
+
+.lock-note strong,
+.lock-note > span > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .lock-note strong {
-  font-size: 0.8125rem;
+  font-size: 3.8cqw;
 }
 
 .lock-note em {
   align-self: start;
   font-style: normal;
-  font-size: 0.6875rem;
+  font-size: 3.2cqw;
   color: #6b6b70;
 }
 
@@ -142,6 +153,6 @@
   }
 
   .lock {
-    width: min(100%, 300px, 30vh);
+    width: min(100%, 300px, 28vh);
   }
 }

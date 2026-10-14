@@ -14,8 +14,10 @@
   }
 }
 
-/* Phones: while held, copy marked .pin-more is dropped so the scene fits the screen. */
-@media (prefers-reduced-motion: no-preference) and (max-width: 900px) {
+/* Phones and short laptop screens: while held, copy marked .pin-more is dropped so
+   the scene fits the screen. */
+@media (prefers-reduced-motion: no-preference) and (max-width: 900px),
+  (prefers-reduced-motion: no-preference) and (max-height: 760px) {
   .pin-sticky .pin-more {
     display: none;
   }

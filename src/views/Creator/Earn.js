@@ -30,7 +30,7 @@ const Earn = () => {
     setCount((c) => (c === n ? c : n));
   }, []);
 
-  const shown = SALES.slice(Math.max(0, count - 4), count).reverse();
+  const shown = SALES.slice(Math.max(0, count - 3), count).reverse();
   const total = BASE + SALES.slice(0, count).reduce((s, x) => s + x.earn, 0);
 
   return (
@@ -63,8 +63,8 @@ const Earn = () => {
               <li key={s.item} className="lock-note">
                 <img src={s.img} alt="" />
                 <span>
-                  <strong>New sale from your look</strong>
-                  {s.item} · you earn {inr(s.earn)}
+                  <strong>Sale from your look</strong>
+                  <span>{s.item} · you earn {inr(s.earn)}</span>
                 </span>
                 <em>{s.ago}</em>
               </li>
