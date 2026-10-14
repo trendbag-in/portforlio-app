@@ -41,7 +41,6 @@ const Landing = () => {
       <Navbar />
       <main id="main" tabIndex={-1}>
         <PersonaView />
-        <LookbookView />
         {persona === 'shopper' && (
           <>
             <WardrobeView />
@@ -51,6 +50,7 @@ const Landing = () => {
         )}
         {persona === 'creator' && <CreatorView />}
         {persona === 'brand' && <BrandView />}
+        <LookbookView />
         <Marquee />
         <ThesisView />
         <AboutUsView />

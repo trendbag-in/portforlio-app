@@ -1,10 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
 import StackDeck, { Layer } from '../../components/StackDeck/StackDeck';
-import CountUp from '../../components/CountUp';
-import { useScrollProgress } from '../../hooks/motion';
 import { G } from '../../data/garments';
 import Connect from './Connect';
+import Insights from './Insights';
 import './Brand.css';
 
 /* Mirrors the brand side: the Shopify / WooCommerce connector (/connect), the partner
@@ -132,80 +131,6 @@ const Fulfil = () => (
     />
   </section>
 );
-
-// Revenue & Orders Trend, normalised 0–1 — an example month.
-const TREND = [0.18, 0.22, 0.2, 0.31, 0.36, 0.33, 0.42, 0.5, 0.47, 0.58, 0.64, 0.6, 0.72, 0.81];
-const PATH = TREND.map((v, i) => `${i === 0 ? 'M' : 'L'}${(i / (TREND.length - 1)) * 100} ${100 - v * 90}`).join(' ');
-
-const TOP = [
-  { name: 'Linen shirt', img: G.linenShirt, share: 1 },
-  { name: 'Beige polo', img: G.beigePolo, share: 0.72 },
-  { name: 'White trousers', img: G.whiteTrousers, share: 0.55 }
-];
-
-const LOOKS = ['/img/creator-400.jpg', '/img/shopper-400.jpg', '/img/hero-portrait-460.jpg', '/img/brands-400.jpg'];
-
-const Insights = () => {
-  const ref = useRef(null);
-  useScrollProgress(ref);
-
-  return (
-    <section id="insights" className="insights section-block" ref={ref}>
-      <div className="container insights-inner">
-        <RevealOnScroll className="insights-text">
-          <p className="tb-kicker tb-kicker--start">Analytics</p>
-          <h2>See which looks sell your products.</h2>
-          <p className="section-lede">
-            Sales, orders and product performance in one place, with what you owe the creators
-            who drove them — and the looks from customers and creators wearing your products.
-          </p>
-        </RevealOnScroll>
-
-        <div className="insights-board">
-          <span className="tb-example tb-overline">Example figures</span>
-          <div className="tb-tile insights-trend" style={{ '--speed': 70 }}>
-            <p className="tb-overline">Revenue &amp; Orders Trend</p>
-            <div className="insights-stats">
-              <div><span>Revenue</span><strong><CountUp to={612400} prefix="₹" /></strong></div>
-              <div><span>Orders</span><strong><CountUp to={418} /></strong></div>
-            </div>
-            <svg className="insights-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <path d={PATH} pathLength="1" />
-            </svg>
-          </div>
-
-          <div className="tb-tile" style={{ '--speed': 150 }}>
-            <p className="tb-overline">Top Products</p>
-            <ul className="insights-top">
-              {TOP.map((t, i) => (
-                <li key={t.name} style={{ '--s': t.share, '--i': i }}>
-                  <img src={t.img} alt="" loading="lazy" />
-                  <span>{t.name}<span className="insights-bar"><span /></span></span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="tb-tile" style={{ '--speed': 110 }}>
-            <p className="tb-overline">Creator Payouts</p>
-            <ul>
-              <li><span>@ananya.trends</span><strong className="tb-num">₹8,240</strong></li>
-              <li><span>@kabir.fits</span><strong className="tb-num">₹5,960</strong></li>
-              <li><span>@meera.wears</span><strong className="tb-num">₹3,110</strong></li>
-            </ul>
-          </div>
-
-          <div className="tb-tile insights-looks" style={{ '--speed': 210 }}>
-            <p className="tb-overline">Looks wearing your products</p>
-            <div className="insights-strip">
-              {LOOKS.map((src) => <img key={src} src={src} alt="" loading="lazy" />)}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const Brand = () => (
   <>

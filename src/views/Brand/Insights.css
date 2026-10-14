@@ -1,0 +1,182 @@
+.ix-inner {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* The look on the left, the printer to its right; the receipt feeds down out of it. */
+.ix-scene {
+  /* 0 → 1 while the section crosses the middle of the screen. */
+  --print: clamp(0, (var(--p, 1) - 0.2) * 2.6, 1);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.ix-look {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--tb-r-sheet);
+  overflow: hidden;
+  box-shadow: var(--tb-shadow-lg);
+  transform: rotate(-2deg);
+}
+
+.ix-look > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ix-pin {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 4px;
+  border-radius: var(--tb-r-pill);
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.ix-pin img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #f1f1f2;
+}
+
+/* The printer's mouth: a dark slot the paper comes out of. */
+.ix-printer {
+  position: relative;
+  padding-top: 14px;
+}
+
+.ix-slot {
+  position: absolute;
+  top: 0;
+  left: -8px;
+  right: -8px;
+  z-index: 2;
+  height: 18px;
+  border-radius: 9px;
+  background: #121214;
+  box-shadow: inset 0 -4px 6px rgba(255, 255, 255, 0.06), 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Thermal paper: always white, monospace, with a torn zigzag foot. It feeds out of
+   the slot as the section scrolls, so lines appear in print order. */
+.ix-receipt {
+  padding: 1.5rem 1.25rem 2rem;
+  background: #fbfbf8;
+  color: #1a1a1a;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+  clip-path: inset(0 0 calc((1 - var(--print)) * 100%) 0);
+  transform: translateY(calc((var(--print) - 1) * 40px));
+}
+
+.ix-receipt-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px dashed #b9b9b9;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.ix-receipt-head span:last-child {
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #6b6b70;
+}
+
+.ix-receipt ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ix-receipt li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3px 0;
+}
+
+.ix-receipt li span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ix-receipt li img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.ix-receipt li.is-strong {
+  font-weight: 700;
+  font-size: 0.8125rem;
+}
+
+.ix-receipt li.is-accent span:last-child {
+  padding: 1px 6px;
+  background: #1a1a1a;
+  color: #fbfbf8;
+}
+
+.ix-rule {
+  height: 0;
+  margin: 6px 0;
+  border-top: 1px dashed #b9b9b9;
+}
+
+.ix-receipt-foot {
+  margin-top: 1rem;
+  text-align: center;
+  color: #8a8a8f;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ix-scene {
+    --print: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .ix-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .ix-scene {
+    grid-template-columns: 1fr;
+  }
+
+  .ix-look {
+    max-width: 260px;
+    justify-self: center;
+  }
+}
