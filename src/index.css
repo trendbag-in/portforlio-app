@@ -114,9 +114,9 @@ img {
 /* ---------- Layout ---------- */
 
 .container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1rem, 4vw, 3rem);
 }
 
 /* 96px between major blocks; a section ends 96px below its last element. */
@@ -142,10 +142,6 @@ img {
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 1.25rem;
-  }
-
   .section-block {
     padding: 4rem 0;
   }

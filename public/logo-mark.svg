@@ -2,9 +2,9 @@
   <!-- bag mark only (no background tile); source 64x64 art content box ~[12,14.5]-[52,54.5], center (32,34.5) -->
   <g transform="translate(600,600) scale(22.5) translate(-32,-34.5)">
     <!-- handle -->
-    <path d="M21 28 A11 11 0 0 1 43 28" fill="none" stroke="#E55A2B" stroke-width="5" stroke-linecap="round"/>
+    <path d="M21 28 A11 11 0 0 1 43 28" fill="none" stroke="#5A31F4" stroke-width="5" stroke-linecap="round"/>
     <!-- basket body -->
-    <path d="M12 28 L52 28 L47.5 51 Q47 54.5 42.5 54.5 L21.5 54.5 Q17 54.5 16.5 51 Z" fill="#E55A2B"/>
+    <path d="M12 28 L52 28 L47.5 51 Q47 54.5 42.5 54.5 L21.5 54.5 Q17 54.5 16.5 51 Z" fill="#5A31F4"/>
     <!-- rim band -->
     <rect x="12" y="30.8" width="40" height="3.4" rx="1.7" fill="#fff"/>
     <!-- eyes -->

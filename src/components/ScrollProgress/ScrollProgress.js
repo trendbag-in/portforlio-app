@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { PERSONA_NAV, usePersona } from '../../hooks/persona';
 import './ScrollProgress.css';
 
 const ScrollProgress = () => {
     const [activeSection, setActiveSection] = useState('hero');
     const location = useLocation();
+    const persona = usePersona();
 
     // Must track the sections that actually exist in App.js — stale ids leave
     // dead dots that never light up.
     const sections = [
-        { id: 'hero', label: 'Home' },
-        { id: 'features', label: 'Features' },
-        { id: 'who-its-for', label: "Who it's for" },
+        { id: 'hero', label: 'Who are you?' },
+        ...PERSONA_NAV[persona],
         { id: 'about-us', label: 'Why TrendBag' },
         { id: 'mission', label: 'Mission' },
         { id: 'contact', label: 'Contact' }
@@ -76,7 +77,7 @@ const ScrollProgress = () => {
                 cancelAnimationFrame(animationFrameId);
             }
         };
-    }, [location.pathname]);
+    }, [location.pathname, persona]);
 
     // Don't render side nav if not on home page
     if (location.pathname !== '/') {

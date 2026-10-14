@@ -5,8 +5,7 @@ import Icon from '../../components/Icon';
 import './Footer.css';
 
 const PRODUCT_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: "Who it's for", href: '#who-its-for' },
+  { label: 'Who are you?', href: '#hero' },
   { label: 'Open the app', href: 'https://app.trendbag.in', external: true },
   { label: 'Book a demo', href: '#contact' }
 ];

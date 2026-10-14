@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RevealOnScroll from '../../components/RevealOnScroll/RevealOnScroll';
 import Icon from '../../components/Icon';
+import { usePersona } from '../../hooks/persona';
 import './Contact.css';
 
 const API_BASE = process.env.REACT_APP_API_BASE || 'https://api.trendbag.in';
@@ -15,7 +16,9 @@ const ROLES = [
 ];
 
 const Contact = () => {
-  const [role, setRole] = useState('creator');
+  const persona = usePersona();
+  const [role, setRole] = useState(persona);
+  useEffect(() => setRole(persona), [persona]);
   const [formData, setFormData] = useState({ name: '', email: '', query: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);

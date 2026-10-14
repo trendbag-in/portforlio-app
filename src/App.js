@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
-  HeroView,
-  FeaturesView,
-  WhoItsForView,
   ThesisView,
-  HyperlocalView,
+  PersonaView,
+  CreatorView,
+  BrandView,
+  WardrobeView,
+  TripView,
+  AestheticsView,
   AboutUsView,
   ContactView,
   FooterView
@@ -22,6 +24,31 @@ import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 
 import ScrollToTop from './components/ScrollToTop';
+import { usePersona } from './hooks/persona';
+
+// The landing page: everyone gets the hero and the picker, then their own sections.
+const Landing = () => {
+  const persona = usePersona();
+  return (
+    <>
+      <Navbar />
+      <PersonaView />
+      {persona === 'shopper' && (
+        <>
+          <WardrobeView />
+          <TripView />
+          <AestheticsView />
+        </>
+      )}
+      {persona === 'creator' && <CreatorView />}
+      {persona === 'brand' && <BrandView />}
+      <ThesisView />
+      <AboutUsView />
+      <ContactView />
+      <FooterView />
+    </>
+  );
+};
 
 function App() {
   return (
@@ -31,19 +58,7 @@ function App() {
         <ScrollProgress />
         <Routes>
           {/* Main Landing Page */}
-          <Route path="/" element={
-            <>
-              <Navbar />
-              <HeroView />
-              <FeaturesView />
-              <WhoItsForView />
-              <ThesisView />
-              <HyperlocalView />
-              <AboutUsView />
-              <ContactView />
-              <FooterView />
-            </>
-          } />
+          <Route path="/" element={<Landing />} />
 
           {/* Privacy Policy Page */}
           <Route path="/privacy" element={<PrivacyPolicy />} />

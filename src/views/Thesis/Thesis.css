@@ -9,7 +9,7 @@
   padding: 4rem;
   border-radius: var(--tb-r-sheet);
   background: linear-gradient(135deg, var(--tb-accent-muted), var(--tb-surface));
-  border: 1px solid rgba(229, 90, 43, 0.25);
+  border: 1px solid rgba(90, 49, 244, 0.25);
 }
 
 /* A soft brand wash bleeding off the top-right corner, clipped by the radius. */
@@ -42,6 +42,15 @@
 
 .thesis-quote strong {
   font-weight: 700;
+}
+
+/* Apple-style read-along: words brighten in order as the panel crosses the viewport. */
+@media (prefers-reduced-motion: no-preference) {
+  .thesis-word {
+    --e: clamp(0, (var(--p, 1) - 0.22) / 0.3 * var(--n) - var(--i), 1);
+    opacity: calc(0.18 + 0.82 * var(--e));
+    transition: opacity 120ms linear;
+  }
 }
 
 @media (max-width: 700px) {

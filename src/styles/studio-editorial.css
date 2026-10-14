@@ -5,7 +5,7 @@
  *
  * On top of that ramp this file adds the marketing-only editorial devices borrowed
  * from clients/pitch-deck: mono kickers, accent rules, dashed rows, arrow bullets.
- * DESIGN.md reserves the brand swatch #E55A2B for exactly this kind of surface.
+ * DESIGN.md reserves the brand swatch #5A31F4 for exactly this kind of surface.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Karla:wght@300;400;500;600;700;800&display=swap');
@@ -14,30 +14,30 @@
   color-scheme: light dark;
 
   /* Neutral planes */
-  --tb-paper: #F7F6F4;
-  --tb-surface: #F3F1EC;
-  --tb-raised: #ECE9E3;
-  --tb-plate: #E4E0D8;
-  --tb-card-fill: rgba(43, 42, 39, 0.04);
+  --tb-paper: #FFFFFF;
+  --tb-surface: #F4F4F5;
+  --tb-raised: #EBEBED;
+  --tb-plate: #E4E4E7;
+  --tb-card-fill: rgba(26, 26, 26, 0.04);
 
   /* Ink ramp — carries all hierarchy that colour would otherwise carry */
-  --tb-ink: #2B2A27;
-  --tb-ink-2: #6B6A65;
-  --tb-ink-3: #6E6C64;
+  --tb-ink: #1A1A1A;
+  --tb-ink-2: #6B6B70;
+  --tb-ink-3: #6E6E73;
 
   /* The one accent, split by role so both halves clear AA */
-  --tb-accent: #C2410C;
-  --tb-accent-ink: #B8410E;
-  --tb-accent-press: #A8380C;
-  --tb-on-accent: #FFF8F4;
-  --tb-accent-muted: rgba(229, 90, 43, 0.10);
-  --tb-brand: #E55A2B;
+  --tb-accent: #5A31F4;
+  --tb-accent-ink: #5A31F4;
+  --tb-accent-press: #4A22E0;
+  --tb-on-accent: #FFFFFF;
+  --tb-accent-muted: rgba(90, 49, 244, 0.10);
+  --tb-brand: #5A31F4;
 
-  --tb-line: rgba(43, 42, 39, 0.08);
-  --tb-scrim: rgba(11, 11, 10, 0.55);
-  --tb-glass: rgba(247, 246, 244, 0.72);
+  --tb-line: rgba(26, 26, 26, 0.08);
+  --tb-scrim: rgba(10, 10, 11, 0.55);
+  --tb-glass: rgba(255, 255, 255, 0.72);
 
-  /* Faint by design — a heavy shadow reads as dirt on a warm ground */
+  /* Faint by design — a heavy shadow reads as dirt on a light ground */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --tb-shadow-md: 0 2px 5px rgba(0, 0, 0, 0.06);
   --tb-shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.09);
@@ -68,25 +68,25 @@
 }
 
 [data-theme='dark'] {
-  --tb-paper: #0B0B0A;
-  --tb-surface: #151412;
-  --tb-raised: #1F1E1B;
-  --tb-plate: #232120;
-  --tb-card-fill: rgba(241, 237, 230, 0.06);
+  --tb-paper: #0A0A0B;
+  --tb-surface: #141416;
+  --tb-raised: #1E1E21;
+  --tb-plate: #232326;
+  --tb-card-fill: rgba(237, 237, 239, 0.06);
 
-  --tb-ink: #F1EDE6;
-  --tb-ink-2: #B5B0A6;
-  --tb-ink-3: #7C7A73;
+  --tb-ink: #EDEDEF;
+  --tb-ink-2: #B0B0B6;
+  --tb-ink-3: #7C7C83;
 
-  --tb-accent: #FF7A4D;
-  --tb-accent-ink: #FF7A4D;
-  --tb-accent-press: #E8663B;
-  --tb-on-accent: #1A0E08;
-  --tb-accent-muted: rgba(255, 122, 77, 0.14);
+  --tb-accent: #A18BFF;
+  --tb-accent-ink: #A18BFF;
+  --tb-accent-press: #8C73FF;
+  --tb-on-accent: #120A2E;
+  --tb-accent-muted: rgba(161, 139, 255, 0.14);
 
-  --tb-line: rgba(241, 237, 230, 0.10);
+  --tb-line: rgba(237, 237, 239, 0.10);
   --tb-scrim: rgba(0, 0, 0, 0.60);
-  --tb-glass: rgba(11, 11, 10, 0.72);
+  --tb-glass: rgba(10, 10, 11, 0.72);
 
   /* Dark inverts elevation to a deeper shadow, never a black-on-black flatten */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
@@ -95,7 +95,7 @@
 }
 
 /* Optical compensation. Light type on a dark ground looks thinner than the same
-   weight does dark-on-light, and a didone is mostly hairline — at 700 on #0B0B0A
+   weight does dark-on-light, and a didone is mostly hairline — at 700 on #0A0A0B
    Bodoni's thin strokes start to break up. Dark mode carries the display face a
    step heavier and eases the tracking so the counters stay open. */
 [data-theme='dark'] h1,
@@ -192,7 +192,7 @@
 /* Fill + shadow, never a stroke. Separation is space, then fill, then shadow. */
 .tb-card {
   position: relative;
-  background: var(--tb-card-fill);
+  background: var(--tb-surface);
   border: none;
   border-radius: var(--tb-r-card);
   box-shadow: var(--tb-shadow-md);
@@ -395,5 +395,59 @@
   .tb-stagger > * {
     transition: none !important;
     transform: none !important;
+  }
+}
+
+/* Dashboard tile for example product screens; .tb-example labels made-up figures. */
+.tb-example {
+  position: absolute;
+  top: -1.75rem;
+  right: 0;
+  color: var(--tb-ink-3);
+}
+
+.tb-tile {
+  padding: 1.25rem;
+  border-radius: var(--tb-r-card);
+  background: var(--tb-surface);
+  box-shadow: var(--tb-shadow-md);
+}
+
+.tb-tile > .tb-overline {
+  margin-bottom: 0.875rem;
+  color: var(--tb-ink-3);
+}
+
+.tb-tile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tb-tile li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 0.875rem;
+  color: var(--tb-ink-2);
+  border-bottom: 1px dashed var(--tb-line);
+}
+
+.tb-tile li:last-child {
+  border-bottom: none;
+}
+
+.tb-tile li strong {
+  color: var(--tb-ink);
+}
+
+.tb-tile li.is-net strong {
+  color: var(--tb-accent-ink);
+}
+
+/* Tiles given a --speed drift with their section's --p, so a board reads in layers. */
+@media (prefers-reduced-motion: no-preference) {
+  .tb-tile {
+    transform: translateY(calc((0.5 - var(--p, 0.5)) * var(--speed, 0) * 1px));
   }
 }

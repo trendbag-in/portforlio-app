@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../Logo';
+import { PERSONA_NAV, usePersona } from '../../hooks/persona';
 import './Navbar.css';
 
-const NAV_ITEMS = [
-  { id: 'hero', label: 'Home' },
-  { id: 'features', label: 'Features' },
-  { id: 'who-its-for', label: "Who it's for" },
-  { id: 'about-us', label: 'About' },
-  { id: 'contact', label: 'Contact' }
-];
-
 const Navbar = () => {
+  const persona = usePersona();
+  const NAV_ITEMS = [
+    { id: 'hero', label: 'Home' },
+    ...PERSONA_NAV[persona],
+    { id: 'about-us', label: 'About' },
+    { id: 'contact', label: 'Contact' }
+  ];
   const [activeSection, setActiveSection] = useState('hero');
   const [theme, setTheme] = useState('dark');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,7 +44,7 @@ const Navbar = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [persona]);
 
   const goToSection = (sectionId) => {
     setMenuOpen(false);

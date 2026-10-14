@@ -115,7 +115,7 @@
   color: var(--tb-ink-3);
 }
 
-/* Focus is a terracotta ring, matching the product's input spec. */
+/* Focus is a violet ring, matching the product's input spec. */
 .contact-field input:focus,
 .contact-field textarea:focus {
   outline: none;

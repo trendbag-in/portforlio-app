@@ -1,0 +1,268 @@
+.trip {
+  padding: 3rem 0;
+}
+
+.trip-word {
+  left: auto;
+  right: -3vw;
+  margin-top: -13vw;
+  font-size: 26vw;
+  font-style: italic;
+}
+
+.trip-sun {
+  left: 2%;
+  top: 6%;
+  width: clamp(70px, 7vw, 120px);
+  color: var(--tb-accent);
+}
+
+.trip-sun svg {
+  width: 100%;
+  height: auto;
+  filter: none;
+}
+
+.float--shirt { left: 36%; top: 4%; width: clamp(80px, 7vw, 120px); }
+.float--shades { right: 2%; bottom: 8%; width: clamp(100px, 10vw, 170px); }
+
+/* A read-only copy of the planner's inputs — enough to show what it asks. */
+.trip-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.trip-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--tb-r-sm);
+  background: var(--tb-surface);
+  font-size: 0.8125rem;
+  color: var(--tb-ink-3);
+}
+
+.trip-field strong {
+  font-size: 0.9375rem;
+  color: var(--tb-ink);
+}
+
+.trip-field--wide {
+  grid-column: 1 / -1;
+}
+
+.trip-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+/* Days, then the pack list, deal off a pinned pile (see StackDeck). */
+.trip .stack-deck {
+  --deck-w: 540px;
+  --deck-h: min(360px, calc(100vh - 270px));
+}
+
+.trip-plan-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--tb-ink);
+}
+
+.trip-days {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.375rem;
+}
+
+.trip-day {
+  padding: 0.5rem 0.25rem;
+  border: none;
+  border-radius: var(--tb-r-pill);
+  background: var(--tb-surface);
+  color: var(--tb-ink-2);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--tb-normal) var(--tb-ease), color var(--tb-normal) var(--tb-ease);
+}
+
+.trip-day.is-active {
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
+}
+
+.trip-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+}
+
+.trip-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: var(--tb-ink);
+  font-size: 0.9375rem;
+}
+
+.trip-card-head .tb-num {
+  font-size: 0.8125rem;
+  color: var(--tb-ink-3);
+}
+
+.trip-day-temp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: var(--tb-ink-2);
+}
+
+.trip-fits {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.trip-fit {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.trip-fit-label {
+  margin-bottom: 0.375rem;
+  color: var(--tb-ink-3);
+}
+
+.trip-fit-pieces {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 42fr 42fr 16fr;
+  border-radius: var(--tb-r-sm);
+  background: var(--tb-paper);
+}
+
+.trip-fit-pieces img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.trip-pack ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 1rem;
+}
+
+.trip-pack-item {
+  --e: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  font-size: 0.8125rem;
+  color: var(--tb-ink-2);
+}
+
+.trip-pack-name {
+  flex: 1;
+}
+
+/* The tick is drawn with two borders, scaled in by --e. */
+.trip-check {
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--tb-ink-3);
+}
+
+.trip-check::after {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 50%;
+  background: var(--tb-accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 100% no-repeat;
+  transform: scale(var(--e));
+}
+
+.trip-pack-item.is-missing .trip-check {
+  border-style: dashed;
+  border-color: var(--tb-accent-ink);
+}
+
+.trip-pack-item.is-missing .trip-check::after {
+  display: none;
+}
+
+.trip-tag {
+  padding: 1px 6px;
+  border-radius: var(--tb-r-xs);
+  background: var(--tb-raised);
+  font-size: 0.6875rem;
+  color: var(--tb-ink-3);
+}
+
+.trip-pack-item.is-missing .trip-tag {
+  background: var(--tb-accent-muted);
+  color: var(--tb-accent-ink);
+}
+
+.trip-gap {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--tb-ink-2);
+}
+
+.trip-gap span {
+  font-weight: 600;
+  color: var(--tb-accent-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Items tick off one by one as the pack card rises to the top (--f: -1 → 0). */
+  .trip-pack-item {
+    --e: clamp(0, (var(--f) + 1) * 9 - var(--i), 1);
+  }
+
+  .trip-check::after {
+    transition: transform 160ms var(--tb-ease);
+  }
+}
+
+@media (max-width: 900px) {
+  .float--shirt {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .trip-pack ul {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-days {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
