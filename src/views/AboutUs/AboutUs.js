@@ -32,10 +32,6 @@ const REASONS = [
   }
 ];
 
-/* Infrastructure, stated plainly and without icons. This is a consumer site, so
-   the row stays quiet rather than becoming a logo wall. */
-const STACK = ['Go', 'gRPC', 'MongoDB', 'PostgreSQL', 'Redis', 'OpenSearch', 'ClickHouse', 'Kafka', 'AWS', 'Bedrock', 'Shopify', 'Razorpay'];
-
 // Real looks posted on TrendBag, used with the posters' consent (1920×2560 portraits,
 // so tall panels crop cleanly). fy: how far down the frame the person is.
 const LOOK = 'https://assets.trendbag.in/ootd';
@@ -101,13 +97,6 @@ const AboutUs = () => (
             </RevealOnScroll>
           ))}
         </div>
-
-        <RevealOnScroll className="about-stack">
-          <p className="tb-overline about-stack-label">Running on</p>
-          <div className="about-stack-row">
-            {STACK.map((s) => <span key={s} className="about-stack-item">{s}</span>)}
-          </div>
-        </RevealOnScroll>
       </div>
     </section>
 

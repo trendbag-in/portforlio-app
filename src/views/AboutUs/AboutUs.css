@@ -35,27 +35,9 @@
 }
 
 /* The infrastructure row is deliberately the quietest thing on the page. */
-.about-stack {
-  padding-top: 3rem;
-  border-top: 1px solid var(--tb-line);
-}
 
-.about-stack-label {
-  margin-bottom: 1rem;
-}
 
-.about-stack-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-}
 
-.about-stack-item {
-  font-family: var(--tb-label);
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-  color: var(--tb-ink-3);
-}
 
 /* Full-bleed band: breaks the gutter and touches both edges. */
 /* Photos first, untouched by text; the copy sits under them on the page. */
