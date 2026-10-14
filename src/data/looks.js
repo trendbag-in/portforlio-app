@@ -1,6 +1,6 @@
 // Real looks posted on TrendBag by the founders, used with their consent.
-// 1920×2560 portraits; fy is how far down the frame the person is.
-const OOTD = 'https://assets.trendbag.in/ootd';
+// 720×960 copies in public/img/looks (originals are 1920×2560 on assets.trendbag.in/ootd);
+// fy is how far down the frame the person is.
 
 export const LOOKS = [
   { id: '1103090b-0341-4ef5-94b4-a6e47ccb719a', fy: 35 },
@@ -12,4 +12,4 @@ export const LOOKS = [
   { id: '84847218-65ff-4f53-a3f4-d4c5923547c5', fy: 22 },
   { id: 'df1c1997-239e-4e94-a254-c1deaf0f91a9', fy: 60 },
   { id: 'b4b61dce-71db-4fff-9a26-057cd5d6fbd9', fy: 65 }
-].map((l) => ({ ...l, src: `${OOTD}/${l.id}.jpg` }));
+].map((l) => ({ ...l, src: `/img/looks/${l.id.slice(0, 8)}.jpg` }));

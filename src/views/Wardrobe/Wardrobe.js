@@ -24,7 +24,7 @@ const Outfit = (o) => (
     <span className="outfit-score tb-num">{o.score.toFixed(1)}<small>/10</small></span>
     <div className="outfit-pieces">
       {o.pieces.map((src, k) => (
-        <img key={k} src={src} alt="" loading="lazy" decoding="async" className={`outfit-piece outfit-piece--${k}`} />
+        <span key={k} className={`outfit-piece outfit-piece--${k}`}><img src={src} alt="" loading="lazy" decoding="async" /></span>
       ))}
     </div>
     <div className="outfit-meta">

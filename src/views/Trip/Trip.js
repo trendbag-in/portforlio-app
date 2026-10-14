@@ -36,7 +36,7 @@ const Fit = ({ label, pieces }) => (
   <div className="trip-fit">
     <span className="tb-overline trip-fit-label">{label}</span>
     <div className="trip-fit-pieces">
-      {pieces.map((src, k) => <img key={k} src={src} alt="" loading="lazy" decoding="async" />)}
+      {pieces.map((src, k) => <span key={k}><img src={src} alt="" loading="lazy" decoding="async" /></span>)}
     </div>
   </div>
 );

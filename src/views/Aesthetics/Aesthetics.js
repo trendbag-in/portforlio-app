@@ -4,12 +4,12 @@ import { useScrollProgress } from '../../hooks/motion';
 import { AESTHETICS } from '../../data/aesthetics';
 import './Aesthetics.css';
 
-const ON_LINE = AESTHETICS.slice(0, 7);
-const SAG = 44; // px the line dips at its middle
-const TILTS = [-5, 3, -2, 4, -4, 2, -3];
+const ON_LINE = AESTHETICS;
+const SAG = 70; // px the line dips at its middle
+const TILTS = [-5, 3, -2, 4, -4, 2, -3, 5, -1, 3, -4, 2];
 
-/* Aesthetics as polaroids pegged along a sagging clothesline. Each hangs at the
-   line's height where it is pegged, and they sway as the section scrolls past. */
+/* Aesthetics as polaroids pegged along a sagging clothesline that is wider than the
+   screen: scrolling slides the line past, and each polaroid swings as it travels. */
 const Aesthetics = () => {
   const ref = useRef(null);
   useScrollProgress(ref);
@@ -46,7 +46,7 @@ const Aesthetics = () => {
                 <li
                   key={a.slug}
                   className="line-item"
-                  style={{ '--drop': `${(SAG * 4 * t * (1 - t)).toFixed(1)}px`, '--tilt': `${TILTS[i]}deg`, '--k': (t - 0.5) * 2 }}
+                  style={{ '--drop': `${(SAG * 4 * t * (1 - t)).toFixed(1)}px`, '--tilt': `${TILTS[i]}deg`, '--i': i }}
                 >
                   <span className="peg" aria-hidden="true" />
                   <a className="polaroid" href={a.href} target="_blank" rel="noopener noreferrer">

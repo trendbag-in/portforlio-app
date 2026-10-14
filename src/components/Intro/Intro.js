@@ -4,7 +4,7 @@ import { prefersReducedMotion } from '../../hooks/motion';
 import './Intro.css';
 
 // Cut lengths (ms) for the reel of looks through the letters: fast, then slowing to a hold.
-const CUTS = [90, 80, 80, 90, 100, 110, 130, 160, 200, 260, 340, 700];
+const CUTS = [60, 60, 60, 60, 60, 70, 70, 80, 90, 110, 130, 160, 210, 600];
 const EXIT_MS = 1100;
 
 const setIntro = (v) => { document.documentElement.dataset.intro = v; };
@@ -48,7 +48,7 @@ const Intro = () => {
       t = setTimeout(cut, CUTS[step]);
       step += 1;
     };
-    t = setTimeout(cut, 500);
+    t = setTimeout(cut, 350);
     return () => clearTimeout(t);
   }, [phase]);
 
