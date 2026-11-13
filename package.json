@@ -1,18 +1,14 @@
 {
   "name": "trendbag-website",
   "version": "1.0.0",
-  "description": "TrendBag — Shop What Creators Love. Marketing site for the fashion-tech social commerce platform.",
+  "description": "TrendBag \u2014 Shop What Creators Love. Marketing site for the fashion-tech social commerce platform.",
   "homepage": "/",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "deploy:cloudfront": "./deploy.sh",
-    "deploy:aws": "./deploy.sh"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "react": "^18.2.0",
