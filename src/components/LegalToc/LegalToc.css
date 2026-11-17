@@ -53,3 +53,29 @@
     display: none;
   }
 }
+
+/* The "#" that trails each legal heading — quiet until you reach for it. */
+.legal-anchor {
+  margin-left: 0.4em;
+  font-weight: 600;
+  color: var(--tb-ink-3);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity var(--tb-fast) var(--tb-ease), color var(--tb-fast) var(--tb-ease);
+}
+
+.privacy-section h2:hover .legal-anchor,
+.legal-anchor:focus-visible {
+  opacity: 1;
+}
+
+.legal-anchor:hover {
+  color: var(--tb-accent-ink);
+}
+
+/* No hover on touch, so keep it permanently visible but faint. */
+@media (hover: none) {
+  .legal-anchor {
+    opacity: 0.45;
+  }
+}
