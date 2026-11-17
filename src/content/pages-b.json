@@ -11,7 +11,7 @@
     "status": "early-access",
     "cta": {
       "label": "Join as a creator",
-      "href": "https://app.trendbag.in"
+      "href": "https://app.trendbag.in/auth/signup?return=/creator/become-creator"
     },
     "sections": [
       {
@@ -148,7 +148,11 @@
       "/platform/briefs",
       "/platform/product-seeding",
       "/brands"
-    ]
+    ],
+    "hero": {
+      "src": "/img/creator-800.jpg",
+      "alt": "A fashion creator filming a Reel in a sunlit room"
+    }
   },
   {
     "path": "/platform/creator-intelligence",

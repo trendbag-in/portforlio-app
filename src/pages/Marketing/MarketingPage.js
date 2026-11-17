@@ -53,7 +53,8 @@ const MarketingPage = ({ page }) => (
     <Navbar minimal cta={page.cta} />
     <main id="main" tabIndex={-1} className="mk-page">
       <header id="top" className="mk-hero section-block">
-        <div className="container">
+        <div className={`container${page.hero ? ' mk-hero-split' : ''}`}>
+          <div className="mk-hero-text">
           <nav className="mk-crumbs" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             <span aria-hidden="true">/</span>
@@ -66,6 +67,19 @@ const MarketingPage = ({ page }) => (
           <h1 className="tb-display mk-h1">{page.h1}</h1>
           <p className="section-lede mk-lede">{page.lede}</p>
           <Cta cta={page.cta} className="mk-hero-cta" />
+          </div>
+          {page.hero && (
+            <img
+              className="mk-hero-img"
+              src={page.hero.src}
+              srcSet={`${page.hero.src.replace('-800', '-400')} 400w, ${page.hero.src} 800w`}
+              sizes="(min-width: 900px) 45vw, 100vw"
+              width="800"
+              height="597"
+              alt={page.hero.alt}
+              fetchpriority="high"
+            />
+          )}
         </div>
       </header>
 

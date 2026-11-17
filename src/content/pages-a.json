@@ -2,6 +2,7 @@
   {
     "path": "/brands",
     "persona": "brand",
+    "hero": { "src": "/img/brands-800.jpg", "alt": "Folded knitwear, a shirt and trousers from a fashion brand laid out for a shoot" },
     "keyword": "UGC platform for brands in India",
     "title": "UGC Platform for Brands in India | TrendBag",
     "description": "TrendBag is a UGC platform for brands in India: brief creators on real Shopify products, ship samples, approve Reels and see which posts sold. Get early access.",
