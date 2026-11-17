@@ -18,7 +18,7 @@ const CookieBanner = () => {
     if (value === 'all') {
       // Keep what the visitor already picked this visit.
       try {
-        localStorage.setItem('theme', document.documentElement.getAttribute('data-theme') || 'dark');
+        localStorage.setItem('theme', document.documentElement.getAttribute('data-theme') || 'light');
         const persona = new URLSearchParams(window.location.search).get('for');
         if (persona) localStorage.setItem('tb-persona', persona);
       } catch (e) { /* storage blocked */ }

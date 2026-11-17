@@ -153,7 +153,7 @@ const Contact = ({ defaultRole }) => {
                 </div>
               </fieldset>
 
-              <div className="contact-form-row">
+              <div className={`contact-form-row${extra ? ' contact-form-row--3' : ''}`}>
                 <div className="contact-field">
                   <label htmlFor="name">Full name</label>
                   <input
@@ -178,6 +178,20 @@ const Contact = ({ defaultRole }) => {
                     required
                   />
                 </div>
+                {extra && (
+                  <div className="contact-field">
+                    <label htmlFor={extra.id}>{extra.label}</label>
+                    <input
+                      type="text"
+                      inputMode={extra.inputMode}
+                      id={extra.id}
+                      name={extra.id}
+                      value={formData[extra.id]}
+                      onChange={handleInputChange}
+                      placeholder={extra.placeholder}
+                    />
+                  </div>
+                )}
               </div>
 
               {questions.map((q) => (
@@ -199,20 +213,6 @@ const Contact = ({ defaultRole }) => {
                 </fieldset>
               ))}
 
-              {extra && (
-                <div className="contact-field">
-                  <label htmlFor={extra.id}>{extra.label}</label>
-                  <input
-                    type="text"
-                    inputMode={extra.inputMode}
-                    id={extra.id}
-                    name={extra.id}
-                    value={formData[extra.id]}
-                    onChange={handleInputChange}
-                    placeholder={extra.placeholder}
-                  />
-                </div>
-              )}
 
               {error && <p className="contact-error" role="alert">{error}</p>}
 

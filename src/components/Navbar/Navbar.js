@@ -24,7 +24,7 @@ const Navbar = ({ minimal = false, cta }) => {
         { id: 'contact', label: 'Contact' }
       ];
   const [activeSection, setActiveSection] = useState('hero');
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Navbar = ({ minimal = false, cta }) => {
   // index.html already applied the theme before first paint; this only syncs
   // the toggle's own state to whatever it picked.
   useEffect(() => {
-    setTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+    setTheme(document.documentElement.getAttribute('data-theme') || 'light');
   }, []);
 
   const toggleTheme = () => {
