@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 // Post-build: one static HTML file per route with its own title, description, canonical,
-// Open Graph/Twitter tags and JSON-LD, plus the page's text inside #root so crawlers that
-// don't run JS still read it (React replaces it on load). Also writes sitemap.xml + robots.txt.
+// Open Graph/Twitter tags and JSON-LD. Marketing pages (those with sections) are whole static
+// pages built on the tasteskill kit in public/assets; other routes are the React shell.
+// Also writes sitemap.xml + robots.txt.
 //
 // Files are written as build/<path>.html (not <path>/index.html) so the Cloudflare assets
 // Worker serves /brands directly instead of redirecting to /brands/.
 const fs = require('fs');
 const path = require('path');
+const { render: renderLanding } = require('./landing-pages');
 
 const ORIGIN = 'https://www.trendbag.in';
 const BUILD = path.join(__dirname, '..', 'build');
@@ -98,30 +100,6 @@ function headFor(p) {
   ].join('');
 }
 
-// Plain semantic HTML of the page for non-JS crawlers; React replaces it on mount.
-function bodyFor(p) {
-  if (!p.sections) return '';
-  const items = (s) =>
-    s.items.map((it) => `<li><h3>${esc(it.title)}</h3><p>${esc(it.body)}</p></li>`).join('');
-  const related = (p.related || [])
-    .filter((r) => byPath[r])
-    .map((r) => `<li><a href="${r}">${esc(byPath[r].h1 || byPath[r].title)}</a></li>`)
-    .join('');
-  return [
-    '<main class="seo-static">',
-    `<nav><a href="/">TrendBag</a> / <a href="/brands">For brands</a> / <a href="/creators">For creators</a></nav>`,
-    `<p>${esc(p.kicker)}</p><h1>${esc(p.h1)}</h1><p>${esc(p.lede)}</p>`,
-    `<p><a href="${esc(p.cta.href)}">${esc(p.cta.label)}</a></p>`,
-    p.hero ? `<img src="${esc(p.hero.src)}" alt="${esc(p.hero.alt)}">` : '',
-    ...p.sections.map(
-      (s) => `<section id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.intro ? `<p>${esc(s.intro)}</p>` : ''}<ul>${items(s)}</ul></section>`
-    ),
-    `<section><h2>Frequently asked questions</h2>${p.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}</section>`,
-    related ? `<section><h2>Keep reading</h2><ul>${related}</ul></section>` : '',
-    '</main>'
-  ].join('');
-}
-
 // Drop the template's own SEO tags so each page gets exactly one set.
 const STRIP = [
   /<title>[\s\S]*?<\/title>/gi,
@@ -141,9 +119,10 @@ const problems = [];
 for (const p of [...siteMeta, ...pages]) {
   if (p.title.length > 65) problems.push(`${p.path}: title ${p.title.length} chars`);
   if (p.description.length < 70 || p.description.length > 170) problems.push(`${p.path}: description ${p.description.length} chars`);
-  const html = template
-    .replace('</head>', headFor(p) + '</head>')
-    .replace('<div id="root"></div>', `<div id="root">${bodyFor(p)}</div>`);
+  // marketing pages are static kit pages (scripts/landing-pages.js); the rest stay the React shell
+  const html = p.sections
+    ? renderLanding(p, { headTags: headFor(p), byPath })
+    : template.replace('</head>', headFor(p) + '</head>');
   const out = p.path === '/' ? templatePath : path.join(BUILD, p.path.slice(1) + '.html');
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html);

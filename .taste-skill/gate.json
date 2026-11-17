@@ -1,0 +1,225 @@
+{
+ "start": "2026-11-17T19:41:15.389Z",
+ "round": 0,
+ "idle": 0,
+ "errors": 0,
+ "status": "pass",
+ "history": [
+  {
+   "at": "2026-11-17T19:43:53.122Z",
+   "mode": "manual",
+   "status": "pass",
+   "fails": 0,
+   "round": 0,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": "build/creators.html",
+  "url": null,
+  "root": "build",
+  "kind": "software",
+  "category": "TrendBag paid UGC work for creators: briefs, videos, Reels, payouts and Minis (AI stylist, wardrobe and outfit tools)",
+  "primary": "Join as a creator",
+  "rounds": 3,
+  "start": "2026-11-17T19:41:15.389Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "fp": "718f033e9ea360b4",
+ "page": "build/creators.html",
+ "found": {
+  "fails": [],
+  "warns": [
+   {
+    "check": "scroll-reveal",
+    "where": "section#minis \"More than jobs: Minis in the TrendBag ap\"",
+    "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "pinned",
+    "where": "section#minis > div.wrap.mo-pc__grid \"More than jobs: Minis in the TrendBag ap\"",
+    "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
+    "fix": "let the section scroll with the page",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#why-trendbag \"Why UGC work on TrendBag suits new creat\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#minis \"More than jobs: Minis in the TrendBag ap\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "label-centre",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Join as a creator\"",
+    "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Send your details\")",
+    "fix": "centre the label in its button, or fill the empty side with an icon",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "section#faq \"Questions about TrendBag for creators\"",
+    "msg": "5 sections over 90 words a screen outside the UI mocks (\"Questions about TrendBag\" 224, \"More questions about Tre\" 214, \"How to start as a UGC cr\" 184); 91 words a screen across the page (1092 words in 12 screens): a tech page says it in about 80 or fewer",
+    "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-repeat",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"join as a creator\"",
+    "msg": "\"join as a creator\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "container-edges",
+    "where": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1) \"AI stylistAsk for outfit ideas and styli\"",
+    "msg": "3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"WardrobeKeep track of what you o\", \"Outfit toolsPut together and sav\") (it is in a scroll scene: told as a WARN) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "header.nav > div.wrap.nav__bar > button.nav__toggle",
+    "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "no-visual",
+    "where": "section#request \"Talk to the TrendBag team\"",
+    "msg": "pictures, effects and mocks cover 21% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#how-it-works \"How to start as a UGC creator in India o\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.ly-collage__set:nth-of-type(3) > div.ly-piece.d-card > div.d-note__line:nth-of-type(4) > i \"✓\"",
+    "msg": "a muted 13px line of 1 row sits 2px under the picture 1103090b-360.jpg: it reads as a caption: \"✓\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.ly-collage__set:nth-of-type(2) > div.ly-piece.d-card > div.d-note__line:nth-of-type(3) > span \"Revision 1 of 2 done\"",
+    "msg": "a muted 13px line of 2 rows sits 0px under the picture df1c1997-360.jpg: it reads as a caption: \"Revision 1 of 2 done\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.grid.tb-split > form.form.tb-form > fieldset.field.field--full > legend \"I'm a\"",
+    "msg": "a muted 14px line of 1 row sits 12px under the picture shopper-800.jpg: it reads as a caption: \"I'm a\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fold-cut",
+    "where": "div.wrap > div.hero-text.grid > div.span-3.start-10 > a.btn.btn--primary \"Join as a creator\"",
+    "msg": "the hero's button \"Join as a creator\" is cut by the bottom of the first screen (16px of its 44px below the fold)",
+    "fix": "size the hero so the heading ends above the fold, or starts below it",
+    "widths": [
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-contrast",
+    "msg": "contrast frames (\"X, not Y\", isn't, rather than, instead of, without the): 3, budget 2",
+    "fix": "state the positive fact on its own; count all the forms together (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x3: \", not y\", \", not a\", \"rather than\"",
+    "exact": false
+   },
+   {
+    "check": "copy-response-time",
+    "msg": "response-time promises: 2, budget 1",
+    "fix": "keep one, only if the brief gives it (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x2: \"within 72 hours\", \"within two working days\"",
+    "exact": false
+   },
+   {
+    "check": "copy-numbered",
+    "msg": "6 step numbers",
+    "fix": "number only steps that happen in order (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "(the copy)",
+    "exact": false
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 153,
+   "layout": 4
+  }
+ },
+ "open": [],
+ "waived": [],
+ "warnCount": 18,
+ "at": "2026-11-17T19:43:53.122Z"
+}

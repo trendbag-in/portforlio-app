@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../Logo';
 import { PERSONA_NAV, usePersona } from '../../hooks/persona';
 import { canRemember } from '../../hooks/consent';
 import './Navbar.css';
 
-// Real pages (crawlable URLs), next to the in-page section links.
+// Real pages (crawlable URLs), next to the in-page section links. Plain links: these are static pages.
 const ROUTE_LINKS = [
   { to: '/brands', label: 'For brands' },
   { to: '/creators', label: 'For creators' }
@@ -101,14 +101,9 @@ const Navbar = ({ minimal = false, cta }) => {
             </button>
           ))}
           {ROUTE_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`navbar-link ${location.pathname === l.to ? 'is-active' : ''}`}
-              onClick={() => setMenuOpen(false)}
-            >
+            <a key={l.to} href={l.to} className={`navbar-link ${location.pathname === l.to ? 'is-active' : ''}`}>
               {l.label}
-            </Link>
+            </a>
           ))}
         </div>
 

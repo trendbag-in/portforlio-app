@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ThesisView,
   PersonaView,
@@ -65,6 +65,12 @@ const Landing = () => {
 };
 
 // Legal pages have no <main>; their heading is the start of the content there.
+// the bio aliases land on the static marketing pages with a full load (a client route would render MarketingPage)
+const FullLoad = ({ to }) => {
+  window.location.replace(to);
+  return null;
+};
+
 const skipToContent = (e) => {
   e.preventDefault();
   const target = document.getElementById('main') || document.querySelector('h1');
@@ -117,8 +123,8 @@ function App() {
           ))}
 
           {/* Short aliases for Instagram bios and word of mouth */}
-          <Route path="/brand" element={<Navigate to="/brands" replace />} />
-          <Route path="/creator" element={<Navigate to="/creators" replace />} />
+          <Route path="/brand" element={<FullLoad to="/brands" />} />
+          <Route path="/creator" element={<FullLoad to="/creators" />} />
 
           {/* Error Page - Catch all unmatched routes */}
           <Route path="*" element={<ErrorPage />} />

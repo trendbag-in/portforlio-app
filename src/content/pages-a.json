@@ -3,11 +3,12 @@
     "path": "/brands",
     "hero": {"src": "/img/brands-800.jpg", "srcSet": "/img/brands-400.jpg 400w, /img/brands-800.jpg 800w", "alt": "Folded knitwear, a shirt and trousers from a fashion brand laid out for a shoot", "pos": "50% 50%", "pins": [{"text": "Brief: festive edit Reel", "x": 6, "y": 10}, {"text": "12 creators applied", "x": 46, "y": 62}, {"text": "Ordered via @creator", "x": 10, "y": 82}]},
     "persona": "brand",
+    "landing": {"proof":"Unreviewed videos auto-approve after 72 hours.","app":{"heading":"Every brief, applicant and order in one place","intro":"Open a brief to see who applied, whom you confirmed, which samples shipped and which videos wait for your approval."},"facts":[{"n":"3","label":"usage levels to choose from"},{"n":"2","label":"revision rounds per video"},{"n":"72","label":"hours before an unreviewed video auto-approves"}]},
     "keyword": "UGC platform for brands in India",
     "title": "UGC Platform for Brands in India | TrendBag",
     "description": "TrendBag is a UGC platform for brands in India: brief creators on real Shopify products, ship samples, approve Reels and see which posts sold. Get early access.",
     "kicker": "For fashion brands",
-    "h1": "The UGC platform for brands in India that sell on Shopify",
+    "h1": "The UGC platform for Shopify brands in India",
     "lede": "Brief creators on products from your own catalogue, ship samples from your own store, approve every Reel before anyone is paid, and see which creator actually drove orders.",
     "status": "early-access",
     "cta": { "label": "Request early access", "href": "#contact" },
@@ -33,9 +34,9 @@
         "layout": "cards",
         "items": [
           { "title": "Fashion first", "body": "Made for ethnic wear, western wear, menswear, jewellery and footwear labels that need try-ons, styling videos and fit checks, not generic product shots." },
-          { "title": "Campaigns around the calendar", "body": "Plan briefs for Diwali, festive drops and wedding season with deadlines that start when the product reaches the creator, not when you hit publish." },
+          { "title": "Briefs around the festive calendar", "body": "Plan briefs for Diwali, festive drops and wedding season with deadlines that start when the product reaches the creator, not when you hit publish." },
           { "title": "Your store stays the source of truth", "body": "Seeding orders, tracking and checkouts all run through your own Shopify, so stock, fulfilment and reporting stay where your team already works." },
-          { "title": "Money only moves for approved work", "body": "Every brief is funded upfront and held. Creators know the money is there; you know it is released only for videos you have approved." }
+          { "title": "Payment only for approved videos", "body": "Every brief is funded upfront and held. Creators know the money is there; you know it is released only for videos you have approved." }
         ]
       },
       {
@@ -95,11 +96,12 @@
     "path": "/platform/briefs",
     "hero": {"src": "/img/hero-portrait-896.jpg", "srcSet": "/img/hero-portrait-460.jpg 460w, /img/hero-portrait-896.jpg 896w", "alt": "A creator in a tailored blazer standing by a sunlit window", "pos": "50% 30%", "pins": [{"text": "Brief · 1 Reel, 30–45s", "x": 6, "y": 10}, {"text": "Product: wool blazer", "x": 44, "y": 62}, {"text": "Usage rights: 90 days", "x": 8, "y": 82}]},
     "persona": "brand",
+    "landing": {"proof":"Up to 2 revision rounds, and payment held until you approve.","app":{"heading":"Applications and deliveries for every brief","intro":"Each brief lists the creators who applied or were invited, the ones you confirmed and the videos waiting for review."},"marquee":["Festive try-ons","Wedding-season styling","Fit and size checks","One piece, three ways","Diwali drops","Navratri looks","Eid edits","Sangeet looks","Jewellery pairings","Sneaker drops"],"facts":[{"n":"3","label":"usage rights to choose from"},{"n":"2","label":"revision rounds per video"},{"n":"72","label":"hours before an unreviewed video auto-approves"}]},
     "keyword": "hire UGC creators in India",
     "title": "Hire UGC Creators in India with Paid Briefs | TrendBag",
     "description": "Hire UGC creators in India with one brief: real Shopify products, a ₹ fee per approved video, clear usage rights and payment held until you approve. See how.",
     "kicker": "Briefs",
-    "h1": "Hire UGC creators in India with a brief that does the admin",
+    "h1": "Hire UGC creators in India",
     "lede": "A TrendBag brief holds everything a creator needs to say yes: the products, the fee, the rights, the deadline and the shipping. The budget is funded upfront, so the right creators apply.",
     "status": "early-access",
     "cta": { "label": "Request early access", "href": "#contact" },
@@ -146,10 +148,10 @@
         "heading": "Brief ideas for Indian fashion brands",
         "layout": "cards",
         "items": [
-          { "title": "Festive try-ons", "body": "Lehenga, saree and kurta try-ons timed for Diwali, Navratri and Eid drops." },
+          { "title": "Festive try-on videos", "body": "Lehenga, saree and kurta try-ons timed for Diwali, Navratri and Eid drops." },
           { "title": "Wedding-season styling", "body": "Guest outfits, sangeet looks and jewellery pairings in the run-up to wedding season." },
-          { "title": "Fit and size checks", "body": "Creators of different body types show how a fit actually sits, which helps shoppers choose a size." },
-          { "title": "One piece, three ways", "body": "A single shirt, dress or pair of shoes styled for office, weekend and evening." }
+          { "title": "Fit and size check videos", "body": "Creators of different body types show how a fit actually sits, which helps shoppers choose a size." },
+          { "title": "One product, three ways", "body": "A single shirt, dress or pair of shoes styled for office, weekend and evening." }
         ]
       }
     ],
@@ -181,11 +183,12 @@
     "path": "/platform/product-seeding",
     "hero": {"src": "/img/brands-800.jpg", "srcSet": "/img/brands-400.jpg 400w, /img/brands-800.jpg 800w", "alt": "Products laid out and ready to ship to creators", "pos": "50% 50%", "pins": [{"text": "₹0 order created", "x": 6, "y": 10}, {"text": "Shipped to @creator", "x": 44, "y": 62}, {"text": "Delivered", "x": 10, "y": 82}]},
     "persona": "brand",
+    "landing": {"proof":"Each sample ships as a ₹0 order in your own Shopify.","app":{"heading":"Every creator parcel as a Shopify order","intro":"Seeding orders sit in the brief beside the creator they go to, with the courier status that flows back from your store."},"statement":{"heading":"Just another order to pack","line":"Your warehouse team does not need a separate process for creator parcels."}},
     "keyword": "influencer product seeding in India",
     "title": "Influencer Product Seeding in India via Shopify | TrendBag",
     "description": "Influencer product seeding in India from your own Shopify: ₹0 orders to creators, ship like any order, tracking flows back. No address spreadsheets. See how.",
     "kicker": "Product seeding",
-    "h1": "Influencer product seeding in India, straight from your Shopify",
+    "h1": "Influencer product seeding in India from Shopify",
     "lede": "TrendBag turns each creator shipment into a ₹0 order in your own Shopify. Your team packs and ships it like any other order, tracking flows back to the brief, and the content deadline starts on delivery.",
     "status": "early-access",
     "cta": { "label": "Request early access", "href": "#contact" },
@@ -209,8 +212,8 @@
         "layout": "cards",
         "items": [
           { "title": "No address spreadsheets", "body": "Creator addresses never sit in a shared sheet or a WhatsApp thread. The order carries the delivery details." },
-          { "title": "Stock stays accurate", "body": "Seeded units leave inventory the same way a sale does, so your stock counts do not drift." },
-          { "title": "One fulfilment workflow", "body": "Your warehouse team does not need a separate process for creator parcels. It is just another order to pack." },
+          { "title": "Shopify stock stays accurate", "body": "Seeded units leave inventory the same way a sale does, so your stock counts do not drift." },
+          { "title": "One fulfilment workflow for every order", "body": "Your warehouse team does not need a separate process for creator parcels. It is just another order to pack." },
           { "title": "A record of every sample", "body": "Each ₹0 order sits in your Shopify history, so you can see what was sent, to whom and when." }
         ]
       },
@@ -254,11 +257,12 @@
     "path": "/platform/attribution",
     "hero": {"src": "/img/looks/a168c231.jpg", "alt": "A creator wearing a black polo and black trousers", "pos": "50% 22%", "pins": [{"text": "Black polo · 28 orders", "x": 6, "y": 12}, {"text": "Tag taps 1,932", "x": 46, "y": 62}, {"text": "Sales ₹75,540", "x": 10, "y": 82}]},
     "persona": "brand",
+    "landing": {"proof":"Orders go to the last creator link clicked within 7 days.","app":{"heading":"A leaderboard for every brief","intro":"Creators on a brief ranked side by side by views, link clicks, orders, revenue and ROAS, net of refunds."},"statement":{"heading":"See which creator really sold","line":"Credit follows the last tracked link a shopper clicked, and reverses when an order is refunded."}},
     "keyword": "influencer sales attribution for Shopify",
     "title": "Influencer Sales Attribution for Shopify | TrendBag",
     "description": "Influencer sales attribution for Shopify: tracked links per creator, a first-party Web Pixel and a leaderboard of orders, revenue and ROAS. See who really sold.",
     "kicker": "Attribution",
-    "h1": "Influencer sales attribution for Shopify, creator by creator",
+    "h1": "Influencer sales attribution for Shopify",
     "lede": "See which creator's Reel led to an order, not just which one got views. TrendBag tracks clicks and checkouts on your own Shopify store and ranks every creator on a brief by revenue and ROAS.",
     "status": "early-access",
     "cta": { "label": "Request early access", "href": "#contact" },

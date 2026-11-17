@@ -1,0 +1,11 @@
+{
+ "page": "build/creators.html",
+ "url": null,
+ "root": "build",
+ "kind": "software",
+ "category": "TrendBag paid UGC work for creators: briefs, videos, Reels, payouts and Minis (AI stylist, wardrobe and outfit tools)",
+ "primary": "Join as a creator",
+ "rounds": 3,
+ "start": "2026-11-17T19:41:15.389Z",
+ "by": "gate.mjs --start"
+}

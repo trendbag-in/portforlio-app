@@ -17,6 +17,8 @@ const PRODUCT_LINKS = [
   { label: 'Open the app', href: 'https://app.trendbag.in', external: true }
 ];
 
+const STATIC_PAGES = new Set(PRODUCT_LINKS.filter((l) => l.to).map((l) => l.to));
+
 const COMPANY_LINKS = [
   { label: 'About', href: '#about-us' },
   { label: 'Book a demo', href: '#contact' },
@@ -63,8 +65,11 @@ const Footer = () => {
     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset, behavior: 'smooth' });
   };
 
+  // the marketing pages are static pages (scripts/landing-pages.js): a full page load, not a client route
   const renderLink = (link) =>
-    link.to ? (
+    link.to && STATIC_PAGES.has(link.to) ? (
+      <a href={link.to} className="footer-link">{link.label}</a>
+    ) : link.to ? (
       <Link to={link.to} className="footer-link">{link.label}</Link>
     ) : link.external ? (
       <a href={link.href} target="_blank" rel="noopener noreferrer" className="footer-link">

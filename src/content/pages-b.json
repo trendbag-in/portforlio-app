@@ -3,11 +3,12 @@
     "path": "/creators",
     "hero": {"src": "/img/creator-800.jpg", "srcSet": "/img/creator-400.jpg 400w, /img/creator-800.jpg 800w", "alt": "A fashion creator filming a Reel in a sunlit room", "pos": "50% 40%", "pins": [{"text": "New brief: linen co-ords", "x": 6, "y": 10}, {"text": "Reel approved", "x": 52, "y": 62}, {"text": "Payout sent", "x": 10, "y": 82}]},
     "persona": "creator",
+    "landing": {"proof":"Withdraw to your Indian bank account from ₹100.","app":{"heading":"Briefs, submissions and payouts in one app","intro":"Apply to briefs, follow the product shipped to you, submit your video and see approved fees land in your ₹ balance."},"statement":{"heading":"Brands pay per approved video","line":"TrendBag has no follower minimum for UGC jobs."}},
     "keyword": "UGC creator in India",
     "title": "Become a UGC Creator in India, Get Paid | TrendBag",
     "description": "Become a UGC creator in India with no follower minimum. Shoot Reels for fashion brands and get paid in ₹ per approved video. Join free and apply to briefs.",
     "kicker": "For creators",
-    "h1": "Become a UGC creator in India and get paid per video",
+    "h1": "Become a paid UGC creator in India",
     "lede": "Fashion brands on TrendBag pay for the video, not your follower count. Pick a brief, shoot a Reel, and get paid in ₹ once the brand approves it.",
     "status": "early-access",
     "cta": {
@@ -53,15 +54,15 @@
         "layout": "cards",
         "items": [
           {
-            "title": "No follower minimum",
-            "body": "UGC jobs are about the video you make, not the audience you have. A creator with a few hundred followers can apply to the same briefs."
+            "title": "No follower minimum for UGC jobs",
+            "body": "UGC jobs pay for the video you make, whatever the size of your audience. A creator with a few hundred followers can apply to the same briefs."
           },
           {
-            "title": "Payment funded upfront",
+            "title": "Payouts funded upfront",
             "body": "The brand funds the payment before the job starts, so approved work gets paid."
           },
           {
-            "title": "No endless waiting",
+            "title": "Videos auto-approved after 72 hours",
             "body": "If a brand does not respond within 72 hours of your submission, the video is auto-approved."
           },
           {
@@ -69,7 +70,7 @@
             "body": "Briefs come mostly from Indian D2C fashion labels: hauls, try-ons, GRWM, styling and unboxing Reels."
           },
           {
-            "title": "You keep ownership",
+            "title": "You keep ownership of your videos",
             "body": "Your videos stay yours. Each brief states how the brand may use the video, and you license it on those terms."
           }
         ]
@@ -155,11 +156,12 @@
     "path": "/platform/creator-intelligence",
     "hero": {"src": "/img/looks/84847218.jpg", "alt": "A menswear creator in a white shirt leaning on a carved stone pillar", "pos": "50% 22%", "pins": [{"text": "Niche: menswear", "x": 6, "y": 12}, {"text": "Engagement 4.8%", "x": 46, "y": 62}, {"text": "Top city: Bengaluru", "x": 8, "y": 82}]},
     "persona": "brand",
+    "landing": {"proof":"4 scores per creator: organic, ads, reliability and authenticity.","app":{"heading":"Creator profiles you can compare before you hire","intro":"Filter recommended creators by niche, city, language and follower tier, then open a profile built from their own Instagram data."},"statement":{"text":"Engagement is compared with creators of the same size, and saves and shares are shown alongside likes and comments.","strong":"creators of the same size"}},
     "keyword": "influencer analytics tool",
     "title": "Influencer Analytics Tool for Indian Brands | TrendBag",
     "description": "An influencer analytics tool for Indian fashion brands: niche, languages, audience cities, engagement against peers and authenticity risk. Request early access.",
     "kicker": "Creator intelligence",
-    "h1": "The influencer analytics tool built for Indian fashion brands",
+    "h1": "Influencer analytics tool for brands",
     "lede": "Every creator who connects Instagram to TrendBag gets a profile built from their own account data, so you can judge fit, audience and reliability before you hire.",
     "status": "early-access",
     "cta": {
@@ -306,11 +308,12 @@
     "path": "/platform/partnership-ads",
     "hero": {"src": "/img/looks/b4b61dce.jpg", "alt": "A creator in a blue dress sitting on steps outside a glass building", "pos": "50% 60%", "pins": [{"text": "Paid partnership with your brand", "x": 6, "y": 10}, {"text": "Boosted · 7 days", "x": 46, "y": 62}, {"text": "Shop now", "x": 10, "y": 84}]},
     "persona": "brand",
+    "landing": {"proof":"Creators grant ad access in 1 tap; ads run from your own Meta ad account.","app":{"heading":"Ad results for each creator, pulled from Meta","intro":"Spend, CPM, CTR, hook rate, hold rate, CPA and ROAS for every boosted video, side by side by creator."},"marquee":["Spend","CPM","CTR","Hook rate","Hold rate","CPA","ROAS","Paid partnership label","Usage rights"]},
     "keyword": "Instagram partnership ads",
     "title": "Instagram Partnership Ads for Indian Brands | TrendBag",
     "description": "Run Instagram partnership ads from approved creator videos using your own Meta ad account, with per-creator CPM, hook rate and ROAS. Request early access.",
     "kicker": "Partnership ads",
-    "h1": "Instagram partnership ads from the creator videos that already work",
+    "h1": "Instagram partnership ads from creator videos",
     "lede": "Post approved UGC organically, then boost the best performers as partnership ads under the creator and brand handles, from your own Meta ad account.",
     "status": "early-access",
     "cta": {
@@ -448,15 +451,16 @@
     "path": "/creator-audit",
     "hero": {"src": "/img/looks/61acb212.jpg", "alt": "A creator in a red kurta on a lit street at night", "pos": "50% 45%", "pins": [{"text": "Followers 18.4K", "x": 6, "y": 12}, {"text": "Engagement rate 5.2%", "x": 44, "y": 62}, {"text": "Niche: ethnic wear", "x": 8, "y": 82}]},
     "persona": "brand",
+    "landing": {"proof":"Engagement rate = (likes + comments) ÷ followers × 100.","app":{"heading":"A mini report from public posts","intro":"Enter a handle and the audit reads recent public posts for engagement, niche, posting rhythm and the brands tagged."},"facts":[{"n":"2","label":"account types: business and creator"},{"n":"4","label":"figures in the free mini report"},{"n":"12","label":"recent posts at most in the calculator"}]},
     "keyword": "Instagram engagement rate calculator",
     "title": "Free Instagram Engagement Rate Calculator | TrendBag",
     "description": "Free Instagram engagement rate calculator for brands: check a creator's estimated engagement, niche, posting rhythm and tagged brands. Get early access.",
     "kicker": "Free creator audit",
-    "h1": "Free Instagram engagement rate calculator and creator audit",
+    "h1": "Free Instagram engagement rate calculator",
     "lede": "Enter a public Instagram business or creator handle and get a quick report on engagement, niche and brand history, estimated from public data. Coming soon in early access.",
     "status": "early-access",
     "cta": {
-      "label": "Get early access to the audit",
+      "label": "Join the early access list",
       "href": "#contact"
     },
     "sections": [
@@ -478,7 +482,7 @@
             "body": "See estimated engagement rate, niche, posting rhythm and brands the creator has tagged, each labelled as estimated from public data."
           },
           {
-            "title": "Unlock the full report",
+            "title": "See the full report",
             "body": "When the creator connects on TrendBag, you can see reach, saves and audience data from their account."
           }
         ]
@@ -537,15 +541,15 @@
         "layout": "cards",
         "items": [
           {
-            "title": "Reach, saves and shares",
+            "title": "Creator reach, saves and shares",
             "body": "Account-level insights that public pages do not show."
           },
           {
-            "title": "Audience details",
+            "title": "Creator audience details",
             "body": "Age, gender and top cities of the creator's audience."
           },
           {
-            "title": "Scores and risk level",
+            "title": "Creator scores and risk level",
             "body": "Organic, ads, reliability and authenticity scores, with authenticity shown as a risk level."
           }
         ]

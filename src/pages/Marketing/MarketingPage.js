@@ -116,10 +116,10 @@ const MarketingPage = ({ page }) => (
             <ul className="mk-related-list">
               {page.related.filter((p) => META[p]).map((p) => (
                 <li key={p}>
-                  <Link to={p} className="tb-card mk-related-card">
+                  <a href={p} className="tb-card mk-related-card">
                     <strong>{META[p].h1 || META[p].title}</strong>
                     <span>{META[p].description}</span>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
