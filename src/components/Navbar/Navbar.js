@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../Logo';
 import { PERSONA_NAV, usePersona } from '../../hooks/persona';
 import { canRemember } from '../../hooks/consent';
 import './Navbar.css';
 
-const Navbar = () => {
+// Real pages (crawlable URLs), next to the in-page section links.
+const ROUTE_LINKS = [
+  { to: '/brands', label: 'For brands' },
+  { to: '/creators', label: 'For creators' }
+];
+
+// minimal: landing pages (/brands, /creators…) drop the home page's section links and use
+// the page's own CTA, so Instagram bio traffic sees one path forward.
+const Navbar = ({ minimal = false, cta }) => {
   const persona = usePersona();
-  const NAV_ITEMS = [
-    { id: 'hero', label: 'Home' },
-    ...PERSONA_NAV[persona],
-    { id: 'about-us', label: 'About' },
-    { id: 'contact', label: 'Contact' }
-  ];
+  const NAV_ITEMS = minimal
+    ? [{ id: 'contact', label: 'Contact' }]
+    : [
+        { id: 'hero', label: 'Home' },
+        ...PERSONA_NAV[persona],
+        { id: 'about-us', label: 'About' },
+        { id: 'contact', label: 'Contact' }
+      ];
   const [activeSection, setActiveSection] = useState('hero');
   const [theme, setTheme] = useState('dark');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,7 +67,7 @@ const Navbar = () => {
 
   const goToSection = (sectionId) => {
     setMenuOpen(false);
-    if (location.pathname !== '/') {
+    if (location.pathname !== '/' && !document.getElementById(sectionId)) {
       navigate('/');
       setTimeout(() => {
         const el = document.getElementById(sectionId);
@@ -89,6 +99,16 @@ const Navbar = () => {
               {item.label}
             </button>
           ))}
+          {ROUTE_LINKS.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`navbar-link ${location.pathname === l.to ? 'is-active' : ''}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {l.label}
+            </Link>
+          ))}
         </div>
 
         <div className="navbar-actions">
@@ -105,9 +125,13 @@ const Navbar = () => {
             )}
           </button>
 
-          <button className="navbar-cta" onClick={() => goToSection('contact')}>
-            Book a demo
-          </button>
+          {cta && cta.href.startsWith('http') ? (
+            <a className="navbar-cta" href={cta.href} target="_blank" rel="noopener noreferrer">{cta.label}</a>
+          ) : (
+            <button className="navbar-cta" onClick={() => goToSection('contact')}>
+              {cta ? cta.label : 'Book a demo'}
+            </button>
+          )}
 
           <button
             className="navbar-icon-btn navbar-burger"

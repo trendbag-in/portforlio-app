@@ -15,8 +15,10 @@ const ROLES = [
   { id: 'other', label: 'Something else' }
 ];
 
-const Contact = () => {
-  const persona = usePersona();
+// defaultRole pins the role chip on pages that already know the visitor (/brands, /creators).
+const Contact = ({ defaultRole }) => {
+  const picked = usePersona();
+  const persona = defaultRole || picked;
   const [role, setRole] = useState(persona);
   useEffect(() => setRole(persona), [persona]);
   const [formData, setFormData] = useState({ name: '', email: '', query: '' });

@@ -1,0 +1,579 @@
+[
+  {
+    "path": "/creators",
+    "persona": "creator",
+    "keyword": "UGC creator in India",
+    "title": "Become a UGC Creator in India, Get Paid | TrendBag",
+    "description": "Become a UGC creator in India with no follower minimum. Shoot Reels for fashion brands and get paid in ₹ per approved video. Join free and apply to briefs.",
+    "kicker": "For creators",
+    "h1": "Become a UGC creator in India and get paid per video",
+    "lede": "Fashion brands on TrendBag pay for the video, not your follower count. Pick a brief, shoot a Reel, and get paid in ₹ once the brand approves it.",
+    "status": "early-access",
+    "cta": {
+      "label": "Join as a creator",
+      "href": "https://app.trendbag.in"
+    },
+    "sections": [
+      {
+        "id": "how-it-works",
+        "heading": "How to start as a UGC creator in India on TrendBag",
+        "intro": "Six steps from sign-up to your first payout. No agency, no follower threshold.",
+        "layout": "steps",
+        "items": [
+          {
+            "title": "Sign up",
+            "body": "Download the TrendBag app on Android or iOS, or open app.trendbag.in, and create your creator account."
+          },
+          {
+            "title": "Build your profile with 2 samples",
+            "body": "Add a short bio, your style and two sample videos. Your profile is your portfolio, and it is what brands see when they review applications."
+          },
+          {
+            "title": "Take the UGC basics lesson",
+            "body": "A free 15-minute lesson covers hooks, lighting and framing. Complete the test brief after it to earn a verified badge on your profile."
+          },
+          {
+            "title": "Apply to briefs",
+            "body": "Browse briefs from fashion brands and apply to the ones that fit you. Brands can also invite you directly."
+          },
+          {
+            "title": "Shoot and submit",
+            "body": "If the brief includes product, it is shipped to you. Shoot the video, submit it in the app, and handle up to 2 rounds of revisions if the brand asks."
+          },
+          {
+            "title": "Get paid",
+            "body": "You are paid in ₹ for each approved video. Withdraw to your verified Indian bank account once your balance reaches ₹100."
+          }
+        ]
+      },
+      {
+        "id": "why-trendbag",
+        "heading": "Why UGC work on TrendBag suits new creators",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "No follower minimum",
+            "body": "UGC jobs are about the video you make, not the audience you have. A creator with a few hundred followers can apply to the same briefs."
+          },
+          {
+            "title": "Payment funded upfront",
+            "body": "The brand funds the payment before the job starts, so approved work gets paid."
+          },
+          {
+            "title": "No endless waiting",
+            "body": "If a brand does not respond within 72 hours of your submission, the video is auto-approved."
+          },
+          {
+            "title": "Fashion-first briefs",
+            "body": "Briefs come mostly from Indian D2C fashion labels: hauls, try-ons, GRWM, styling and unboxing Reels."
+          },
+          {
+            "title": "You keep ownership",
+            "body": "Your videos stay yours. Each brief states how the brand may use the video, and you license it on those terms."
+          }
+        ]
+      },
+      {
+        "id": "ground-rules",
+        "heading": "Ground rules for every UGC brief",
+        "intro": "Simple rules that keep your videos safe to publish and your payouts clean.",
+        "layout": "list",
+        "items": [
+          {
+            "title": "Original audio or royalty-free music",
+            "body": "Use your own voice or royalty-free tracks only, so the video can be posted and boosted without copyright claims."
+          },
+          {
+            "title": "Consent from anyone featured",
+            "body": "If a friend or family member appears in your video, get their consent before you submit."
+          },
+          {
+            "title": "Disclosure is built in",
+            "body": "The paid partnership label is applied when the video goes live, in line with ASCI disclosure guidelines."
+          },
+          {
+            "title": "Usage rights are in the brief",
+            "body": "Each brief spells out where and how long the brand can use your video. Read it before you apply."
+          }
+        ]
+      },
+      {
+        "id": "minis",
+        "heading": "More than jobs: Minis in the TrendBag app",
+        "intro": "The same app you use for briefs also has style tools for your own content.",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "AI stylist",
+            "body": "Ask for outfit ideas and styling suggestions when you plan a shoot."
+          },
+          {
+            "title": "Wardrobe",
+            "body": "Keep track of what you own so you can plan looks quickly."
+          },
+          {
+            "title": "Outfit tools",
+            "body": "Put together and save outfits for your next video."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How to become a UGC creator in India?",
+        "a": "To become a UGC creator in India, start by making a few short sample videos that show you can present a product clearly: a try-on, an unboxing or a GRWM. Then join a platform where brands post paid briefs. On TrendBag you sign up free, add two samples to your profile, take a 15-minute UGC basics lesson, and apply to fashion briefs. You do not need a large following to get started."
+      },
+      {
+        "q": "How much should UGC creators charge in India?",
+        "a": "It depends on the deliverable, the effort involved and the usage rights the brand wants. A simple try-on Reel for organic posting usually pays less than a scripted video licensed for paid ads. On TrendBag, the brand sets the fee per brief, so you see it before you apply. As an example only, not a promise, fees could fall somewhere around ₹300–₹2,000 per video."
+      },
+      {
+        "q": "Do I need followers to become a UGC creator?",
+        "a": "No. UGC is content that brands use on their own pages and ads, so they pay for the video rather than your audience. TrendBag has no follower minimum for UGC jobs. What matters is your profile: two strong samples, clear audio, good lighting and a verified badge from the UGC basics test brief help brands pick you."
+      },
+      {
+        "q": "How do UGC creators get paid on TrendBag?",
+        "a": "Each brief is funded by the brand upfront. When you submit a video, the brand can approve it or ask for up to 2 rounds of revisions. Once approved, the fee is added to your balance in ₹. If the brand does not respond within 72 hours, the video is auto-approved. You can withdraw to a verified Indian bank account from ₹100."
+      },
+      {
+        "q": "Who owns the UGC videos I make for brands?",
+        "a": "You keep ownership of your videos. The brand gets a licence to use each video as described in the brief, for example on its own Instagram page or in paid ads for a set period. Check the usage rights in a brief before applying, because wider rights usually mean the brand should pay more for the video."
+      },
+      {
+        "q": "What is the difference between a UGC creator and an influencer?",
+        "a": "An influencer is paid mainly for reaching their own audience. A UGC creator is paid to make a video that the brand uses, often on its own account or in ads. That is why UGC creators do not need a big following. Many creators do both, and on TrendBag a video can also be posted by you with the brand as collaborator."
+      }
+    ],
+    "related": [
+      "/platform/briefs",
+      "/platform/product-seeding",
+      "/brands"
+    ]
+  },
+  {
+    "path": "/platform/creator-intelligence",
+    "persona": "brand",
+    "keyword": "influencer analytics tool",
+    "title": "Influencer Analytics Tool for Indian Brands | TrendBag",
+    "description": "An influencer analytics tool for Indian fashion brands: niche, languages, audience cities, engagement against peers and authenticity risk. Request early access.",
+    "kicker": "Creator intelligence",
+    "h1": "The influencer analytics tool built for Indian fashion brands",
+    "lede": "Every creator who connects Instagram to TrendBag gets a profile built from their own account data, so you can judge fit, audience and reliability before you hire.",
+    "status": "early-access",
+    "cta": {
+      "label": "Request early access",
+      "href": "#contact"
+    },
+    "sections": [
+      {
+        "id": "what-we-measure",
+        "heading": "What each creator analytics profile covers",
+        "intro": "Profiles are built when a creator connects Instagram and are refreshed regularly.",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "Niche and fashion sub-niche",
+            "body": "Ethnic, streetwear, modest, budget hauls, luxury, menswear and more, so you can match a creator to your catalogue rather than to a broad 'fashion' tag."
+          },
+          {
+            "title": "Languages and formats",
+            "body": "Hindi, English, Hinglish, Tamil and other languages, plus formats such as talking to camera, GRWM, transitions and unboxing. Production quality is assessed too."
+          },
+          {
+            "title": "Engagement in context",
+            "body": "Engagement is compared with creators of the same size, and saves and shares are shown alongside likes and comments."
+          },
+          {
+            "title": "Audience",
+            "body": "Audience age, gender and top cities, so a Jaipur ethnicwear label and a Bengaluru streetwear brand can each find the right fit."
+          },
+          {
+            "title": "Brand history",
+            "body": "Brands the creator has worked with, the share of posts that are sponsored, and whether engagement holds up on sponsored posts."
+          },
+          {
+            "title": "Authenticity risk",
+            "body": "Authenticity checks are summarised as a risk level, so you can spot unusual patterns before you commit budget."
+          }
+        ]
+      },
+      {
+        "id": "four-scores",
+        "heading": "Four scores, each answering a different hiring question",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "Organic score",
+            "body": "How well the creator's own content performs with their audience."
+          },
+          {
+            "title": "Ads score",
+            "body": "How suitable their content style is for paid use, such as partnership ads."
+          },
+          {
+            "title": "Reliability score",
+            "body": "Built from on-platform history: approvals, on-time delivery, revision rounds and repeat hires by brands."
+          },
+          {
+            "title": "Authenticity score",
+            "body": "Reflects the authenticity checks behind the risk level brands see on each profile."
+          }
+        ]
+      },
+      {
+        "id": "how-it-works",
+        "heading": "How the influencer analytics tool fits into every brief",
+        "layout": "steps",
+        "items": [
+          {
+            "title": "Creators connect Instagram",
+            "body": "When a creator connects their account, TrendBag builds their profile from it and keeps it refreshed."
+          },
+          {
+            "title": "You post a brief",
+            "body": "Describe the product, the deliverable and the usage rights you need."
+          },
+          {
+            "title": "Get recommended creators",
+            "body": "TrendBag recommends creators for the brief based on their profiles and scores."
+          },
+          {
+            "title": "Filter and shortlist",
+            "body": "Narrow the list by niche, city, language and follower tier, then compare profiles side by side."
+          },
+          {
+            "title": "Hire with context",
+            "body": "Invite or accept creators knowing their audience, past brand work and reliability."
+          }
+        ]
+      },
+      {
+        "id": "beyond-followers",
+        "heading": "Why follower count alone misleads fashion brands",
+        "layout": "list",
+        "items": [
+          {
+            "title": "Size hides engagement",
+            "body": "A large account can have weaker engagement than smaller creators of the same tier. Comparing against peers shows who actually holds attention."
+          },
+          {
+            "title": "Audience location matters",
+            "body": "If you ship mostly to certain cities, a creator whose audience is elsewhere will not move sales, however big they are."
+          },
+          {
+            "title": "Sponsored fatigue is real",
+            "body": "Some creators lose engagement on sponsored posts. Seeing that pattern early saves budget."
+          },
+          {
+            "title": "Delivery is part of quality",
+            "body": "On-time delivery and low revision counts matter as much as reach when you run campaigns on a schedule."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is an influencer analytics tool?",
+        "a": "An influencer analytics tool shows how a creator's content and audience actually perform, beyond the follower count on their profile. It typically covers engagement, audience demographics, content niche and past brand work. TrendBag builds this from the creator's connected Instagram account and adds on-platform reliability, so Indian fashion brands can shortlist creators for a brief with evidence rather than guesswork."
+      },
+      {
+        "q": "How do I check if an Instagram influencer has fake followers?",
+        "a": "Look for engagement that is far below creators of similar size, sudden follower jumps, and comments that are generic or repetitive. On TrendBag, creators who connect Instagram are run through authenticity checks, and the result is shown to brands as a risk level on the profile. For accounts not yet on TrendBag, the free creator audit gives a quick estimate from public data."
+      },
+      {
+        "q": "What is a good engagement rate on Instagram in India?",
+        "a": "There is no single number that fits every account. Engagement rates tend to fall as follower count rises, so a rate that is strong for a large creator can be weak for a small one. Niche and language also shift the baseline. That is why TrendBag compares each creator's engagement with creators of the same size, and shows saves and shares alongside likes and comments."
+      },
+      {
+        "q": "How can brands find fashion influencers in a specific city or language?",
+        "a": "Search by audience location and content language rather than by where the creator lives. TrendBag profiles include audience cities and the languages a creator posts in, such as Hindi, English, Hinglish or Tamil. When you post a brief, you can filter recommended creators by niche, city, language and follower tier to build a shortlist that matches your customers."
+      },
+      {
+        "q": "Where does TrendBag's creator data come from?",
+        "a": "Profiles are built when a creator connects their Instagram account to TrendBag, which gives access to account-level insights that public pages do not show, such as audience breakdowns, saves and shares. Reliability data comes from the creator's work on TrendBag itself: approvals, on-time delivery, revisions and repeat hires. Profiles are refreshed regularly so you are not judging a creator on stale numbers."
+      }
+    ],
+    "related": [
+      "/platform/briefs",
+      "/creator-audit",
+      "/platform/partnership-ads",
+      "/brands"
+    ]
+  },
+  {
+    "path": "/platform/partnership-ads",
+    "persona": "brand",
+    "keyword": "Instagram partnership ads",
+    "title": "Instagram Partnership Ads for Indian Brands | TrendBag",
+    "description": "Run Instagram partnership ads from approved creator videos using your own Meta ad account, with per-creator CPM, hook rate and ROAS. Request early access.",
+    "kicker": "Partnership ads",
+    "h1": "Instagram partnership ads from the creator videos that already work",
+    "lede": "Post approved UGC organically, then boost the best performers as partnership ads under the creator and brand handles, from your own Meta ad account.",
+    "status": "early-access",
+    "cta": {
+      "label": "Request early access",
+      "href": "#contact"
+    },
+    "sections": [
+      {
+        "id": "publishing-options",
+        "heading": "Three ways to use an approved creator video",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "Creator posts, brand as collaborator",
+            "body": "The creator publishes the Reel with your brand added as a collaborator, so it appears on both profiles."
+          },
+          {
+            "title": "Brand posts from its own account",
+            "body": "Publish the approved video on your brand's Instagram account, within the usage rights in the brief."
+          },
+          {
+            "title": "Boost as a partnership ad",
+            "body": "Turn the best organic posts into Instagram partnership ads that run under the creator and brand handles together."
+          }
+        ]
+      },
+      {
+        "id": "how-it-works",
+        "heading": "How Instagram partnership ads work on TrendBag",
+        "layout": "steps",
+        "items": [
+          {
+            "title": "Buy the right usage rights",
+            "body": "Include paid usage in your brief so the creator knows the video may be boosted, and for how long."
+          },
+          {
+            "title": "Creator grants permission in one tap",
+            "body": "During the job, the creator approves partnership ad access in the TrendBag app. No back-and-forth over DMs."
+          },
+          {
+            "title": "Pick your best organic posts",
+            "body": "Watch how approved videos perform organically, then choose which ones to boost."
+          },
+          {
+            "title": "Run ads from your own Meta ad account",
+            "body": "Ads run from your brand's own Meta ad account. Ad money never passes through TrendBag."
+          },
+          {
+            "title": "Read results per creator",
+            "body": "Ad metrics are pulled back into TrendBag and shown for each creator, so you know whose content earns more budget."
+          }
+        ]
+      },
+      {
+        "id": "metrics",
+        "heading": "Partnership ad metrics for every creator",
+        "intro": "Compare creators on the numbers that decide whether an ad scales.",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "Spend and CPM",
+            "body": "How much you spent behind each creator's video and what it cost to reach a thousand people."
+          },
+          {
+            "title": "CTR",
+            "body": "The share of people who clicked through after seeing the ad."
+          },
+          {
+            "title": "Hook rate",
+            "body": "3-second views divided by impressions: how well the first moments stop the scroll."
+          },
+          {
+            "title": "Hold rate",
+            "body": "How well the video keeps viewers watching after the hook."
+          },
+          {
+            "title": "CPA and ROAS",
+            "body": "What each purchase cost and the revenue returned for every rupee spent."
+          }
+        ]
+      },
+      {
+        "id": "rights-and-disclosure",
+        "heading": "Disclosure and usage rights handled by default",
+        "layout": "list",
+        "items": [
+          {
+            "title": "Paid partnership label",
+            "body": "The 'Paid partnership' label is applied automatically, in line with ASCI disclosure guidelines."
+          },
+          {
+            "title": "Boosting within the rights you bought",
+            "body": "A video can only be boosted within the usage rights agreed in the brief."
+          },
+          {
+            "title": "Your ad account, your billing",
+            "body": "Spend stays in your own Meta ad account, with your own payment method and reporting."
+          },
+          {
+            "title": "Creators keep ownership",
+            "body": "Creators own their videos and license them to you per brief, which keeps renewals and extensions clear."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are Instagram partnership ads?",
+        "a": "Instagram partnership ads are paid ads that run under both a creator's handle and a brand's handle, instead of only the brand's. They use content the creator made, such as a Reel, and carry a 'Paid partnership' label. Because the ad appears to come from a real person the audience may already follow, many brands use them to put proven creator content behind ad spend."
+      },
+      {
+        "q": "How do I run partnership ads with an influencer?",
+        "a": "You need the creator's permission to run ads using their handle and content, and agreed usage rights. On TrendBag, you include paid usage in the brief, the creator grants partnership ad permission in one tap during the job, and you then boost the approved post from your own Meta ad account. Per-creator results are pulled back so you can compare performance."
+      },
+      {
+        "q": "Does my ad spend go through TrendBag?",
+        "a": "No. Partnership ads run from your brand's own Meta ad account, so ad money never passes through TrendBag. You keep your own billing, payment method and Ads Manager access. TrendBag handles the creator side, including the brief, usage rights and permission, and pulls ad metrics back so you can see results for each creator in one place."
+      },
+      {
+        "q": "What is hook rate in Instagram ads?",
+        "a": "Hook rate measures how well the opening of a video stops people from scrolling. It is calculated as 3-second video views divided by impressions. A video with a weak hook rarely recovers, however good the rest of it is. TrendBag shows hook rate alongside hold rate, CTR, CPA and ROAS for each creator, so you can see which openings work for your brand."
+      },
+      {
+        "q": "Do partnership ads need a paid partnership label in India?",
+        "a": "ASCI guidelines expect paid collaborations between brands and creators to be clearly disclosed to viewers. Instagram's 'Paid partnership' label is the standard way to do that on the platform. TrendBag applies the label automatically to approved videos posted through a brief and to partnership ads, so disclosure does not depend on someone remembering to add it."
+      }
+    ],
+    "related": [
+      "/platform/creator-intelligence",
+      "/platform/attribution",
+      "/platform/briefs"
+    ]
+  },
+  {
+    "path": "/creator-audit",
+    "persona": "brand",
+    "keyword": "Instagram engagement rate calculator",
+    "title": "Free Instagram Engagement Rate Calculator | TrendBag",
+    "description": "Free Instagram engagement rate calculator for brands: check a creator's estimated engagement, niche, posting rhythm and tagged brands. Get early access.",
+    "kicker": "Free creator audit",
+    "h1": "Free Instagram engagement rate calculator and creator audit",
+    "lede": "Enter a public Instagram business or creator handle and get a quick report on engagement, niche and brand history, estimated from public data. Coming soon in early access.",
+    "status": "early-access",
+    "cta": {
+      "label": "Get early access to the audit",
+      "href": "#contact"
+    },
+    "sections": [
+      {
+        "id": "how-it-works",
+        "heading": "How the free creator audit works",
+        "layout": "steps",
+        "items": [
+          {
+            "title": "Enter a handle",
+            "body": "Type in any public Instagram business or creator account."
+          },
+          {
+            "title": "We read public data",
+            "body": "The audit looks at recent public posts: likes, comments, captions, tags and posting dates."
+          },
+          {
+            "title": "Get a mini report",
+            "body": "See estimated engagement rate, niche, posting rhythm and brands the creator has tagged, each labelled as estimated from public data."
+          },
+          {
+            "title": "Unlock the full report",
+            "body": "When the creator connects on TrendBag, you can see reach, saves and audience data from their account."
+          }
+        ]
+      },
+      {
+        "id": "whats-in-the-report",
+        "heading": "What the Instagram engagement rate calculator shows",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "Estimated engagement rate",
+            "body": "Likes plus comments on recent posts, divided by followers. A fast first check before you look deeper."
+          },
+          {
+            "title": "Niche",
+            "body": "The kind of content the creator mostly posts, so you can tell a menswear creator from a budget haul creator at a glance."
+          },
+          {
+            "title": "Posting rhythm",
+            "body": "How often and how consistently the account posts."
+          },
+          {
+            "title": "Brands tagged",
+            "body": "Brands the creator has tagged in recent posts, a quick read on who they have worked with."
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "heading": "What a public-data audit can and cannot see",
+        "intro": "Like any Instagram engagement rate calculator, it only sees what is public. We label every number so you know how much weight to give it.",
+        "layout": "list",
+        "items": [
+          {
+            "title": "Business and creator accounts only",
+            "body": "Personal Instagram accounts are not supported."
+          },
+          {
+            "title": "Engagement is an estimate",
+            "body": "Public likes and comments are counted. Saves, shares and reach are not public, so they are not in the free report."
+          },
+          {
+            "title": "No audience breakdown",
+            "body": "Audience age, gender and cities need the creator to connect their account on TrendBag."
+          },
+          {
+            "title": "Clearly labelled",
+            "body": "Every figure in the mini report is marked 'estimated from public data'."
+          }
+        ]
+      },
+      {
+        "id": "full-profile",
+        "heading": "From a quick audit to a full creator profile",
+        "intro": "Creators who connect Instagram on TrendBag get a complete profile through creator intelligence.",
+        "layout": "cards",
+        "items": [
+          {
+            "title": "Reach, saves and shares",
+            "body": "Account-level insights that public pages do not show."
+          },
+          {
+            "title": "Audience details",
+            "body": "Age, gender and top cities of the creator's audience."
+          },
+          {
+            "title": "Scores and risk level",
+            "body": "Organic, ads, reliability and authenticity scores, with authenticity shown as a risk level."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I calculate Instagram engagement rate?",
+        "a": "A common way is to add the likes and comments on recent posts, divide by the number of posts to get an average, then divide that by the follower count and multiply by 100. The TrendBag creator audit does this for you from public data. Saves and shares are not public, so a full picture needs the creator's own account insights."
+      },
+      {
+        "q": "What is a good engagement rate on Instagram in India?",
+        "a": "It depends heavily on account size and niche. Smaller creators usually see higher engagement rates than large ones, so the same percentage can be strong for one account and weak for another. Compare a creator with others of similar follower count in the same niche rather than with a fixed benchmark. TrendBag's full profiles make that same-size comparison for you."
+      },
+      {
+        "q": "How can I check an influencer's fake followers for free?",
+        "a": "Start with engagement rate: an account with many followers but very few likes and comments is worth a closer look. Also check whether comments are generic and whether posting is consistent. The free TrendBag audit gives you an estimated engagement rate and posting rhythm from public data. Full authenticity checks run when a creator connects their account on TrendBag."
+      },
+      {
+        "q": "Can I audit a personal Instagram account?",
+        "a": "No. The creator audit works only with public Instagram business or creator accounts, because those are the account types whose public data the audit can read. If a creator you want to work with uses a personal account, they can switch to a creator account in Instagram settings, or join TrendBag and connect their account for a full profile."
+      },
+      {
+        "q": "Is the TrendBag creator audit free?",
+        "a": "Yes, the mini report is free. The audit is coming soon and will open first to brands on the early access list. It covers estimated engagement rate, niche, posting rhythm and brands tagged, all from public data. The full report, with reach, saves and audience, becomes available when the creator connects their Instagram account on TrendBag."
+      }
+    ],
+    "related": [
+      "/platform/creator-intelligence",
+      "/brands",
+      "/platform/briefs"
+    ],
+    "tool": "er-calculator"
+  }
+]

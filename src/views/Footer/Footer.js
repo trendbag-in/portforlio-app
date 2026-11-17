@@ -6,13 +6,20 @@ import { openConsent } from '../../hooks/consent';
 import './Footer.css';
 
 const PRODUCT_LINKS = [
-  { label: 'Who are you?', href: '#hero' },
-  { label: 'Open the app', href: 'https://app.trendbag.in', external: true },
-  { label: 'Book a demo', href: '#contact' }
+  { label: 'For brands', to: '/brands' },
+  { label: 'For creators', to: '/creators' },
+  { label: 'Briefs', to: '/platform/briefs' },
+  { label: 'Product seeding', to: '/platform/product-seeding' },
+  { label: 'Attribution', to: '/platform/attribution' },
+  { label: 'Creator intelligence', to: '/platform/creator-intelligence' },
+  { label: 'Partnership ads', to: '/platform/partnership-ads' },
+  { label: 'Creator audit', to: '/creator-audit' },
+  { label: 'Open the app', href: 'https://app.trendbag.in', external: true }
 ];
 
 const COMPANY_LINKS = [
   { label: 'About', href: '#about-us' },
+  { label: 'Book a demo', href: '#contact' },
   { label: 'Contact', href: '#contact' }
 ];
 
@@ -29,6 +36,7 @@ const LEGAL_LINKS = [
 
 const SOCIALS = [
   { name: 'Instagram', icon: 'instagram', url: 'https://instagram.com/trendbag.in' },
+  { name: 'Instagram for creators', icon: 'instagram', url: 'https://instagram.com/trendbag.creators' },
   { name: 'X', icon: 'x', url: 'https://x.com/trendbag_in' },
   { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/company/trendbag' },
   { name: 'YouTube', icon: 'youtube', url: 'https://youtube.com/@trendbag' }
@@ -42,7 +50,8 @@ const Footer = () => {
   const goToAnchor = (e, href) => {
     e.preventDefault();
     const id = href.replace('#', '');
-    if (location.pathname !== '/') {
+    // A section on this page (e.g. #contact on /brands) scrolls in place; otherwise go home.
+    if (location.pathname !== '/' && !document.getElementById(id)) {
       navigate('/');
       setTimeout(() => {
         const el = document.getElementById(id);
@@ -55,7 +64,9 @@ const Footer = () => {
   };
 
   const renderLink = (link) =>
-    link.external ? (
+    link.to ? (
+      <Link to={link.to} className="footer-link">{link.label}</Link>
+    ) : link.external ? (
       <a href={link.href} target="_blank" rel="noopener noreferrer" className="footer-link">
         {link.label}
       </a>

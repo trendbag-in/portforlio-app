@@ -53,6 +53,7 @@
   font-weight: 600;
   color: var(--tb-ink-2);
   transition: color var(--tb-fast) var(--tb-ease);
+  text-decoration: none;
 }
 
 /* A 4px square, not an underline — the system has no underline tab indicators. */
@@ -110,6 +111,7 @@
 }
 
 .navbar-cta {
+  text-decoration: none;
   border: none;
   cursor: pointer;
   font-family: var(--tb-sans);

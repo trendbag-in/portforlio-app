@@ -1,0 +1,48 @@
+[
+  {
+    "path": "/",
+    "title": "TrendBag: Fashion Creators, Brands and Shoppers",
+    "description": "TrendBag brings Indian fashion together: brands brief creators for UGC Reels, creators get paid per video, and shoppers style their closet with an AI stylist.",
+    "image": "/logo1200.png"
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy | TrendBag",
+    "description": "How TrendBag collects, uses, stores and protects personal data for shoppers, creators and brands, and the choices you have over it."
+  },
+  {
+    "path": "/terms",
+    "title": "Terms of Service | TrendBag",
+    "description": "The terms that apply when you use TrendBag's website, app and services as a shopper, creator or brand."
+  },
+  {
+    "path": "/community-guidelines",
+    "title": "Community Guidelines | TrendBag",
+    "description": "What is and isn't allowed on TrendBag: content, conduct, disclosure and how we act on reports."
+  },
+  {
+    "path": "/refund",
+    "title": "Refund & Cancellation Policy | TrendBag",
+    "description": "How cancellations and refunds work for orders placed through TrendBag."
+  },
+  {
+    "path": "/returns",
+    "title": "Return & Exchange Policy | TrendBag",
+    "description": "How returns and exchanges work for orders placed through TrendBag, including eligibility and timelines."
+  },
+  {
+    "path": "/shipping",
+    "title": "Shipping & Delivery Policy | TrendBag",
+    "description": "How orders placed through TrendBag are shipped and delivered, with timelines and tracking."
+  },
+  {
+    "path": "/sellers/terms",
+    "title": "Shopify Sellers & Terms | TrendBag",
+    "description": "What TrendBag charges brands that sell through the TrendBag sales channel for Shopify, and how those charges are collected."
+  },
+  {
+    "path": "/cookies",
+    "title": "Cookie Policy | TrendBag",
+    "description": "Which cookies and similar technologies TrendBag uses, why, and how to manage your consent."
+  }
+]

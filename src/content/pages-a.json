@@ -1,0 +1,323 @@
+[
+  {
+    "path": "/brands",
+    "persona": "brand",
+    "keyword": "UGC platform for brands in India",
+    "title": "UGC Platform for Brands in India | TrendBag",
+    "description": "TrendBag is a UGC platform for brands in India: brief creators on real Shopify products, ship samples, approve Reels and see which posts sold. Get early access.",
+    "kicker": "For fashion brands",
+    "h1": "The UGC platform for brands in India that sell on Shopify",
+    "lede": "Brief creators on products from your own catalogue, ship samples from your own store, approve every Reel before anyone is paid, and see which creator actually drove orders.",
+    "status": "early-access",
+    "cta": { "label": "Request early access", "href": "#contact" },
+    "sections": [
+      {
+        "id": "how-it-works",
+        "heading": "How our UGC platform for brands in India works, from store to sale",
+        "intro": "One flow covers the whole job, so nothing lives in DMs, spreadsheets or a separate payments tool.",
+        "layout": "steps",
+        "items": [
+          { "title": "Connect your store", "body": "Install TrendBag Connect on Shopify (WooCommerce is also supported). Your catalogue syncs, so every brief points at a real product with live price and stock." },
+          { "title": "Write a brief", "body": "Pick the products, set a ₹ fee per approved video, choose usage rights and a deadline, and decide whether to ship product. The budget is funded upfront and held." },
+          { "title": "Creators apply, you shortlist", "body": "Creators apply or you invite them. Shortlist using their profile: niche, language, engagement and the brands they have worked with before." },
+          { "title": "Product ships from your store", "body": "TrendBag places a ₹0 order in your Shopify, addressed to the creator. You pack and ship it like any other order, and the content deadline starts on delivery." },
+          { "title": "Approve, then pay", "body": "Review the video, ask for up to two rounds of changes, and approve. The creator is paid only after approval. Videos left unreviewed for 72 hours are auto-approved." },
+          { "title": "Post, boost and see who sold", "body": "The creator posts with you as Instagram collaborator, or you post and credit them. Run the best posts as partnership ads and track orders per creator on the brief leaderboard." }
+        ]
+      },
+      {
+        "id": "why-brands",
+        "heading": "Built for Indian D2C fashion brands",
+        "intro": "TrendBag is a UGC platform for brands in India that sell fashion online, so briefs, rights and tracking fit how your category actually sells.",
+        "layout": "cards",
+        "items": [
+          { "title": "Fashion first", "body": "Made for ethnic wear, western wear, menswear, jewellery and footwear labels that need try-ons, styling videos and fit checks, not generic product shots." },
+          { "title": "Campaigns around the calendar", "body": "Plan briefs for Diwali, festive drops and wedding season with deadlines that start when the product reaches the creator, not when you hit publish." },
+          { "title": "Your store stays the source of truth", "body": "Seeding orders, tracking and checkouts all run through your own Shopify, so stock, fulfilment and reporting stay where your team already works." },
+          { "title": "Money only moves for approved work", "body": "Every brief is funded upfront and held. Creators know the money is there; you know it is released only for videos you have approved." }
+        ]
+      },
+      {
+        "id": "rights-and-disclosure",
+        "heading": "UGC rights and disclosure, written down for every job",
+        "intro": "Reusing creator content without clear permission is where most brand-creator disputes start. On TrendBag the terms are part of the brief.",
+        "layout": "list",
+        "items": [
+          { "title": "A written licence per job", "body": "Each job carries a licence that states scope, duration and territory. Creators keep ownership and license use as the brief describes." },
+          { "title": "Three usage levels", "body": "Creator posts only, brand organic use, or paid ads for a set number of days. You choose when you write the brief, and creators see it before they apply." },
+          { "title": "Clean files, safe audio", "body": "You receive un-watermarked files. Videos use original audio or royalty-free music, so they can be reposted and run as ads." },
+          { "title": "ASCI-ready posting", "body": "Posts go live with the \"Paid partnership\" label, whether the creator posts with you as collaborator or you post from your own account and credit them." }
+        ]
+      },
+      {
+        "id": "platform",
+        "heading": "Everything in the platform",
+        "layout": "cards",
+        "items": [
+          { "title": "Briefs", "body": "Pick products, set the fee per approved video, rights and deadline, then shortlist creators who apply." },
+          { "title": "Product seeding", "body": "Ship samples as ₹0 orders from your own Shopify, with tracking flowing back to the brief." },
+          { "title": "Sales attribution", "body": "Tracked links, a Shopify Web Pixel and a per-creator leaderboard of clicks, orders, revenue and ROAS." },
+          { "title": "Creator intelligence", "body": "Profiles that show niche, language, engagement and past brands, so shortlisting is based on more than follower count." },
+          { "title": "Partnership ads", "body": "Run the best organic posts as Meta partnership ads from your own ad account." }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a UGC platform and how is it different from an influencer agency?",
+        "a": "A UGC platform lets a brand brief creators, receive videos and pay for them in one place, without an agency in the middle. On TrendBag you write the brief yourself, pick creators from those who apply, approve each video and release payment only after approval. You keep direct control over products, rights and budget, and see results per creator."
+      },
+      {
+        "q": "How much does UGC cost in India?",
+        "a": "There is no single rate. Cost depends on the creator's niche and engagement, how many videos you need, whether you want rights for brand organic use or paid ads, how long those rights last, and the product you ship. On TrendBag you set the ₹ fee per approved video in each brief, and creators decide whether to apply at that fee."
+      },
+      {
+        "q": "Do I need a Shopify store to use TrendBag?",
+        "a": "TrendBag is built around Shopify, and WooCommerce is also supported. Connecting your store with TrendBag Connect syncs your catalogue so briefs use real products, lets you ship samples as ₹0 orders from your own store, and enables sales attribution through a Shopify Web Pixel on your domain."
+      },
+      {
+        "q": "Can I use creator videos in my Instagram ads?",
+        "a": "Yes, if the brief includes paid ad rights. When you write a brief you choose creator posts only, brand organic use, or paid ads for a set number of days. That choice becomes a written licence for the job, so both sides know exactly where and for how long the video can run."
+      },
+      {
+        "q": "What happens if I do not like the video a creator delivers?",
+        "a": "You can request changes, up to two revision rounds per video, before approving. The creator is paid only after you approve. If you do not respond within 72 hours of a delivery, the video is auto-approved, so creators are not left waiting indefinitely for a decision."
+      },
+      {
+        "q": "Is TrendBag available now?",
+        "a": "TrendBag for brands is rolling out in early access. Fashion and lifestyle brands selling on Shopify in India can request access, connect their store and run their first briefs as features open up. Use the request form on this page and we will get in touch about onboarding."
+      }
+    ],
+    "related": ["/platform/briefs", "/platform/product-seeding", "/platform/attribution", "/platform/creator-intelligence"]
+  },
+  {
+    "path": "/platform/briefs",
+    "persona": "brand",
+    "keyword": "hire UGC creators in India",
+    "title": "Hire UGC Creators in India with Paid Briefs | TrendBag",
+    "description": "Hire UGC creators in India with one brief: real Shopify products, a ₹ fee per approved video, clear usage rights and payment held until you approve. See how.",
+    "kicker": "Briefs",
+    "h1": "Hire UGC creators in India with a brief that does the admin",
+    "lede": "A TrendBag brief holds everything a creator needs to say yes: the products, the fee, the rights, the deadline and the shipping. The budget is funded upfront, so the right creators apply.",
+    "status": "early-access",
+    "cta": { "label": "Request early access", "href": "#contact" },
+    "sections": [
+      {
+        "id": "whats-in-a-brief",
+        "heading": "What goes into a TrendBag UGC brief",
+        "intro": "The quickest way to hire UGC creators in India is a brief that answers their questions before they ask.",
+        "layout": "cards",
+        "items": [
+          { "title": "Real products", "body": "Pick items straight from your synced Shopify or WooCommerce catalogue, from a festive kurta set to a new sneaker drop." },
+          { "title": "A ₹ fee per approved video", "body": "You set what each approved video pays. Creators see the fee before they apply, so there is no back-and-forth over rates." },
+          { "title": "Usage rights", "body": "Choose creator posts only, brand organic use, or paid ads for a set number of days. It becomes the written licence for the job." },
+          { "title": "Deadline", "body": "Set when videos are due. If you ship product, the clock starts on delivery, not on the day you publish the brief." },
+          { "title": "Optional product shipping", "body": "Send samples as ₹0 orders from your own store, or run the brief on products the creator already owns." }
+        ]
+      },
+      {
+        "id": "shortlisting",
+        "heading": "Hire UGC creators in India who fit the brand, not just the follower count",
+        "intro": "Creators apply to your brief, or you invite the ones you want. Each application links to a creator profile.",
+        "layout": "list",
+        "items": [
+          { "title": "Niche", "body": "See whether a creator makes ethnic wear styling, streetwear, menswear, jewellery or footwear content before you shortlist them." },
+          { "title": "Language", "body": "Pick creators who speak to your buyers in Hindi, English, Tamil, Marathi or whichever language your audience uses." },
+          { "title": "Engagement", "body": "Look at how audiences respond to a creator's posts, not only how many followers they have." },
+          { "title": "Past brands", "body": "See which brands a creator has worked with, so you can judge fit and avoid direct clashes." }
+        ]
+      },
+      {
+        "id": "brief-lifecycle",
+        "heading": "From brief to approved video",
+        "layout": "steps",
+        "items": [
+          { "title": "Fund the brief", "body": "The brief budget is funded upfront and held. Creators can see it is real before they commit time." },
+          { "title": "Shortlist and confirm", "body": "Review applications, invite creators you already like, and confirm the ones you want." },
+          { "title": "Creator shoots and delivers", "body": "The creator delivers a clean, un-watermarked video using original audio or royalty-free music." },
+          { "title": "Review with up to two revisions", "body": "Ask for changes up to two times. If you do not respond within 72 hours of a delivery, the video is auto-approved." },
+          { "title": "Approve and pay", "body": "The creator is paid only after approval, and the video goes live with the \"Paid partnership\" label." }
+        ]
+      },
+      {
+        "id": "brief-ideas",
+        "heading": "Brief ideas for Indian fashion brands",
+        "layout": "cards",
+        "items": [
+          { "title": "Festive try-ons", "body": "Lehenga, saree and kurta try-ons timed for Diwali, Navratri and Eid drops." },
+          { "title": "Wedding-season styling", "body": "Guest outfits, sangeet looks and jewellery pairings in the run-up to wedding season." },
+          { "title": "Fit and size checks", "body": "Creators of different body types show how a fit actually sits, which helps shoppers choose a size." },
+          { "title": "One piece, three ways", "body": "A single shirt, dress or pair of shoes styled for office, weekend and evening." }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I hire UGC creators in India for my brand?",
+        "a": "Write a brief that names the products, the fee per video, the usage rights and the deadline, then let creators apply. On TrendBag the brief is funded upfront, creators apply or are invited, and you shortlist using their niche, language, engagement and past brands. You approve each video before the creator is paid."
+      },
+      {
+        "q": "How much should I pay a UGC creator in India?",
+        "a": "It depends on the creator's niche and engagement, the effort the video needs, and the rights you want. Paid ad rights for a set number of days are usually worth more than creator-post-only rights. On TrendBag you set the ₹ fee per approved video in each brief, and creators choose whether to apply at that fee."
+      },
+      {
+        "q": "What should a UGC brief include?",
+        "a": "A clear brief names the exact products, the number and style of videos, key messages, any do's and don'ts, the fee, the usage rights and the deadline. On TrendBag the products come from your synced catalogue, and the fee, rights, deadline and shipping are built into the brief, so creators can decide quickly."
+      },
+      {
+        "q": "Can I invite specific creators instead of waiting for applications?",
+        "a": "Yes. You can invite creators directly to a brief as well as review those who apply on their own. Either way, you see each creator's profile, including niche, language, engagement and past brands, and you decide who to confirm. Only confirmed creators move on to shooting and delivery."
+      },
+      {
+        "q": "How do UGC creators get paid on TrendBag?",
+        "a": "The brief budget is funded upfront and held. When a creator delivers, you review the video, request up to two rounds of changes if needed, and approve. Payment is released after approval. If you do not respond within 72 hours of a delivery, the video is auto-approved and the creator is paid."
+      }
+    ],
+    "related": ["/brands", "/platform/product-seeding", "/platform/creator-intelligence", "/creators"]
+  },
+  {
+    "path": "/platform/product-seeding",
+    "persona": "brand",
+    "keyword": "influencer product seeding in India",
+    "title": "Influencer Product Seeding in India via Shopify | TrendBag",
+    "description": "Influencer product seeding in India from your own Shopify: ₹0 orders to creators, ship like any order, tracking flows back. No address spreadsheets. See how.",
+    "kicker": "Product seeding",
+    "h1": "Influencer product seeding in India, straight from your Shopify",
+    "lede": "TrendBag turns each creator shipment into a ₹0 order in your own Shopify. Your team packs and ships it like any other order, tracking flows back to the brief, and the content deadline starts on delivery.",
+    "status": "early-access",
+    "cta": { "label": "Request early access", "href": "#contact" },
+    "sections": [
+      {
+        "id": "how-seeding-works",
+        "heading": "How influencer product seeding in India works on TrendBag",
+        "layout": "steps",
+        "items": [
+          { "title": "Add shipping to the brief", "body": "When you write a brief, choose to ship the product. The items come from your synced catalogue." },
+          { "title": "Confirm a creator", "body": "Once you confirm a creator, TrendBag creates a ₹0 order in your Shopify, addressed to them." },
+          { "title": "Pack and ship as usual", "body": "The order appears with your other orders. Fulfil it with your normal packaging, courier and workflow." },
+          { "title": "Tracking flows back", "body": "Shipment tracking returns to the brief, so you and the creator can both see where the parcel is." },
+          { "title": "Deadline starts on delivery", "body": "The content deadline counts from the day the product is delivered, so delays in transit do not eat into shooting time." }
+        ]
+      },
+      {
+        "id": "why-shopify-orders",
+        "heading": "Why seeding through your own Shopify orders is easier",
+        "intro": "Most of the pain in influencer product seeding in India is admin: collecting addresses, raising orders by hand and chasing couriers.",
+        "layout": "cards",
+        "items": [
+          { "title": "No address spreadsheets", "body": "Creator addresses never sit in a shared sheet or a WhatsApp thread. The order carries the delivery details." },
+          { "title": "Stock stays accurate", "body": "Seeded units leave inventory the same way a sale does, so your stock counts do not drift." },
+          { "title": "One fulfilment workflow", "body": "Your warehouse team does not need a separate process for creator parcels. It is just another order to pack." },
+          { "title": "A record of every sample", "body": "Each ₹0 order sits in your Shopify history, so you can see what was sent, to whom and when." }
+        ]
+      },
+      {
+        "id": "seeding-tips",
+        "heading": "Influencer product seeding tips for Indian fashion brands",
+        "layout": "list",
+        "items": [
+          { "title": "Confirm size before you ship", "body": "For apparel and footwear, a wrong size means a reshoot. Ask for the creator's size in the brief." },
+          { "title": "Plan around festive and wedding peaks", "body": "Couriers slow down before Diwali and in wedding season. Publish briefs early so delivery and shooting both fit before the drop." },
+          { "title": "Pack it like a customer order", "body": "Creators often film the unboxing. Your normal packaging shows what a real buyer receives." },
+          { "title": "Seed the pieces you want to sell", "body": "Choose products with healthy stock, so the orders a video drives can actually be fulfilled." }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is influencer product seeding?",
+        "a": "Product seeding means sending products to creators so they can feature them in content. On TrendBag seeding is tied to a brief: the creator has agreed to a fee, usage rights and a deadline before anything ships, so each parcel is linked to a specific video rather than a hope that the creator might post."
+      },
+      {
+        "q": "How do I send free products to influencers from Shopify?",
+        "a": "With TrendBag Connect installed, choose to ship product when you write a brief. When you confirm a creator, TrendBag creates a ₹0 order in your Shopify addressed to them. You fulfil it like any other order, with your usual courier, and tracking flows back to the brief automatically."
+      },
+      {
+        "q": "Does a ₹0 seeding order affect my Shopify inventory?",
+        "a": "Yes, in the same way a normal order does. The seeded units leave your inventory when the order is fulfilled, which keeps your stock counts accurate. Because it is a regular Shopify order, it also stays in your order history as a record of what was sent to each creator."
+      },
+      {
+        "q": "When does the creator's content deadline start?",
+        "a": "If the brief includes shipping, the content deadline starts on delivery, not when the brief is published or the order is created. That way, courier delays during busy periods like the festive season do not shorten the time the creator has to shoot and deliver the video."
+      },
+      {
+        "q": "Do creators keep the product they receive?",
+        "a": "That is up to the brand and should be stated in the brief. Many brands let creators keep seeded pieces, since collecting worn samples back rarely makes sense, while others ask for high-value items such as bridal wear or fine jewellery to be returned. Put your policy in the brief so creators know before they apply."
+      }
+    ],
+    "related": ["/brands", "/platform/briefs", "/platform/attribution"]
+  },
+  {
+    "path": "/platform/attribution",
+    "persona": "brand",
+    "keyword": "influencer sales attribution for Shopify",
+    "title": "Influencer Sales Attribution for Shopify | TrendBag",
+    "description": "Influencer sales attribution for Shopify: tracked links per creator, a first-party Web Pixel and a leaderboard of orders, revenue and ROAS. See who really sold.",
+    "kicker": "Attribution",
+    "h1": "Influencer sales attribution for Shopify, creator by creator",
+    "lede": "See which creator's Reel led to an order, not just which one got views. TrendBag tracks clicks and checkouts on your own Shopify store and ranks every creator on a brief by revenue and ROAS.",
+    "status": "early-access",
+    "cta": { "label": "Request early access", "href": "#contact" },
+    "sections": [
+      {
+        "id": "how-attribution-works",
+        "heading": "How TrendBag tracks influencer sales on Shopify",
+        "intro": "Influencer sales attribution for Shopify works best when it runs on your own store, with your own checkout and your own domain.",
+        "layout": "steps",
+        "items": [
+          { "title": "A tracked link per creator, per product", "body": "Every confirmed creator gets their own link for each product in the brief, ready for bios, stories and captions." },
+          { "title": "Shopper clicks through", "body": "The link takes the shopper to your store, or via a TrendBag product page to your own Shopify checkout." },
+          { "title": "Web Pixel records the checkout", "body": "A Shopify Web Pixel on your store keeps a first-party cookie on your own domain and records the completed checkout." },
+          { "title": "Credit goes to the last click", "body": "The order is credited to the creator whose link was last clicked within 7 days before purchase." },
+          { "title": "Refunds reverse credit", "body": "If an order is refunded or cancelled, the creator's credit for it is reversed, so the numbers reflect real sales." }
+        ]
+      },
+      {
+        "id": "leaderboard",
+        "heading": "A per-brief leaderboard for influencer sales attribution",
+        "intro": "Every brief has a leaderboard that ranks creators side by side, so influencer sales attribution for Shopify turns into a clear next decision.",
+        "layout": "cards",
+        "items": [
+          { "title": "Views and CPM", "body": "Reach for each video, and what you paid per thousand views based on the fee you set." },
+          { "title": "Link clicks", "body": "How many shoppers tapped through from each creator's link." },
+          { "title": "Orders and revenue", "body": "Attributed orders and the revenue they brought in, net of refunds and cancellations." },
+          { "title": "ROAS per creator", "body": "Revenue against the fee paid, so you know whom to brief again for the next drop." }
+        ]
+      },
+      {
+        "id": "privacy-and-accuracy",
+        "heading": "Accurate without coupon codes, private by design",
+        "layout": "list",
+        "items": [
+          { "title": "Codes are optional", "body": "Coupon codes leak to deal sites and get forgotten at checkout. TrendBag does not rely on them; you can still add codes as an extra signal." },
+          { "title": "First-party cookie on your domain", "body": "The Web Pixel stores its cookie on your own store's domain, not a third-party tracker." },
+          { "title": "No creator personal data to Shopify", "body": "Only opaque IDs are sent to Shopify. Creator names, contact details and addresses are not shared through attribution." },
+          { "title": "Paid ads measured by Meta", "body": "When you boost a post as a partnership ad, view-through results come from Meta's own reporting, alongside TrendBag's click-based numbers." }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I track sales from influencers on Shopify?",
+        "a": "Give each creator a unique tracked link and record checkouts on your store. On TrendBag every creator gets a link per product, and a Shopify Web Pixel on your store records the completed checkout using a first-party cookie on your domain. Orders appear on the brief leaderboard against the creator who drove them."
+      },
+      {
+        "q": "Are coupon codes enough to measure influencer sales?",
+        "a": "Usually not. Codes get shared on deal sites, applied by shoppers who never saw the creator, or forgotten at checkout, so they both over-count and under-count. TrendBag uses tracked links and a Shopify Web Pixel as the main signal, and you can add codes as an optional extra signal."
+      },
+      {
+        "q": "What attribution window does TrendBag use?",
+        "a": "TrendBag credits an order to the creator whose link was last clicked within 7 days before the purchase. If the order is later refunded or cancelled, that credit is reversed. For posts boosted as Meta partnership ads, view-through results come from Meta's own ad reporting."
+      },
+      {
+        "q": "How do I calculate ROAS for influencer marketing?",
+        "a": "ROAS is the revenue attributed to a creator divided by what you paid them. TrendBag shows it per creator on each brief's leaderboard, using the fee you set and attributed revenue net of refunds and cancellations, next to views, CPM, link clicks and orders, so you can compare creators on the same brief."
+      },
+      {
+        "q": "Does TrendBag share creator or customer data with Shopify?",
+        "a": "Attribution sends only opaque IDs to Shopify, with no creator personal data such as names or contact details. The Web Pixel keeps its cookie on your own store's domain. Checkouts happen on your own Shopify, so customer orders stay in your store as they do today."
+      }
+    ],
+    "related": ["/brands", "/platform/partnership-ads", "/platform/briefs", "/platform/product-seeding"]
+  }
+]

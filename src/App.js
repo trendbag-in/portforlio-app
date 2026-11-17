@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import {
   ThesisView,
   PersonaView,
@@ -22,6 +22,9 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import SellerTerms from './pages/SellerTerms';
 import CookiePolicy from './pages/CookiePolicy';
 import ErrorPage from './pages/ErrorPage';
+import MarketingPage from './pages/Marketing/MarketingPage';
+import RouteSeo from './pages/Marketing/RouteSeo';
+import { PAGES } from './content/pages';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import CookieBanner from './components/CookieBanner/CookieBanner';
@@ -76,6 +79,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <RouteSeo />
       <div className="App">
         <a href="#main" className="skip-link" onClick={skipToContent}>Skip to content</a>
         <ScrollProgress />
@@ -106,6 +110,15 @@ function App() {
 
           {/* Cookie Policy Page */}
           <Route path="/cookies" element={<CookiePolicy />} />
+
+          {/* Marketing pages: one data-driven template (src/content/pages-*.json) */}
+          {PAGES.map((p) => (
+            <Route key={p.path} path={p.path} element={<MarketingPage page={p} />} />
+          ))}
+
+          {/* Short aliases for Instagram bios and word of mouth */}
+          <Route path="/brand" element={<Navigate to="/brands" replace />} />
+          <Route path="/creator" element={<Navigate to="/creators" replace />} />
 
           {/* Error Page - Catch all unmatched routes */}
           <Route path="*" element={<ErrorPage />} />
