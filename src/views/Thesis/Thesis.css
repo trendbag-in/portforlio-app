@@ -9,7 +9,7 @@
   padding: 4rem;
   border-radius: var(--tb-r-sheet);
   background: linear-gradient(135deg, var(--tb-accent-muted), var(--tb-surface));
-  border: 1px solid rgba(90, 49, 244, 0.25);
+  border: 1px solid var(--tb-line);
 }
 
 /* A soft brand wash bleeding off the top-right corner, clipped by the radius. */
@@ -20,7 +20,7 @@
   right: -8%;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, var(--tb-brand) 0%, transparent 60%);
+  background: radial-gradient(circle, var(--tb-accent) 0%, transparent 60%);
   opacity: 0.1;
   pointer-events: none;
 }

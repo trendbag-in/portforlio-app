@@ -14,34 +14,30 @@
   color-scheme: light dark;
 
   /* Neutral planes */
-  /* Quiet-loud palette: lilac + deep violet are the quiet pair, lime is the loud
-     colour and only fills primary buttons. Violet stays the signal for rings,
-     labels and active states. */
-  --tb-paper: #F4F1FF;
-  --tb-surface: #ECE7FC;
-  --tb-raised: #E3DCF9;
-  --tb-plate: #DAD1F6;
-  --tb-card-fill: rgba(30, 19, 71, 0.04);
+  /* Two quiet colours (off-white, near-black) and one loud (fashion pink), kept to
+     buttons, labels and active states. Brand violet lives only in the logo. */
+  --tb-paper: #F7F7F5;
+  --tb-surface: #EBEBE8;
+  --tb-raised: #E2E2DE;
+  --tb-plate: #D9D9D4;
+  --tb-card-fill: rgba(10, 10, 10, 0.04);
 
   /* Ink ramp — carries all hierarchy that colour would otherwise carry */
-  --tb-ink: #1E1347;
-  --tb-ink-2: #4F4673;
-  --tb-ink-3: #625A85;
+  --tb-ink: #0A0A0A;
+  --tb-ink-2: #55554F;
+  --tb-ink-3: #64645E;
 
   /* The one accent, split by role so both halves clear AA */
-  --tb-accent: #5A31F4;
-  --tb-accent-ink: #5A31F4;
-  --tb-accent-press: #4A22E0;
+  --tb-accent: #D0106F;
+  --tb-accent-ink: #BF0B64;
+  --tb-accent-press: #B00D5E;
   --tb-on-accent: #FFFFFF;
-  --tb-accent-muted: rgba(90, 49, 244, 0.10);
+  --tb-accent-muted: rgba(208, 16, 111, 0.10);
   --tb-brand: #5A31F4;
-  --tb-loud: #C8F94B;
-  --tb-loud-press: #B6EC2F;
-  --tb-on-loud: #1E1347;
 
-  --tb-line: rgba(30, 19, 71, 0.10);
+  --tb-line: rgba(10, 10, 10, 0.09);
   --tb-scrim: rgba(10, 10, 11, 0.55);
-  --tb-glass: rgba(244, 241, 255, 0.72);
+  --tb-glass: rgba(247, 247, 245, 0.72);
 
   /* Faint by design — a heavy shadow reads as dirt on a light ground */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -73,28 +69,28 @@
   --tb-slow: 600ms;
 }
 
-/* The footer is the deep-violet band in both themes, so it reuses the dark tokens. */
+/* The footer is the near-black band in both themes, so it reuses the dark tokens. */
 [data-theme='dark'],
 .footer {
-  --tb-paper: #110A2B;
-  --tb-surface: #19113A;
-  --tb-raised: #221849;
-  --tb-plate: #291E55;
-  --tb-card-fill: rgba(241, 238, 255, 0.06);
+  --tb-paper: #0A0A0A;
+  --tb-surface: #141414;
+  --tb-raised: #1D1D1D;
+  --tb-plate: #242424;
+  --tb-card-fill: rgba(245, 245, 243, 0.06);
 
-  --tb-ink: #F1EEFF;
-  --tb-ink-2: #C3BBE4;
-  --tb-ink-3: #9A90C4;
+  --tb-ink: #F5F5F3;
+  --tb-ink-2: #B8B8B2;
+  --tb-ink-3: #8C8C86;
 
-  --tb-accent: #A18BFF;
-  --tb-accent-ink: #A18BFF;
-  --tb-accent-press: #8C73FF;
-  --tb-on-accent: #120A2E;
-  --tb-accent-muted: rgba(161, 139, 255, 0.14);
+  --tb-accent: #FF5CA8;
+  --tb-accent-ink: #FF5CA8;
+  --tb-accent-press: #FF7BB8;
+  --tb-on-accent: #0A0A0A;
+  --tb-accent-muted: rgba(255, 92, 168, 0.14);
 
-  --tb-line: rgba(241, 238, 255, 0.10);
+  --tb-line: rgba(245, 245, 243, 0.10);
   --tb-scrim: rgba(0, 0, 0, 0.60);
-  --tb-glass: rgba(17, 10, 43, 0.72);
+  --tb-glass: rgba(10, 10, 10, 0.72);
 
   /* Dark inverts elevation to a deeper shadow, never a black-on-black flatten */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
@@ -265,12 +261,12 @@
 }
 
 .tb-btn--primary {
-  background: var(--tb-loud);
-  color: var(--tb-on-loud);
+  background: var(--tb-accent);
+  color: var(--tb-on-accent);
 }
 
 .tb-btn--primary:hover {
-  background: var(--tb-loud-press);
+  background: var(--tb-accent-press);
 }
 
 .tb-btn:active {
