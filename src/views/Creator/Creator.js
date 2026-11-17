@@ -74,8 +74,11 @@ const CreateCopy = (
   </>
 );
 
+// Brand collabs lead; posting formats come after.
 const Creator = () => (
   <>
+    <Collabs />
+    <Earn />
     <section id="create" className="create">
       <StackDeck
         items={FORMATS}
@@ -101,8 +104,6 @@ const Creator = () => (
         )}
       />
     </section>
-    <Earn />
-    <Collabs />
   </>
 );
 

@@ -16,6 +16,27 @@ const Cta = ({ cta, className = '' }) =>
     <a className={`tb-btn tb-btn--primary ${className}`} href={cta.href}>{cta.label}</a>
   );
 
+// Hero photo with example UI chips that float in one after another (labelled as an example).
+const HeroVisual = ({ hero }) => (
+  <figure className="mk-hero-visual">
+    <img
+      className="mk-hero-img"
+      src={hero.src}
+      srcSet={hero.srcSet}
+      sizes="(min-width: 900px) 45vw, 100vw"
+      alt={hero.alt}
+      style={{ objectPosition: hero.pos }}
+      fetchpriority="high"
+    />
+    {hero.pins?.map((p, i) => (
+      <span key={p.text} className="mk-pin" style={{ left: `${p.x}%`, top: `${p.y}%`, '--i': i }}>
+        {p.text}
+      </span>
+    ))}
+    {hero.pins && <figcaption className="mk-pin-note">Example</figcaption>}
+  </figure>
+);
+
 const Section = ({ s }) => (
   <section id={s.id} className="mk-section section-block">
     <div className="container">
@@ -68,18 +89,7 @@ const MarketingPage = ({ page }) => (
           <p className="section-lede mk-lede">{page.lede}</p>
           <Cta cta={page.cta} className="mk-hero-cta" />
           </div>
-          {page.hero && (
-            <img
-              className="mk-hero-img"
-              src={page.hero.src}
-              srcSet={`${page.hero.src.replace('-800', '-400')} 400w, ${page.hero.src} 800w`}
-              sizes="(min-width: 900px) 45vw, 100vw"
-              width="800"
-              height="597"
-              alt={page.hero.alt}
-              fetchpriority="high"
-            />
-          )}
+          {page.hero && <HeroVisual hero={page.hero} />}
         </div>
       </header>
 

@@ -6,8 +6,8 @@ import './Persona.css';
 
 const CARDS = {
   shopper: { img: 'shopper', line: 'Turn your closet into outfits, plan trips from it, and find your aesthetic.' },
-  creator: { img: 'creator', line: 'Post looks and loops, tag what you wore, and earn on every sale they drive.' },
-  brand: { img: 'brands', line: 'Sync your Shopify or WooCommerce store, ship orders, and see which looks sell.' }
+  creator: { img: 'creator', line: 'Collaborate with fashion brands, post looks and Reels with their pieces, and earn on every sale you drive.' },
+  brand: { img: 'brands', line: 'Collaborate with fashion creators, get Reels made with your products, and see which creator sold what.' }
 };
 
 // The home screen: "Who are you?" picks which set of sections the rest of the page shows.

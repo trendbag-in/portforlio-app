@@ -1,6 +1,7 @@
 [
   {
     "path": "/creators",
+    "hero": {"src": "/img/creator-800.jpg", "srcSet": "/img/creator-400.jpg 400w, /img/creator-800.jpg 800w", "alt": "A fashion creator filming a Reel in a sunlit room", "pos": "50% 40%", "pins": [{"text": "New brief: linen co-ords", "x": 6, "y": 10}, {"text": "Reel approved", "x": 52, "y": 62}, {"text": "Payout sent", "x": 10, "y": 82}]},
     "persona": "creator",
     "keyword": "UGC creator in India",
     "title": "Become a UGC Creator in India, Get Paid | TrendBag",
@@ -148,14 +149,11 @@
       "/platform/briefs",
       "/platform/product-seeding",
       "/brands"
-    ],
-    "hero": {
-      "src": "/img/creator-800.jpg",
-      "alt": "A fashion creator filming a Reel in a sunlit room"
-    }
+    ]
   },
   {
     "path": "/platform/creator-intelligence",
+    "hero": {"src": "/img/looks/84847218.jpg", "alt": "A menswear creator in a white shirt leaning on a carved stone pillar", "pos": "50% 22%", "pins": [{"text": "Niche: menswear", "x": 6, "y": 12}, {"text": "Engagement 4.8%", "x": 46, "y": 62}, {"text": "Top city: Bengaluru", "x": 8, "y": 82}]},
     "persona": "brand",
     "keyword": "influencer analytics tool",
     "title": "Influencer Analytics Tool for Indian Brands | TrendBag",
@@ -306,6 +304,7 @@
   },
   {
     "path": "/platform/partnership-ads",
+    "hero": {"src": "/img/looks/b4b61dce.jpg", "alt": "A creator in a blue dress sitting on steps outside a glass building", "pos": "50% 60%", "pins": [{"text": "Paid partnership with your brand", "x": 6, "y": 10}, {"text": "Boosted · 7 days", "x": 46, "y": 62}, {"text": "Shop now", "x": 10, "y": 84}]},
     "persona": "brand",
     "keyword": "Instagram partnership ads",
     "title": "Instagram Partnership Ads for Indian Brands | TrendBag",
@@ -447,6 +446,7 @@
   },
   {
     "path": "/creator-audit",
+    "hero": {"src": "/img/looks/61acb212.jpg", "alt": "A creator in a red kurta on a lit street at night", "pos": "50% 45%", "pins": [{"text": "Followers 18.4K", "x": 6, "y": 12}, {"text": "Engagement rate 5.2%", "x": 44, "y": 62}, {"text": "Niche: ethnic wear", "x": 8, "y": 82}]},
     "persona": "brand",
     "keyword": "Instagram engagement rate calculator",
     "title": "Free Instagram Engagement Rate Calculator | TrendBag",

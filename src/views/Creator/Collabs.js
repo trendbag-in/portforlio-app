@@ -8,23 +8,40 @@ const TERMS = [
   { type: 'Hybrid', value: '₹120 + 6%', line: 'a fixed fee plus a cut', on: true }
 ];
 
-const STEPS = ['Discover brands', 'Request, or answer theirs', 'Agree the commission', 'Track it in Analytics'];
+// Same deal memo from either side of the table.
+const SIDES = {
+  creator: {
+    kicker: 'Brand collaborations',
+    h2: 'Get brand deals, on terms you can read.',
+    lede: 'Fashion brands invite you, or you pitch them. Agree how you are paid before anything goes live, and see what each collab earned. Paid UGC briefs are in early access.',
+    steps: ['Find brands that fit your style', 'Pitch them, or answer their invite', 'Agree the commission', 'See what each collab earned'],
+    creator: '@you',
+    brand: 'Linen & Loom'
+  },
+  brand: {
+    kicker: 'Influencer marketing',
+    h2: 'Creators who wear your pieces, on terms you set.',
+    lede: 'Invite fashion creators or answer their requests, agree a commission, and every look they tag links to your product. Paid UGC briefs are in early access.',
+    steps: ['Find creators by niche and reach', 'Invite them, or answer their request', 'Agree the commission', 'See which creator sold what'],
+    creator: '@creator',
+    brand: 'Your brand'
+  }
+};
 
 /* A deal memo on paper: the parties, the commission picked from the three kinds the
    app offers, two signatures, and an AGREED stamp that lands as you scroll. */
-const Collabs = () => (
+const Collabs = ({ side = 'creator' }) => {
+  const c = SIDES[side];
+  return (
   <section id="collabs" className="collabs">
     <Pinned extra={90}>
       <div className="container collabs-inner">
         <div className="collabs-copy">
-          <p className="tb-kicker tb-kicker--start">Collaborations</p>
-          <h2>Work with brands on terms you can read.</h2>
-          <p className="section-lede pin-more">
-            Browse brands, send a request or answer theirs, and agree how you are paid before
-            anything goes live. Each collaboration gets its own analytics.
-          </p>
+          <p className="tb-kicker tb-kicker--start">{c.kicker}</p>
+          <h2>{c.h2}</h2>
+          <p className="section-lede pin-more">{c.lede}</p>
           <ol className="collabs-steps pin-more">
-            {STEPS.map((s, i) => <li key={s}><span className="tb-num">0{i + 1}</span>{s}</li>)}
+            {c.steps.map((s, i) => <li key={s}><span className="tb-num">0{i + 1}</span>{s}</li>)}
           </ol>
         </div>
 
@@ -35,8 +52,8 @@ const Collabs = () => (
           </header>
 
           <dl className="memo-parties">
-            <div><dt>Brand</dt><dd>Linen &amp; Loom</dd></div>
-            <div><dt>Creator</dt><dd>@you</dd></div>
+            <div><dt>Brand</dt><dd>{c.brand}</dd></div>
+            <div><dt>Creator</dt><dd>{c.creator}</dd></div>
           </dl>
 
           <p className="memo-label">Commission</p>
@@ -53,8 +70,8 @@ const Collabs = () => (
           <p className="memo-note">Live from 20 Oct · paid on delivered orders · tracked in Analytics</p>
 
           <div className="memo-sign">
-            <span><i>Linen &amp; Loom</i>Brand</span>
-            <span><i>you</i>Creator</span>
+            <span><i>{c.brand}</i>Brand</span>
+            <span><i>{c.creator.replace('@', '')}</i>Creator</span>
           </div>
 
           <span className="memo-stamp" aria-hidden="true">Agreed</span>
@@ -62,6 +79,7 @@ const Collabs = () => (
       </div>
     </Pinned>
   </section>
-);
+  );
+};
 
 export default Collabs;

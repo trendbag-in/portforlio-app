@@ -41,8 +41,8 @@ const Earn = () => {
           <p className="tb-kicker tb-kicker--start">Earnings</p>
           <h2>Every order you drove, and what you made from it.</h2>
           <p className="section-lede pin-more">
-            When someone buys a piece you tagged, the sale is counted to you and your commission
-            lands in your wallet: gross, platform fee and net, day by day.
+            When someone buys a piece you tagged in a brand collab or your own look, the sale is
+            counted to you and your commission lands in your wallet: gross, platform fee and net.
           </p>
           <dl className="earn-ledger pin-more">
             <div className="tb-keyval"><dt>Orders driven</dt><dd className="tb-num">128</dd></div>

@@ -4,6 +4,7 @@ import StackDeck, { Layer } from '../../components/StackDeck/StackDeck';
 import { G } from '../../data/garments';
 import Connect from './Connect';
 import Insights from './Insights';
+import Collabs from '../Creator/Collabs';
 import './Brand.css';
 
 /* Mirrors the brand side: the Shopify / WooCommerce connector (/connect), the partner
@@ -132,11 +133,13 @@ const Fulfil = () => (
   </section>
 );
 
+// Influencer marketing leads; store sync and fulfilment are the plumbing behind it.
 const Brand = () => (
   <>
+    <Collabs side="brand" />
+    <Insights />
     <Connect />
     <Fulfil />
-    <Insights />
   </>
 );
 

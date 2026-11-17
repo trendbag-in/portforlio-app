@@ -1,8 +1,8 @@
 [
   {
     "path": "/brands",
+    "hero": {"src": "/img/brands-800.jpg", "srcSet": "/img/brands-400.jpg 400w, /img/brands-800.jpg 800w", "alt": "Folded knitwear, a shirt and trousers from a fashion brand laid out for a shoot", "pos": "50% 50%", "pins": [{"text": "Brief: festive edit Reel", "x": 6, "y": 10}, {"text": "12 creators applied", "x": 46, "y": 62}, {"text": "Ordered via @creator", "x": 10, "y": 82}]},
     "persona": "brand",
-    "hero": { "src": "/img/brands-800.jpg", "alt": "Folded knitwear, a shirt and trousers from a fashion brand laid out for a shoot" },
     "keyword": "UGC platform for brands in India",
     "title": "UGC Platform for Brands in India | TrendBag",
     "description": "TrendBag is a UGC platform for brands in India: brief creators on real Shopify products, ship samples, approve Reels and see which posts sold. Get early access.",
@@ -93,6 +93,7 @@
   },
   {
     "path": "/platform/briefs",
+    "hero": {"src": "/img/hero-portrait-896.jpg", "srcSet": "/img/hero-portrait-460.jpg 460w, /img/hero-portrait-896.jpg 896w", "alt": "A creator in a tailored blazer standing by a sunlit window", "pos": "50% 30%", "pins": [{"text": "Brief · 1 Reel, 30–45s", "x": 6, "y": 10}, {"text": "Product: wool blazer", "x": 44, "y": 62}, {"text": "Usage rights: 90 days", "x": 8, "y": 82}]},
     "persona": "brand",
     "keyword": "hire UGC creators in India",
     "title": "Hire UGC Creators in India with Paid Briefs | TrendBag",
@@ -178,6 +179,7 @@
   },
   {
     "path": "/platform/product-seeding",
+    "hero": {"src": "/img/brands-800.jpg", "srcSet": "/img/brands-400.jpg 400w, /img/brands-800.jpg 800w", "alt": "Products laid out and ready to ship to creators", "pos": "50% 50%", "pins": [{"text": "₹0 order created", "x": 6, "y": 10}, {"text": "Shipped to @creator", "x": 44, "y": 62}, {"text": "Delivered", "x": 10, "y": 82}]},
     "persona": "brand",
     "keyword": "influencer product seeding in India",
     "title": "Influencer Product Seeding in India via Shopify | TrendBag",
@@ -250,6 +252,7 @@
   },
   {
     "path": "/platform/attribution",
+    "hero": {"src": "/img/looks/a168c231.jpg", "alt": "A creator wearing a black polo and black trousers", "pos": "50% 22%", "pins": [{"text": "Black polo · 28 orders", "x": 6, "y": 12}, {"text": "Tag taps 1,932", "x": 46, "y": 62}, {"text": "Sales ₹75,540", "x": 10, "y": 82}]},
     "persona": "brand",
     "keyword": "influencer sales attribution for Shopify",
     "title": "Influencer Sales Attribution for Shopify | TrendBag",

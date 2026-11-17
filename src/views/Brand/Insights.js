@@ -6,7 +6,7 @@ import './Insights.css';
 
 const LOOK = LOOKS.find((l) => l.id.startsWith('a168c231'));
 
-// One look's attribution, printed line by line as the section scrolls. Example figures.
+// One creator collab's attribution, printed line by line as the section scrolls. Example figures.
 const LINES = [
   { k: 'Views', v: '12,480' },
   { k: 'Tag taps', v: '1,932' },
@@ -27,11 +27,11 @@ const Insights = () => (
     <Pinned extra={100}>
       <div className="container ix-inner">
         <div className="ix-copy">
-          <p className="tb-kicker tb-kicker--start">Analytics</p>
-          <h2>See which looks sell your products.</h2>
+          <p className="tb-kicker tb-kicker--start">Creator analytics</p>
+          <h2>See which creators sell your products.</h2>
           <p className="section-lede pin-more">
-            Every order is traced back to the look that drove it: views, tag taps, orders and
-            sales, with what you owe the creator worked out for you.
+            Every order is traced back to the creator and the post that drove it: views, tag taps,
+            orders and sales, with what you owe each creator worked out for you.
           </p>
         </div>
 
@@ -46,8 +46,8 @@ const Insights = () => (
             <div className="ix-slot" />
             <div className="ix-receipt">
               <p className="ix-receipt-head">
-                <span>TRENDBAG · LOOK REPORT</span>
-                <span>#ootd · last 30 days</span>
+                <span>TRENDBAG · CREATOR REPORT</span>
+                <span>@creator · collab · last 30 days</span>
               </p>
               <ul>
                 {LINES.map((l, i) =>

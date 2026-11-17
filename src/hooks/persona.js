@@ -17,14 +17,15 @@ export const PERSONA_NAV = {
     { id: 'aesthetics', label: 'Aesthetics' }
   ],
   creator: [
-    { id: 'create', label: 'Create' },
+    { id: 'collabs', label: 'Collabs' },
     { id: 'earn', label: 'Earnings' },
-    { id: 'collabs', label: 'Collabs' }
+    { id: 'create', label: 'Create' }
   ],
   brand: [
+    { id: 'collabs', label: 'Collabs' },
+    { id: 'insights', label: 'Analytics' },
     { id: 'connect', label: 'Connect' },
-    { id: 'fulfil', label: 'Fulfilment' },
-    { id: 'insights', label: 'Analytics' }
+    { id: 'fulfil', label: 'Fulfilment' }
   ]
 };
 

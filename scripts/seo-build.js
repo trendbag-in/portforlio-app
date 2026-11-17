@@ -74,7 +74,7 @@ function schemaFor(p) {
 }
 
 function headFor(p) {
-  const image = ORIGIN + (p.image || (p.persona === 'creator' ? '/img/creator-800.jpg' : p.persona ? '/img/brands-800.jpg' : '/logo1200.png'));
+  const image = ORIGIN + (p.image || p.hero?.src || (p.persona === 'creator' ? '/img/creator-800.jpg' : p.persona ? '/img/brands-800.jpg' : '/logo1200.png'));
   const large = !image.endsWith('logo1200.png');
   return [
     `<title>${esc(p.title)}</title>`,
@@ -112,7 +112,7 @@ function bodyFor(p) {
     `<nav><a href="/">TrendBag</a> / <a href="/brands">For brands</a> / <a href="/creators">For creators</a></nav>`,
     `<p>${esc(p.kicker)}</p><h1>${esc(p.h1)}</h1><p>${esc(p.lede)}</p>`,
     `<p><a href="${esc(p.cta.href)}">${esc(p.cta.label)}</a></p>`,
-    p.hero ? `<img src="${esc(p.hero.src)}" alt="${esc(p.hero.alt)}" width="800" height="597">` : '',
+    p.hero ? `<img src="${esc(p.hero.src)}" alt="${esc(p.hero.alt)}">` : '',
     ...p.sections.map(
       (s) => `<section id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.intro ? `<p>${esc(s.intro)}</p>` : ''}<ul>${items(s)}</ul></section>`
     ),
