@@ -8,6 +8,7 @@
 
 .persona-inner {
   width: 100%;
+  max-width: none; /* full width on wide screens; card height is capped instead */
 }
 
 .persona-head {
@@ -33,7 +34,10 @@
 
 .persona-card {
   position: relative;
-  height: clamp(280px, calc(100vh - 360px), 680px);
+  /* Landscape cards; capped so the heading never slides under the navbar on short, wide screens. */
+  aspect-ratio: 4 / 3;
+  max-height: max(140px, calc(100vh - 380px));
+  width: 100%;
   padding: 0;
   border: none;
   border-radius: var(--tb-r-sheet);
@@ -114,17 +118,51 @@
   }
 }
 
+/* Narrow screens: three portrait tiles side by side, so heading and all three fit on one screen. */
 @media (max-width: 900px) {
   .persona-grid {
-    grid-template-columns: 1fr;
+    gap: 0.625rem;
   }
 
   .persona-card {
-    height: clamp(160px, 24vh, 260px);
+    aspect-ratio: 3 / 4;
+    border-radius: var(--tb-r-card);
+  }
+
+  .persona-copy {
+    padding: 2.5rem 0.625rem 0.75rem;
+  }
+
+  .persona-name {
+    font-size: clamp(0.875rem, 3.6vw, 1.25rem);
+    line-height: 1.2;
+  }
+
+  .persona-check {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 22px;
+    height: 22px;
   }
 
   .persona-line {
     display: none;
+  }
+}
+
+/* Phones: two tiles on top, one full-width below, sized to fill the screen height. */
+@media (max-width: 600px) {
+  .persona-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .persona-card {
+    aspect-ratio: auto;
+    height: clamp(120px, calc((100svh - 430px) / 2), 260px);
+  }
+
+  .persona-card:last-child {
+    grid-column: 1 / -1;
   }
 }
 

@@ -48,7 +48,8 @@
 .intro-word {
   margin: 0;
   /* Room for the italic overhang, which background-clip would otherwise cut off. */
-  padding: 0 0.12em 0.08em;
+  padding: 0 0.12em 0.24em; /* bottom: room for the g descender */
+  margin-bottom: -0.16em;
   font-family: var(--tb-display);
   font-variation-settings: 'opsz' 6;
   font-style: italic;

@@ -2,7 +2,23 @@
   display: grid;
   grid-template-columns: 40fr 60fr;
   gap: 4rem;
-  align-items: start;
+  align-items: stretch;
+}
+
+/* Panel matches the side column's height whatever the role; Send sits at its foot. */
+.contact-form-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-side .contact-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-side .contact-form {
+  flex: 1;
 }
 
 .contact-rows {
@@ -124,6 +140,7 @@
 
 .contact-submit {
   align-self: flex-start;
+  margin-top: auto;
 }
 
 .contact-submit:disabled {
