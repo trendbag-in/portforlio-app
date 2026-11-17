@@ -15,13 +15,18 @@ const ROLES = [
   { id: 'other', label: 'Something else' }
 ];
 
+// Brands pick their store platform instead of writing a message; the API still gets one message.
+const PLATFORMS = ['Shopify', 'WooCommerce', 'Magento', 'Wix', 'Other'];
+
 // defaultRole pins the role chip on pages that already know the visitor (/brands, /creators).
 const Contact = ({ defaultRole }) => {
   const picked = usePersona();
   const persona = defaultRole || picked;
   const [role, setRole] = useState(persona);
   useEffect(() => setRole(persona), [persona]);
-  const [formData, setFormData] = useState({ name: '', email: '', query: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', query: '', store: '' });
+  const [platform, setPlatform] = useState('');
+  const isBrand = role === 'brand';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -33,8 +38,15 @@ const Contact = ({ defaultRole }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isBrand && !platform) {
+      setError('Pick the platform your store runs on.');
+      return;
+    }
     setIsSubmitting(true);
     setError('');
+    const message = isBrand
+      ? [`Platform: ${platform}`, formData.store && `Store: ${formData.store}`].filter(Boolean).join('\n')
+      : formData.query;
 
     try {
       const res = await fetch(`${API_BASE}/api/user/leads`, {
@@ -43,7 +55,7 @@ const Contact = ({ defaultRole }) => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: formData.query,
+          message,
           role
         })
       });
@@ -55,7 +67,8 @@ const Contact = ({ defaultRole }) => {
 
       setIsSubmitting(false);
       setIsSuccess(true);
-      setFormData({ name: '', email: '', query: '' });
+      setFormData({ name: '', email: '', query: '', store: '' });
+      setPlatform('');
       setTimeout(() => setIsSuccess(false), 2500);
     } catch (err) {
       setIsSubmitting(false);
@@ -101,7 +114,7 @@ const Contact = ({ defaultRole }) => {
 
         <RevealOnScroll className="contact-form-side" delay={160}>
           <div className="contact-panel tb-card--ruled">
-            <h3>Send us a message</h3>
+            <h3>{isBrand ? 'Tell us about your store' : 'Send us a message'}</h3>
             <p className="contact-panel-lede">We usually reply within two working days.</p>
 
             <form onSubmit={handleSubmit} className="contact-form">
@@ -149,18 +162,51 @@ const Contact = ({ defaultRole }) => {
                 </div>
               </div>
 
-              <div className="contact-field">
-                <label htmlFor="query">Your message</label>
-                <textarea
-                  id="query"
-                  name="query"
-                  value={formData.query}
-                  onChange={handleInputChange}
-                  placeholder="Tell us what you have in mind."
-                  rows="5"
-                  required
-                />
-              </div>
+              {isBrand ? (
+                <>
+                  <fieldset className="contact-field contact-roles">
+                    <legend>Your store runs on</legend>
+                    <div className="contact-role-chips">
+                      {PLATFORMS.map((p) => (
+                        <button
+                          key={p}
+                          type="button"
+                          aria-pressed={platform === p}
+                          className={`tb-chip ${platform === p ? 'tb-chip--active' : ''}`}
+                          onClick={() => setPlatform(p)}
+                        >
+                          {p}
+                        </button>
+                      ))}
+                    </div>
+                  </fieldset>
+                  <div className="contact-field">
+                    <label htmlFor="store">Store website</label>
+                    <input
+                      type="text"
+                      inputMode="url"
+                      id="store"
+                      name="store"
+                      value={formData.store}
+                      onChange={handleInputChange}
+                      placeholder="yourbrand.com"
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="contact-field">
+                  <label htmlFor="query">Your message</label>
+                  <textarea
+                    id="query"
+                    name="query"
+                    value={formData.query}
+                    onChange={handleInputChange}
+                    placeholder="Tell us what you have in mind."
+                    rows="5"
+                    required
+                  />
+                </div>
+              )}
 
               {error && <p className="contact-error" role="alert">{error}</p>}
 
