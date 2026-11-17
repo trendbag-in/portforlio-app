@@ -120,8 +120,8 @@
   height: 40px;
   padding: 0 1.25rem;
   border-radius: var(--tb-r-pill);
-  background: var(--tb-accent);
-  color: var(--tb-on-accent);
+  background: var(--tb-loud);
+  color: var(--tb-on-loud);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -130,7 +130,7 @@
 }
 
 .navbar-cta:hover {
-  background: var(--tb-accent-press);
+  background: var(--tb-loud-press);
 }
 
 .navbar-burger {

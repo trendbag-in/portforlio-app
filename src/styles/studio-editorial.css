@@ -14,16 +14,19 @@
   color-scheme: light dark;
 
   /* Neutral planes */
-  --tb-paper: #FFFFFF;
-  --tb-surface: #F4F4F5;
-  --tb-raised: #EBEBED;
-  --tb-plate: #E4E4E7;
-  --tb-card-fill: rgba(26, 26, 26, 0.04);
+  /* Quiet-loud palette: lilac + deep violet are the quiet pair, lime is the loud
+     colour and only fills primary buttons. Violet stays the signal for rings,
+     labels and active states. */
+  --tb-paper: #F4F1FF;
+  --tb-surface: #ECE7FC;
+  --tb-raised: #E3DCF9;
+  --tb-plate: #DAD1F6;
+  --tb-card-fill: rgba(30, 19, 71, 0.04);
 
   /* Ink ramp — carries all hierarchy that colour would otherwise carry */
-  --tb-ink: #1A1A1A;
-  --tb-ink-2: #6B6B70;
-  --tb-ink-3: #6E6E73;
+  --tb-ink: #1E1347;
+  --tb-ink-2: #4F4673;
+  --tb-ink-3: #625A85;
 
   /* The one accent, split by role so both halves clear AA */
   --tb-accent: #5A31F4;
@@ -32,10 +35,13 @@
   --tb-on-accent: #FFFFFF;
   --tb-accent-muted: rgba(90, 49, 244, 0.10);
   --tb-brand: #5A31F4;
+  --tb-loud: #C8F94B;
+  --tb-loud-press: #B6EC2F;
+  --tb-on-loud: #1E1347;
 
-  --tb-line: rgba(26, 26, 26, 0.08);
+  --tb-line: rgba(30, 19, 71, 0.10);
   --tb-scrim: rgba(10, 10, 11, 0.55);
-  --tb-glass: rgba(255, 255, 255, 0.72);
+  --tb-glass: rgba(244, 241, 255, 0.72);
 
   /* Faint by design — a heavy shadow reads as dirt on a light ground */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -67,16 +73,18 @@
   --tb-slow: 600ms;
 }
 
-[data-theme='dark'] {
-  --tb-paper: #0A0A0B;
-  --tb-surface: #141416;
-  --tb-raised: #1E1E21;
-  --tb-plate: #232326;
-  --tb-card-fill: rgba(237, 237, 239, 0.06);
+/* The footer is the deep-violet band in both themes, so it reuses the dark tokens. */
+[data-theme='dark'],
+.footer {
+  --tb-paper: #110A2B;
+  --tb-surface: #19113A;
+  --tb-raised: #221849;
+  --tb-plate: #291E55;
+  --tb-card-fill: rgba(241, 238, 255, 0.06);
 
-  --tb-ink: #EDEDEF;
-  --tb-ink-2: #B0B0B6;
-  --tb-ink-3: #7C7C83;
+  --tb-ink: #F1EEFF;
+  --tb-ink-2: #C3BBE4;
+  --tb-ink-3: #9A90C4;
 
   --tb-accent: #A18BFF;
   --tb-accent-ink: #A18BFF;
@@ -84,9 +92,9 @@
   --tb-on-accent: #120A2E;
   --tb-accent-muted: rgba(161, 139, 255, 0.14);
 
-  --tb-line: rgba(237, 237, 239, 0.10);
+  --tb-line: rgba(241, 238, 255, 0.10);
   --tb-scrim: rgba(0, 0, 0, 0.60);
-  --tb-glass: rgba(10, 10, 11, 0.72);
+  --tb-glass: rgba(17, 10, 43, 0.72);
 
   /* Dark inverts elevation to a deeper shadow, never a black-on-black flatten */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
@@ -257,12 +265,12 @@
 }
 
 .tb-btn--primary {
-  background: var(--tb-accent);
-  color: var(--tb-on-accent);
+  background: var(--tb-loud);
+  color: var(--tb-on-loud);
 }
 
 .tb-btn--primary:hover {
-  background: var(--tb-accent-press);
+  background: var(--tb-loud-press);
 }
 
 .tb-btn:active {

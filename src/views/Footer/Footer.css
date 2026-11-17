@@ -1,5 +1,6 @@
 .footer {
   background: var(--tb-surface);
+  color: var(--tb-ink);
   border-top: 1px solid var(--tb-line);
   padding: 4rem 0 2rem;
 }
