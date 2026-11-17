@@ -15,7 +15,7 @@ const ROLES = [
   { id: 'other', label: 'Something else' }
 ];
 
-// Brands pick their store platform instead of writing a message; the API still gets one message.
+// Brands pick their store platform; nobody writes a free-text message.
 const PLATFORMS = ['Shopify', 'WooCommerce', 'Magento', 'Wix', 'Other'];
 
 // defaultRole pins the role chip on pages that already know the visitor (/brands, /creators).
@@ -24,7 +24,7 @@ const Contact = ({ defaultRole }) => {
   const persona = defaultRole || picked;
   const [role, setRole] = useState(persona);
   useEffect(() => setRole(persona), [persona]);
-  const [formData, setFormData] = useState({ name: '', email: '', query: '', store: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', store: '' });
   const [platform, setPlatform] = useState('');
   const isBrand = role === 'brand';
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,9 +44,10 @@ const Contact = ({ defaultRole }) => {
     }
     setIsSubmitting(true);
     setError('');
+    // No free-text message any more; the API still requires one, so send what the form knows.
     const message = isBrand
       ? [`Platform: ${platform}`, formData.store && `Store: ${formData.store}`].filter(Boolean).join('\n')
-      : formData.query;
+      : `Contact request (${ROLES.find((r) => r.id === role)?.label || 'Other'})`;
 
     try {
       const res = await fetch(`${API_BASE}/api/user/leads`, {
@@ -67,7 +68,7 @@ const Contact = ({ defaultRole }) => {
 
       setIsSubmitting(false);
       setIsSuccess(true);
-      setFormData({ name: '', email: '', query: '', store: '' });
+      setFormData({ name: '', email: '', store: '' });
       setPlatform('');
       setTimeout(() => setIsSuccess(false), 2500);
     } catch (err) {
@@ -114,8 +115,8 @@ const Contact = ({ defaultRole }) => {
 
         <RevealOnScroll className="contact-form-side" delay={160}>
           <div className="contact-panel tb-card--ruled">
-            <h3>{isBrand ? 'Tell us about your store' : 'Send us a message'}</h3>
-            <p className="contact-panel-lede">We usually reply within two working days.</p>
+            <h3>{isBrand ? 'Tell us about your store' : 'Leave your details'}</h3>
+            <p className="contact-panel-lede">We usually get back within two working days.</p>
 
             <form onSubmit={handleSubmit} className="contact-form">
               <fieldset className="contact-field contact-roles">
@@ -162,7 +163,7 @@ const Contact = ({ defaultRole }) => {
                 </div>
               </div>
 
-              {isBrand ? (
+              {isBrand && (
                 <>
                   <fieldset className="contact-field contact-roles">
                     <legend>Your store runs on</legend>
@@ -193,25 +194,12 @@ const Contact = ({ defaultRole }) => {
                     />
                   </div>
                 </>
-              ) : (
-                <div className="contact-field">
-                  <label htmlFor="query">Your message</label>
-                  <textarea
-                    id="query"
-                    name="query"
-                    value={formData.query}
-                    onChange={handleInputChange}
-                    placeholder="Tell us what you have in mind."
-                    rows="5"
-                    required
-                  />
-                </div>
               )}
 
               {error && <p className="contact-error" role="alert">{error}</p>}
 
               <button type="submit" className="tb-btn tb-btn--primary contact-submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending' : isSuccess ? 'Sent' : 'Send message'}
+                {isSubmitting ? 'Sending' : isSuccess ? 'Sent' : 'Send'}
               </button>
             </form>
           </div>
