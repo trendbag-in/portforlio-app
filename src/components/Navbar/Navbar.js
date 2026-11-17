@@ -53,7 +53,8 @@ const Navbar = ({ minimal = false, cta }) => {
   // Highlight whichever section is currently under the top bar.
   useEffect(() => {
     const onScroll = () => {
-      let current = NAV_ITEMS[0].id;
+      // Landing pages have no 'Home' section, so nothing is active until Contact is reached.
+      let current = minimal ? '' : NAV_ITEMS[0].id;
       for (const { id } of NAV_ITEMS) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 120) current = id;

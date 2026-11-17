@@ -15,8 +15,20 @@ const ROLES = [
   { id: 'other', label: 'Something else' }
 ];
 
-// Brands pick their store platform; nobody writes a free-text message.
-const PLATFORMS = ['Shopify', 'WooCommerce', 'Magento', 'Wix', 'Other'];
+// Tap-to-answer questions per role instead of a free-text message; all required.
+const QUESTIONS = {
+  brand: [{ id: 'platform', label: 'Your store runs on', options: ['Shopify', 'WooCommerce', 'Magento', 'Wix', 'Other'] }],
+  creator: [
+    { id: 'niche', label: 'You mostly post about', options: ['Fashion', 'Beauty', 'Lifestyle', 'Fitness', 'Travel', 'Food', 'Other'] },
+    { id: 'followers', label: 'Instagram followers', options: ['Under 1K', '1K–10K', '10K–50K', '50K–100K', '100K+'] },
+    { id: 'source', label: 'Where did you hear about us', options: ['Instagram', 'A friend or creator', 'Google', 'College', 'LinkedIn', 'Other'] }
+  ]
+};
+// Optional text field per role.
+const EXTRA = {
+  brand: { id: 'store', label: 'Store website', placeholder: 'yourbrand.com', inputMode: 'url' },
+  creator: { id: 'handle', label: 'Instagram handle', placeholder: '@yourhandle' }
+};
 
 // defaultRole pins the role chip on pages that already know the visitor (/brands, /creators).
 const Contact = ({ defaultRole }) => {
@@ -24,9 +36,11 @@ const Contact = ({ defaultRole }) => {
   const persona = defaultRole || picked;
   const [role, setRole] = useState(persona);
   useEffect(() => setRole(persona), [persona]);
-  const [formData, setFormData] = useState({ name: '', email: '', store: '' });
-  const [platform, setPlatform] = useState('');
+  const [formData, setFormData] = useState({ name: '', email: '', store: '', handle: '' });
+  const [answers, setAnswers] = useState({});
   const isBrand = role === 'brand';
+  const questions = QUESTIONS[role] || [];
+  const extra = EXTRA[role];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -38,16 +52,19 @@ const Contact = ({ defaultRole }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isBrand && !platform) {
-      setError('Pick the platform your store runs on.');
+    const missing = questions.find((q) => !answers[q.id]);
+    if (missing) {
+      setError(`Pick an answer for "${missing.label}".`);
       return;
     }
     setIsSubmitting(true);
     setError('');
     // No free-text message any more; the API still requires one, so send what the form knows.
-    const message = isBrand
-      ? [`Platform: ${platform}`, formData.store && `Store: ${formData.store}`].filter(Boolean).join('\n')
-      : `Contact request (${ROLES.find((r) => r.id === role)?.label || 'Other'})`;
+    const lines = [
+      ...questions.map((q) => `${q.label}: ${answers[q.id]}`),
+      extra && formData[extra.id] && `${extra.label}: ${formData[extra.id]}`
+    ].filter(Boolean);
+    const message = lines.length ? lines.join('\n') : `Contact request (${ROLES.find((r) => r.id === role)?.label || 'Other'})`;
 
     try {
       const res = await fetch(`${API_BASE}/api/user/leads`, {
@@ -68,8 +85,8 @@ const Contact = ({ defaultRole }) => {
 
       setIsSubmitting(false);
       setIsSuccess(true);
-      setFormData({ name: '', email: '', store: '' });
-      setPlatform('');
+      setFormData({ name: '', email: '', store: '', handle: '' });
+      setAnswers({});
       setTimeout(() => setIsSuccess(false), 2500);
     } catch (err) {
       setIsSubmitting(false);
@@ -115,7 +132,7 @@ const Contact = ({ defaultRole }) => {
 
         <RevealOnScroll className="contact-form-side" delay={160}>
           <div className="contact-panel tb-card--ruled">
-            <h3>{isBrand ? 'Tell us about your store' : 'Leave your details'}</h3>
+            <h3>{isBrand ? 'Tell us about your store' : role === 'creator' ? 'Tell us about your page' : 'Leave your details'}</h3>
             <p className="contact-panel-lede">We usually get back within two working days.</p>
 
             <form onSubmit={handleSubmit} className="contact-form">
@@ -163,37 +180,38 @@ const Contact = ({ defaultRole }) => {
                 </div>
               </div>
 
-              {isBrand && (
-                <>
-                  <fieldset className="contact-field contact-roles">
-                    <legend>Your store runs on</legend>
-                    <div className="contact-role-chips">
-                      {PLATFORMS.map((p) => (
-                        <button
-                          key={p}
-                          type="button"
-                          aria-pressed={platform === p}
-                          className={`tb-chip ${platform === p ? 'tb-chip--active' : ''}`}
-                          onClick={() => setPlatform(p)}
-                        >
-                          {p}
-                        </button>
-                      ))}
-                    </div>
-                  </fieldset>
-                  <div className="contact-field">
-                    <label htmlFor="store">Store website</label>
-                    <input
-                      type="text"
-                      inputMode="url"
-                      id="store"
-                      name="store"
-                      value={formData.store}
-                      onChange={handleInputChange}
-                      placeholder="yourbrand.com"
-                    />
+              {questions.map((q) => (
+                <fieldset key={q.id} className="contact-field contact-roles">
+                  <legend>{q.label}</legend>
+                  <div className="contact-role-chips">
+                    {q.options.map((o) => (
+                      <button
+                        key={o}
+                        type="button"
+                        aria-pressed={answers[q.id] === o}
+                        className={`tb-chip ${answers[q.id] === o ? 'tb-chip--active' : ''}`}
+                        onClick={() => setAnswers((prev) => ({ ...prev, [q.id]: o }))}
+                      >
+                        {o}
+                      </button>
+                    ))}
                   </div>
-                </>
+                </fieldset>
+              ))}
+
+              {extra && (
+                <div className="contact-field">
+                  <label htmlFor={extra.id}>{extra.label}</label>
+                  <input
+                    type="text"
+                    inputMode={extra.inputMode}
+                    id={extra.id}
+                    name={extra.id}
+                    value={formData[extra.id]}
+                    onChange={handleInputChange}
+                    placeholder={extra.placeholder}
+                  />
+                </div>
               )}
 
               {error && <p className="contact-error" role="alert">{error}</p>}
