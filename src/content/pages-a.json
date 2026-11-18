@@ -60,7 +60,8 @@
           { "title": "Product seeding", "body": "Ship samples as ₹0 orders from your own Shopify, with tracking flowing back to the brief." },
           { "title": "Sales attribution", "body": "Tracked links, a Shopify Web Pixel and a per-creator leaderboard of clicks, orders, revenue and ROAS." },
           { "title": "Creator intelligence", "body": "Profiles that show niche, language, engagement and past brands, so shortlisting is based on more than follower count." },
-          { "title": "Partnership ads", "body": "Run the best organic posts as Meta partnership ads from your own ad account." }
+          { "title": "Partnership ads", "body": "Run the best organic posts as Meta partnership ads from your own ad account." },
+          { "title": "Creator directory", "body": "Browse creators by niche who chose to be listed, with handles partly hidden. Contact goes through TrendBag." }
         ]
       }
     ],

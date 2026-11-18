@@ -34,4 +34,5 @@ pids
 .eslintcache
 
 
-.idea.taste-skill/
+.idea
+.taste-skill/

@@ -87,3 +87,16 @@ function calculator(root) {
 
 document.querySelectorAll('form[data-lead-form]').forEach(leadForm);
 document.querySelectorAll('[data-er-calc]').forEach(calculator);
+
+// Directory pages are static: drop creators who opted out since the last build.
+(async () => {
+  const cards = document.querySelectorAll('[data-cid]');
+  const m = location.pathname.match(/^\/find-creators\/([a-z0-9_-]+)/);
+  if (!cards.length || !m) return;
+  try {
+    const res = await fetch(`${API_BASE}/api/user/public/creators?niche=${m[1]}&limit=60&offset=0`);
+    if (!res.ok) return;
+    const live = new Set(((await res.json()).creators || []).map((c) => c.id));
+    cards.forEach((el) => { if (!live.has(el.dataset.cid)) el.remove(); });
+  } catch (e) { /* offline: keep the build's list */ }
+})();

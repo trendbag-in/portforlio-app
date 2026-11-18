@@ -1,0 +1,13 @@
+[
+  { "slug": "fashion", "label": "Fashion" },
+  { "slug": "beauty", "label": "Beauty & skincare" },
+  { "slug": "fitness", "label": "Fitness" },
+  { "slug": "food", "label": "Food" },
+  { "slug": "travel", "label": "Travel" },
+  { "slug": "lifestyle", "label": "Lifestyle" },
+  { "slug": "comedy", "label": "Comedy & entertainment" },
+  { "slug": "parenting", "label": "Parenting & family" },
+  { "slug": "tech", "label": "Tech & gadgets" },
+  { "slug": "home", "label": "Home & decor" },
+  { "slug": "education", "label": "Education & finance" }
+]

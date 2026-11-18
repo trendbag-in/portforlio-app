@@ -250,6 +250,7 @@ const PAGES = {
 };
 
 // ---------------------------------------------------------------- page parts
+const faqHref = (p) => (p.faq && p.faq.length ? '#faq' : '/find-creators#faq');
 function navHtml(p, byPath) {
   const card = (path, ph) => `<a class="menu-card span-4" href="${path}"><div class="panel">${img(ph, '410px')}</div><span class="t-card">${esc(byPath[path].kicker)}</span><span class="t-small muted">${esc(byPath[path].description.split(': ')[0].split('. ')[0].slice(0, 52))}</span></a>`;
   const word = (href, label) => `<div class="nav__item"><a class="nav__link" href="${href}"${href === p.path ? ' aria-current="page"' : ''}>${label}</a></div>`;
@@ -260,7 +261,7 @@ function navHtml(p, byPath) {
       <div class="nav__item"><a class="nav__link" href="#platform-menu">Platform <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu" id="platform-menu"><div class="wrap grid">${card('/platform/briefs', 'blazer')}${card('/platform/attribution', 'polo')}${card('/platform/creator-intelligence', 'pillar')}</div></div>
       </div>
-      ${word('/brands', 'Brands')}${word('/creators', 'Creators')}${word('/creator-audit', 'Audit')}${word('#faq', 'Questions')}
+      ${word('/brands', 'Brands')}${word('/creators', 'Creators')}${word('/creator-audit', 'Audit')}${word(faqHref(p), 'Questions')}
     </nav>
     <div class="nav__actions">${cta(p, '')}</div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
@@ -298,7 +299,8 @@ function heroHtml(p, plan) {
   const L = p.landing;
   const lead = `<p class="hero__lead">${esc(p.lede)}</p>`;
   const proof = `<p class="hero__proof">${esc(L.proof)}</p>`;
-  const second = `<a class="btn btn--secondary" href="#app">See the product</a>`;
+  const [secondLabel, secondHref] = L.second || ['See the product', '#app'];
+  const second = `<a class="btn btn--secondary" href="${esc(secondHref)}">${esc(secondLabel)}</a>`;
   if (plan.hero === 'collage') {
     const w = plan.heroWin;
     return `<section class="hero hero--collage" data-enter aria-labelledby="hero-h">
@@ -491,8 +493,8 @@ function sectionHtml(p, s, cfg, ctx) {
   }
   if (cfg.comp === 'cards-links') {
     // the platform overview: each card links to its own page
-    const links = { Briefs: '/platform/briefs', 'Product seeding': '/platform/product-seeding', 'Sales attribution': '/platform/attribution', 'Creator intelligence': '/platform/creator-intelligence', 'Partnership ads': '/platform/partnership-ads' };
-    const icons = ['rupee', 'box', 'chart', 'users', 'play'];
+    const links = { Briefs: '/platform/briefs', 'Product seeding': '/platform/product-seeding', 'Sales attribution': '/platform/attribution', 'Creator intelligence': '/platform/creator-intelligence', 'Partnership ads': '/platform/partnership-ads', 'Creator directory': '/find-creators' };
+    const icons = ['rupee', 'box', 'chart', 'users', 'play', 'eye'];
     return `${open()}<div class="wrap"><div class="grid fill tb-split">
       <div class="span-6 tb-col">${head2(s)}<ul class="tb-linkrows">${items.map((it, i) => `<li><a href="${links[it.title]}">${glyph(icons[i])}<span><span class="tb-linkrows__t">${esc(it.title)}</span><span class="tb-linkrows__b">${esc(it.body)}</span></span></a></li>`).join('')}</ul></div>
       <div class="frame frame--photo frame--portrait frame--fill span-6 start-7">${img(cfg.photo)}</div>
@@ -529,7 +531,7 @@ function statementHtml(p, plan, kind) {
 // two FAQ sections (h2 and a photograph beside three answers), so each fits two phone screens
 function faqHtml(p, plan) {
   const half = Math.ceil(p.faq.length / 2);
-  const topic = esc(p.kicker.toLowerCase().replace(/^for /, 'TrendBag for '));
+  const topic = esc(p.faqTopic || p.kicker.toLowerCase().replace(/^for /, 'TrendBag for '));
   return [p.faq.slice(0, half), p.faq.slice(half)].map((list, k) => {
     const id = k ? 'faq-2' : 'faq';
     return `<section class="section" id="${id}" aria-labelledby="${id}-h"><div class="wrap">
@@ -601,9 +603,9 @@ function footerHtml(p, byPath) {
       <div class="grid">
         <div class="span-4 stack-4"><a class="nav__logo" href="/">${LOGO(24)}TrendBag</a><p class="footer__lede">Creator videos for Indian fashion brands.</p><p class="t-small muted">Product names and logos are trademarks of their owners.</p></div>
         ${col('Platform', [['Briefs', '/platform/briefs'], ['Product seeding', '/platform/product-seeding'], ['Attribution', '/platform/attribution'], ['Creator intelligence', '/platform/creator-intelligence'], ['Partnership ads', '/platform/partnership-ads']])}
-        ${col('Brands', [['For brands', '/brands'], ['Creator audit', '/creator-audit']])}
+        ${col('Brands', [['For brands', '/brands'], ['Find creators', '/find-creators'], ['Creator audit', '/creator-audit']])}
         ${col('Creators', [['For creators', '/creators'], ['Open the app', 'https://app.trendbag.in']])}
-        ${col('Company', [['About', '/#about-us'], ['Questions', '#faq'], ['team@trendbag.in', 'mailto:team@trendbag.in']])}
+        ${col('Company', [['About', '/#about-us'], ['Questions', faqHref(p)], ['team@trendbag.in', 'mailto:team@trendbag.in']])}
       </div>
       <div class="footer__legal">
         <span>&copy; ${new Date().getFullYear()} TrendBag</span><span class="tb-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span>
@@ -634,7 +636,6 @@ function calculatorHtml() {
 function render(p, { headTags, byPath }) {
   const plan = PAGES[p.path];
   if (!plan) throw new Error('no landing plan for ' + p.path);
-  const kitCss = ['system.css', 'ui/cards.css', 'motion/motion.css', 'backgrounds/backgrounds.css', 'layout/layout.css', 'icons/icon.css', 'ui/base.css', 'ui/window/fragment.css', 'layout/demo.css'];
   const body = [];
   body.push(heroHtml(p, plan));
   if (p.tool === 'er-calculator') body.push(calculatorHtml());
@@ -646,7 +647,12 @@ function render(p, { headTags, byPath }) {
   }
   body.push(faqHtml(p, plan));
   body.push(formHtml(p, plan));
-  const moments = plan.moments;
+  return shell(p, { headTags, byPath, body, moments: plan.moments, grow: plan.grow, hero: plan.hero });
+}
+
+// the document around a page's sections: head, kit CSS, nav, footer, scripts
+function shell(p, { headTags, byPath, body, moments, grow = {}, hero }) {
+  const kitCss = ['system.css', 'ui/cards.css', 'motion/motion.css', 'backgrounds/backgrounds.css', 'layout/layout.css', 'icons/icon.css', 'ui/base.css', 'ui/window/fragment.css', 'layout/demo.css'];
   return phoneGrow(`<!doctype html>
 <html lang="en-IN" data-api="${esc(process.env.REACT_APP_API_BASE || 'https://api.trendbag.in')}" data-type="software" data-radius="soft" data-ground="sky" data-buttons="pill" data-motion>
 <head>
@@ -682,7 +688,7 @@ ${kitCss.map((c) => `<link rel="stylesheet" href="/assets/${c}">`).join('\n')}
 </head>
 <body>
 <!-- type: software (site-kind software): TrendBag sells creator-marketing software to Indian fashion brands on Shopify, and paid UGC work to creators
-     deal: hero ${plan.hero}, nav nav-cards, close close-word, footer footer-columns, rhythm space, buttons pill, mark: the client's logo, ground sky, palette brand (#F7F7F5 / #EBEBE8 / #0A0A0A / #D0106F), type familjen
+     deal: hero ${hero}, nav nav-cards, close close-word, footer footer-columns, rhythm space, buttons pill, mark: the client's logo, ground sky, palette brand (#F7F7F5 / #EBEBE8 / #0A0A0A / #D0106F), type familjen
      moments: ${moments.join(', ')} -->
 ${navHtml(p, byPath)}
 <main id="top">
@@ -695,7 +701,7 @@ ${footerHtml(p, byPath)}
 <script type="module" src="/lp/landing.js"></script>
 </body>
 </html>
-`, plan.grow);
+`, grow);
 }
 
-module.exports = { render, PAGES };
+module.exports = { render, shell, PAGES, PH, img, heroHtml, sectionHtml, faqHtml, formHtml };

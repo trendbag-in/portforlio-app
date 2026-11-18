@@ -9,6 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const { render: renderLanding } = require('./landing-pages');
+const directory = require('./directory-pages');
 
 const ORIGIN = 'https://www.trendbag.in';
 const BUILD = path.join(__dirname, '..', 'build');
@@ -59,10 +60,7 @@ function schemaFor(p) {
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: ORIGIN + '/' },
-        { '@type': 'ListItem', position: 2, name: p.kicker || p.title.split(' | ')[0], item: url(p.path) }
-      ]
+      itemListElement: (p.crumbs || [['Home', '/'], [p.kicker || p.title.split(' | ')[0], p.path]]).map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: url(path) }))
     }
   ];
   if (p.faq && p.faq.length) {
@@ -82,7 +80,7 @@ function headFor(p) {
     `<title>${esc(p.title)}</title>`,
     `<meta name="description" content="${esc(p.description)}">`,
     `<link rel="canonical" href="${url(p.path)}">`,
-    `<meta name="robots" content="index,follow,max-image-preview:large">`,
+    `<meta name="robots" content="${p.noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'}">`,
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="TrendBag">`,
     `<meta property="og:locale" content="en_IN">`,
@@ -115,32 +113,44 @@ let template = fs.readFileSync(templatePath, 'utf8');
 for (const re of STRIP) template = template.replace(re, '');
 if (!template.includes('<div id="root"></div>')) throw new Error('template has no empty #root');
 
-const problems = [];
-for (const p of [...siteMeta, ...pages]) {
-  if (p.title.length > 65) problems.push(`${p.path}: title ${p.title.length} chars`);
-  if (p.description.length < 70 || p.description.length > 170) problems.push(`${p.path}: description ${p.description.length} chars`);
-  // marketing pages are static kit pages (scripts/landing-pages.js); the rest stay the React shell
-  const html = p.sections
-    ? renderLanding(p, { headTags: headFor(p), byPath })
-    : template.replace('</head>', headFor(p) + '</head>');
-  const out = p.path === '/' ? templatePath : path.join(BUILD, p.path.slice(1) + '.html');
-  fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, html);
+async function main() {
+  // the creator directory reads the public API; it falls back to static niches, so this never fails the build
+  const dirPages = directory.pages(await directory.load());
+  const problems = [];
+  for (const p of [...siteMeta, ...pages, ...dirPages]) {
+    if (p.title.length > 65) problems.push(`${p.path}: title ${p.title.length} chars`);
+    if (p.description.length < 70 || p.description.length > 170) problems.push(`${p.path}: description ${p.description.length} chars`);
+    // marketing pages are static kit pages (scripts/landing-pages.js); the rest stay the React shell
+    const html = p.html
+      ? p.html({ headTags: headFor(p), byPath })
+      : p.sections
+      ? renderLanding(p, { headTags: headFor(p), byPath })
+      : template.replace('</head>', headFor(p) + '</head>');
+    const out = p.path === '/' ? templatePath : path.join(BUILD, p.path.slice(1) + '.html');
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, html);
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  const all = [...siteMeta, ...pages, ...dirPages];
+  const prio = (p) => (p.priority || (p.path === '/' ? '1.0' : p.sections ? (p.path.split('/').length === 2 ? '0.9' : '0.8') : '0.3'));
+  fs.writeFileSync(
+    path.join(BUILD, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${all
+      .filter((p) => !p.noindex)
+      .map((p) => `  <url><loc>${url(p.path)}</loc><lastmod>${today}</lastmod><priority>${prio(p)}</priority></url>`)
+      .join('\n')}\n</urlset>\n`
+  );
+  fs.writeFileSync(path.join(BUILD, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
+
+  console.log(`seo-build: ${all.length} routes, sitemap.xml, robots.txt`);
+  if (problems.length) {
+    console.error('seo-build: length problems:\n  ' + problems.join('\n  '));
+    process.exit(1);
+  }
 }
 
-const today = new Date().toISOString().slice(0, 10);
-const all = [...siteMeta, ...pages];
-const prio = (p) => (p.path === '/' ? '1.0' : p.sections ? (p.path.split('/').length === 2 ? '0.9' : '0.8') : '0.3');
-fs.writeFileSync(
-  path.join(BUILD, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${all
-    .map((p) => `  <url><loc>${url(p.path)}</loc><lastmod>${today}</lastmod><priority>${prio(p)}</priority></url>`)
-    .join('\n')}\n</urlset>\n`
-);
-fs.writeFileSync(path.join(BUILD, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
-
-console.log(`seo-build: ${all.length} routes, sitemap.xml, robots.txt`);
-if (problems.length) {
-  console.error('seo-build: length problems:\n  ' + problems.join('\n  '));
+main().catch((e) => {
+  console.error(e);
   process.exit(1);
-}
+});

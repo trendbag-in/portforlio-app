@@ -13,6 +13,7 @@ const PRODUCT_LINKS = [
   { label: 'Attribution', to: '/platform/attribution' },
   { label: 'Creator intelligence', to: '/platform/creator-intelligence' },
   { label: 'Partnership ads', to: '/platform/partnership-ads' },
+  { label: 'Find creators', to: '/find-creators' },
   { label: 'Creator audit', to: '/creator-audit' },
   { label: 'Open the app', href: 'https://app.trendbag.in', external: true }
 ];
