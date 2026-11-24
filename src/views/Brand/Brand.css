@@ -4,8 +4,8 @@
 }
 
 .fulfil .stack-deck {
-  --deck-w: 420px;
-  --deck-h: min(320px, calc(100vh - 260px));
+  --deck-w: 26.25rem;
+  --deck-h: min(20rem, calc(100vh - 16.25rem));
 }
 
 .ff-card {
@@ -33,7 +33,7 @@
 .ff-orders li,
 .ff-boxes li {
   display: grid;
-  grid-template-columns: 44px 1fr auto;
+  grid-template-columns: 2.75rem 1fr auto;
   gap: 0.75rem;
   align-items: center;
   padding: 0.5rem;
@@ -42,8 +42,8 @@
 }
 
 .ff-orders img {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   object-fit: contain;
   border-radius: var(--tb-r-xs);
   background: var(--tb-surface);
@@ -68,7 +68,7 @@
   font-style: normal;
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 2px 8px;
+  padding: 2px 0.5rem;
   border-radius: var(--tb-r-pill);
   background: var(--tb-accent-muted);
   color: var(--tb-accent-ink);
@@ -84,11 +84,11 @@
 }
 
 .ff-box-icon {
-  width: 44px;
-  height: 36px;
-  border-radius: 4px;
+  width: 2.75rem;
+  height: 2.25rem;
+  border-radius: 0.25rem;
   background: #c79a63;
-  box-shadow: inset 0 8px 0 rgba(0, 0, 0, 0.08), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0.5rem 0 rgba(0, 0, 0, 0.08), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
 }
 
 .ff-print {
@@ -114,8 +114,8 @@
 }
 
 .ff-barcode {
-  height: 44px;
-  background: repeating-linear-gradient(90deg, var(--tb-ink) 0 2px, transparent 2px 4px, var(--tb-ink) 4px 5px, transparent 5px 8px, var(--tb-ink) 8px 11px, transparent 11px 13px);
+  height: 2.75rem;
+  background: repeating-linear-gradient(90deg, var(--tb-ink) 0 2px, transparent 2px 0.25rem, var(--tb-ink) 0.25rem 0.3125rem, transparent 0.3125rem 0.5rem, var(--tb-ink) 0.5rem 0.6875rem, transparent 0.6875rem 0.8125rem);
 }
 
 .ff-note {

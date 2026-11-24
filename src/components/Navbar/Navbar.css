@@ -56,14 +56,14 @@
   text-decoration: none;
 }
 
-/* A 4px square, not an underline — the system has no underline tab indicators. */
+/* A 0.25rem square, not an underline — the system has no underline tab indicators. */
 .navbar-link::after {
   content: '';
   position: absolute;
   bottom: -2px;
   left: 50%;
-  width: 4px;
-  height: 4px;
+  width: 0.25rem;
+  height: 0.25rem;
   margin-left: -2px;
   background: var(--tb-accent);
   opacity: 0;
@@ -93,8 +93,8 @@
 }
 
 .navbar-icon-btn {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -117,7 +117,7 @@
   font-family: var(--tb-sans);
   display: inline-flex;
   align-items: center;
-  height: 40px;
+  height: 2.5rem;
   padding: 0 1.25rem;
   border-radius: var(--tb-r-pill);
   background: var(--tb-accent);
@@ -159,7 +159,7 @@
   }
 
   .navbar-menu.is-open {
-    max-height: 320px;
+    max-height: 20rem;
     border-bottom-color: var(--tb-line);
   }
 

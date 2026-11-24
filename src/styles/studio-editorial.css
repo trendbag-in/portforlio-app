@@ -11,7 +11,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Karla:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Neutral planes */
   /* Two quiet colours (off-white, near-black) and one loud (fashion pink), kept to
@@ -41,8 +41,8 @@
 
   /* Faint by design — a heavy shadow reads as dirt on a light ground */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --tb-shadow-md: 0 2px 5px rgba(0, 0, 0, 0.06);
-  --tb-shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.09);
+  --tb-shadow-md: 0 2px 0.3125rem rgba(0, 0, 0, 0.06);
+  --tb-shadow-lg: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.09);
 
   /* Bodoni Moda is the masthead voice — a true didone, used only at display
      sizes where its hairlines survive. Karla sets everything read as a sentence,
@@ -55,12 +55,12 @@
   --tb-label: 'Karla', system-ui, sans-serif;
 
   /* Shape */
-  --tb-r-xs: 8px;
-  --tb-r-sm: 12px;
-  --tb-r-tile: 16px;
-  --tb-r-card: 20px;
-  --tb-r-sheet: 28px;
-  --tb-r-pill: 999px;
+  --tb-r-xs: 0.5rem;
+  --tb-r-sm: 0.75rem;
+  --tb-r-tile: 1rem;
+  --tb-r-card: 1.25rem;
+  --tb-r-sheet: 1.75rem;
+  --tb-r-pill: 62.4375rem;
 
   /* Motion */
   --tb-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -72,6 +72,7 @@
 /* The footer is the near-black band in both themes, so it reuses the dark tokens. */
 [data-theme='dark'],
 .footer {
+  color-scheme: dark;
   --tb-paper: #0A0A0A;
   --tb-surface: #141414;
   --tb-raised: #1D1D1D;
@@ -94,8 +95,8 @@
 
   /* Dark inverts elevation to a deeper shadow, never a black-on-black flatten */
   --tb-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
-  --tb-shadow-md: 0 2px 5px rgba(0, 0, 0, 0.50);
-  --tb-shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.60);
+  --tb-shadow-md: 0 2px 0.3125rem rgba(0, 0, 0, 0.50);
+  --tb-shadow-lg: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.60);
 }
 
 /* Optical compensation. Light type on a dark ground looks thinner than the same
@@ -114,7 +115,7 @@
 .tb-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   font-family: var(--tb-label);
   font-size: 0.75rem;
   font-weight: 700;
@@ -127,7 +128,7 @@
 .tb-kicker::before,
 .tb-kicker::after {
   content: '';
-  width: 30px;
+  width: 1.875rem;
   height: 1px;
   background: currentColor;
   opacity: 0.5;
@@ -207,7 +208,7 @@
 }
 
 .tb-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
   box-shadow: var(--tb-shadow-lg);
 }
 
@@ -230,8 +231,8 @@
 
 .tb-glass {
   background: var(--tb-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(1.25rem);
+  -webkit-backdrop-filter: blur(1.25rem);
 }
 
 /* The one place pure white text is allowed: over a scrim on a photograph */
@@ -246,7 +247,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 52px;
+  min-height: 3.25rem;
   padding: 0 1.75rem;
   border: none;
   border-radius: var(--tb-r-pill);
@@ -283,7 +284,7 @@
 .tb-chip {
   display: inline-flex;
   align-items: center;
-  height: 34px;
+  height: 2.125rem;
   padding: 0 1rem;
   border: none;
   border-radius: var(--tb-r-pill);
@@ -334,7 +335,7 @@
 /* Mono key beside a body value, dashed rule between rows */
 .tb-keyval {
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 6rem 1fr;
   gap: 0.75rem;
   align-items: baseline;
   padding: 0.75rem 0;
@@ -492,7 +493,7 @@ body::after {
   z-index: 3;
   border-radius: inherit;
   padding: 1.5px;
-  background: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), var(--tb-accent), transparent 70%);
+  background: radial-gradient(15rem circle at var(--mx, -62.4375rem) var(--my, -62.4375rem), var(--tb-accent), transparent 70%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

@@ -30,11 +30,11 @@
   --stamp: clamp(0, (var(--pin, 1) - 0.3) * 5, 1);
   position: relative;
   justify-self: center;
-  width: min(100%, 440px);
+  width: min(100%, 27.5rem);
   padding: 2rem 1.75rem 1.75rem;
   background: #fbfaf6;
   color: #1a1a1a;
-  box-shadow: 0 1px 0 #e7e4dc, 0 24px 50px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 1px 0 #e7e4dc, 0 1.5rem 3.125rem rgba(0, 0, 0, 0.22);
   transform: rotate(-1.5deg);
 }
 
@@ -81,7 +81,7 @@
 
 .memo-terms li {
   display: grid;
-  grid-template-columns: 18px 1fr auto;
+  grid-template-columns: 1.125rem 1fr auto;
   gap: 0.75rem;
   align-items: center;
   padding: 0.625rem 0;
@@ -112,14 +112,14 @@
 }
 
 .memo-radio {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   border: 1.5px solid #b0aea8;
 }
 
 .memo-terms li.is-on .memo-radio {
-  border: 5px solid #1a1a1a;
+  border: 0.3125rem solid #1a1a1a;
 }
 
 .memo-note {
@@ -162,8 +162,8 @@
   right: 1.25rem;
   bottom: 4.5rem;
   padding: 0.25rem 0.875rem;
-  border: 3px solid #d0106f;
-  border-radius: 8px;
+  border: 0.1875rem solid #d0106f;
+  border-radius: 0.5rem;
   color: #d0106f;
   font-size: 1.75rem;
   font-weight: 800;

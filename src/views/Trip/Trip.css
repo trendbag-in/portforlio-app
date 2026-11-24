@@ -13,7 +13,7 @@
 .trip-sun {
   left: 2%;
   top: 6%;
-  width: clamp(70px, 7vw, 120px);
+  width: clamp(4.375rem, 7vw, 7.5rem);
   color: var(--tb-accent);
 }
 
@@ -23,8 +23,8 @@
   filter: none;
 }
 
-.float--shirt { left: 36%; top: 4%; width: clamp(80px, 7vw, 120px); }
-.float--shades { right: 2%; bottom: 8%; width: clamp(100px, 10vw, 170px); }
+.float--shirt { left: 36%; top: 4%; width: clamp(5rem, 7vw, 7.5rem); }
+.float--shades { right: 2%; bottom: 8%; width: clamp(6.25rem, 10vw, 10.625rem); }
 
 /* A read-only copy of the planner's inputs — enough to show what it asks. */
 .trip-form {
@@ -63,8 +63,8 @@
 
 /* Days, then the pack list, deal off a pinned pile (see StackDeck). */
 .trip .stack-deck {
-  --deck-w: 540px;
-  --deck-h: min(360px, calc(100vh - 270px));
+  --deck-w: 33.75rem;
+  --deck-h: min(22.5rem, calc(100vh - 16.875rem));
 }
 
 .trip-plan-head {
@@ -123,7 +123,7 @@
 .trip-day-temp {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   font-weight: 700;
   color: var(--tb-ink-2);
 }
@@ -201,8 +201,8 @@
 .trip-check {
   position: relative;
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   border: 1.5px solid var(--tb-ink-3);
 }
@@ -228,7 +228,7 @@
 }
 
 .trip-tag {
-  padding: 1px 6px;
+  padding: 1px 0.375rem;
   border-radius: var(--tb-r-xs);
   background: var(--tb-raised);
   font-size: 0.6875rem;

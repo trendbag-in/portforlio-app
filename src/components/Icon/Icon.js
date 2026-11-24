@@ -30,6 +30,7 @@ const Icon = ({ name, size = 24, className = '' }) => (
     viewBox="0 0 24 24"
     width={size}
     height={size}
+    style={{ width: `${size / 16}rem`, height: `${size / 16}rem` }}
     className={`tb-icon ${className}`}
     fill="none"
     stroke="currentColor"

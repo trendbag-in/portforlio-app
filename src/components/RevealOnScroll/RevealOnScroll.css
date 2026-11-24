@@ -1,6 +1,6 @@
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(1.125rem);
     transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: opacity, transform;
 }
@@ -17,7 +17,7 @@
 }
 
 .reveal-on-scroll.slide-right {
-    transform: translateX(-30px);
+    transform: translateX(-1.875rem);
 }
 
 .reveal-on-scroll.slide-right.is-visible {

@@ -1,7 +1,7 @@
 /* Card Base Styles */
 .card {
   background: var(--secondary-bg);
-  border-radius: 16px;
+  border-radius: 1rem;
   padding: 2rem;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -24,37 +24,37 @@
 /* Card Variants */
 .card-default {
   background: var(--secondary-bg);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0.3125rem);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.2),
+    0 0.25rem 1rem rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .card-gradient {
   background: linear-gradient(135deg, var(--secondary-bg) 0%, rgba(139, 92, 246, 0.1) 100%);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.625rem);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0.5rem 2rem rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .card-glass {
   background: rgba(45, 45, 45, 0.2);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(1.25rem);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0.5rem 2rem rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Hover Effects */
 .card-hover:hover {
-  transform: translateY(-8px);
+  transform: translateY(-0.5rem);
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 1.25rem 2.5rem rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(255, 255, 255, 0.2);
   border: 1px solid transparent;
@@ -94,10 +94,10 @@
 
 /* Icon in Card */
 .card-icon {
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   background: var(--accent-gradient);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +109,7 @@
 @media (max-width: 768px) {
   .card {
     padding: 1.5rem;
-    border-radius: 12px;
+    border-radius: 0.75rem;
   }
   
   .card-title {
@@ -117,8 +117,8 @@
   }
   
   .card-icon {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     font-size: 1.25rem;
   }
 }

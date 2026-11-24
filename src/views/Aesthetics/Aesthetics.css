@@ -24,7 +24,7 @@
 
 .line {
   /* Bounded by height too, so a short laptop screen still fits heading and line. */
-  --w: clamp(170px, min(17vw, 30vh), 270px);
+  --w: clamp(10.625rem, min(17vw, 30vh), 16.875rem);
   position: relative;
   width: calc(var(--n) * var(--w));
 }
@@ -34,7 +34,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: calc(var(--sag) + 4px);
+  height: calc(var(--sag) + 0.25rem);
   overflow: visible;
 }
 
@@ -67,13 +67,13 @@
 .peg {
   position: relative;
   z-index: 2;
-  width: 10px;
-  height: 30px;
-  margin-top: -14px;
-  margin-bottom: -16px;
-  border-radius: 3px;
+  width: 0.625rem;
+  height: 1.875rem;
+  margin-top: -0.875rem;
+  margin-bottom: -1rem;
+  border-radius: 0.1875rem;
   background: linear-gradient(90deg, #b88552, #d9a874 45%, #a8743f);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0.25rem rgba(0, 0, 0, 0.25);
 }
 
 /* Polaroid paper stays white in both themes, like the real thing. */
@@ -81,11 +81,11 @@
   display: flex;
   flex-direction: column;
   width: calc(100% - 1.5rem);
-  padding: 10px 10px 14px;
+  padding: 0.625rem 0.625rem 0.875rem;
   background: #ffffff;
   color: #1a1a1a;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.12);
-  transform-origin: 50% -14px;
+  box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.12);
+  transform-origin: 50% -0.875rem;
   transform: rotate(calc(var(--tilt) + var(--sway)));
   transition: transform 300ms var(--tb-ease), box-shadow 300ms var(--tb-ease);
 }
@@ -115,8 +115,8 @@
 
 .polaroid:hover,
 .polaroid:focus-visible {
-  transform: rotate(0deg) translateY(8px) scale(1.04);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+  transform: rotate(0deg) translateY(0.5rem) scale(1.04);
+  box-shadow: 0 1.125rem 2.25rem rgba(0, 0, 0, 0.24);
 }
 
 /* With motion the line rides the scroll: --q runs 0 → 1 while the section crosses the

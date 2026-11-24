@@ -39,8 +39,8 @@
 }
 
 .contact-icon {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   flex-shrink: 0;
   display: grid;
   place-items: center;
@@ -89,7 +89,7 @@
 
 /* Store site / IG handle joins name and email, so the longer forms still fit one screen. */
 .contact-form-row--3 {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11.25rem, 1fr));
 }
 
 .contact-field {
@@ -121,14 +121,14 @@
 }
 
 .contact-field input {
-  height: 48px;
+  height: 3rem;
   border-radius: var(--tb-r-pill);
 }
 
 .contact-field textarea {
   border-radius: var(--tb-r-sm);
   resize: vertical;
-  min-height: 140px;
+  min-height: 8.75rem;
 }
 
 .contact-field input::placeholder,

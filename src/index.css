@@ -10,7 +10,10 @@
   box-sizing: border-box;
 }
 
+/* Every size is in rem, so the root size scales the whole site: 16px up to a
+   1440px viewport, then growing with width to 24px (~3440px) for big monitors. */
 html {
+  font-size: clamp(100%, calc(100% + (100vw - 1440px) * 0.004), 150%);
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -49,10 +52,10 @@ footer {
 
 /* Headings take the sans face; the mono layer is labels and numbers only. */
 /* Bodoni carries h1 and h2 — the sizes where a didone's hairlines survive.
-   h3 and h4 are card and section titles at 20px and under, so they stay in
+   h3 and h4 are card and section titles at 1.25rem and under, so they stay in
    Karla, where they read cleanly against body copy. */
 /* Bodoni is now the hero voice only. It is a display face — it earns its keep
-   at 60px+ and becomes hard work below that, which is exactly what happened
+   at 3.75rem+ and becomes hard work below that, which is exactly what happened
    when it was also setting h2. */
 h1 {
   font-family: var(--tb-display);
@@ -107,25 +110,25 @@ img {
 /* Keyboard focus must stay visible — the accent ring is the system's focus mark. */
 :focus-visible {
   outline: 2px solid var(--tb-accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline-offset: 0.1875rem;
+  border-radius: 0.25rem;
 }
 
 /* ---------- Layout ---------- */
 
 .container {
-  max-width: 1440px;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 3rem);
 }
 
-/* 96px between major blocks; a section ends 96px below its last element. */
+/* 6rem between major blocks; a section ends 6rem below its last element. */
 .section-block {
   padding: 6rem 0;
 }
 
 .section-head {
-  max-width: 720px;
+  max-width: 45rem;
   margin-bottom: 3rem;
 }
 

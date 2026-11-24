@@ -21,12 +21,12 @@
 /* The viewer stands at the ring's centre: --r is its radius, and side looks come
    forward and turn inwards, the way a curved gallery wall wraps around you. */
 .looks-stage {
-  --w: clamp(150px, 16vw, 250px);
+  --w: clamp(9.375rem, 16vw, 15.625rem);
   --r: calc(var(--w) * 2.3);
   position: relative;
   width: 100%;
   height: calc(var(--w) * 4 / 3);
-  perspective: 1800px;
+  perspective: 112.5rem;
 }
 
 .look-card {
@@ -56,7 +56,7 @@
   position: absolute;
   left: 0.75rem;
   bottom: 0.75rem;
-  padding: 3px 10px;
+  padding: 0.1875rem 0.625rem;
   border-radius: var(--tb-r-pill);
   background: rgba(255, 255, 255, 0.92);
   font-size: 0.75rem;
@@ -93,6 +93,6 @@
   .looks-stage {
     --w: 46vw;
     --r: calc(var(--w) * 1.9);
-    perspective: 1100px;
+    perspective: 68.75rem;
   }
 }

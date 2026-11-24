@@ -6,12 +6,12 @@
 .float img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 0.625rem 1.125rem rgba(0, 0, 0, 0.16));
 }
 
-.float--sunglasses { left: 3%; top: 8%; width: clamp(90px, 9vw, 150px); }
-.float--sneakers { right: 3%; bottom: 6%; width: clamp(110px, 11vw, 190px); }
-.float--brogues { left: 40%; bottom: -2%; width: clamp(90px, 8vw, 140px); }
+.float--sunglasses { left: 3%; top: 8%; width: clamp(5.625rem, 9vw, 9.375rem); }
+.float--sneakers { right: 3%; bottom: 6%; width: clamp(6.875rem, 11vw, 11.875rem); }
+.float--brogues { left: 40%; bottom: -2%; width: clamp(5.625rem, 8vw, 8.75rem); }
 
 .wardrobe-steps {
   list-style: none;
@@ -21,7 +21,7 @@
 
 .wardrobe-steps li {
   display: grid;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 2.5rem 1fr;
   gap: 0.75rem;
   padding: 1rem 0;
   border-bottom: 1px dashed var(--tb-line);
@@ -48,8 +48,8 @@
 
 /* Outfits deal off a pinned pile (see StackDeck). */
 .wardrobe .stack-deck {
-  --deck-w: 340px;
-  --deck-h: min(460px, calc(100vh - 200px));
+  --deck-w: 21.25rem;
+  --deck-h: min(28.75rem, calc(100vh - 12.5rem));
 }
 
 .outfit-card {
@@ -115,7 +115,7 @@
 
 .outfit-bar {
   display: block;
-  height: 3px;
+  height: 0.1875rem;
   margin: 0.5rem 0;
   border-radius: 2px;
   background: var(--tb-line);
@@ -149,8 +149,8 @@
 }
 
 .outfit-arrow {
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   border: none;
   border-radius: 50%;
   background: var(--tb-surface);
@@ -181,7 +181,7 @@
 }
 
 @keyframes outfit-drop {
-  from { opacity: 0; transform: translateY(-18px) scale(0.96); }
+  from { opacity: 0; transform: translateY(-1.125rem) scale(0.96); }
   to { opacity: 1; transform: none; }
 }
 

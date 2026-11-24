@@ -28,7 +28,7 @@
 
 .footer-tagline {
   font-size: 0.9375rem;
-  max-width: 320px;
+  max-width: 20rem;
   margin-bottom: 1.5rem;
 }
 
@@ -38,8 +38,8 @@
 }
 
 .footer-social {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: grid;
   place-items: center;
   border-radius: var(--tb-r-pill);

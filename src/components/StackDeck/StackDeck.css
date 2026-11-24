@@ -16,7 +16,7 @@
 
 .stack-deck {
   width: 100%;
-  max-width: var(--deck-w, 340px);
+  max-width: var(--deck-w, 21.25rem);
   justify-self: center;
 }
 
@@ -72,8 +72,8 @@
   position: absolute;
   transform:
     translate3d(
-      calc((0.5 - var(--pin, 0.5)) * var(--sx) * 1px),
-      calc((0.5 - var(--pin, 0.5)) * var(--sy) * 1px),
+      calc((0.5 - var(--pin, 0.5)) * var(--sx) * 0.0625rem),
+      calc((0.5 - var(--pin, 0.5)) * var(--sy) * 0.0625rem),
       0
     )
     rotate(calc(var(--pin, 0.5) * var(--rot) * 1deg));
@@ -82,7 +82,7 @@
 
 .stack-cards {
   position: relative;
-  height: var(--deck-h, 420px);
+  height: var(--deck-h, 26.25rem);
 }
 
 /* --f is this card's place in the deal: negative while it waits in the pile,
@@ -104,7 +104,7 @@
   --sink: clamp(0, (var(--out) - 0.5) * 1000, 100);
   z-index: calc(var(--n) - var(--i) - var(--sink));
   transform:
-    translate(calc(var(--swing) * var(--swing-x, 72%)), calc(var(--depth) * 14px - var(--swing) * var(--swing-y, 6%)))
+    translate(calc(var(--swing) * var(--swing-x, 72%)), calc(var(--depth) * 0.875rem - var(--swing) * var(--swing-y, 6%)))
     rotate(calc(var(--swing) * 9deg + var(--tilt) * min(var(--depth), 1)))
     scale(calc(1 - var(--depth) * 0.05));
 }
@@ -152,12 +152,12 @@
    heading and tabs, leaving side room for the swing. */
 @media (max-width: 600px) {
   .stack-deck {
-    max-width: min(var(--deck-w, 340px), 80vw);
+    max-width: min(var(--deck-w, 21.25rem), 80vw);
   }
 
   .stack-cards {
-    height: min(var(--deck-h, 420px), calc(100vh - 330px));
-    height: min(var(--deck-h, 420px), calc(100svh - 330px));
+    height: min(var(--deck-h, 26.25rem), calc(100vh - 20.625rem));
+    height: min(var(--deck-h, 26.25rem), calc(100svh - 20.625rem));
   }
 
   .stack-card {

@@ -1,7 +1,7 @@
 .legal-toc {
   align-self: start;
   position: sticky;
-  top: 120px;
+  top: 7.5rem;
 }
 
 .legal-toc-title {
@@ -15,7 +15,7 @@
 
 .legal-toc-link {
   display: grid;
-  grid-template-columns: 26px 1fr;
+  grid-template-columns: 1.625rem 1fr;
   gap: 0.5rem;
   align-items: baseline;
   padding: 0.5rem 0 0.5rem 0.75rem;

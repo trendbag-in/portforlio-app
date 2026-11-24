@@ -18,8 +18,8 @@
   position: absolute;
   top: -40%;
   right: -8%;
-  width: 360px;
-  height: 360px;
+  width: 22.5rem;
+  height: 22.5rem;
   background: radial-gradient(circle, var(--tb-accent) 0%, transparent 60%);
   opacity: 0.1;
   pointer-events: none;
@@ -32,7 +32,7 @@
 
 .thesis-quote {
   position: relative;
-  max-width: 860px;
+  max-width: 53.75rem;
   font-size: clamp(1.25rem, 2.3vw, 1.8rem);
   font-weight: 400;
   line-height: 1.32;

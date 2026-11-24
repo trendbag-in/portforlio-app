@@ -7,14 +7,14 @@
 }
 
 .error-content {
-  max-width: 520px;
+  max-width: 32.5rem;
   text-align: center;
 }
 
 .error-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   font-family: var(--tb-label);
   font-size: 0.75rem;
   font-weight: 600;
@@ -27,7 +27,7 @@
 .error-eyebrow::before,
 .error-eyebrow::after {
   content: '';
-  width: 30px;
+  width: 1.875rem;
   height: 1px;
   background: currentColor;
   opacity: 0.5;
