@@ -52,7 +52,7 @@
 .contact-value {
   display: block;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tb-ink);
 }
 
@@ -102,7 +102,7 @@
 .contact-field label {
   font-family: var(--tb-label);
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--tb-ink-3);
@@ -187,7 +187,7 @@
   margin-bottom: 0.5rem;
   font-family: var(--tb-label);
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--tb-ink-3);

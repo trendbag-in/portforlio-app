@@ -7,7 +7,7 @@
   right: -3vw;
   margin-top: -13vw;
   font-size: 26vw;
-  font-style: italic;
+  font-style: normal;
 }
 
 .trip-sun {
@@ -89,7 +89,7 @@
   color: var(--tb-ink-2);
   font: inherit;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: background var(--tb-normal) var(--tb-ease), color var(--tb-normal) var(--tb-ease);
 }
@@ -124,7 +124,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--tb-ink-2);
 }
 
@@ -247,7 +247,7 @@
 }
 
 .trip-gap span {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tb-accent-ink);
 }
 

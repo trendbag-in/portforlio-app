@@ -30,10 +30,9 @@
 .navbar-wordmark {
   font-family: var(--tb-sans);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--tb-ink);
-  text-transform: lowercase;
 }
 
 .navbar-menu {
@@ -50,7 +49,7 @@
   cursor: pointer;
   font-family: var(--tb-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tb-ink-2);
   transition: color var(--tb-fast) var(--tb-ease);
   text-decoration: none;
@@ -123,7 +122,7 @@
   background: var(--tb-accent);
   color: var(--tb-on-accent);
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   white-space: nowrap;
   transition: background-color var(--tb-fast) var(--tb-ease);

@@ -43,7 +43,7 @@
 .privacy-eyebrow {
   font-family: var(--tb-label);
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--tb-accent-ink);
@@ -53,7 +53,7 @@
 
 .privacy-page h1 {
   font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
 }
@@ -71,7 +71,7 @@
 
 .privacy-section h2 {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.01em;
   margin: 3rem 0 1rem;
   scroll-margin-top: 6.875rem;
@@ -83,7 +83,7 @@
 
 .privacy-section h3 {
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 500;
   margin: 2rem 0 0.75rem;
 }
 
@@ -152,7 +152,7 @@
 
 .privacy-section strong {
   color: var(--tb-ink);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Callout: fill plus a top rule, no border. */
@@ -185,7 +185,7 @@
   padding-top: 2rem;
   border-top: 1px solid var(--tb-line);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tb-accent-ink);
   width: 100%;
 }

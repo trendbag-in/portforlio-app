@@ -46,14 +46,14 @@
 
 .lock-date {
   font-size: 4.2cqw;
-  font-weight: 600;
+  font-weight: 500;
   opacity: 0.9;
 }
 
 .lock-total {
   margin: 1cqw 0 0.5cqw;
   font-family: var(--tb-display);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 15cqw;
   line-height: 1;
   white-space: nowrap;

@@ -50,32 +50,23 @@ footer {
   position: relative;
 }
 
-/* Headings take the sans face; the mono layer is labels and numbers only. */
-/* Bodoni carries h1 and h2 — the sizes where a didone's hairlines survive.
-   h3 and h4 are card and section titles at 1.25rem and under, so they stay in
-   Karla, where they read cleanly against body copy. */
-/* Bodoni is now the hero voice only. It is a display face — it earns its keep
-   at 3.75rem+ and becomes hard work below that, which is exactly what happened
-   when it was also setting h2. */
+/* /lp kit type: one grotesk, headlines at 400 with tight tracking. */
 h1 {
   font-family: var(--tb-display);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.04;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tb-tracking);
   color: var(--tb-ink);
-  font-optical-sizing: none;
-  font-variation-settings: var(--tb-display-opsz);
   text-wrap: balance;
 }
 
 h2,
-h2,
 h3,
 h4 {
   font-family: var(--tb-sans);
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.18;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--tb-ink);
   text-wrap: balance;
 }
@@ -86,6 +77,8 @@ h1 {
 }
 
 h2 {
+  font-weight: 400;
+  letter-spacing: var(--tb-tracking);
   font-size: clamp(2.1rem, 3.6vw, 2.9rem);
 }
 
@@ -160,7 +153,7 @@ img {
   border-radius: var(--tb-r-pill);
   background: var(--tb-ink);
   color: var(--tb-paper);
-  font-weight: 600;
+  font-weight: 500;
   transform: translateY(-200%);
 }
 

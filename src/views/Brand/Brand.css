@@ -17,7 +17,7 @@
 
 .ff-title {
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--tb-ink);
 }
 
@@ -67,7 +67,7 @@
 .ff-boxes em {
   font-style: normal;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   padding: 2px 0.5rem;
   border-radius: var(--tb-r-pill);
   background: var(--tb-accent-muted);
@@ -161,7 +161,7 @@
   border-radius: var(--tb-r-pill);
   text-align: center;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .ff-accept {

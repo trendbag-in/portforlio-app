@@ -17,7 +17,7 @@
   gap: 0.75rem;
   font-family: var(--tb-label);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--tb-accent-ink);
@@ -41,7 +41,7 @@
 
 .error-title {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }

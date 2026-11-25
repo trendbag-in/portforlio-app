@@ -87,7 +87,7 @@ const Navbar = ({ minimal = false, cta }) => {
       <div className="navbar-inner container">
         <button className="navbar-brand" onClick={() => goToSection('hero')}>
           <Logo size={28} />
-          <span className="navbar-wordmark">trendbag</span>
+          <span className="navbar-wordmark">TrendBag</span>
         </button>
 
         <div className={`navbar-menu ${menuOpen ? 'is-open' : ''}`}>

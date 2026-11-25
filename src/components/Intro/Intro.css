@@ -51,9 +51,8 @@
   padding: 0 0.12em 0.24em; /* bottom: room for the g descender */
   margin-bottom: -0.16em;
   font-family: var(--tb-display);
-  font-variation-settings: 'opsz' 6;
-  font-style: italic;
-  font-weight: 800;
+  font-style: normal;
+  font-weight: 500;
   font-size: min(25vw, 42vh);
   line-height: 0.85;
   letter-spacing: -0.055em;
@@ -76,7 +75,7 @@
 
 .intro-kicker {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);

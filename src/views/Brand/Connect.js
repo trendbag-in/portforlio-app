@@ -90,7 +90,7 @@ const Connect = () => {
                 </div>
 
                 <div className="cx-phone">
-                  <p className="cx-phone-head">trendbag</p>
+                  <p className="cx-phone-head">TrendBag</p>
                   <ul className="cx-grid">
                     {PRODUCTS.map((p, i) => (
                       <li key={p.sku} className="cx-slot" style={{ '--i': i }}>

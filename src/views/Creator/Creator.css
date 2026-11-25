@@ -39,7 +39,7 @@
   background: var(--tb-paper);
   box-shadow: var(--tb-shadow-md);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tb-ink);
   white-space: nowrap;
 }
@@ -89,7 +89,7 @@
   border-radius: var(--tb-r-pill);
   background: rgba(255, 255, 255, 0.92);
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #1a1a1a;
 }
 
@@ -133,7 +133,7 @@
 }
 
 .fmt-name {
-  font-weight: 700;
+  font-weight: 500;
   color: var(--tb-ink);
 }
 

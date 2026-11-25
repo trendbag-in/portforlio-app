@@ -23,8 +23,8 @@
   gap: clamp(1rem, 2.5vw, 2rem);
   padding-right: clamp(1rem, 2.5vw, 2rem);
   font-family: var(--tb-display);
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(2.5rem, 6vw, 5.5rem);
   line-height: 1;
   white-space: nowrap;

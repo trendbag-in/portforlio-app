@@ -60,7 +60,7 @@
   border-radius: var(--tb-r-pill);
   background: rgba(255, 255, 255, 0.92);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #1a1a1a;
   opacity: var(--f);
 }
@@ -72,7 +72,7 @@
 
 .looks-count span {
   color: var(--tb-ink);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 @media (prefers-reduced-motion: no-preference) {

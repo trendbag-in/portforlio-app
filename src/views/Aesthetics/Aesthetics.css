@@ -100,9 +100,9 @@
 .polaroid-name {
   margin-top: 0.75rem;
   font-family: var(--tb-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.1;
 }
 

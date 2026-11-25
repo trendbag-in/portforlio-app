@@ -33,14 +33,14 @@
 .legal-toc-num {
   font-family: var(--tb-label);
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.08em;
   color: var(--tb-ink-3);
 }
 
 .legal-toc-link.is-active {
   color: var(--tb-accent-ink);
-  font-weight: 600;
+  font-weight: 500;
   border-left-color: var(--tb-accent);
 }
 
@@ -57,7 +57,7 @@
 /* The "#" that trails each legal heading — quiet until you reach for it. */
 .legal-anchor {
   margin-left: 0.4em;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--tb-ink-3);
   text-decoration: none;
   opacity: 0;

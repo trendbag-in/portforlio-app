@@ -21,7 +21,7 @@
 
 .cookie-text a {
   color: var(--tb-accent-ink);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .cookie-actions {
@@ -38,7 +38,7 @@
   color: var(--tb-ink);
   font: inherit;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 

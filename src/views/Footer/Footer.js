@@ -89,7 +89,7 @@ const Footer = () => {
           <div className="footer-brand">
             <div className="footer-mark">
               <Logo size={28} />
-              <span className="footer-wordmark">trendbag</span>
+              <span className="footer-wordmark">TrendBag</span>
             </div>
             <p className="footer-tagline">
               Discover what creators wear, keep a wardrobe of what you own, and buy it

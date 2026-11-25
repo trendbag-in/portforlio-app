@@ -57,7 +57,7 @@
   box-shadow: var(--tb-shadow-md);
   font-family: var(--tb-label);
   font-size: 0.625rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;

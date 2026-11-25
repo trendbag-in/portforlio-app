@@ -262,3 +262,9 @@ main > #minis[data-moment].is-live .mo-pc__visuals { aspect-ratio: auto; height:
 .tb-niche:hover .tb-niche__t { text-decoration: underline; text-underline-offset: 3px; }
 .tb-empty__cta { margin-top: var(--s-6); }
 @media (max-width: 639px) { .tb-creator__posts { grid-template-columns: repeat(3, 72px); } }
+
+/* the closing grows past one screen rather than lay the name over the links on a short window */
+@media (min-width: 1280px) {
+  footer.closing { height: auto; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+  footer.closing > .wrap { flex: 1 0 auto; height: auto; }
+}

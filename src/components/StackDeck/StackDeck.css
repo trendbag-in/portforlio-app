@@ -36,7 +36,7 @@
   color: var(--tb-ink-2);
   font: inherit;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: background var(--tb-normal) var(--tb-ease), color var(--tb-normal) var(--tb-ease);
 }
@@ -54,18 +54,9 @@
   pointer-events: none;
 }
 
-/* A giant display word for the slowest layer. */
+/* The kit pages carry no backdrop words; kept off for the same quiet look. */
 .stack-word {
-  top: 50%;
-  left: -2vw;
-  margin-top: -11vw;
-  font-family: var(--tb-display);
-  font-size: 20vw;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--tb-raised);
-  white-space: nowrap;
+  display: none;
 }
 
 .stack-layer {
