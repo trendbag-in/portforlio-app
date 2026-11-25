@@ -681,6 +681,8 @@ ${kitCss.map((c) => `<link rel="stylesheet" href="/assets/${c}">`).join('\n')}
 }
 </style>
 <link rel="stylesheet" href="/lp/landing.css">
+<!-- the home page and the kit pages are separate documents: prerender a link on hover and cross-fade, so moving between them never flashes -->
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/api/*"}}]},"eagerness":"moderate"}]}</script>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="/assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>

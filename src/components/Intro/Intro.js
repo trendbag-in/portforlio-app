@@ -13,7 +13,12 @@ const setIntro = (v) => { document.documentElement.dataset.intro = v; };
    through its letters, then the camera pushes through the word into the page.
    Any click, key or scroll skips straight to the exit. */
 const Intro = () => {
-  const [phase, setPhase] = useState(() => (prefersReducedMotion() ? 'done' : 'reel'));
+  // Once per tab, and never in a prerender (arriving from /brands etc. should not replay it).
+  const [phase, setPhase] = useState(() => {
+    let seen = document.prerendering;
+    try { seen = seen || sessionStorage.getItem('tb-intro'); sessionStorage.setItem('tb-intro', '1'); } catch (e) { /* storage off */ }
+    return prefersReducedMotion() || seen ? 'done' : 'reel';
+  });
   const [frame, setFrame] = useState(0);
   const loaded = useRef(new Set());
 

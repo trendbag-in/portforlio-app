@@ -469,3 +469,6 @@ body::after {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* home page <-> kit pages are separate documents: cross-fade instead of a blank reload */
+@view-transition { navigation: auto; }

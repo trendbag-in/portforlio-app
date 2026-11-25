@@ -268,3 +268,6 @@ main > #minis[data-moment].is-live .mo-pc__visuals { aspect-ratio: auto; height:
   footer.closing { height: auto; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
   footer.closing > .wrap { flex: 1 0 auto; height: auto; }
 }
+
+/* home page <-> kit pages are separate documents: cross-fade instead of a blank reload */
+@view-transition { navigation: auto; }

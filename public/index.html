@@ -18,6 +18,8 @@
     <link rel="icon" type="image/png" href="%PUBLIC_URL%/logo192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#F7F7F5" />
+    <!-- /brands, /creators… are separate static documents: prerender on hover so the jump is instant -->
+    <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/api/*"}}]},"eagerness":"moderate"}]}</script>
     <meta
       name="description"
       content="TrendBag is the fashion-tech platform where you shop what creators love. Discover trending styles from your favorite influencers and buy the exact brands and products they wear — in just a few taps."
